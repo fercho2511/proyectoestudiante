@@ -23,7 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+//$config['base_url'] = 'https://localhost/CodeIgniter/Sistema_Estudiantil/';
+//se añadio estas dos lineas q haran q recuepera lo q e
+//s la direccion dodne esta corriendo el sistema
+$config['base_url'] = "http://".$_SERVER['HTTP_HOST'];
+$config['base_url'] .= preg_replace('@/+$@','',dirname($_SERVER['SCRIPT_NAME'])).'/';
 
 /*
 |--------------------------------------------------------------------------
