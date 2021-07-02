@@ -87,9 +87,10 @@ $autoload['drivers'] = array();
 | -------------------------------------------------------------------
 | Prototype:
 |
-|	$autoload['helper'] = array('url', 'file');
+|	$autoload['helper'] = array('url', 'file','fotm');
 */
-$autoload['helper'] = array('url');
+//se añadio el form par apoder crear las cabeseras de forma rapida
+$autoload['helper'] = array('url','form');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +133,5 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
+//cargamos para todo el sistema el modelo estudiante_model
 $autoload['model'] = array('estudiante_model');

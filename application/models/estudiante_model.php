@@ -10,6 +10,22 @@ class Estudiante_model extends CI_Model {
         $this->db->from('Estudiante');
         return $this->db->get();
 	}
+    public function obtenerEstudiante($idEstudiante)
+	{
+        $this->db->select('*');
+        $this->db->from('Estudiante');
+        $this->db->where('IdEstudiante',$idEstudiante);
+        return $this->db->get();
+	}
+
+    public function modificarEstudiante($idEstudiante,$data)
+	{
+        //consulta para actualizar
+
+        $this->db->where('IdEstudiante',$idEstudiante);
+        $this->db->update('Estudiante',$data);
+       // return $this->db->get();
+	}
 
 	
 }

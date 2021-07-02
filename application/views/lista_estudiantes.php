@@ -2,7 +2,7 @@
     <div class="row">
         <div class="=col-md-12">   
 
-            <table class="table">
+            <table class="table table-dark">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
@@ -13,6 +13,9 @@
                     <th scope="col">Telefono</th>
                     <th scope="col">Nombre Padre</th>
                     <th scope="col">Nombre Tutor</th>
+                    <th scope="col">Modificar</th>
+
+
 
 
                     </tr>
@@ -32,6 +35,16 @@
                                 <td><?php echo $row->telefono;?></td>
                                 <td><?php echo $row->nombrePadre;?></td>
                                 <td><?php echo $row->nombreTutor;?></td>
+                                <td>
+                                    <?php
+                                        echo form_open_multipart('estudiante/modificar')
+                                    ?>
+                                    <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                                    <button type="submit" class="btn btn-primary btn-xs" >Modificar</button>
+                                    <?php
+                                        echo form_close();
+                                    ?>
+                                </td>
                                
                             </tr>
                         <?php
