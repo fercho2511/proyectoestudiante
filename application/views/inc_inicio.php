@@ -7,8 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-	<script src="bootstrap/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+	<link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.css" rel="stylesheet" crossorigin="anonymous">
+	<script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.js"  crossorigin="anonymous"></script>
 
 
 </head>
