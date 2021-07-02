@@ -33,4 +33,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('formulario');
 		$this->load->view('inc_fin.php');
 	}
+
+	public function pruevitadb()
+	{
+		$query0=$this->db->get('estudiante'); //con este get consigue los datos de la base de datos
+		$execonsulta=$query0->result(); // en una variable guardaremso lo obtenido
+		print_r($execonsulta); // imprimimos lo obtenido
+
+	}
 }
