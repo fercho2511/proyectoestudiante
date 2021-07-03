@@ -15,6 +15,18 @@ class Estudiante extends CI_Controller {
 		$this->load->view('inc_fin.php');
 
 	}
+    public function test()
+	{
+        //cargara la list de estudiantes
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('list_estudiantes',$data);
+		$this->load->view('inc_fin.php');
+
+	}
 
     //haciendo click en modificar nos estar traendo asta este metodo 
     //para realizar las siguientes acciones
