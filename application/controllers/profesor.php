@@ -26,22 +26,7 @@ class Profesor extends CI_Controller {
 		$this->load->view('lista_profesor',$data);
 		$this->load->view('inc_fin.php');
 
-	}
-
-    //haciendo click en modificar nos estar traendo asta este metodo 
-    //para realizar las siguientes acciones
-    //1 tiene q recuperar los datos del estudiantes con su id
-    //luego enviar a un formulario editable
-
-
-   /* public function modificar()
-    {
-        $idEstudiante=$_POST['idEstudiante'];
-        $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
-        $this->load->view('inc_inicio.php');
-		$this->load->view('modificar_estudiante',$data);
-		$this->load->view('inc_fin.php');
-    }*/
+	} 
 
 
     public function modificar()
@@ -58,36 +43,19 @@ class Profesor extends CI_Controller {
     //aca llegara toda la informacion de la vista modificar
     public function modificarProf()
     {
-        //aca se resepcionara las variables q estan llegando desde form
-        //realizar la consulta para update
-        //cargar la lista actualizada
-
+      
         $idProfesor=$_POST['idProfesor'];
         $data['nombre']=$_POST['nombre'];
         $data['primerApellido']=$_POST['apPaterno'];
         $data['segundoApellido']=$_POST['apMaterno'];
         $data['ci']=$_POST['ci'];
         $data['telefono']=$_POST['telefono'];
-        $data['correo']=$_POST['correo'];
-
-        //ahora la consula
-        $this->profesor_model->modificarProfesor($idProfesor,$data);
-        //esta linea ya realiza la actualizacion
-
-        redirect('profesor/test','refresh');
+        $data['correo']=$_POST['correo'];        
+        $this->profesor_model->modificarProfesor($idProfesor,$data); //ahora la consula
+        redirect('profesor/test','refresh'); //esta linea ya realiza la actualizacion
     }
 
-    // ahora es para crear estudiante
-    //del boton q se realizo en la vista llegara a este metodo
-   /* public function agregar()
-    {
-        $this->load->view('inc_inicio.php');
-		$this->load->view('agregar_estudiante'); // llegaremos asta esta vista
-		$this->load->view('inc_fin.php');
-
-    }*/
-
-
+  
     public function agregar()
     {
         $this->load->view('inc_inicio.php');

@@ -20,7 +20,6 @@ class Estudiante extends CI_Controller {
         //cargara la list de estudiantes
         $lista=$this->estudiante_model->lista();
         $data['estudiante']=$lista; //otro array asociativo
-
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu.php');
 		$this->load->view('list_estudiantes',$data);
@@ -34,17 +33,7 @@ class Estudiante extends CI_Controller {
     //luego enviar a un formulario editable
 
 
-   /* public function modificar()
-    {
-        $idEstudiante=$_POST['idEstudiante'];
-        $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
-        $this->load->view('inc_inicio.php');
-		$this->load->view('modificar_estudiante',$data);
-		$this->load->view('inc_fin.php');
-    }*/
-
-
-    public function modificar()
+       public function modificar()
     {
         $idEstudiante=$_POST['idEstudiante'];
         $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
@@ -79,16 +68,7 @@ class Estudiante extends CI_Controller {
 
     // ahora es para crear estudiante
     //del boton q se realizo en la vista llegara a este metodo
-   /* public function agregar()
-    {
-        $this->load->view('inc_inicio.php');
-		$this->load->view('agregar_estudiante'); // llegaremos asta esta vista
-		$this->load->view('inc_fin.php');
-
-    }*/
-
-
-    public function agregar()
+      public function agregar()
     {
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu.php');
@@ -115,7 +95,6 @@ class Estudiante extends CI_Controller {
 
          	//despues iremso a la lista redireccionando o dandole un refresh
              redirect('estudiante/test','refresh');
-
 
      }
 

@@ -5,7 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /// aca entratan todas las consultas q se realizran para la base de datos
 class Profesor_model extends CI_Model {
 
-	//este metdo devolvera la lista de profesores de la db
         //consulta para leer la lista 
 	public function lista()
 	{
@@ -29,20 +28,15 @@ class Profesor_model extends CI_Model {
 	{
                 $this->db->where('IdProfesor',$idProfesor);
                 $this->db->update('Profesor',$data);
-        // return $this->db->get();
 	}
 
-        //consulta para ingresar datos del profesor a la base de datos
-        //lo importante es lo q contenga data
         public function agregarProfesor($data)
 	{
                 $this->db->insert('Profesor',$data); // aca la clave ses construir bien data, q va a contener
-        // return $this->db->get();
 	}
 
 
         //metodo q ara la consulta para eliminar profesor
-
         public function eliminarProfesor($idProfesor)
         {
                 $this->db->where('IdProfesor',$idProfesor);
