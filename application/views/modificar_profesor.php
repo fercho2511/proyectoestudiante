@@ -715,7 +715,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Modificar Estudiante</h3>
+                <h3 class="card-title">Modificar Profesor</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -723,11 +723,11 @@
 
                     <?php
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                    foreach ($infoestudiante-> result() as $row) 
+                    foreach ($infoprofesor-> result() as $row) 
                     {
-                        echo form_open_multipart('estudiante/modificarEst')
+                        echo form_open_multipart('Profesor/modificarProf')
                         ?>
-                        <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                        <input type="hidden" name="idProfesor" value="<?php echo $row->IdProfesor;?>">
 
                                     <div class="card-body">
                                     <div class="form-group">
@@ -750,14 +750,10 @@
                                         <input type="text" class="form-control" name='telefono'  value="<?php echo $row->telefono;?>" >
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label">Nombre del Padre</label>
-                                        <input type="text" class="form-control" name='nomPadre'  value="<?php echo $row->nombrePadre;?>" >
+                                        <label class="form-label">Correo</label>
+                                        <input type="text" class="form-control" name='correo'  value="<?php echo $row->correo;?>" >
                                     </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Nombre del Tutor</label>
-                                        <input type="text" class="form-control" name='nomTutor'  value="<?php echo $row->nombreTutor;?>" >
-                                    </div>
-                                    
+                                                                     
                                     
                                     </div>
                                     <!-- /.card-body -->

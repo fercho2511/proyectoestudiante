@@ -134,4 +134,4 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 //cargamos para todo el sistema el modelo estudiante_model
-$autoload['model'] = array('estudiante_model');
+$autoload['model'] = array('estudiante_model','profesor_model');

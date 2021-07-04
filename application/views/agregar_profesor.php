@@ -715,63 +715,51 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Modificar Estudiante</h3>
+                <h3 class="card-title">Registrar Profesor</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              
-
-                    <?php
-                    //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                    foreach ($infoestudiante-> result() as $row) 
-                    {
-                        echo form_open_multipart('estudiante/modificarEst')
-                        ?>
-                        <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
-
+     
                                     <div class="card-body">
-                                    <div class="form-group">
-                                        <label class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" name='nombre'  value="<?php echo $row->nombre;?>" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Apellido Paterno</label>
-                                        <input type="text" class="form-control" name='apPaterno'  value="<?php echo $row->primerApellido;?>" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Apellido Materno</label>
-                                        <input type="text" class="form-control" name='apMaterno'  value="<?php echo $row->segundoApellido;?>" >
-                                    <div class="form-group">
-                                        <label class="form-label">C.I.</label>
-                                        <input type="text" class="form-control" name='ci'  value="<?php echo $row->ci;?>" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Telefono</label>
-                                        <input type="text" class="form-control" name='telefono'  value="<?php echo $row->telefono;?>" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Nombre del Padre</label>
-                                        <input type="text" class="form-control" name='nomPadre'  value="<?php echo $row->nombrePadre;?>" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Nombre del Tutor</label>
-                                        <input type="text" class="form-control" name='nomTutor'  value="<?php echo $row->nombreTutor;?>" >
-                                    </div>
-                                    
+                                        <?php
+                                             //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                                            echo form_open_multipart('profesor/agregarProf')
+                                         ?>
+                                            <div class="form-group">
+                                                <label class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name='nombre'  placeholder="Ingrese Nombre" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Apellido Paterno</label>
+                                                <input type="text" class="form-control" name='apPaterno'  placeholder="Ingrese Apellido Paterno" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Apellido Materno</label>
+                                                <input type="text" class="form-control" name='apMaterno'  placeholder="Ingrese Apellido Materno" >
+                                            <div class="form-group">
+                                                <label class="form-label">C.I.</label>
+                                                <input type="text" class="form-control" name='ci'  placeholder="Ingrese C.I." >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Telefono</>
+                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese Telefono" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Correo</label>
+                                                <input type="text" class="form-control" name='correo'  placeholder="Ingrese Correo electronico">
+                                            </div>
+                                          
+                                            <div class="card-footer">
+                                                <button class="btn btn-primary" type="submit">REGISTRAR</button>
+                                             </div>
+                                                <?php
+                                                echo form_close();
+                                                ?>
                                     
                                     </div>
                                     <!-- /.card-body -->
-
-                                    <div class="card-footer">
-                                        <button class="btn btn-primary" type="submit">MODIFICAR</button>
-                                    </div>
-                        <?php
-                        echo form_close();
-                        }
-
-                    ?>
               
-            </div>
+           
         
         </div>
         <!-- /.row -->
