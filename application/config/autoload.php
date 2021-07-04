@@ -90,7 +90,7 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file','fotm');
 */
 //se añadio el form par apoder crear las cabeseras de forma rapida
-$autoload['helper'] = array('url','form');
+$autoload['helper'] = array('url','form','funciones');
 
 /*
 | -------------------------------------------------------------------

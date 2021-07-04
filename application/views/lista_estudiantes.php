@@ -23,13 +23,9 @@
                     <th scope="col">Telefono</th>
                     <th scope="col">Padre</th>
                     <th scope="col">Tutor</th>
+                    <th scope="col">fecha</th>
                     <th scope="col">Modificar</th>
                     <th scope="col">Eliminar</th>
-
-
-
-
-
 
                     </tr>
                 </thead>
@@ -48,6 +44,9 @@
                                 <td><?php echo $row->telefono;?></td>
                                 <td><?php echo $row->nombrePadre;?></td>
                                 <td><?php echo $row->nombreTutor;?></td>
+                                <td><?php echo formatearfecha($row->fechaRegistro);?></td>
+
+
                                 
                                 <td>
                                     <?php

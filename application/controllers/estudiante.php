@@ -32,12 +32,24 @@ class Estudiante extends CI_Controller {
     //para realizar las siguientes acciones
     //1 tiene q recuperar los datos del estudiantes con su id
     //luego enviar a un formulario editable
-    public function modificar()
+
+
+   /* public function modificar()
     {
         $idEstudiante=$_POST['idEstudiante'];
         $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
         $this->load->view('inc_inicio.php');
 		$this->load->view('modificar_estudiante',$data);
+		$this->load->view('inc_fin.php');
+    }*/
+
+
+    public function modificar()
+    {
+        $idEstudiante=$_POST['idEstudiante'];
+        $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
+        $this->load->view('inc_inicio.php');
+		$this->load->view('modificar_est',$data);
 		$this->load->view('inc_fin.php');
     }
 
@@ -62,15 +74,25 @@ class Estudiante extends CI_Controller {
         $this->estudiante_model->modificarEstudiante($idEstudiante,$data);
         //esta linea ya realiza la actualizacion
 
-        redirect('estudiante/index','refresh');
+        redirect('estudiante/test','refresh');
     }
 
     // ahora es para crear estudiante
     //del boton q se realizo en la vista llegara a este metodo
-    public function agregar()
+   /* public function agregar()
     {
         $this->load->view('inc_inicio.php');
 		$this->load->view('agregar_estudiante'); // llegaremos asta esta vista
+		$this->load->view('inc_fin.php');
+
+    }*/
+
+
+    public function agregar()
+    {
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('agregar_est'); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }
@@ -92,7 +114,7 @@ class Estudiante extends CI_Controller {
          $this->estudiante_model->agregarEstudiante($data); // aca se envia el metodo del modelo 
 
          	//despues iremso a la lista redireccionando o dandole un refresh
-             redirect('estudiante/index','refresh');
+             redirect('estudiante/test','refresh');
 
 
      }
@@ -114,7 +136,7 @@ class Estudiante extends CI_Controller {
         $this->estudiante_model->eliminarEstudiante($idEstudiante); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
-        redirect('estudiante/index','refresh');
+        redirect('estudiante/test','refresh');
 
      }
 }

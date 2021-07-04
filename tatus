@@ -1,0 +1,35 @@
+[33mcommit 6f51c2a55a95cc3e88e1ba410bca50885244a8f6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: fernando <fercho11251989@gmail.com>
+Date:   Sat Jul 3 15:52:17 2021 -0400
+
+    modificado y eliminado de datos del estudiante
+
+[33mcommit 6796b83d9e747c1ec48f5296a2d7c8f327d212f4[m
+Author: fernando <fercho11251989@gmail.com>
+Date:   Fri Jul 2 00:46:01 2021 -0400
+
+    se realizo todo referete a modificacion de estudiante
+
+[33mcommit 29dc0e85ea17996ef36e8cfc3ac78f9d782147aa[m
+Author: fernando <fercho11251989@gmail.com>
+Date:   Thu Jul 1 21:54:27 2021 -0400
+
+    creacion de vista para la tabla estudiante mostrando los datos de db
+
+[33mcommit 787590a467432309992d7ae24e4127acaf38bce4[m
+Author: fernando <fercho11251989@gmail.com>
+Date:   Thu Jul 1 20:50:37 2021 -0400
+
+    configuracion y creacion de base de datos
+
+[33mcommit 2b2b70b3268c20f6b7b02bbf5c194a3a78728842[m
+Author: fernando <fercho11251989@gmail.com>
+Date:   Wed Jun 30 18:03:58 2021 -0400
+
+    se añadio bootstrap todos lso archivos faltantes
+
+[33mcommit 533eb1eafca24cc1573f04452fc11773c28dee7c[m
+Author: fernando <fercho11251989@gmail.com>
+Date:   Mon Jun 28 19:57:40 2021 -0400
+
+    iniciando el proyecto añadiendo carpeta application

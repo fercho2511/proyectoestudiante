@@ -88,6 +88,8 @@ switch (ENVIRONMENT)
 		echo 'The application environment is not set correctly.';
 		exit(1); // EXIT_ERROR
 }
+date_default_timezone_set('America/La_Paz');
+
 
 /*
  *---------------------------------------------------------------
