@@ -722,7 +722,7 @@
      
                                     <div class="card-body">
                                         <?php
-                                             //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                                             //invocaremos a [profesor] q pusimos en el array asociativo $data de eprofesor.php
                                             echo form_open_multipart('profesor/agregarProf')
                                          ?>
                                             <div class="form-group">

@@ -41,10 +41,9 @@
 <script src="<?php echo base_url(); ?>adminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="<?php echo base_url(); ?>adminLTE/dist/js/adminlte.min.js"></script>
 <script src="<?php echo base_url(); ?>adminLTE/dist/js/demo.js"></script>
-<script src="<?php echo base_url(); ?>adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<script src="<?php echo base_url(); ?>adminLTE/dist/js/adminlte.min.js"></script>
 
-<!-- Page specific script -->
+
+
 <script>
         $(function() {
             $("#example1").DataTable({
@@ -64,6 +63,23 @@
             });
         });
     </script>
+    <script src="<?php echo base_url(); ?>adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="<?php echo base_url(); ?>adminLTE/dist/js/adminlte.min.js"></script>
+     <script src="<?php echo base_url(); ?>adminLTE/dist/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="<?php echo base_url(); ?>adminLTE/dist/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="<?php echo base_url(); ?>adminLTE/dist/vendor/bootstrap/js/popper.js"></script>
+    <script src="<?php echo base_url(); ?>adminLTE/dist/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="<?php echo base_url(); ?>adminLTE/dist/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="<?php echo base_url(); ?>adminLTE/dist/vendor/daterangepicker/moment.min.js"></script>
+    <script src="<?php echo base_url(); ?>adminLTE/dist/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="<?php echo base_url(); ?>adminLTE/dist/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="<?php echo base_url(); ?>adminLTE/dist/js/main.js"></script>
 </body>
 
 </html>

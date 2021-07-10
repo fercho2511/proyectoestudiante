@@ -22,6 +22,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/dist/css/adminlte.min.css">
+
+
+
+    <!-- Google Font: Source Sans Pro -->
+  <!-- Font Awesome -->
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+
+
+ <!--===============================================================================================-->
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>adminLTE/dist/css/util.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>adminLTE/dist/css/main.css">
+
+
+
+
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
