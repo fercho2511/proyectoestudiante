@@ -33,10 +33,7 @@
                                             <button type="submit" class="btn btn-block btn-info btn-lg" >Agregar Estudiante</button>
                                         <?php
                                             echo form_close();
-                                    ?>
-
-
-                                        
+                                    ?>                                     
                                     </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -52,7 +49,7 @@
                                                 <th>Telefono</th>
                                                 <th>Padre</th>
                                                 <th>Tutor</th>
-                                                <th>Fecha</th>
+                                                <th>Foto</th>
                                                 <th>Modificar</th>
                                                 <th>Eliminar</th>
 
@@ -73,13 +70,40 @@
                                                 <td><?php echo $row->telefono;?></td>
                                                 <td><?php echo $row->nombrePadre;?></td>
                                                 <td><?php echo $row->nombreTutor;?></td>
-                                                <td><?php echo formatearfecha($row->fechaRegistro)?></td>
+                                                <td>
+                                                        <?php
+                                                        $foto=$row->foto;
+                                                        if ($foto=="") {
+                                                            //mostrar una imagen por defecto
+                                                            ?>
+                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/perfil.jpg">
+                                                            <?php
+                                                        }
+                                                        else {
+                                                            //mostrar foto del usuario
+                                                            ?>
+                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/<?php echo $foto; ?>">
+                                                            
+                                                            <?php
+                                                        }
+
+                                                        ?>
+                                                        <?php
+                                                                echo form_open_multipart('estudiante/subirFoto')
+                                                            ?>
+                                                            <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                                                            <button type="submit" class="btn btn-primary btn-xs" >subir</button>
+                                                            <?php
+                                                                echo form_close();
+                                                        ?>
+
+                                                </td>
                                                 <td>
                                                     <?php
                                                         echo form_open_multipart('estudiante/modificar')
                                                     ?>
                                                     <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs" >Modificar</button>
+                                                    <button type="submit" class="btn btn-primary btn-xs"  >Modificar</button>
                                                     <?php
                                                         echo form_close();
                                                     ?>
@@ -111,7 +135,7 @@
                                                 <th>Telefono</th>
                                                 <th>Padre</th>
                                                 <th>Tutor</th>
-                                                <th>Fecha</th>
+                                                <th>Foto</th>
                                                 <th>Modificar</th>
                                                 <th>Eliminar</th>
                                             </tr>
