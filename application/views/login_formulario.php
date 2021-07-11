@@ -30,20 +30,26 @@ switch ($msg) {
                       </span>
                      
                 </div>
+                <div backgrouncolor="blue" >
+                    <?php
+                                echo $mensaje;
+                                ?>
+                    </div>
 
                 <div class="login100-form validate-form">
+                      
                 <?php
                 echo form_open_multipart('usuario/validarUsuario');
                 ?>
-                    <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Ingrese cuenta de usuario">
                         <span class="label-input100">USUARIO</span>
                         <input class="input100" type="text" name="login" placeholder="Ingrese Cuenta">
-                        <span class="focus-input100"></span>
+                        <span class="glyphicon glyphicon-align-left"></span>
                     </div>
                   
 
-                    <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                        <span class="label-input100">Password</span>
+                    <div class="wrap-input100 validate-input m-b-18" data-validate="ingrese contraseña">
+                        <span class="label-input100">PASSWORD</span>
                         <input class="input100" type="password" name="password" placeholder="Ingrese Contraseña">
                         <span class="focus-input100"></span>
                     </div>
@@ -62,7 +68,7 @@ switch ($msg) {
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button type="submit" class="btn btn-primary btn-block">
+                        <button type="submit" class="btn btn-outline-secondary">
 							INGRESAR
 						</button>
                     </div>

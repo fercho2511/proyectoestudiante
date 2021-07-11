@@ -54,7 +54,6 @@ class Usuario extends CI_Controller {
         }
         else //si no existe ni una direccion redireccionada
         {
-            echo "hola";
             //sino redireccionamos a index 1 en el urisegment
             redirect('usuario/index/1','refresh');
 
