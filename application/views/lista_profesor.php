@@ -56,7 +56,7 @@
                                                 <th>C.I.</th>
                                                 <th>Telefono</th>
                                                 <th>Correo</th>
-                                                <th>fecha</th>
+                                                <th>Foto</th>
                                                 <th>Modificar</th>
                                                 <th>Eliminar</th>
 
@@ -76,7 +76,33 @@
                                                 <td><?php echo $row->ci;?></td>
                                                 <td><?php echo $row->telefono;?></td>
                                                 <td><?php echo $row->correo;?></td>
-                                                <td><?php echo $row->fechaRegistro;?></td>
+                                                <td>
+                                                        <?php
+                                                        $foto=$row->foto;
+                                                        if ($foto=="") {
+                                                            //mostrar una imagen por defecto
+                                                            ?>
+                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/profesor/perfil.jpg">
+                                                            <?php
+                                                        }
+                                                        else {
+                                                            //mostrar foto del usuario
+                                                            ?>
+                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/profesor/<?php echo $foto; ?>">
+                                                            
+                                                            <?php
+                                                        }
+
+                                                        ?>
+                                                        <?php
+                                                                echo form_open_multipart('profesor/subirFoto')
+                                                            ?>
+                                                            <input type="hidden" name="idProfesor" value="<?php echo $row->IdProfesor;?>">
+                                                            <button type="submit" class="btn btn-primary btn-xs" >subir</button>
+                                                            <?php
+                                                                echo form_close();
+                                                        ?>
+                                                </td>
 
                                                 <td>
                                                     <?php
@@ -114,7 +140,7 @@
                                                 <th>C.I.</th>
                                                 <th>Telefono</th>
                                                 <th>Correo</th>
-                                                <th>Fecha</th>
+                                                <th>Foto</th>
                                                 <th>Modificar</th>
                                                 <th>Eliminar</th>
                                             </tr>

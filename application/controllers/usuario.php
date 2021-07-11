@@ -63,42 +63,46 @@ class Usuario extends CI_Controller {
 
     }
     
- public function panel()
- {
-    if ($this->session->userdata('login')) //consultara si hay una variable de secion
-    {
-        //si hay entonces redireccionar
-        redirect('estudiante/test','refresh');
-
-
-        //PARA LOS ROLES
-        /*
-        if ($this->session->userdata('tipo')=='admin)
+        public function panel()
         {
-            //entra al menu admin
-            //panel admin
-        }
-        else
-        {
-            //menu inv
-            //panel inv
-        }
+            if ($this->session->userdata('login')) //consultara si hay una variable de secion
+            {
+                //si hay entonces redireccionar
+                
 
-        si son mas roles se puede usar un swich par amas faciliad
-        */
-       
-    }
-    else {
-        //sino redireccionamos a index 2 en el urisegment
-        redirect('usuario/index/2','refresh');
-    }
- }
+
+                //PARA LOS ROLES
+                
+                if ($this->session->userdata('tipo')=='administrador')
+                {
+                    //entra al menu admin
+                    //panel admin
+                    redirect('profesor/test','refresh');
+
+                    
+                }
+                else
+                {
+                    //menu inv
+                    //panel inv
+                    redirect('estudiante/test','refresh');
+                }
+
+                //si son mas roles se puede usar un swich par amas faciliad
+                
+            
+            }
+            else {
+                //sino redireccionamos a index 2 en el urisegment
+                redirect('usuario/index/2','refresh');
+            }
+        }
  
  //para cerrar sesion
- public function logout()
- {
-     $this->session->sess_destroy();   //aca eliminamos las variables de sesion
-    redirect('usuario/index/3','refresh');
- }
+        public function logout()
+        {
+            $this->session->sess_destroy();   //aca eliminamos las variables de sesion
+            redirect('usuario/index/3','refresh');
+        }
     
 }

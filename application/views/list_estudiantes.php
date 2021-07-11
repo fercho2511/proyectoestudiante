@@ -98,6 +98,8 @@
                                                         ?>
 
                                                 </td>
+
+                                                
                                                 <td>
                                                     <?php
                                                         echo form_open_multipart('estudiante/modificar')

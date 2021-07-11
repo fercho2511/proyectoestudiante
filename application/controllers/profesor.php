@@ -106,4 +106,62 @@ class Profesor extends CI_Controller {
         redirect('profesor/test','refresh');
 
      }
+
+
+     
+     public function subirFoto(){
+        $data['idProfesor']=$_POST['idProfesor'];
+
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('subirform_maestro',$data); // llegaremos asta esta vista
+		$this->load->view('inc_fin.php');
+     }
+
+     public function subir(){
+
+        $idProfesor=$_POST['idProfesor'];  //estamso resepcionando el id
+        $nombrearchivo=$idProfesor.".jpg";  //generamos un string
+
+       // 2 metadatos
+       //ruta dodne se guardan lso ficheros
+       $config['upload_path']='./cargas/profesor/';
+       //configuro el nomrbe dle archivo
+       $config['file_name']=$nombrearchivo;
+
+       //reemplazar lso archivos
+       //primero eliminar el anterior archivo y luego subir el nuevo
+
+
+
+       $direccion="./cargas/profesor/".$nombrearchivo;
+       unlink($direccion);
+       // estos dos archivos potencian el subir
+
+
+       //tipos de archivos permitidos
+       $config['allowed_types']='jpg';   //'gif','jpg','png'
+       $this->load->library('upload',$config);
+
+
+       //vamos al procedimiento de subir
+       if (!$this->upload->do_upload()) {
+          //si hay algun error pasremos a la vista a traves de un data
+          $data['error']=$this->upload->display_errors();
+       }
+       else{
+           $data['foto']=$nombrearchivo;
+           $this->profesor_model->modificarProfesor($idProfesor,$data);
+            //con estas dos primeras lineas actualizamos en base de datos
+
+           $this->upload->data();     
+        
+       }
+
+        redirect('profesor/test','refresh');
+
+
+
+      
+     }
 }
