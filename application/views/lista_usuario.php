@@ -1,9 +1,9 @@
- <div class="content-wrapper">
+<div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Estudiantes Registrados</h1>
+                            <h1>USUARIOS REGISTRADOS</h1>
                            
                         </div>
                         <div class="col-sm-6">
@@ -28,9 +28,9 @@
                                 </div>
                                     <div>
                                     <?php
-                                            echo form_open_multipart('estudiante/agregar')//llegaremos asta estudiante.php y e metodo agregar
+                                            echo form_open_multipart('usuario_per/agregar')//llegaremos asta estudiante.php y e metodo agregar
                                         ?>
-                                            <button type="submit" class="btn btn-block btn-info btn-lg" >Agregar Estudiante</button>
+                                            <button type="submit" class="btn btn-block btn-info btn-lg" >Agregar usuario</button>
                                         <?php
                                             echo form_close();
                                     ?>                                     
@@ -45,13 +45,13 @@
                                                 <th>Nombre</th>
                                                 <th>Apellido Paterno</th>
                                                 <th>Apellido Matrno</th>
-                                                <th>C.I.</th>
-                                                <th>Telefono</th>
-                                                <th>Padre</th>
-                                                <th>Tutor</th>
-                                                <th>Foto</th>
-                                                <th>Modificar</th>
-                                                <th>Eliminar</th>
+                                                <th>Fecha Nacimiento</th>
+                                                <th>Login</th>
+                                                <th>Password</th>
+                                                <th>Tipo</th>                                                
+                                                <th>Edicion</th>
+                                                <th>Estado</th>
+
 
                                             </tr>
                                         </thead>
@@ -59,67 +59,58 @@
                                         <?php
                     $indice=1;
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                    foreach ($estudiante-> result() as $row) {
+                    foreach ($usuario-> result() as $row) {
                         ?>
                                             <tr>
                                                 <td><?php echo $indice;?></td>
-                                                <td><?php echo $row->nombre;?></td>
-                                                <td><?php echo $row->primerApellido;?></td>
-                                                <td><?php echo $row->segundoApellido;?></td>
-                                                <td><?php echo $row->ci;?></td>
-                                                <td><?php echo $row->telefono;?></td>
-                                                <td><?php echo $row->nombrePadre;?></td>
-                                                <td><?php echo $row->nombreTutor;?></td>
-                                                <td>
-                                                        <?php
-                                                        $foto=$row->foto;
-                                                        if ($foto=="") {
-                                                            //mostrar una imagen por defecto
-                                                            ?>
-                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/perfil.jpg">
-                                                            <?php
-                                                        }
-                                                        else {
-                                                            //mostrar foto del usuario
-                                                            ?>
-                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/<?php echo $foto; ?>">
-                                                            
-                                                            <?php
-                                                        }
+                                                <td><?php echo $row->nombres;?></td>
+                                                <td><?php echo $row->apellidoPaterno;?></td>
+                                                <td><?php echo $row->apellidoMaterno;?></td>
+                                                <td><?php echo $row->fechaNacimiento;?></td>
+                                                <td><?php echo $row->login;?></td>
+                                                <td><?php echo $row->password;?></td>
+                                                <td><?php echo $row->tipo;?></td>
 
-                                                        ?>
-                                                        <?php
-                                                                echo form_open_multipart('estudiante/subirFoto')
-                                                            ?>
-                                                            <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
-                                                            <button type="submit" class="btn btn-primary btn-xs" >subir</button>
-                                                            <?php
-                                                                echo form_close();
-                                                        ?>
-
-                                                </td>
-
-                                                
                                                 <td>
                                                     <?php
-                                                        echo form_open_multipart('estudiante/modificar')
+                                                        echo form_open_multipart('usuario_per/modificar')
                                                     ?>
-                                                    <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <button type="submit" class="btn btn-primary btn-xs"  >Modificar</button>
                                                     <?php
                                                         echo form_close();
                                                     ?>
-                                                </td>
-                                                <td>
+
                                                     <?php
-                                                        echo form_open_multipart('estudiante/eliminarEst')
+                                                        echo form_open_multipart('usuario_per/habillitarUsu')
                                                     ?>
-                                                    <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                    <button type="submit" class="btn btn-primary btn-xs"  >Habilitar</button>
+                                                    <?php
+                                                        echo form_close();
+                                                    ?>
+
+                                                    <?php
+                                                        echo form_open_multipart('usuario_per/desabilitarUsu')
+                                                    ?>
+                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                    <button type="submit" class="btn btn-primary btn-xs"  >Desabilitar</button>
+                                                    <?php
+                                                        echo form_close();
+                                                    ?>
+
+                                                     <?php
+                                                        echo form_open_multipart('usuario_per/eliminarUsu')
+                                                    ?>
+                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <button type="submit" class="btn btn-danger btn-xs" >Eliminar++</button>
                                                     <?php
                                                         echo form_close();
                                                     ?>
                                                 </td>
+
+                                                <td><?php echo $row->estado;?></td>
+
 
                                             </tr>
                         <?php
@@ -133,13 +124,12 @@
                                                 <th>Nombre</th>
                                                 <th>Apellido Paterno</th>
                                                 <th>Apellido Matrno</th>
-                                                <th>C.I.</th>
-                                                <th>Telefono</th>
-                                                <th>Padre</th>
-                                                <th>Tutor</th>
-                                                <th>Foto</th>
-                                                <th>Modificar</th>
-                                                <th>Eliminar</th>
+                                                <th>Fecha Nacimiento</th>
+                                                <th>Login</th>
+                                                <th>Password</th>
+                                                <th>Tipo</th>                                                
+                                                <th>Edicion</th>
+                                                <th>Estado</th>
                                             </tr>
                                         </tfoot>
                                     </table>

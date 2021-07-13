@@ -7,8 +7,9 @@ class Usuario_model extends CI_Model {
 
 	//este metdo devolvera la lista de estudiantes de la db
         //consulta para leer la lista 
-	public function validar($login,$password)
+	public function validar($login,$password,$estado)
 	{
+
         //consulta para validar
                 $this->db->select('*');
                 $this->db->from('usuario');
@@ -16,6 +17,9 @@ class Usuario_model extends CI_Model {
                 //este doble where es como un and
                 //logica de actuiverecord
                 $this->db->where('password',$password);
+                $this->db->where('estado',$estado);
+
+
                 return $this->db->get();
 
                 //consulta en mysql completa
