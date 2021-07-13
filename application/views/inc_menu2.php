@@ -1,6 +1,5 @@
-
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+ <!-- Navbar -->
+ <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -96,26 +95,17 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                        
                     </div>
-                   
-                    
-                  
-                </li>
-                <?php
+                    <div>
+                    <?php
                                         echo form_open_multipart('usuario/logout');
                                         ?>
-                                        <button type="submit" class="btn btn-outline-secondary" >SALIR</button>
-                                        <?php
-                                            echo form_close();
-                                         ?>
-                <?php
-                                        echo form_open_multipart('usuario_per/gestionar');
-                                        ?>
-                                        <input type="hidden" name="idUsuario" value="<?php echo $this->session->userdata('idusuario')?>">
-                                        <button type="submit" class="btn btn-outline-secondary" >Gestionar Cuenta/<?php echo $this->session->userdata('login')?> </button>
+                                        <button type="submit" class="btn btn-danger btn-block" >SALIR/<?php echo $this->session->userdata('login')?> </button>
                                         <?php
                                             echo form_close();
                                          ?>
                     </div>
+                  
+                </li>
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -170,7 +160,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?php echo base_url(); ?>adminLTE/dist/img/userlogo.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?php echo base_url(); ?>adminLTE/dist/img/usuarioAdmin.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?php echo $this->session->userdata('login')?> </a>
@@ -208,31 +198,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../tables/simple.html" class="nav-link">
+                                    <a href="<?php echo base_url(); ?>index.php/profesor/test" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Cursos</p>
+                                        <p>Profesores</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="../tables/data.html" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Estudiantes</p>
+                                        <p>Usuarios</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="../tables/jsgrid.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Materias</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../tables/jsgrid.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Notas</p>
-                                    </a>
-                                </li>
+                                
                             </ul>
                         </li>
+                        
                         
 
 

@@ -38,6 +38,7 @@ class Estudiante extends CI_Controller {
         $idEstudiante=$_POST['idEstudiante'];
         $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
         $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
 		$this->load->view('modificar_est',$data);
 		$this->load->view('inc_fin.php');
     }

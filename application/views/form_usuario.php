@@ -1,8 +1,5 @@
 
 
-
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -31,7 +28,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Modificar Usuario</h3>
+                <h3 class="card-title">Modifique sus datos <?php echo $this->session->userdata('login')?></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -41,7 +38,7 @@
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($infousuario-> result() as $row) 
                     {
-                        echo form_open_multipart('usuario_per/modificarUsu')
+                        echo form_open_multipart('usuario_per/modificarUsu2')
                         ?>
                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
 
@@ -61,15 +58,14 @@
                                         <label class="form-label">Fecha Nacimiento</label>
                                         <input type="text" class="form-control" name='fechaNacimiento'  value="<?php echo $row->fechaNacimiento;?>" >
                                     </div>
-                                  
                                     <div class="form-group">
                                               <label for="">Tipo:</label>
                                               <select class="form-control" name="tipo" >
-                                                <option>Invitado</option>
-                                                <option>Administrador</option>
-                                               
+                                                <option>Invitado</option>                                               
                                               </select>
-                                      </div>
+                                     </div>
+                                   
+                                
                                     
                                     
                                     </div>
@@ -78,19 +74,15 @@
                                     <div class="card-footer">
                                         <button class="btn btn-primary" type="submit">MODIFICAR</button>
                                         <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
-
                                     </div>
                         <?php
                         echo form_close();
                         }
 
-                    ?>
-              
-            </div>
+                    ?>              
+            </div> 
 
-            
-
-
+            <!-- formulario para cuenta  -->
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">CAMBIE USUARO Y CONTRASEÑA</h3>
@@ -104,7 +96,7 @@
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($infousuario-> result() as $row) 
                     {
-                        echo form_open_multipart('usuario_per/modificarLoguinAdmin')
+                        echo form_open_multipart('usuario_per/modificarLoguin')
                         ?>
                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                 <div class="card-body">
@@ -134,19 +126,16 @@
                     ?> 
                 <!-- /.card-footer -->
               
-            </div>  
+            </div>   
 
-
-
-
-
-
-        
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+    </section>   
+        <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
+
+
+

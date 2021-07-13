@@ -751,6 +751,8 @@
                                           
                                             <div class="card-footer">
                                                 <button class="btn btn-primary" type="submit">REGISTRAR</button>
+                                                <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
+
                                              </div>
                                                 <?php
                                                 echo form_close();

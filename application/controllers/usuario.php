@@ -108,6 +108,8 @@ class Usuario extends CI_Controller {
             redirect('usuario/index/3','refresh');
         }
 
+       
+
     
     
 }
