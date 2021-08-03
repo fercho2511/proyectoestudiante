@@ -1,3 +1,14 @@
+<link type="text/css" href="<?php echo base_url(); ?>/bootstrap/css/ui-darkness/jquery-ui-1.8.23.custom.css" rel="Stylesheet" />
+	<script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery-ui-1.8.23.custom.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery.ui.datepicker-es.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$("#datepicker").datepicker();
+		$("#format").change(function() { $('#datepicker').datepicker('option', {dateFormat: $(this).val()}); });
+	});
+	</script>
+
 
 
   <div class="content-wrapper">
@@ -52,8 +63,16 @@
                                                 <input type="text" class="form-control" name='apellidoMaterno'  placeholder="Ingrese Apellido Materno" >
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Nacimiento</label>
-                                                <input type="text" class="form-control" name='fechaNacimiento'  placeholder="ingrese Fecha Nacimiento" >
+                                                <input type="date" class="form-control" name='fechaNacimiento'  placeholder="ingrese Fecha Nacimiento" >
                                             </div>
+
+            
+
+
+                                              
+
+                                            
+  
                                             <!-- <div class="form-group">
                                                 <<label class="form-label">Login</>
                                                 <input type="text" class="form-control" name='login'  placeholder="Ingrese login" >

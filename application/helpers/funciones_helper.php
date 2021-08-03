@@ -6,13 +6,11 @@ function formatearfecha($fecha)
 {
     /*/2021-07-03 18:56:13*/
     //para formatear usamos el substring
-
-    $dia=substr($fecha,8,2);
-    $mes=substr($fecha,5,2);
     $anio=substr($fecha,0,4);
-    $hora=substr($fecha,11,5);
+    $mes=substr($fecha,5,2);
+    $dia=substr($fecha,8,2);
 
-    $fechaFormateada=$dia."/".$mes."/".$anio." ".$hora;
+    $fechaFormateada=$anio."/".$mes."/".$dia;
     return $fechaFormateada;
 }
 

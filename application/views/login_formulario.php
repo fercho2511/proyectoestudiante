@@ -1,26 +1,27 @@
 
-<?php
-switch ($msg) {
-  case '1':
-    $mensaje= "Error de Ingreso";
-    break;
-    case '2':
-      $mensaje= "Acceso no Valido";
-      break;
-      case '3':
-        $mensaje= "Gracias por usar el Sistema";
-        break;
-  default:
-    $mensaje ="Ingrese sus datos";
-    break;
-}
-
-?>    
 <div class="limiter">
-        <div class="container-login100">
+    <?php
+    switch ($msg) {
+    case '1':
+        $mensaje= "CUENTA O USUARIO NO VALIDO";
+        break;
+        case '2':
+        $mensaje= "ACCESO NO VALIDO";
+        break;
+        case '3':
+            $mensaje= "GRACIAS POR USAR EL SISTEMA";
+            break;
+    default:
+        $mensaje ="INGRESE SUS DATOS";
+        break;
+    }
+    ?>   
+    
+</div> 
+        <div class="container-login100" style="color: #26778d;" >
             <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url(<?php echo base_url(); ?>adminLTE/dist/img/bg-01.jpg);">
-                    <span class="login100-form-title-1">
+                <div class="login100-form-title" style="background-image: url(<?php echo base_url(); ?>adminLTE/dist/img/loguin2.png);">
+                    <span class="login100-form-title-1" >
                         LOGUIN
                       </span>
                      
@@ -36,8 +37,8 @@ switch ($msg) {
                 <?php
                 echo form_open_multipart('usuario/validarUsuario');
                 ?>
-                    <div class="wrap-input100 validate-input m-b-26" data-validate="Ingrese cuenta de usuario">
-                        <span class="label-input100">USUARIO</span>
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Ingrese cuenta de usuario" >
+                        <span class="label-input100" style="color:26778d ;" >USUARIO</span>
                         <input class="input100" type="text" name="login" placeholder="Ingrese Cuenta">
                         <span class="glyphicon glyphicon-align-left"></span>
                     </div>
@@ -74,3 +75,4 @@ switch ($msg) {
             </div>
         </div>                                                            
     </div>
+    
