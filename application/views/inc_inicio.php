@@ -25,6 +25,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
+
+  <!-- Font Awesome -->
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <!-- iCheck -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/summernote/summernote-bs4.min.css">
+
+
+
     <!-- Google Font: Source Sans Pro -->
   <!-- Font Awesome -->
   <!-- icheck bootstrap -->
