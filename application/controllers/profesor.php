@@ -11,7 +11,8 @@ class Profesor extends CI_Controller {
         $data['profesor']=$lista; //otro array asociativo
 
 		$this->load->view('inc_inicio.php');
-		$this->load->view('lista_profesor',$data);
+        
+		$this->load->view('usuario/profesor/lista_profesor',$data);
 		$this->load->view('inc_fin.php');
 
 	}
@@ -22,8 +23,8 @@ class Profesor extends CI_Controller {
         $data['profesor']=$lista; //otro array asociativo
 
 		$this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
-		$this->load->view('lista_profesor',$data);
+        $this->load->view('inc_menu2.php');
+		$this->load->view('usuario/profesor/lista_profesor',$data);
 		$this->load->view('inc_fin.php');
 
 	} 
@@ -34,8 +35,8 @@ class Profesor extends CI_Controller {
         $idProfesor=$_POST['idProfesor'];
         $data['infoprofesor']=$this->profesor_model->obtenerProfesor($idProfesor);
         $this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
-		$this->load->view('modificar_profesor',$data);
+        $this->load->view('inc_menu2.php');
+		$this->load->view('usuario/profesor/modificar_profesor',$data);
 		$this->load->view('inc_fin.php');
     }
 
@@ -59,8 +60,8 @@ class Profesor extends CI_Controller {
     public function agregar()
     {
         $this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
-		$this->load->view('agregar_profesor'); // llegaremos asta esta vista
+        $this->load->view('inc_menu2.php');
+		$this->load->view('usuario/profesor/agregar_profesor'); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }
@@ -113,8 +114,8 @@ class Profesor extends CI_Controller {
         $data['idProfesor']=$_POST['idProfesor'];
 
         $this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
-		$this->load->view('subirform_maestro',$data); // llegaremos asta esta vista
+        $this->load->view('inc_menu2.php');
+		$this->load->view('usuario/profesor/subirform_maestro',$data); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
      }
 

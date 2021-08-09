@@ -11,7 +11,7 @@ class Estudiante extends CI_Controller {
         $data['estudiante']=$lista; //otro array asociativo
 
 		$this->load->view('inc_inicio.php');
-		$this->load->view('lista_estudiantes',$data);
+		$this->load->view('usuario/estudiante/lista_estudiantes',$data);
 		$this->load->view('inc_fin.php');
 
 	}
@@ -22,7 +22,7 @@ class Estudiante extends CI_Controller {
         $data['estudiante']=$lista; //otro array asociativo
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu.php');
-		$this->load->view('list_estudiantes',$data);
+		$this->load->view('usuario/estudiante/list_estudiantes',$data);
 		$this->load->view('inc_fin.php');
 
 	}
@@ -39,7 +39,7 @@ class Estudiante extends CI_Controller {
         $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu.php');
-		$this->load->view('modificar_est',$data);
+		$this->load->view('usuario/estudiante/modificar_est',$data);
 		$this->load->view('inc_fin.php');
     }
 
@@ -73,7 +73,7 @@ class Estudiante extends CI_Controller {
     {
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu.php');
-		$this->load->view('agregar_est'); // llegaremos asta esta vista
+		$this->load->view('usuario/estudiante/agregar_est'); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }
@@ -126,7 +126,7 @@ class Estudiante extends CI_Controller {
 
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu.php');
-		$this->load->view('subirform',$data); // llegaremos asta esta vista
+		$this->load->view('usuario/estudiante/subirform',$data); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
      }
 

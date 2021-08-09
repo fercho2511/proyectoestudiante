@@ -10,7 +10,7 @@ class Usuario_per extends CI_Controller {
         $data['usuario']=$lista; 
 
 		$this->load->view('inc_inicio.php');
-		$this->load->view('lista_usuario',$data);
+		$this->load->view('usuario/lista_usuario',$data);
 		$this->load->view('inc_fin.php');
 
 	}
@@ -21,7 +21,7 @@ class Usuario_per extends CI_Controller {
         $data['usuario']=$lista; 
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('lista_usuario',$data);
+		$this->load->view('usuario/lista_usuario',$data);
 		$this->load->view('inc_fin.php');
 
 	}
@@ -35,7 +35,7 @@ class Usuario_per extends CI_Controller {
         $data['infousuario']=$this->usuarioper_model->obtenerUsuario($idUsuario);
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('modificar_usuario',$data);
+		$this->load->view('usuario/modificar_usuario',$data);
 		$this->load->view('inc_fin.php');
     }
 
@@ -69,7 +69,7 @@ class Usuario_per extends CI_Controller {
 
         $this->usuarioper_model->modificarUsuario($idUsuario,$data);
 
-        redirect('estudiante/test','refresh');
+        redirect('estudiante/estudiante/test','refresh');
     }
     public function modificarLoguinAdmin()
     {
@@ -95,7 +95,7 @@ class Usuario_per extends CI_Controller {
         $data['tipo']=$_POST['tipo'];
         $this->usuarioper_model->modificarUsuario($idUsuario,$data);
 
-        redirect('estudiante/test','refresh');
+        redirect('estudiante/estudiante/test','refresh');
     }
 
     
@@ -103,7 +103,7 @@ class Usuario_per extends CI_Controller {
     {
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('agregar_usuario'); 
+		$this->load->view('usuario/agregar_usuario'); 
 		$this->load->view('inc_fin.php');
 
     }

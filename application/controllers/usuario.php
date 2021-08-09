@@ -45,7 +45,7 @@ class Usuario extends CI_Controller {
             else {
                 //cargar un login form
                // $this->load->view('inc_inicio.php');
-                $this->load->view('loguin',$data);
+                $this->load->view('loguin/loguin',$data);
                // $this->load->view('inc_fin.php');
             }
         
@@ -107,7 +107,7 @@ class Usuario extends CI_Controller {
                 }
                 else
                 {
-                        redirect('estudiante/test','refresh');
+                        redirect('estudiante/estudiante/test','refresh');
                     
                     //menu inv
                     //panel inv
