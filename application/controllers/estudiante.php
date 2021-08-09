@@ -21,7 +21,7 @@ class Estudiante extends CI_Controller {
         $lista=$this->estudiante_model->lista();
         $data['estudiante']=$lista; //otro array asociativo
 		$this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
+        $this->load->view('inc_menu2.php');
 		$this->load->view('usuario/estudiante/list_estudiantes',$data);
 		$this->load->view('inc_fin.php');
 
@@ -38,7 +38,7 @@ class Estudiante extends CI_Controller {
         $idEstudiante=$_POST['idEstudiante'];
         $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
         $this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
+        $this->load->view('inc_menu2.php');
 		$this->load->view('usuario/estudiante/modificar_est',$data);
 		$this->load->view('inc_fin.php');
     }
@@ -72,7 +72,7 @@ class Estudiante extends CI_Controller {
       public function agregar()
     {
         $this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
+        $this->load->view('inc_menu2.php');
 		$this->load->view('usuario/estudiante/agregar_est'); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
@@ -125,7 +125,7 @@ class Estudiante extends CI_Controller {
         $data['idEstudiante']=$_POST['idEstudiante'];
 
         $this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
+        $this->load->view('inc_menu2.php');
 		$this->load->view('usuario/estudiante/subirform',$data); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
      }

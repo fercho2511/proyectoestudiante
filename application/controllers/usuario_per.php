@@ -49,9 +49,11 @@ class Usuario_per extends CI_Controller {
         $data['apellidoPaterno']=$_POST['apellidoPaterno'];
         $data['apellidoMaterno']=$_POST['apellidoMaterno'];
         $data['fechaNacimiento']=$_POST['fechaNacimiento'];
-        // $data['login']=$_POST['login'];
-        // $data['password']=md5($_POST['password']);
-        $data['tipo']=$_POST['tipo'];
+        $data['sexo']=$_POST['sexo'];
+        $data['telefono']=$_POST['telefono'];
+        $data['direccion']=$_POST['direccion'];
+        $data['correo']=$_POST['correo'];
+        $data['rol']=$_POST['rol'];
        // $data['fechaRegistro']=$_POST['fechaRegistro'];
        // $data['estado']=$_POST['estado'];
 
@@ -114,10 +116,14 @@ class Usuario_per extends CI_Controller {
          $data['nombres']=$_POST['nombres'];
          $data['apellidoPaterno']=$_POST['apellidoPaterno'];
          $data['apellidoMaterno']=$_POST['apellidoMaterno'];
+         $data['sexo']=$_POST['sexo'];
+         $data['telefono']=$_POST['telefono'];
+         $data['direccion']=$_POST['direccion'];
          $data['fechaNacimiento']=$_POST['fechaNacimiento'];
+         $data['correo']=$_POST['correo'];
          $data['login']=$_POST['nombres'];
          $data['password']=md5($_POST['nombres']);
-         $data['tipo']=$_POST['tipo'];
+         $data['rol']=$_POST['rol'];
 
          $this->usuarioper_model->agregarUsuario($data); 
 

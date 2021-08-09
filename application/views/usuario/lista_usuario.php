@@ -8,11 +8,16 @@
                         </div>
 
 
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">DataTables</li>
-                            </ol>
+                        <div class="col-sm-3">
+                        
+                                    <?php
+                                            echo form_open_multipart('usuario_per/agregar')//llegaremos asta estudiante.php y e metodo agregar
+                                        ?>
+                                            <button type="submit" class="btn btn-block btn-info btn-lg" >Agregar Usuario</button>
+                                        <?php
+                                            echo form_close();
+                                    ?>                                     
+                                    
                         </div>
 
                         
@@ -30,15 +35,7 @@
                                   <?php
                                 ?>
                                 </div>
-                                    <div>
-                                    <?php
-                                            echo form_open_multipart('usuario_per/agregar')//llegaremos asta estudiante.php y e metodo agregar
-                                        ?>
-                                            <button type="submit" class="btn btn-block btn-info btn-lg" >Agregar usuario</button>
-                                        <?php
-                                            echo form_close();
-                                    ?>                                     
-                                    </div>
+                                    
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     
@@ -46,14 +43,13 @@
                                         <thead>
                                             <tr>
                                                 <th>N°</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido Paterno</th>
-                                                <th>Apellido Matrno</th>
+                                                <th>Nombre Completo</th>
+                                              
                                                 <th>Fecha Nacimiento</th>
                                                 <th>Login</th>
                                                 <th>Password</th>
-                                                <th>Tipo</th>                                                
-                                                <th>Edicion</th>
+                                                <th>rol</th>                                                
+                                                <th>Acciones</th>
                                                 <th>Estado</th>
 
 
@@ -67,13 +63,14 @@
                         ?>
                                             <tr>
                                                 <td><?php echo $indice;?></td>
-                                                <td><?php echo $row->nombres;?></td>
-                                                <td><?php echo $row->apellidoPaterno;?></td>
-                                                <td><?php echo $row->apellidoMaterno;?></td>
+                                                <td><?php echo $row->nombres;?>
+                                                    <?php echo $row->apellidoPaterno;?>
+                                                    <?php echo $row->apellidoMaterno;?>
+                                                </td>
                                                 <td><?php echo $row->fechaNacimiento;?></td>
                                                 <td><?php echo $row->login;?></td>
                                                 <td><?php echo $row->password;?></td>
-                                                <td><?php echo $row->tipo;?></td>
+                                                <td><?php echo $row->rol;?></td>
 
                                                 <td>
                                                     <?php
@@ -125,14 +122,13 @@
                                         <tfoot>
                                             <tr>
                                                 <th>N°</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido Paterno</th>
-                                                <th>Apellido Matrno</th>
+                                                <th>Nombre Completo</th>
+                                                
                                                 <th>Fecha Nacimiento</th>
                                                 <th>Login</th>
                                                 <th>Password</th>
-                                                <th>Tipo</th>                                                
-                                                <th>Edicion</th>
+                                                <th>rol</th>                                                
+                                                <th>Acciones</th>
                                                 <th>Estado</th>
                                             </tr>
                                         </tfoot>

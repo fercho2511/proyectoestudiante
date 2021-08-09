@@ -61,9 +61,29 @@
                                             <div class="form-group">
                                                 <label class="form-label">Apellido Materno</label>
                                                 <input type="text" class="form-control" name='apellidoMaterno'  placeholder="Ingrese Apellido Materno" >
+                                            </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Nacimiento</label>
-                                                <input type="date" class="form-control" name='fechaNacimiento'  placeholder="ingrese Fecha Nacimiento" >
+                                                <input type="date" class="form-control" name='fechaNacimiento'  placeholder="Ingrese Fecha Nacimiento" >
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="">sexo:</label>
+                                              <select class="form-control" name="sexo" >
+                                                <option>M</option>
+                                                <option>F</option>                                               
+                                              </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Telefono</label>
+                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese telefono" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Correo</label>
+                                                <input type="text" class="form-control" name='correo'  placeholder="Ingrese Correo Electronico" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Direccion</label>
+                                                <input type="text" class="form-control" name='direccion'  placeholder="Ingrese Direccion" >
                                             </div>
 
             
@@ -86,9 +106,10 @@
                                                 <input type="text" class="form-control" name='tipo'  placeholder="Ingrese tipo">
                                             </div> -->
                                             <div class="form-group">
-                                              <label for="">Tipo:</label>
-                                              <select class="form-control" name="tipo" >
-                                                <option>Invitado</option>
+                                              <label for="">Rol:</label>
+                                              <select class="form-control" name="rol" >
+                                                <option>Profesor</option>
+                                                <option>Estudiante</option>
                                                 <option>Administrador</option>
                                                
                                               </select>

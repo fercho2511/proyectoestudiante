@@ -61,11 +61,33 @@
                                         <label class="form-label">Fecha Nacimiento</label>
                                         <input type="text" class="form-control" name='fechaNacimiento'  value="<?php echo $row->fechaNacimiento;?>" >
                                     </div>
+
+
+                                    <div class="form-group">
+                                              <label for="">sexo:</label>
+                                              <select class="form-control" name="sexo" value="<?php echo $row->sexo;?>">
+                                                <option>M</option>
+                                                <option>F</option>                                               
+                                              </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Telefono</label>
+                                                <input type="text" class="form-control" name='telefono'  value="<?php echo $row->telefono;?>" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Correo</label>
+                                                <input type="text" class="form-control" name='correo'  value="<?php echo $row->correo;?>" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Direccion</label>
+                                                <input type="text" class="form-control" name='direccion'  value="<?php echo $row->direccion;?>" >
+                                            </div>
                                   
                                     <div class="form-group">
-                                              <label for="">Tipo:</label>
-                                              <select class="form-control" name="tipo" >
-                                                <option>Invitado</option>
+                                              <label for="">Rol:</label>
+                                              <select class="form-control" name="rol" select="<?php echo $row->rol;?>">
+                                                <option>Profesor</option>
+                                                <option>Estudiante</option>
                                                 <option>Administrador</option>
                                                
                                               </select>

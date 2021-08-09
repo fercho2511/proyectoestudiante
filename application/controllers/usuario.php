@@ -71,7 +71,7 @@ class Usuario extends CI_Controller {
 
                 $this->session->set_userdata('idusuario',$row->idUsuario);
                 $this->session->set_userdata('login',$row->login);
-                $this->session->set_userdata('tipo',$row->tipo);
+                $this->session->set_userdata('rol',$row->rol);
 
                 redirect('usuario/panel','refresh');
 
@@ -97,7 +97,7 @@ class Usuario extends CI_Controller {
 
                 //PARA LOS ROLES
                 
-                if ($this->session->userdata('tipo')=='administrador')
+                if ($this->session->userdata('rol')=='administrador')
                 {
                     //entra al menu admin
                     //panel admin
@@ -107,7 +107,7 @@ class Usuario extends CI_Controller {
                 }
                 else
                 {
-                        redirect('estudiante/estudiante/test','refresh');
+                        redirect('estudiante/test','refresh');
                     
                     //menu inv
                     //panel inv

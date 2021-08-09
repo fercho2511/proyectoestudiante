@@ -132,15 +132,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="<?php echo base_url(); ?>index.php/administrador/test" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ADMINISTRATIVO</p>
+                  <p>Administrador</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="<?php echo base_url(); ?>index.php/profesor/test" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ESTUDIANTE</p>
+                  <p>Profesor</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>index.php/estudiante/test" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Estudiante</p>
                 </a>
               </li>
               
@@ -159,13 +165,6 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-
-
-           
-
-
-
-
           </li>
               <li class="nav-item">
                 <a href="pages/forms/advanced.html" class="nav-link">
