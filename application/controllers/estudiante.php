@@ -71,7 +71,9 @@ class Estudiante extends CI_Controller {
         $data['ci']=$_POST['ci'];
         $data['direccion']=$_POST['direccion'];
         $data['fechaNacimiento']=$_POST['fechaNacimiento'];
-        $data['correo']=$_POST['correo'];
+        $data['correo']=$_POST['correo'];  
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+
 
         //ahora la consula
         $this->estudiante_model->modificarEstudiante($idUsuario,$data);
@@ -116,6 +118,7 @@ class Estudiante extends CI_Controller {
          $data['login']=$_POST['nombres'];
          $data['password']=md5($_POST['nombres']);
          $data['rol']=$_POST['rol'];
+         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos
          $this->estudiante_model->agregarEstudiante($data); // aca se envia el metodo del modelo 

@@ -143,10 +143,6 @@ footer {
 }
 </style>
 <style>
-  
-elemento {
-
-}
 .content-header {
 
     padding: 50px ;
@@ -154,10 +150,6 @@ elemento {
 
 }
 </style>
-
-
-
-
 
 </head>
 <body class="hold-transition sidebar-mini" 

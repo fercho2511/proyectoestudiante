@@ -1,7 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
-  <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
-  <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-</svg>
+
 <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
@@ -104,6 +101,7 @@
                                                         echo form_open_multipart('usuario_per/habillitarUsu')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                    <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idUsuario');?>">
                                                     <button type="submit" class="btn btn-primary btn-xs" title="Habilitar"  >
                                                     <span class="fas fa-user-check"></span>
                                                     </button>
@@ -115,6 +113,8 @@
                                                         echo form_open_multipart('usuario_per/desabilitarUsu')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                    <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
+
                                                     <button type="submit" class="btn btn-primary btn-xs" title="Desabilitar" >
                                                     <span class="fas fa-user-times"></span>
                                                     </button>
@@ -126,6 +126,8 @@
                                                         echo form_open_multipart('usuario_per/eliminarUsu')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                    <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
                                                     <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
                                                     <span class="fas fa-trash-alt"></span>
                                                     </button>
@@ -154,9 +156,9 @@
                                                 <th>Sexo</th>                                              
                                                 <th>Telefono</th> 
                                                 <th>Direccion</th>  
-                                                <th>Correo</th>  
-                                                <th>Fecha Nacimiento</th>
-                                                <th>rol</th>                                              
+                                                <th>Correo</th> 
+                                                <th>rol</th>                                            
+                                                 <th>Fecha Nacimiento</th>
                                                 <th>Login</th>
                                                 <th>Password</th>
                                                 <th>Acciones</th>

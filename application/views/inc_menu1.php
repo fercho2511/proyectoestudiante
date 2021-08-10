@@ -26,7 +26,7 @@
                     <?php
                          echo form_open_multipart('usuario/logout');
                          ?>
-                          <button type="submit" class="btn btn-outline-secondary" >Cerrar Sesion/<?php echo $this->session->userdata('login')?></button>
+                          <button type="submit" class="btn btn-outline-info" >Cerrar Sesion/<?php echo $this->session->userdata('login')?></button>
                           <?php
                               echo form_close();
                           ?>

@@ -1,5 +1,8 @@
 
 
+
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -10,15 +13,11 @@
             <h1>FORMULARIO </h1>
           </div>
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">General Form</li>
-            </ol>
+            
           </div>
         </div>
-      </div>
-    </section> 
-
+      </div><!-- /.container-fluid -->
+    </section>
 
     <!-- Main content -->
     <section class="content">
@@ -29,22 +28,21 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Modifique sus datos <?php echo $this->session->userdata('login')?></h3>
+                <h3 class="card-title">Modificar </h3>
               </div>
-              holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+              <!-- /.card-header -->
+              <!-- form start -->
               
-
-              
-                          
 
                     <?php
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($infousuario-> result() as $row) 
-                    //foreach ($idUsuario-> result() as $row) 
                     {
-                        echo form_open_multipart('usuario_per/modificarUsu2')
+                        echo form_open_multipart('usuario_per/modificarUsu')
                         ?>
                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                        <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
 
                                     <div class="card-body">
                                     <div class="form-group">
@@ -62,53 +60,96 @@
                                         <label class="form-label">Fecha Nacimiento</label>
                                         <input type="text" class="form-control" name='fechaNacimiento'  value="<?php echo $row->fechaNacimiento;?>" >
                                     </div>
+
+
                                     <div class="form-group">
-                                              <label for="">Tipo:</label>
-                                              <select class="form-control" name="tipo" >
-                                                <option>Invitado</option>                                               
+                                              <label for="">sexo:</label>
+                                              <select class="form-control" name="sexo" value="<?php echo $row->sexo;?>">
+                                                <option>M</option>
+                                                <option>F</option>                                               
                                               </select>
-                                     </div>
-                                   
-                                
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">C.I.</label>
+                                                <input type="text" class="form-control" name='ci'  value="<?php echo $row->ci;?>" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Telefono</label>
+                                                <input type="text" class="form-control" name='telefono'  value="<?php echo $row->telefono;?>" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Correo</label>
+                                                <input type="text" class="form-control" name='correo'  value="<?php echo $row->correo;?>" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Direccion</label>
+                                                <input type="text" class="form-control" name='direccion'  value="<?php echo $row->direccion;?>" >
+                                            </div>
+                                  
+                                    <div class="form-group">
+                                              <label for="">Rol:</label>
+                                              <select class="form-control" name="rol" select="<?php echo $row->rol;?>">
+                                                <option>Profesor</option>
+                                                <option>Estudiante</option>
+                                                <option>Administrador</option>
+                                                <option>superAdministrador</option>
+
+                                               
+                                              </select>
+                                      </div>
                                     
                                     
                                     </div>
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button class="btn btn-primary" type="submit">MODIFICAR</button>
-                                        <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
+                                        <button class="btn btn-primary" type="submit" title="Guardar Cambios" >
+                                        <span class="far fa-save"> GUARDAR</span>
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
+                                        <span class="far fa-window-close"> CANCELAR</span>
+                                      </button>
+
                                     </div>
                         <?php
                         echo form_close();
                         }
 
-                    ?>              
-            </div> 
+                    ?>
+              
+            </div>
 
-            <!-- formulario para cuenta  -->
+            
+
+
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">CAMBIE USUARO Y CONTRASEÑA</h3>
-              </div>                             
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+
+                                   
 
               <?php
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($infousuario-> result() as $row) 
                     {
-                        echo form_open_multipart('usuario_per/modificarLoguin')
+                        echo form_open_multipart('usuario_per/modificarLoguinAdmin')
                         ?>
                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                        <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
                 <div class="card-body">
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario:</label>
-                    <div class="col-sm-4">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Usuario:</label>
+                    <div class="col-sm-5">
                       <input type="text" class="form-control" name="login"  placeholder="Nuevo Usuario">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password:</label>
-                    <div class="col-sm-4">
+                    <label for="inputPassword3" class="col-sm-4 col-form-label">Password:</label>
+                    <div class="col-sm-5">
                       <input type="text" class="form-control" name='password' placeholder="Nueva Contraseña">
                     </div>
                   </div>
@@ -116,8 +157,13 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info">GUARDAR CAMBIOS</button>
-                  <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
+                  <button type="submit" class="btn btn-info" title="Guardar Cambios" >
+                  <span class="far fa-save"> GUARDAR CAMBIOS</span>
+
+                  </button>
+                  <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
+                  <span class="far fa-window-close"> CANCELAR</span>
+                  </button>
                 </div>
                 <?php
                         echo form_close();
@@ -126,16 +172,19 @@
                     ?> 
                 <!-- /.card-footer -->
               
-            </div>   
+            </div>  
 
+
+
+
+
+
+        
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>   
-        <!-- /.content -->
+    </section>
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-
-
-
+  

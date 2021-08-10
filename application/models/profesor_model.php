@@ -42,7 +42,8 @@ class Profesor_model extends CI_Model {
         //metodo q ara la consulta para eliminar profesor
         public function eliminarProfesor($idUsuario)
         {
-                $datos = ['estado' => '0',];
+                $datos = ['estado' => '0'];
+                // $datos = ['idUsuario_Acciones' => $idUsuario_Acciones];
                 $this-> db-> where ('idUsuario', $idUsuario);
                 $this-> db-> update ('usuario', $datos);
 

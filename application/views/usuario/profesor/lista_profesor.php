@@ -121,6 +121,7 @@
                                                         echo form_open_multipart('profesor/eliminarProf')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                    <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
                                                     <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
                                                     <span class="fas fa-trash-alt"></span>
                                                     </button>

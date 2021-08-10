@@ -27,6 +27,8 @@ class Usuarioper_model extends CI_Model {
         //consulta para el modificado de datos de lso esudiantes o actualizacion de datos
         public function modificarUsuario($idUsuario,$data)
 	{
+                
+                
                 $this->db->where('IdUsuario',$idUsuario);
                 $this->db->update('usuario',$data);
         // return $this->db->get();
@@ -52,7 +54,8 @@ class Usuarioper_model extends CI_Model {
         }
 
 
-        public function HabilUsuario($idUsuario){
+        public function HabilUsuario($idUsuario,$idUsuario_Acciones){
+            $datos = ['idUsuario_Acciones' => $idUsuario_Acciones,];
             $datos = ['estado' => '1',];
             $this-> db-> where ('IdUsuario', $idUsuario);
             $this-> db-> update ('usuario', $datos); 
@@ -60,6 +63,7 @@ class Usuarioper_model extends CI_Model {
 
         public function bajaUsuario($idUsuario){
             $datos = ['estado' => '0',];
+           // $datos = ['idUsuario_Acciones' => $idUsuario_Acciones];
             $this-> db-> where ('IdUsuario', $idUsuario);
             $this-> db-> update ('usuario', $datos); 
         }

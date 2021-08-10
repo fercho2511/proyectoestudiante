@@ -25,7 +25,7 @@
                     <?php
                                         echo form_open_multipart('usuario/logout');
                                         ?>
-                                        <button type="submit" class="btn btn-danger btn-block" >SALIR/<?php echo $this->session->userdata('login')?> </button>
+                                        <button type="submit" class="btn btn-outline-info" >SALIR/<?php echo $this->session->userdata('login')?> </button>
                                         <?php
                                             echo form_close();
                                          ?>
@@ -143,6 +143,7 @@
                   <p>Gestion</p>
                 </a>
               </li>
+              
             </ul>
           </li>
                         

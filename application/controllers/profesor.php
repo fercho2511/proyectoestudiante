@@ -68,7 +68,9 @@ class Profesor extends CI_Controller {
         $data['telefono']=$_POST['telefono'];
         $data['direccion']=$_POST['direccion'];
         $data['correo']=$_POST['correo'];
-        $data['rol']=$_POST['rol'];        
+        $data['rol']=$_POST['rol'];    
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+    
         $this->profesor_model->modificarProfesor($idUsuario,$data); //ahora la consula
         redirect('profesor/test','refresh'); //esta linea ya realiza la actualizacion
     }
@@ -114,10 +116,12 @@ class Profesor extends CI_Controller {
 		$this->load->view('inc_fin.php'); 
      ya q solo lo eliminara*/
      public function  eliminarProf()
-     {
+     {       
         $idUsuario=$_POST['idUsuario'];  // llega el id desde el campo hiden del formulario
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
+        //  $idUsuario_Acciones=$_POST['idUsuario_Acciones'];
+
         $this->profesor_model->eliminarProfesor($idUsuario); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
