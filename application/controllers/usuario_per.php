@@ -55,7 +55,7 @@ class Usuario_per extends CI_Controller {
         $data['direccion']=$_POST['direccion'];
         $data['correo']=$_POST['correo'];
         $data['rol']=$_POST['rol'];
-       // $data['fechaRegistro']=$_POST['fechaRegistro'];
+       // $data['fechaModificacion']=$_POST['CURRENT_TIMESTAMP'];
        // $data['estado']=$_POST['estado'];
 
         $this->usuarioper_model->modificarUsuario($idUsuario,$data);

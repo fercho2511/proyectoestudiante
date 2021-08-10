@@ -50,8 +50,7 @@
                                                 <th>Telefono</th>
                                                 <th>Correo</th>
                                                 <th>Foto</th>
-                                                <th>Modificar</th>
-                                                <th>Eliminar</th>
+                                                <th>Acciones</th>
 
                                             </tr>
                                         </thead>
@@ -99,6 +98,9 @@
                                                 </td>
 
                                                 <td>
+                                                <div class="btn-group btn-group-justified" >
+
+
                                                     <?php
                                                         echo form_open_multipart('profesor/modificar')
                                                     ?>
@@ -107,8 +109,7 @@
                                                     <?php
                                                         echo form_close();
                                                     ?>
-                                                </td>
-                                                <td>
+
                                                     <?php
                                                         echo form_open_multipart('profesor/eliminarProf')
                                                     ?>
@@ -117,8 +118,8 @@
                                                     <?php
                                                         echo form_close();
                                                     ?>
+                                                </div>
                                                 </td>
-
                                             </tr>
                         <?php
                         $indice++;
@@ -133,8 +134,7 @@
                                                 <th>Telefono</th>
                                                 <th>Correo</th>
                                                 <th>Foto</th>
-                                                <th>Modificar</th>
-                                                <th>Eliminar</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>

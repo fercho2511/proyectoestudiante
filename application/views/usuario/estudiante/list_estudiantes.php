@@ -43,8 +43,7 @@
                                                 <!-- <th>Padre</th>
                                                 <th>Tutor</th> -->
                                                 <th>Foto</th>
-                                                <th>Modificar</th>
-                                                <th>Eliminar</th>
+                                                <th>Acciones</th>
 
                                             </tr>
                                         </thead>
@@ -95,7 +94,8 @@
 
                                                 
                                                 <td>
-                                                    <?php
+                                                <div class="btn-group btn-group-justified" >
+                                                <?php
                                                         echo form_open_multipart('estudiante/modificar')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
@@ -103,17 +103,20 @@
                                                     <?php
                                                         echo form_close();
                                                     ?>
-                                                </td>
-                                                <td>
-                                                    <?php
+
+                                                <?php
                                                         echo form_open_multipart('estudiante/eliminarEst')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-danger btn-xs" >Eliminar++</button>
+                                                    <button type="submit" class="btn btn-danger btn-xs" >Eliminar</button>
                                                     <?php
                                                         echo form_close();
                                                     ?>
-                                                </td>
+
+                                                </div>
+
+
+
 
                                             </tr>
                         <?php
@@ -130,8 +133,7 @@
                                                 <!-- <th>Padre</th>
                                                 <th>Tutor</th> -->
                                                 <th>Foto</th>
-                                                <th>Modificar</th>
-                                                <th>Eliminar</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>

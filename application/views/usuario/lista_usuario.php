@@ -79,9 +79,11 @@
                                                 <td><?php echo $row->login;?></td>
                                                 <td><?php echo $row->password;?></td>
                                                 <td>
+                                                    <div class="btn-group btn-group-justified" >
                                                     <?php
                                                         echo form_open_multipart('usuario_per/modificar')
                                                     ?>
+                                                    
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <button type="submit" class="btn btn-primary btn-xs"  >Modificar</button>
                                                     <?php
@@ -114,6 +116,10 @@
                                                     <?php
                                                         echo form_close();
                                                     ?>
+                                                        
+
+                                                    </div>
+                                                    
                                                 </td>
 
                                                 <td><?php echo $row->estado;?></td>

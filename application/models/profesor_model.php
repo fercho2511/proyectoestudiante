@@ -11,6 +11,8 @@ class Profesor_model extends CI_Model {
                 $this->db->select('*');
                 $this->db->from('usuario');
                 $this->db->where('rol','profesor');
+                $this->db->where('estado','1');
+
                 return $this->db->get();
 	}
 
@@ -33,15 +35,19 @@ class Profesor_model extends CI_Model {
 
         public function agregarProfesor($data)
 	{
-                $this->db->insert('Profesor',$data); // aca la clave ses construir bien data, q va a contener
+                $this->db->insert('usuario',$data); // aca la clave ses construir bien data, q va a contener
 	}
 
 
         //metodo q ara la consulta para eliminar profesor
-        public function eliminarProfesor($idProfesor)
+        public function eliminarProfesor($idUsuario)
         {
-                $this->db->where('IdProfesor',$idProfesor);
-                $this->db->delete('Profesor'); //con esto se elimina el registro de mi tabla
+                $datos = ['estado' => '0',];
+                $this-> db-> where ('idUsuario', $idUsuario);
+                $this-> db-> update ('usuario', $datos);
+
+               // $this->db->where('idUsuario',$idUsuario);
+                //$this->db->delete('Profesor'); //con esto se elimina el registro de mi tabla
         }
 
 

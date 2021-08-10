@@ -12,6 +12,8 @@ class Estudiante_model extends CI_Model {
                 $this->db->select('*');
                 $this->db->from('usuario');
                 $this->db->where('rol','estudiante');
+                $this->db->where('estado','1');
+
                 return $this->db->get();
 	}
 
@@ -46,8 +48,12 @@ class Estudiante_model extends CI_Model {
 
         public function eliminarEstudiante($idUsuario)
         {
-                $this->db->where('idUsuario',$idUsuario);
-                $this->db->delete('usuario'); //con esto se elimina el registro de mi tabla
+                $datos = ['estado' => '0',];
+                $this-> db-> where ('idUsuario', $idUsuario);
+                $this-> db-> update ('usuario', $datos);
+
+                //$this->db->where('idUsuario',$idUsuario);
+               // $this->db->delete('usuario'); //con esto se elimina el registro de mi tabla
         }
 
 
