@@ -4,14 +4,17 @@
 
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
+      <b>Version</b> 1.0
     </div>
-    <strong>DESALLORADO POR FERNANDO SILVA LEYTON &copy; 2021-2025 </strong> All rights reserved.
+    <strong>Desarrolado por Fernando Silva Leyton &copy; 2021-2025 </strong> Derechos Reservados.
   </footer>
 
-
-
-
+ 
+<!-- jQuery -->
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url(); ?>adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<!-- AdminLTE for demo purposes -->
 
 
   <!-- Control Sidebar -->

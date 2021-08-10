@@ -11,7 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | DataTables</title>
-
+  
+ <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/fontawesome/css/all.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -55,13 +56,112 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>adminLTE/dist/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>adminLTE/dist/css/main.css">
 
+  
+<style>
+  [class*="sidebar-dark-"] {
+    background-color: #121441;
+    
+}
+
+</style>
+<style>
+body {
+    margin: 0;
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 15px;
+    font-weight: 50;
+    line-height: 1.5;
+    color: #26778d;
+    text-align: left;
+    background-color: #121441;
+}
+</style>
+<style>
+  .main-footer {
+    background-color: #121441;
+    border-top: 1px solid #dee2e6;
+    color: #f0f0f0;
+    padding: 1rem;
+
+}
+</style>
+<style>
+  .navbar-white {
+    background-color: #242880;
+    color: #121441;
+}
+</style>
+<style>
+ 
+</style>
+<style>
+footer {
+    position: fixed;
+    height: 38px;
+    bottom: 0;
+    width: 100%;
+}
+</style>
+<style>
+  .sidebar {
+    
+    position: fixed;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+</style>
+<style>
+
+.navbar {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1037;
+}
+</style>
+<style>
+  .layout-navbar-fixed .wrapper .brand-link {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    transition: width .3s ease-in-out;
+    width: 250px;
+    z-index: 1035;
+}
+</style>¨
+<style>
+  .layout-navbar-fixed .wrapper .content-wrapper {
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+</style>
+<style>
+.brand-link{    
+    position: fixed;
+   
+}
+</style>
+<style>
+  
+elemento {
+
+}
+.content-header {
+
+    padding: 50px ;
+    margin-bottom: 0px;
+
+}
+</style>
 
 
 
 
 
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" 
+ >
 <div class="wrapper">
 
 

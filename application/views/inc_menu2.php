@@ -1,3 +1,9 @@
+<style>
+      .sidebar-dark-blue{
+        background: #455279 !important;
+      }
+        </style>
+ 
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
@@ -45,14 +51,18 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?php echo base_url(); ?>adminLTE/dist/img/usuarioAdmin.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
+                      <!-- aca biene la imagen de usuario -->
+                      
+                        <!-- <img src="<?php echo base_url(); ?>adminLTE/dist/img/usuarioAdmin.jpg" class="img-circle elevation-2" alt="User Image"> -->
+                        <img src="<?php echo base_url(); ?>adminLTE/dist/img/userlogo.png" class="img-circle elevation-2" alt="User Image">
+
+                      </div>
                     <div class="info">
                         <a href="#" class="d-block"><?php echo $this->session->userdata('login')?> </a>
                     </div>
                 </div>
 
-             `   <div class="form-inline">
+             <!-- `   <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
@@ -61,7 +71,7 @@
             </button>
                         </div>
                     </div>
-                </div>`
+                </div>` -->
 
 
 
@@ -75,7 +85,7 @@
                       <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/usuario_per/test" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Usuarios</p>
+                                        <p>Administrador</p>
                                       </a>
                       </li>
                       <!-- <li class="nav-item">

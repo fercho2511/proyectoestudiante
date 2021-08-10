@@ -13,10 +13,7 @@
             <h1>FORMULARIO </h1>
           </div>
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">General Form</li>
-            </ol>
+            
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -104,8 +101,12 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button class="btn btn-primary" type="submit">MODIFICAR</button>
-                                        <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
+                                        <button class="btn btn-primary" type="submit" title="Guardar Cambios" >
+                                        <span class="far fa-save"> GUARDAR</span>
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
+                                        <span class="far fa-window-close"> CANCELAR</span>
+                                      </button>
 
                                     </div>
                         <?php
@@ -137,14 +138,14 @@
                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                 <div class="card-body">
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario:</label>
-                    <div class="col-sm-4">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Usuario:</label>
+                    <div class="col-sm-5">
                       <input type="text" class="form-control" name="login"  placeholder="Nuevo Usuario">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password:</label>
-                    <div class="col-sm-4">
+                    <label for="inputPassword3" class="col-sm-4 col-form-label">Password:</label>
+                    <div class="col-sm-5">
                       <input type="text" class="form-control" name='password' placeholder="Nueva Contraseña">
                     </div>
                   </div>
@@ -152,8 +153,13 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info">GUARDAR CAMBIOS</button>
-                  <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
+                  <button type="submit" class="btn btn-info" title="Guardar Cambios" >
+                  <span class="far fa-save"> GUARDAR CAMBIOS</span>
+
+                  </button>
+                  <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
+                  <span class="far fa-window-close"> CANCELAR</span>
+                  </button>
                 </div>
                 <?php
                         echo form_close();

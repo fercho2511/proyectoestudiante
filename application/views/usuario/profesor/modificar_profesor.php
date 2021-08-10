@@ -1,19 +1,19 @@
 
 
   <!-- Content Wrapper. Contains page content -->
+  <br>
+  <br>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+            
             <h1>FORMULARIO </h1>
           </div>
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">General Form</li>
-            </ol>
+            
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -97,8 +97,12 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button class="btn btn-primary" type="submit">MODIFICAR</button>
-                                        <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
+                                        <button class="btn btn-primary" type="submit"title="Guardar" >
+                                        <span class="far fa-save"> GUARDAR CAMBIOS</span>
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
+                                        <span class="far fa-window-close"> CANCELAR</span>
+                                      </button>
 
                                     </div>
                         <?php

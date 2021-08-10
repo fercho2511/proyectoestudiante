@@ -10,7 +10,10 @@
                         <?php
                                             echo form_open_multipart('estudiante/agregar')//llegaremos asta estudiante.php y e metodo agregar
                                         ?>
-                                            <button type="submit" class="btn btn-block btn-info btn-lg" >Agregar Estudiante</button>
+                                            <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
+                                            <span class="fas fa-user-plus"> Agregar Usuario</span>
+
+                                            </button>
                                         <?php
                                             echo form_close();
                                     ?>
@@ -85,7 +88,9 @@
                                                                 echo form_open_multipart('estudiante/subirFoto')
                                                             ?>
                                                             <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                            <button type="submit" class="btn btn-primary btn-xs" >subir</button>
+                                                            <button type="submit" class="btn btn-primary btn-xs" title="Subir" >
+                                                            <span class="fas fa-file-upload"></span>
+                                                            </button>
                                                             <?php
                                                                 echo form_close();
                                                         ?>
@@ -99,7 +104,10 @@
                                                         echo form_open_multipart('estudiante/modificar')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs"  >Modificar</button>
+                                                    <button type="submit" class="btn btn-primary btn-xs" title="Modificar">
+                                                    <span class="fas fa-user-edit"></span>
+
+                                                    </button>
                                                     <?php
                                                         echo form_close();
                                                     ?>
@@ -108,7 +116,10 @@
                                                         echo form_open_multipart('estudiante/eliminarEst')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-danger btn-xs" >Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
+                                                    <span class="fas fa-trash-alt"></span>
+
+                                                    </button>
                                                     <?php
                                                         echo form_close();
                                                     ?>

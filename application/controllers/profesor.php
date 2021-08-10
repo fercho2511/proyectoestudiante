@@ -58,14 +58,18 @@ class Profesor extends CI_Controller {
     public function modificarProf()
     {
       
-        $idProfesor=$_POST['idProfesor'];
-        $data['nombre']=$_POST['nombre'];
-        $data['primerApellido']=$_POST['apPaterno'];
-        $data['segundoApellido']=$_POST['apMaterno'];
+        $idUsuario=$_POST['idUsuario'];
+        $data['nombres']=$_POST['nombres'];
+        $data['apellidoPaterno']=$_POST['apellidoPaterno'];
+        $data['apellidoMaterno']=$_POST['apellidoMaterno'];
+        $data['fechaNacimiento']=$_POST['fechaNacimiento'];
+        $data['sexo']=$_POST['sexo'];
         $data['ci']=$_POST['ci'];
         $data['telefono']=$_POST['telefono'];
-        $data['correo']=$_POST['correo'];        
-        $this->profesor_model->modificarProfesor($idProfesor,$data); //ahora la consula
+        $data['direccion']=$_POST['direccion'];
+        $data['correo']=$_POST['correo'];
+        $data['rol']=$_POST['rol'];        
+        $this->profesor_model->modificarProfesor($idUsuario,$data); //ahora la consula
         redirect('profesor/test','refresh'); //esta linea ya realiza la actualizacion
     }
 

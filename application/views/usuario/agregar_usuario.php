@@ -20,10 +20,7 @@
             <h1>FORMULARIO </h1>
           </div>
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">General Form</li>
-            </ol>
+            
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -66,7 +63,7 @@
                                                 <label class="form-label">Fecha Nacimiento</label>
                                                 <input type="date" class="form-control" name='fechaNacimiento'  placeholder="Ingrese Fecha Nacimiento" >
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" >
                                               <label for="">sexo:</label>
                                               <select class="form-control" name="sexo" >
                                                 <option>M</option>
@@ -89,10 +86,8 @@
                                                 <label class="form-label">Direccion</label>
                                                 <input type="text" class="form-control" name='direccion'  placeholder="Ingrese Direccion" >
                                             </div>
-                                            <div>
-                                            <label class="form-label">Direccion</label>
-                                                <input type="hiden" class="form-control" name='user'  value='<?php echo $this->session->userdata('idUsuario')?>' >                                           
-                                            </div>
+                                            
+                                            
 
                                             <div class="form-group">
                                               <label for="">Rol:</label>
@@ -111,8 +106,12 @@
 
 
                                             <div class="card-footer">
-                                                <button class="btn btn-primary" type="submit">REGISTRAR</button>
-                                                <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
+                                                <button class="btn btn-primary" type="submit" title="Registrar" >
+                                                <span class="fas fa-clipboard-check"> REGISTRAR</span>
+                                                </button>
+                                                <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
+                                                <span class="far fa-window-close"> CANCELAR</span>
+                                              </button>
 
                                              </div>
                                                 <?php
