@@ -64,7 +64,8 @@
             <!-- Brand Logo -->
             <a href="../../index3.html" class="brand-link">
                 <img src="<?php echo base_url(); ?>adminLTE/dist/img/2.png" alt="AdminLTE Logo"  class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">BIENBENIDO</span>
+                <span class="brand-text font-weight-light">Administrador </span>
+
             </a>
 
             <div class="sidebar">
@@ -120,42 +121,32 @@
                             </ul>
                         </li> -->
                         
-
-
 <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                USUARIO
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>index.php/usuario_per/test" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Usuarios</p>
+                </a>
+</li>
+ <li class="nav-item">
                 <a href="<?php echo base_url(); ?>index.php/administrador/test" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Administrador</p>
                 </a>
-              </li>
-              <li class="nav-item">
+</li>
+<li class="nav-item">
                 <a href="<?php echo base_url(); ?>index.php/profesor/test" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profesor</p>
                 </a>
-              </li>
-              <li class="nav-item">
+</li>
+<li class="nav-item">
                 <a href="<?php echo base_url(); ?>index.php/estudiante/test" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Estudiante</p>
                 </a>
-              </li>
-              
-            </ul>
-
-
-
-
-
+</li>
+<li class="nav-item">
+          
            <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>

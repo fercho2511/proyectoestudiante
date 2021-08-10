@@ -91,18 +91,18 @@
                     <?php
                          echo form_open_multipart('usuario/logout');
                          ?>
-                          <button type="submit" class="btn btn-outline-secondary" >SALIR</button>
+                          <button type="submit" class="btn btn-outline-secondary" >Cerrar Sesion/<?php echo $this->session->userdata('login')?></button>
                           <?php
                               echo form_close();
                           ?>
-                    <?php
-                         echo form_open_multipart('usuario_per/gestionar_usu2');
+                    <!-- <?php
+                         echo form_open_multipart('usuario_per/gestionar');
                           ?>
                           <input type="hidden" name="idUsuario" value="<?php echo $this->session->userdata('idUsuario')?>">
                            <button type="submit" class="btn btn-outline-secondary" >Gestionar Cuenta/<?php echo $this->session->userdata('login')?> </button>
                          <?php
                              echo form_close();
-                     ?>
+                     ?> -->
                 </div>
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
@@ -150,7 +150,7 @@
             <!-- Brand Logo -->
             <a href="../../index3.html" class="brand-link">
                 <img src="<?php echo base_url(); ?>adminLTE/dist/img/2.png" alt="AdminLTE Logo"  class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Profesor</span>
+                <span class="brand-text font-weight-light">Estudiante</span>
             </a>
 
             <!-- Sidebar -->
@@ -161,7 +161,7 @@
                         <img src="<?php echo base_url(); ?>adminLTE/dist/img/userlogo.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?php echo $this->session->userdata('login')?> </a>
+                        <a href="#" class="d-block">Estudiante <?php echo $this->session->userdata('login')?> </a>
                     </div>
                 </div>
 
@@ -187,36 +187,36 @@
 
                         
                         <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    REGISTROS
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
+                            
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="../tables/simple.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Cursos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../tables/data.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Estudiantes</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../tables/jsgrid.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Materias</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../tables/jsgrid.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
                                         <p>Notas</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../tables/data.html"  class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Actividades Curriculares</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../tables/jsgrid.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Avisos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../tables/jsgrid.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Reuniones</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../tables/jsgrid.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Licencia</p>
                                     </a>
                                 </li>
                             </ul>

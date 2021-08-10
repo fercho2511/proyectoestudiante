@@ -3,7 +3,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>USUARIOS REGISTRADOS</h1>
+                            <h1>Administradores Registrados</h1>
                            
                         </div>
 
@@ -43,15 +43,11 @@
                                         <thead>
                                             <tr>
                                                 <th>N°</th>
-                                                <th>Nombre Completo</th>      
-                                                <th>Sexo</th>                                              
-                                                <th>Telefono</th> 
-                                                <th>Direccion</th>  
-                                                <th>Correo</th> 
-                                                <th>rol</th>                                            
-                                                 <th>Fecha Nacimiento</th>
+                                                <th>Nombre Completo</th>                                              
+                                                <th>Fecha Nacimiento</th>
                                                 <th>Login</th>
                                                 <th>Password</th>
+                                                <th>rol</th>                                                
                                                 <th>Acciones</th>
                                                 <th>Estado</th>
 
@@ -70,14 +66,11 @@
                                                     <?php echo $row->apellidoPaterno;?>
                                                     <?php echo $row->apellidoMaterno;?>
                                                 </td>
-                                                <td><?php echo $row->sexo;?></td>
-                                                <td><?php echo $row->telefono;?></td>
-                                                <td><?php echo $row->direccion;?></td>
-                                                <td><?php echo $row->correo;?></td>
-                                                <td><?php echo $row->rol;?></td>
                                                 <td><?php echo $row->fechaNacimiento;?></td>
                                                 <td><?php echo $row->login;?></td>
                                                 <td><?php echo $row->password;?></td>
+                                                <td><?php echo $row->rol;?></td>
+
                                                 <td>
                                                     <?php
                                                         echo form_open_multipart('usuario_per/modificar')
@@ -127,16 +120,13 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                            <th>N°</th>
-                                                <th>Nombre Completo</th>      
-                                                <th>Sexo</th>                                              
-                                                <th>Telefono</th> 
-                                                <th>Direccion</th>  
-                                                <th>Correo</th>  
+                                                <th>N°</th>
+                                                <th>Nombre Completo</th>
+                                                
                                                 <th>Fecha Nacimiento</th>
-                                                <th>rol</th>                                              
                                                 <th>Login</th>
                                                 <th>Password</th>
+                                                <th>rol</th>                                                
                                                 <th>Acciones</th>
                                                 <th>Estado</th>
                                             </tr>

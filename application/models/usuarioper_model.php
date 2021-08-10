@@ -36,7 +36,9 @@ class Usuarioper_model extends CI_Model {
         //lo importante es lo q contenga data
         public function agregarUsuario($data)
 	{
+              
                 $this->db->insert('usuario',$data); // aca la clave ses construir bien data, q va a contener
+
         // return $this->db->get();
 	}
 

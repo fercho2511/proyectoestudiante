@@ -10,25 +10,26 @@ class Estudiante_model extends CI_Model {
 	public function lista()
 	{
                 $this->db->select('*');
-                $this->db->from('Estudiante');
+                $this->db->from('usuario');
+                $this->db->where('rol','estudiante');
                 return $this->db->get();
 	}
 
         //consulta para obtener la lista de estudiantes
-        public function obtenerEstudiante($idEstudiante)
+        public function obtenerEstudiante($idUsuario)
 	{
                 $this->db->select('*');
-                $this->db->from('Estudiante');
-                $this->db->where('IdEstudiante',$idEstudiante);
+                $this->db->from('usuario');
+                $this->db->where('idUsuario',$idUsuario);
                 return $this->db->get();
 	}
 
 
         //consulta para el modificado de datos de lso esudiantes o actualizacion de datos
-        public function modificarEstudiante($idEstudiante,$data)
+        public function modificarEstudiante($idUsuario,$data)
 	{
-                $this->db->where('IdEstudiante',$idEstudiante);
-                $this->db->update('Estudiante',$data);
+                $this->db->where('idUsuario',$idUsuario);
+                $this->db->update('usuario',$data);
         // return $this->db->get();
 	}
 
@@ -36,17 +37,17 @@ class Estudiante_model extends CI_Model {
         //lo importante es lo q contenga data
         public function agregarEstudiante($data)
 	{
-                $this->db->insert('Estudiante',$data); // aca la clave ses construir bien data, q va a contener
+                $this->db->insert('usuario',$data); // aca la clave ses construir bien data, q va a contener
         // return $this->db->get();
 	}
 
 
         //metodo q ara la consulta para eliminar estudiante
 
-        public function eliminarEstudiante($idEstudiante)
+        public function eliminarEstudiante($idUsuario)
         {
-                $this->db->where('IdEstudiante',$idEstudiante);
-                $this->db->delete('Estudiante'); //con esto se elimina el registro de mi tabla
+                $this->db->where('idUsuario',$idUsuario);
+                $this->db->delete('usuario'); //con esto se elimina el registro de mi tabla
         }
 
 

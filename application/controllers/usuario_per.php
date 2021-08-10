@@ -50,6 +50,7 @@ class Usuario_per extends CI_Controller {
         $data['apellidoMaterno']=$_POST['apellidoMaterno'];
         $data['fechaNacimiento']=$_POST['fechaNacimiento'];
         $data['sexo']=$_POST['sexo'];
+        $data['ci']=$_POST['ci'];
         $data['telefono']=$_POST['telefono'];
         $data['direccion']=$_POST['direccion'];
         $data['correo']=$_POST['correo'];
@@ -118,12 +119,14 @@ class Usuario_per extends CI_Controller {
          $data['apellidoMaterno']=$_POST['apellidoMaterno'];
          $data['sexo']=$_POST['sexo'];
          $data['telefono']=$_POST['telefono'];
+         $data['ci']=$_POST['ci'];
          $data['direccion']=$_POST['direccion'];
          $data['fechaNacimiento']=$_POST['fechaNacimiento'];
          $data['correo']=$_POST['correo'];
          $data['login']=$_POST['nombres'];
          $data['password']=md5($_POST['nombres']);
          $data['rol']=$_POST['rol'];
+
 
          $this->usuarioper_model->agregarUsuario($data); 
 
@@ -162,7 +165,20 @@ class Usuario_per extends CI_Controller {
         $data['infousuario']=$this->usuarioper_model->obtenerUsuario($idUsuario);
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-        $this->load->view('form_usuario',$data);
+        $this->load->view('usuario/form_usuario',$data);
+        $this->load->view('inc_fin.php');
+
+
+
+    }
+
+    public function gestionar_usu2(){
+
+        $idUsuario=$_POST['idUsuario'];
+        $data['infousuario']=$this->usuarioper_model->obtenerUsuario($idUsuario);
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+        $this->load->view('usuario/form_usuario',$data);
         $this->load->view('inc_fin.php');
 
 

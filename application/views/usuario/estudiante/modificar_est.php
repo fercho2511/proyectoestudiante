@@ -45,36 +45,57 @@
                     {
                         echo form_open_multipart('estudiante/modificarEst')
                         ?>
-                        <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                        <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
 
                                     <div class="card-body">
                                     <div class="form-group">
                                         <label class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" name='nombre'  value="<?php echo $row->nombre;?>" >
+                                        <input type="text" class="form-control" name='nombres'  value="<?php echo $row->nombres;?>" >
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Apellido Paterno</label>
-                                        <input type="text" class="form-control" name='apPaterno'  value="<?php echo $row->primerApellido;?>" >
+                                        <input type="text" class="form-control" name='apellidoPaterno'  value="<?php echo $row->apellidoPaterno;?>" >
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Apellido Materno</label>
-                                        <input type="text" class="form-control" name='apMaterno'  value="<?php echo $row->segundoApellido;?>" >
+                                        <input type="text" class="form-control" name='apellidoMaterno'  value="<?php echo $row->apellidoMaterno;?>" >
                                     <div class="form-group">
-                                        <label class="form-label">C.I.</label>
-                                        <input type="text" class="form-control" name='ci'  value="<?php echo $row->ci;?>" >
+                                        <label class="form-label">Fecha Nacimiento</label>
+                                        <input type="text" class="form-control" name='fechaNacimiento'  value="<?php echo $row->fechaNacimiento;?>" >
                                     </div>
+
+
                                     <div class="form-group">
-                                        <label class="form-label">Telefono</label>
-                                        <input type="text" class="form-control" name='telefono'  value="<?php echo $row->telefono;?>" >
-                                    </div>
+                                              <label for="">sexo:</label>
+                                              <select class="form-control" name="sexo" value="<?php echo $row->sexo;?>">
+                                                <option>M</option>
+                                                <option>F</option>                                               
+                                              </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">C.I.</label>
+                                                <input type="text" class="form-control" name='ci'  value="<?php echo $row->ci;?>" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Telefono</label>
+                                                <input type="text" class="form-control" name='telefono'  value="<?php echo $row->telefono;?>" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Correo</label>
+                                                <input type="text" class="form-control" name='correo'  value="<?php echo $row->correo;?>" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Direccion</label>
+                                                <input type="text" class="form-control" name='direccion'  value="<?php echo $row->direccion;?>" >
+                                            </div>
+                                  
                                     <div class="form-group">
-                                        <label class="form-label">Nombre del Padre</label>
-                                        <input type="text" class="form-control" name='nomPadre'  value="<?php echo $row->nombrePadre;?>" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Nombre del Tutor</label>
-                                        <input type="text" class="form-control" name='nomTutor'  value="<?php echo $row->nombreTutor;?>" >
-                                    </div>
+                                              <label for="">Rol:</label>
+                                              <select class="form-control" name="rol" select="<?php echo $row->rol;?>">
+                                                <option>Estudiante</option>
+                                               
+                                              </select>
+                                      </div>
                                     
                                     
                                     </div>

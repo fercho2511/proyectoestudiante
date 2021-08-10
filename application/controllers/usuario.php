@@ -91,34 +91,46 @@ class Usuario extends CI_Controller {
         {
             if ($this->session->userdata('login') ) //consultara si hay una variable de secion
             {
-                //si hay entonces redireccionar
+
                 
-
-
-                //PARA LOS ROLES
+                $rol=$this->session->userdata('rol');
+                switch ($rol) {
+                    case 'superAdministrador':
+                        # code...
+                        //entra al menu admin
+                        //panel admin
+                        redirect('usuario_per/test','refresh
+                        ');
+                        break;
+                    case 'Profesor':
+                        # code...
+                        //entra al menu admin
+                        //panel admin
+                        redirect('profesor/test1','refresh');
+                        break;
+                    case 'Administrador':
+                        # code...
+                        //entra al menu admin
+                        //panel admin
+                        redirect('usuario_per/test','refresh');
+                        break;
+                    
+                    case 'Estudiante':
+                            # code...
+                             //entra al menu admin
+                             //panel admin
+                             redirect('estudiante/test1','refresh');
+                            break;                    
                 
-                if ($this->session->userdata('rol')=='administrador')
-                {
-                    //entra al menu admin
-                    //panel admin
-                    redirect('usuario_per/test','refresh');
+                //si hay entonces redireccionar                
+                //PARA LOS ROLES            
 
-                    
-                }
-                else
-                {
-                        redirect('estudiante/test','refresh');
-                    
-                    //menu inv
-                    //panel inv
-                    
-                }
-
-                //si son mas roles se puede usar un swich par amas faciliad
+             
+             }
                 
-            
             }
-            else {
+            else
+            {
                 //sino redireccionamos a index 2 en el urisegment
                 redirect('usuario/index/2','refresh');
             }

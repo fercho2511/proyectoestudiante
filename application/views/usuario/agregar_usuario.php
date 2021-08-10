@@ -74,6 +74,10 @@
                                               </select>
                                             </div>
                                             <div class="form-group">
+                                                <label class="form-label">C.I.</label>
+                                                <input type="text" class="form-control" name='ci'  placeholder="Ingrese C.I." >
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="form-label">Telefono</label>
                                                 <input type="text" class="form-control" name='telefono'  placeholder="Ingrese telefono" >
                                             </div>
@@ -85,26 +89,11 @@
                                                 <label class="form-label">Direccion</label>
                                                 <input type="text" class="form-control" name='direccion'  placeholder="Ingrese Direccion" >
                                             </div>
-
-            
-
-
-                                              
-
-                                            
-  
-                                            <!-- <div class="form-group">
-                                                <<label class="form-label">Login</>
-                                                <input type="text" class="form-control" name='login'  placeholder="Ingrese login" >
+                                            <div>
+                                            <label class="form-label">Direccion</label>
+                                                <input type="hiden" class="form-control" name='user'  value='<?php echo $this->session->userdata('idUsuario')?>' >                                           
                                             </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Password</label>
-                                                <input type="text" class="form-control" name='password'  placeholder="Ingrese password">
-                                            </div> -->
-                                            <!-- <div class="form-group">
-                                                <label class="form-label">Tipo</label>
-                                                <input type="text" class="form-control" name='tipo'  placeholder="Ingrese tipo">
-                                            </div> -->
+
                                             <div class="form-group">
                                               <label for="">Rol:</label>
                                               <select class="form-control" name="rol" >
@@ -114,6 +103,11 @@
                                                
                                               </select>
                                             </div>
+                                            
+
+
+
+                                            
 
 
                                             <div class="card-footer">

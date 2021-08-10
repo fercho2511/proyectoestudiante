@@ -6,11 +6,14 @@
                             <h1>Estudiantes Registrados</h1>
                            
                         </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">DataTables</li>
-                            </ol>
+                        <div class="col-sm-3">
+                        <?php
+                                            echo form_open_multipart('estudiante/agregar')//llegaremos asta estudiante.php y e metodo agregar
+                                        ?>
+                                            <button type="submit" class="btn btn-block btn-info btn-lg" >Agregar Estudiante</button>
+                                        <?php
+                                            echo form_close();
+                                    ?>
                         </div>
                     </div>
                 </div>
@@ -26,15 +29,7 @@
                                   <?php
                                 ?>
                                 </div>
-                                    <div>
-                                    <?php
-                                            echo form_open_multipart('estudiante/agregar')//llegaremos asta estudiante.php y e metodo agregar
-                                        ?>
-                                            <button type="submit" class="btn btn-block btn-info btn-lg" >Agregar Estudiante</button>
-                                        <?php
-                                            echo form_close();
-                                    ?>                                     
-                                    </div>
+                                   
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     
@@ -42,13 +37,11 @@
                                         <thead>
                                             <tr>
                                                 <th>N°</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido Paterno</th>
-                                                <th>Apellido Matrno</th>
+                                                <th>Nombre Completo</th>                                               
                                                 <th>C.I.</th>
                                                 <th>Telefono</th>
-                                                <th>Padre</th>
-                                                <th>Tutor</th>
+                                                <!-- <th>Padre</th>
+                                                <th>Tutor</th> -->
                                                 <th>Foto</th>
                                                 <th>Modificar</th>
                                                 <th>Eliminar</th>
@@ -63,13 +56,14 @@
                         ?>
                                             <tr>
                                                 <td><?php echo $indice;?></td>
-                                                <td><?php echo $row->nombre;?></td>
-                                                <td><?php echo $row->primerApellido;?></td>
-                                                <td><?php echo $row->segundoApellido;?></td>
+                                                <td><?php echo $row->nombres;?>
+                                                        <?php echo $row->apellidoPaterno;?>
+                                                        <?php echo $row->apellidoMaterno;?>
+                                                </td>
                                                 <td><?php echo $row->ci;?></td>
                                                 <td><?php echo $row->telefono;?></td>
-                                                <td><?php echo $row->nombrePadre;?></td>
-                                                <td><?php echo $row->nombreTutor;?></td>
+                                                <!-- <td><?php echo $row->nombrePadre;?></td> -->
+                                                <!-- <td><?php echo $row->nombreTutor;?></td> -->
                                                 <td>
                                                         <?php
                                                         $foto=$row->foto;
@@ -91,7 +85,7 @@
                                                         <?php
                                                                 echo form_open_multipart('estudiante/subirFoto')
                                                             ?>
-                                                            <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                                                            <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                             <button type="submit" class="btn btn-primary btn-xs" >subir</button>
                                                             <?php
                                                                 echo form_close();
@@ -104,7 +98,7 @@
                                                     <?php
                                                         echo form_open_multipart('estudiante/modificar')
                                                     ?>
-                                                    <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <button type="submit" class="btn btn-primary btn-xs"  >Modificar</button>
                                                     <?php
                                                         echo form_close();
@@ -114,7 +108,7 @@
                                                     <?php
                                                         echo form_open_multipart('estudiante/eliminarEst')
                                                     ?>
-                                                    <input type="hidden" name="idEstudiante" value="<?php echo $row->IdEstudiante;?>">
+                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <button type="submit" class="btn btn-danger btn-xs" >Eliminar++</button>
                                                     <?php
                                                         echo form_close();
@@ -130,13 +124,11 @@
                                         <tfoot>
                                             <tr>
                                                 <th>N°</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido Paterno</th>
-                                                <th>Apellido Matrno</th>
+                                                <th>Nombre Completo</th>                                              
                                                 <th>C.I.</th>
                                                 <th>Telefono</th>
-                                                <th>Padre</th>
-                                                <th>Tutor</th>
+                                                <!-- <th>Padre</th>
+                                                <th>Tutor</th> -->
                                                 <th>Foto</th>
                                                 <th>Modificar</th>
                                                 <th>Eliminar</th>

@@ -26,6 +26,17 @@ class Estudiante extends CI_Controller {
 		$this->load->view('inc_fin.php');
 
 	}
+    public function test1()
+	{
+        //cargara la list de estudiantes
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu1.php');
+		$this->load->view('usuario/estudiante/estudiante_vista',$data);
+		$this->load->view('inc_fin.php');
+
+	}
 
     //haciendo click en modificar nos estar traendo asta este metodo 
     //para realizar las siguientes acciones
@@ -35,8 +46,8 @@ class Estudiante extends CI_Controller {
 
        public function modificar()
     {
-        $idEstudiante=$_POST['idEstudiante'];
-        $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
+        $idUsuario=$_POST['idUsuario'];
+        $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idUsuario);
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
 		$this->load->view('usuario/estudiante/modificar_est',$data);
@@ -51,17 +62,19 @@ class Estudiante extends CI_Controller {
         //realizar la consulta para update
         //cargar la lista actualizada
 
-        $idEstudiante=$_POST['idEstudiante'];
-        $data['nombre']=$_POST['nombre'];
-        $data['primerApellido']=$_POST['apPaterno'];
-        $data['segundoApellido']=$_POST['apMaterno'];
-        $data['ci']=$_POST['ci'];
+        $idUsuario=$_POST['idUsuario'];
+        $data['nombres']=$_POST['nombres'];
+        $data['apellidoPaterno']=$_POST['apellidoPaterno'];
+        $data['apellidoMaterno']=$_POST['apellidoMaterno'];
+        $data['sexo']=$_POST['sexo'];
         $data['telefono']=$_POST['telefono'];
-        $data['nombrePadre']=$_POST['nomPadre'];
-        $data['nombreTutor']=$_POST['nomTutor'];
+        $data['ci']=$_POST['ci'];
+        $data['direccion']=$_POST['direccion'];
+        $data['fechaNacimiento']=$_POST['fechaNacimiento'];
+        $data['correo']=$_POST['correo'];
 
         //ahora la consula
-        $this->estudiante_model->modificarEstudiante($idEstudiante,$data);
+        $this->estudiante_model->modificarEstudiante($idUsuario,$data);
         //esta linea ya realiza la actualizacion
 
         redirect('estudiante/test','refresh');
@@ -83,13 +96,26 @@ class Estudiante extends CI_Controller {
      public function agregarEst()
      {
          //recibireos los datos del estudiante
-         $data['nombre']=$_POST['nombre'];
+         /*$data['nombre']=$_POST['nombre'];
          $data['primerApellido']=$_POST['apPaterno'];
          $data['segundoApellido']=$_POST['apMaterno'];
          $data['ci']=$_POST['ci'];
          $data['telefono']=$_POST['telefono'];
          $data['nombrePadre']=$_POST['nomPadre'];
-         $data['nombreTutor']=$_POST['nomTutor'];
+         $data['nombreTutor']=$_POST['nomTutor'];*/
+
+         $data['nombres']=$_POST['nombres'];
+         $data['apellidoPaterno']=$_POST['apellidoPaterno'];
+         $data['apellidoMaterno']=$_POST['apellidoMaterno'];
+         $data['sexo']=$_POST['sexo'];
+         $data['telefono']=$_POST['telefono'];
+         $data['ci']=$_POST['ci'];
+         $data['direccion']=$_POST['direccion'];
+         $data['fechaNacimiento']=$_POST['fechaNacimiento'];
+         $data['correo']=$_POST['correo'];
+         $data['login']=$_POST['nombres'];
+         $data['password']=md5($_POST['nombres']);
+         $data['rol']=$_POST['rol'];
 
          //dicho todo esto se ara la consulta a base de datos
          $this->estudiante_model->agregarEstudiante($data); // aca se envia el metodo del modelo 
@@ -110,10 +136,10 @@ class Estudiante extends CI_Controller {
      ya q solo lo eliminara*/
      public function  eliminarEst()
      {
-        $idEstudiante=$_POST['idEstudiante'];  // llega el id desde el campo hiden del formulario
+        $idUsuario=$_POST['idUsuario'];  // llega el id desde el campo hiden del formulario
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
-        $this->estudiante_model->eliminarEstudiante($idEstudiante); // aca se envia el metodo del modelo 
+        $this->estudiante_model->eliminarEstudiante($idUsuario); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
         redirect('estudiante/test','refresh');
@@ -122,7 +148,7 @@ class Estudiante extends CI_Controller {
 
 
      public function subirFoto(){
-        $data['idEstudiante']=$_POST['idEstudiante'];
+        $data['idUsuario']=$_POST['idUsuario'];
 
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
@@ -132,8 +158,8 @@ class Estudiante extends CI_Controller {
 
      public function subir(){
 
-        $idEstudiante=$_POST['idEstudiante'];  //estamso resepcionando el id
-        $nombrearchivo=$idEstudiante.".jpg";  //generamos un string
+        $idUsuario=$_POST['idUsuario'];  //estamso resepcionando el id
+        $nombrearchivo=$idUsuario.".jpg";  //generamos un string
 
        // 2 metadatos
        //ruta dodne se guardan lso ficheros
@@ -163,7 +189,7 @@ class Estudiante extends CI_Controller {
        }
        else{
            $data['foto']=$nombrearchivo;
-           $this->estudiante_model->modificarEstudiante($idEstudiante,$data);
+           $this->estudiante_model->modificarEstudiante($idUsuario,$data);
             //con estas dos primeras lineas actualizamos en base de datos
 
            $this->upload->data();     

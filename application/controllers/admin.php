@@ -1,102 +1,101 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profesor extends CI_Controller {
+class Estudiante extends CI_Controller {
 
 
 	public function index()
 	{
-        //cargara la list de profesores
-        $lista=$this->profesor_model->lista();
-        $data['profesor']=$lista; //otro array asociativo
+        //cargara la list de estudiantes
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
 
 		$this->load->view('inc_inicio.php');
-        
-		$this->load->view('usuario/profesor/lista_profesor',$data);
+		$this->load->view('usuario/estudiante/lista_estudiantes',$data);
 		$this->load->view('inc_fin.php');
 
 	}
     public function test()
 	{
-        //cargara la list de profesores
-        $lista=$this->profesor_model->lista();
-        $data['profesor']=$lista; //otro array asociativo
-
+        //cargara la list de estudiantes
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('usuario/profesor/lista_profesor',$data);
+		$this->load->view('usuario/estudiante/list_estudiantes',$data);
 		$this->load->view('inc_fin.php');
 
 	}
-     public function test1()
-	{
-        //cargara la list de profesores
-        $lista=$this->profesor_model->lista();
-        $data['profesor']=$lista; //otro array asociativo
 
-		$this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
-		$this->load->view('usuario/profesor/profe_vista',$data);
-        //$this->load->view('usuario/profesor/profe_vista');
-		$this->load->view('inc_fin.php');
-
-	} 
+    //haciendo click en modificar nos estar traendo asta este metodo 
+    //para realizar las siguientes acciones
+    //1 tiene q recuperar los datos del estudiantes con su id
+    //luego enviar a un formulario editable
 
 
-    public function modificar()
+       public function modificar()
     {
-        $idUsuario=$_POST['idUsuario'];
-        $data['idUsuario']=$this->profesor_model->obtenerProfesor($idUsuario);
+        $idEstudiante=$_POST['idEstudiante'];
+        $data['infoestudiante']=$this->estudiante_model->obtenerEstudiante($idEstudiante);
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('usuario/profesor/modificar_profesor',$data);
+		$this->load->view('usuario/estudiante/modificar_est',$data);
 		$this->load->view('inc_fin.php');
     }
 
 
     //aca llegara toda la informacion de la vista modificar
-    public function modificarProf()
+    public function modificarEst()
     {
-      
-        $idProfesor=$_POST['idProfesor'];
+        //aca se resepcionara las variables q estan llegando desde form
+        //realizar la consulta para update
+        //cargar la lista actualizada
+
+        $idEstudiante=$_POST['idEstudiante'];
         $data['nombre']=$_POST['nombre'];
         $data['primerApellido']=$_POST['apPaterno'];
         $data['segundoApellido']=$_POST['apMaterno'];
         $data['ci']=$_POST['ci'];
         $data['telefono']=$_POST['telefono'];
-        $data['correo']=$_POST['correo'];        
-        $this->profesor_model->modificarProfesor($idProfesor,$data); //ahora la consula
-        redirect('profesor/test','refresh'); //esta linea ya realiza la actualizacion
+        $data['nombrePadre']=$_POST['nomPadre'];
+        $data['nombreTutor']=$_POST['nomTutor'];
+
+        //ahora la consula
+        $this->estudiante_model->modificarEstudiante($idEstudiante,$data);
+        //esta linea ya realiza la actualizacion
+
+        redirect('estudiante/test','refresh');
     }
 
-  
-    public function agregar()
+    // ahora es para crear estudiante
+    //del boton q se realizo en la vista llegara a este metodo
+      public function agregar()
     {
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('usuario/profesor/agregar_profesor'); // llegaremos asta esta vista
+		$this->load->view('usuario/estudiante/agregar_est'); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }
 
     //ahora desde el formulario se agregar se viene a este metodo
     //ahora el metodo para agregar a la base de datos 
-     public function agregarProf()
+     public function agregarEst()
      {
-         //recibireos los datos del profesor
+         //recibireos los datos del estudiante
          $data['nombre']=$_POST['nombre'];
          $data['primerApellido']=$_POST['apPaterno'];
          $data['segundoApellido']=$_POST['apMaterno'];
          $data['ci']=$_POST['ci'];
          $data['telefono']=$_POST['telefono'];
-         $data['correo']=$_POST['correo'];
+         $data['nombrePadre']=$_POST['nomPadre'];
+         $data['nombreTutor']=$_POST['nomTutor'];
 
          //dicho todo esto se ara la consulta a base de datos
-         $this->profesor_model->agregarProfesor($data); // aca se envia el metodo del modelo 
+         $this->estudiante_model->agregarEstudiante($data); // aca se envia el metodo del modelo 
 
          	//despues iremso a la lista redireccionando o dandole un refresh
-             redirect('profesor/test','refresh');
-
+             redirect('estudiante/test','refresh');
 
      }
 
@@ -109,37 +108,36 @@ class Profesor extends CI_Controller {
 		$this->load->view('agregar_estudiante'); 
 		$this->load->view('inc_fin.php'); 
      ya q solo lo eliminara*/
-     public function  eliminarProf()
+     public function  eliminarEst()
      {
-        $idUsuario=$_POST['idUsuario'];  // llega el id desde el campo hiden del formulario
+        $idEstudiante=$_POST['idEstudiante'];  // llega el id desde el campo hiden del formulario
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
-        $this->profesor_model->eliminarProfesor($idUsuario); // aca se envia el metodo del modelo 
+        $this->estudiante_model->eliminarEstudiante($idEstudiante); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
-        redirect('profesor/test','refresh');
+        redirect('estudiante/test','refresh');
 
      }
 
 
-     
      public function subirFoto(){
-        $data['idUsuario']=$_POST['idUsuario'];
+        $data['idEstudiante']=$_POST['idEstudiante'];
 
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('usuario/profesor/subirform_maestro',$data); // llegaremos asta esta vista
+		$this->load->view('usuario/estudiante/subirform',$data); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
      }
 
      public function subir(){
 
-        $idUsuario=$_POST['idUsuario'];  //estamso resepcionando el id
-        $nombrearchivo=$idUsuario.".jpg";  //generamos un string
+        $idEstudiante=$_POST['idEstudiante'];  //estamso resepcionando el id
+        $nombrearchivo=$idEstudiante.".jpg";  //generamos un string
 
        // 2 metadatos
        //ruta dodne se guardan lso ficheros
-       $config['upload_path']='./cargas/profesor/';
+       $config['upload_path']='./cargas/estudiante/';
        //configuro el nomrbe dle archivo
        $config['file_name']=$nombrearchivo;
 
@@ -148,7 +146,7 @@ class Profesor extends CI_Controller {
 
 
 
-       $direccion="./cargas/profesor/".$nombrearchivo;
+       $direccion="./cargas/estudiante/".$nombrearchivo;
        unlink($direccion);
        // estos dos archivos potencian el subir
 
@@ -165,14 +163,14 @@ class Profesor extends CI_Controller {
        }
        else{
            $data['foto']=$nombrearchivo;
-           $this->profesor_model->modificarProfesor($idUsuario,$data);
+           $this->estudiante_model->modificarEstudiante($idEstudiante,$data);
             //con estas dos primeras lineas actualizamos en base de datos
 
            $this->upload->data();     
         
        }
 
-        redirect('profesor/test','refresh');
+        redirect('estudiante/test','refresh');
 
 
 

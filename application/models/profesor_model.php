@@ -9,25 +9,26 @@ class Profesor_model extends CI_Model {
 	public function lista()
 	{
                 $this->db->select('*');
-                $this->db->from('Profesor');
+                $this->db->from('usuario');
+                $this->db->where('rol','profesor');
                 return $this->db->get();
 	}
 
         //consulta para obtener la lista de profesores
-        public function obtenerProfesor($idProfesor)
+        public function obtenerProfesor($idUsuario)
 	{
                 $this->db->select('*');
-                $this->db->from('Profesor');
-                $this->db->where('IdProfesor',$idProfesor);
+                $this->db->from('usuario');
+                $this->db->where('idUsuario',$idUsuario);
                 return $this->db->get();
 	}
 
 
         //consulta para el modificado de datos de los profesores o actualizacion de datos
-        public function modificarProfesor($idProfesor,$data)
+        public function modificarProfesor($idUsuario,$data)
 	{
-                $this->db->where('IdProfesor',$idProfesor);
-                $this->db->update('Profesor',$data);
+                $this->db->where('idUsuario',$idUsuario);
+                $this->db->update('usuario',$data);
 	}
 
         public function agregarProfesor($data)

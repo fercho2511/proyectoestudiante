@@ -71,6 +71,10 @@
                                               </select>
                                             </div>
                                             <div class="form-group">
+                                                <label class="form-label">C.I.</label>
+                                                <input type="text" class="form-control" name='ci'  value="<?php echo $row->ci;?>" >
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="form-label">Telefono</label>
                                                 <input type="text" class="form-control" name='telefono'  value="<?php echo $row->telefono;?>" >
                                             </div>
@@ -89,6 +93,8 @@
                                                 <option>Profesor</option>
                                                 <option>Estudiante</option>
                                                 <option>Administrador</option>
+                                                <option>superAdministrador</option>
+
                                                
                                               </select>
                                       </div>

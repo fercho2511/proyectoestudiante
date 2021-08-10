@@ -39,32 +39,70 @@
                                              //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                                             echo form_open_multipart('estudiante/agregarEst')
                                          ?>
-                                            <div class="form-group">
+                                           <div class="form-group">
                                                 <label class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" name='nombre'  placeholder="Ingrese Nombre" >
+                                                <input type="text" class="form-control" name='nombres'  placeholder="Ingrese Nombre" >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Apellido Paterno</label>
-                                                <input type="text" class="form-control" name='apPaterno'  placeholder="Ingrese Apellido Paterno" >
+                                                <input type="text" class="form-control" name='apellidoPaterno'  placeholder="Ingrese Apellido Paterno" >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Apellido Materno</label>
-                                                <input type="text" class="form-control" name='apMaterno'  placeholder="Ingrese Apellido Materno" >
+                                                <input type="text" class="form-control" name='apellidoMaterno'  placeholder="Ingrese Apellido Materno" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Fecha Nacimiento</label>
+                                                <input type="date" class="form-control" name='fechaNacimiento'  placeholder="Ingrese Fecha Nacimiento" >
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="">sexo:</label>
+                                              <select class="form-control" name="sexo" >
+                                                <option>M</option>
+                                                <option>F</option>                                               
+                                              </select>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="form-label">C.I.</label>
                                                 <input type="text" class="form-control" name='ci'  placeholder="Ingrese C.I." >
                                             </div>
                                             <div class="form-group">
-                                                <<label class="form-label">Telefono</>
-                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese Telefono" >
+                                                <label class="form-label">Telefono</label>
+                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese telefono" >
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label">Nombre del Padre</label>
-                                                <input type="text" class="form-control" name='nomPadre'  placeholder="Ingrese Nombre de Padre">
+                                                <label class="form-label">Correo</label>
+                                                <input type="text" class="form-control" name='correo'  placeholder="Ingrese Correo Electronico" >
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label">Nombre del Tutor</label>
-                                                <input type="text" class="form-control" name='nomTutor'  placeholder="Ingrese Nombre del Tutor">
+                                                <label class="form-label">Direccion</label>
+                                                <input type="text" class="form-control" name='direccion'  placeholder="Ingrese Direccion" >
+                                            </div>
+
+            
+
+
+                                              
+
+                                            
+  
+                                            <!-- <div class="form-group">
+                                                <<label class="form-label">Login</>
+                                                <input type="text" class="form-control" name='login'  placeholder="Ingrese login" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Password</label>
+                                                <input type="text" class="form-control" name='password'  placeholder="Ingrese password">
+                                            </div> -->
+                                            <!-- <div class="form-group">
+                                                <label class="form-label">Tipo</label>
+                                                <input type="text" class="form-control" name='tipo'  placeholder="Ingrese tipo">
+                                            </div> -->
+                                            <div class="form-group">
+                                              <label for="">Rol:</label>
+                                              <select class="form-control" name="rol" >
+                                                <option>Estudiante</option>                                               
+                                              </select>
                                             </div>
                                             <div class="card-footer">
                                                 <button class="btn btn-primary" type="submit">REGISTRAR</button>

@@ -16,8 +16,9 @@
             </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+      </div>
+    </section> 
+
 
     <!-- Main content -->
     <section class="content">
@@ -30,13 +31,16 @@
               <div class="card-header">
                 <h3 class="card-title">Modifique sus datos <?php echo $this->session->userdata('login')?></h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
+              holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
               
+
+              
+                          
 
                     <?php
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($infousuario-> result() as $row) 
+                    //foreach ($idUsuario-> result() as $row) 
                     {
                         echo form_open_multipart('usuario_per/modificarUsu2')
                         ?>
@@ -86,11 +90,7 @@
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">CAMBIE USUARO Y CONTRASEÑA</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-
-                                   
+              </div>                             
 
               <?php
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
