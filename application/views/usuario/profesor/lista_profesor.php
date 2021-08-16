@@ -51,7 +51,7 @@
                                                 <th>Nombre Completo</th>                                                
                                                 <th>C.I.</th>
                                                 <th>Telefono</th>
-                                                <th>Correo</th>
+                                                <!-- <th>Correo</th> -->
                                                 <th>Foto</th>
                                                 <th>Acciones</th>
 
@@ -71,7 +71,7 @@
                                                 </td>
                                                 <td><?php echo $row->ci;?></td>
                                                 <td><?php echo $row->telefono;?></td>
-                                                <td><?php echo $row->correo;?></td>
+                                                <!-- <td><?php echo $row->correo;?></td> -->
                                                 <td>
                                                         <?php
                                                         $foto=$row->foto;
@@ -142,7 +142,7 @@
                                                 <th>Nombre Completo</th>                                                
                                                 <th>C.I.</th>
                                                 <th>Telefono</th>
-                                                <th>Correo</th>
+                                                <!-- <th>Correo</th> -->
                                                 <th>Foto</th>
                                                 <th>Acciones</th>
                                             </tr>

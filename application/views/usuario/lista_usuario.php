@@ -51,7 +51,7 @@
                                                 <th>Sexo</th>                                              
                                                 <th>Telefono</th> 
                                                 <th>Direccion</th>  
-                                                <th>Correo</th> 
+                                                <!-- <th>Correo</th>  -->
                                                 <th>rol</th>                                            
                                                  <th>Fecha Nacimiento</th>
                                                 <th>Login</th>
@@ -77,7 +77,7 @@
                                                 <td><?php echo $row->sexo;?></td>
                                                 <td><?php echo $row->telefono;?></td>
                                                 <td><?php echo $row->direccion;?></td>
-                                                <td><?php echo $row->correo;?></td>
+                                                <!-- <td><?php echo $row->correo;?></td> -->
                                                 <td><?php echo $row->rol;?></td>
                                                 <td><?php echo $row->fechaNacimiento;?></td>
                                                 <td><?php echo $row->login;?></td>
@@ -115,13 +115,13 @@
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
 
-                                                    <button type="submit" class="btn btn-primary btn-xs" title="Desabilitar" >
-                                                    <span class="fas fa-user-times"></span>
+                                                    <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
+                                                    <span class="fas fa-trash-alt"></span>
                                                     </button>
                                                     <?php
                                                         echo form_close();
                                                     ?>
-
+<!-- 
                                                      <?php
                                                         echo form_open_multipart('usuario_per/eliminarUsu')
                                                     ?>
@@ -134,7 +134,7 @@
                                                     <?php
                                                         echo form_close();
                                                     ?>
-                                                        
+                                                         -->
 
                                                     </div>
                                                     
@@ -156,7 +156,7 @@
                                                 <th>Sexo</th>                                              
                                                 <th>Telefono</th> 
                                                 <th>Direccion</th>  
-                                                <th>Correo</th> 
+                                                <!-- <th>Correo</th>  -->
                                                 <th>rol</th>                                            
                                                  <th>Fecha Nacimiento</th>
                                                 <th>Login</th>

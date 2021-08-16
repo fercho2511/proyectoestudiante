@@ -53,7 +53,7 @@ class Usuario_per extends CI_Controller {
         $data['ci']=$_POST['ci'];
         $data['telefono']=$_POST['telefono'];
         $data['direccion']=$_POST['direccion'];
-        $data['correo']=$_POST['correo'];
+        // $data['correo']=$_POST['correo'];
         $data['rol']=$_POST['rol'];
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];      
 
@@ -125,9 +125,9 @@ class Usuario_per extends CI_Controller {
          $data['ci']=$_POST['ci'];
          $data['direccion']=$_POST['direccion'];
          $data['fechaNacimiento']=$_POST['fechaNacimiento'];
-         $data['correo']=$_POST['correo'];
-         $data['login']=$_POST['nombres'];
-         $data['password']=md5($_POST['nombres']);
+        //  $data['correo']=$_POST['correo'];
+         $data['login']=$_POST['nombres']; //aca se genera el loguin automatico
+         $data['password']=md5($_POST['nombres']); //aca se genera el password automatico
          $data['rol']=$_POST['rol'];
          $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 

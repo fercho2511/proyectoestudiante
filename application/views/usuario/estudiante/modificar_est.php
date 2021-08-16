@@ -79,10 +79,10 @@
                                                 <label class="form-label">Telefono</label>
                                                 <input type="text" class="form-control" name='telefono'  value="<?php echo $row->telefono;?>" >
                                             </div>
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="form-label">Correo</label>
                                                 <input type="text" class="form-control" name='correo'  value="<?php echo $row->correo;?>" >
-                                            </div>
+                                            </div> -->
                                             <div class="form-group">
                                                 <label class="form-label">Direccion</label>
                                                 <input type="text" class="form-control" name='direccion'  value="<?php echo $row->direccion;?>" >
