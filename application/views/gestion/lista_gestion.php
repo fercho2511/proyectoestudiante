@@ -8,7 +8,7 @@
                         </div>
                         <div class="col-sm-3">
                         <?php
-                                            echo form_open_multipart('estudiante/agregar')//llegaremos asta estudiante.php y e metodo agregar
+                                            echo form_open_multipart('gestion/agregar')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
                                             <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
                                             <span class="fas fa-user-plus"> Agregar Gestion</span>
@@ -41,9 +41,10 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Gestion</th>                                               
-                                                <th>Fecha de Inicio</th>
-                                                <th>Fecha de Fin</th>                                                
-                                                <th>Perido de receso</th>
+                                                <th>Fecha Inicio de Gestion</th>
+                                                <th>Fecha Fin de Gestion</th>                                                
+                                                <th>Fecha Inicio de Receso Escolar</th>
+                                                <th>Fecha Fin de Receso Escolar</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
 
@@ -57,13 +58,21 @@
                         ?>
                                             <tr>
                                                 <td><?php echo $indice;?></td>
-                                                <td><?php echo $row->gestion;?>
-                                                   
-                                                </td>
+                                                <td><?php echo $row->gestion;?></td>  
                                                 <td><?php echo $row->fechaInicioGestion;?></td>
                                                 <td><?php echo $row->fechaFinGestion;?></td>
-                                                <td><?php echo $row->periodoReceso;?></td>
-                                                <td><?php echo $row->estado;?></td>
+                                                <td><?php echo $row->fechaInicioReceso;?></td>
+                                                <td><?php echo $row->fechaInicioReceso;?></td>
+                                                <td>
+                                                <?php
+                                                    if ($row->estado==0){
+                                                        echo 'Desabilitado';
+                                                    }
+                                                    else{
+                                                        echo 'Habilitado';
+                                                    }
+                                                    ?>
+                                                </td>
                                                
 
                                                 
@@ -82,7 +91,7 @@
                                                     ?>
 
                                                 <?php
-                                                        echo form_open_multipart('gestion/eliminarEst')
+                                                        echo form_open_multipart('gestion/eliminarGest')
                                                     ?>
                                                     <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
                                                     <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
@@ -108,9 +117,10 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Gestion</th>                                               
-                                                <th>Fecha de Inicio</th>
-                                                <th>Fecha de Fin</th>                                                
-                                                <th>Perido de receso</th>
+                                                <th>Fecha Inicio de Gestion</th>
+                                                <th>Fecha Fin de Gestion</th>                                                
+                                                <th>Fecha Inicio de Receso Escolar</th>
+                                                <th>Fecha Fin de Receso Escolar</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>

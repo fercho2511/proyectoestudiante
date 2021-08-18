@@ -56,30 +56,23 @@ class Gestion extends CI_Controller {
 
 
     //aca llegara toda la informacion de la vista modificar
-    public function modificarEst()
+    public function modificarGestion()
     {
         //aca se resepcionara las variables q estan llegando desde form
         //realizar la consulta para update
         //cargar la lista actualizada
 
-        $idUsuario=$_POST['idUsuario'];
-        $data['nombres']=$_POST['nombres'];
-        $data['apellidoPaterno']=$_POST['apellidoPaterno'];
-        $data['apellidoMaterno']=$_POST['apellidoMaterno'];
-        $data['sexo']=$_POST['sexo'];
-        $data['telefono']=$_POST['telefono'];
-        $data['ci']=$_POST['ci'];
-        $data['direccion']=$_POST['direccion'];
-        $data['fechaNacimiento']=$_POST['fechaNacimiento'];
-        $data['correo']=$_POST['correo'];  
-        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
-
-
+        $idGestion=$_POST['idGestion'];
+        $data['gestion']=$_POST['gestion'];
+        $data['fechaInicioGestion']=$_POST['fechaInicioGestion'];
+        $data['fechaFinGestion']=$_POST['fechaFinGestion'];
+        $data['fechaInicioReceso']=$_POST['fechaInicioReceso'];
+        $data['fechaFinReceso']=$_POST['fechaFinReceso'];
         //ahora la consula
-        $this->estudiante_model->modificarEstudiante($idUsuario,$data);
+        $this->gestion_model->modificarGestion($idGestion,$data);
         //esta linea ya realiza la actualizacion
 
-        redirect('estudiante/test','refresh');
+        redirect('gestion/test','refresh');
     }
 
     // ahora es para crear estudiante
@@ -88,14 +81,14 @@ class Gestion extends CI_Controller {
     {
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('usuario/estudiante/agregar_est'); // llegaremos asta esta vista
+		$this->load->view('gestion/agregar_gestion'); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }
 
     //ahora desde el formulario se agregar se viene a este metodo
     //ahora el metodo para agregar a la base de datos 
-     public function agregarEst()
+     public function agregarGest()
      {
          //recibireos los datos del estudiante
          /*$data['nombre']=$_POST['nombre'];
@@ -106,25 +99,19 @@ class Gestion extends CI_Controller {
          $data['nombrePadre']=$_POST['nomPadre'];
          $data['nombreTutor']=$_POST['nomTutor'];*/
 
-         $data['nombres']=$_POST['nombres'];
-         $data['apellidoPaterno']=$_POST['apellidoPaterno'];
-         $data['apellidoMaterno']=$_POST['apellidoMaterno'];
-         $data['sexo']=$_POST['sexo'];
-         $data['telefono']=$_POST['telefono'];
-         $data['ci']=$_POST['ci'];
-         $data['direccion']=$_POST['direccion'];
-         $data['fechaNacimiento']=$_POST['fechaNacimiento'];
-         $data['correo']=$_POST['correo'];
-         $data['login']=$_POST['nombres'];
-         $data['password']=md5($_POST['nombres']);
-         $data['rol']=$_POST['rol'];
-         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+         $data['gestion']=$_POST['gestion'];
+         $data['fechaInicioGestion']=$_POST['fechaInicioGestion'];
+         $data['fechaFinGestion']=$_POST['fechaFinGestion'];
+         //$data['periodoReceso']=$_POST['periodoReceso'];
+         //$data['telefono']=$_POST['telefono'];
+         
+         //$data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos
-         $this->estudiante_model->agregarEstudiante($data); // aca se envia el metodo del modelo 
+         $this->gestion_model->agregarGestion($data); // aca se envia el metodo del modelo 
 
          	//despues iremso a la lista redireccionando o dandole un refresh
-             redirect('estudiante/test','refresh');
+             redirect('gestion/test','refresh');
 
      }
 
@@ -137,72 +124,20 @@ class Gestion extends CI_Controller {
 		$this->load->view('agregar_estudiante'); 
 		$this->load->view('inc_fin.php'); 
      ya q solo lo eliminara*/
-     public function  eliminarEst()
+     public function  eliminarGest()
      {
-        $idUsuario=$_POST['idUsuario'];  // llega el id desde el campo hiden del formulario
+        $idGestion=$_POST['idGestion'];  // llega el id desde el campo hiden del formulario
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
-        $this->estudiante_model->eliminarEstudiante($idUsuario); // aca se envia el metodo del modelo 
+        $this->gestion_model->eliminarGestion($idGestion); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
-        redirect('estudiante/test','refresh');
+        redirect('gestion/test','refresh');
 
      }
 
 
-     public function subirFoto(){
-        $data['idUsuario']=$_POST['idUsuario'];
+     
 
-        $this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu2.php');
-		$this->load->view('usuario/estudiante/subirform',$data); // llegaremos asta esta vista
-		$this->load->view('inc_fin.php');
-     }
-
-     public function subir(){
-
-        $idUsuario=$_POST['idUsuario'];  //estamso resepcionando el id
-        $nombrearchivo=$idUsuario.".jpg";  //generamos un string
-
-       // 2 metadatos
-       //ruta dodne se guardan lso ficheros
-       $config['upload_path']='./cargas/estudiante/';
-       //configuro el nomrbe dle archivo
-       $config['file_name']=$nombrearchivo;
-
-       //reemplazar lso archivos
-       //primero eliminar el anterior archivo y luego subir el nuevo
-
-
-
-       $direccion="./cargas/estudiante/".$nombrearchivo;
-       unlink($direccion);
-       // estos dos archivos potencian el subir
-
-
-       //tipos de archivos permitidos
-       $config['allowed_types']='jpg';   //'gif','jpg','png'
-       $this->load->library('upload',$config);
-
-
-       //vamos al procedimiento de subir
-       if (!$this->upload->do_upload()) {
-          //si hay algun error pasremos a la vista a traves de un data
-          $data['error']=$this->upload->display_errors();
-       }
-       else{
-           $data['foto']=$nombrearchivo;
-           $this->estudiante_model->modificarEstudiante($idUsuario,$data);
-            //con estas dos primeras lineas actualizamos en base de datos
-
-           $this->upload->data();     
-        
-       }
-
-        redirect('estudiante/test','refresh');
-
-
-
-      
-     }
+     
 }

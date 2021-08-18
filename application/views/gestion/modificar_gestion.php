@@ -41,7 +41,7 @@
                         echo form_open_multipart('gestion/modificarGestion')
                         ?>
                         <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
-                        <input type="hidden" name="idGestion" value="<?php echo $this->session->userdata('idGestion');?>">
+                        <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
 
                                     <div class="card-body">
@@ -56,9 +56,14 @@
                                     <div class="form-group">
                                         <label class="form-label">Fecha Fin de Gestion</label>
                                         <input type="date" class="form-control" name='fechaFinGestion'  value="<?php echo $row->fechaFinGestion;?>" >
+                                    </div>
                                     <div class="form-group">
-                                        <label class="form-label">Periodo de receso </label>
-                                        <input type="date" class="form-control" name='periodoReceso'  value="<?php echo $row->periodoReceso;?>" >
+                                        <label class="form-label">Fecha Inicio de Receso</label>
+                                        <input type="date" class="form-control" name='fechaInicioReceso'  value="<?php echo $row->fechaInicioReceso;?>" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Fecha Fin de Receso</label>
+                                        <input type="date" class="form-control" name='fechaFinReceso'  value="<?php echo $row->fechaFinReceso;?>" >
                                     </div>
 
 
