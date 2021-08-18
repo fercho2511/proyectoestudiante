@@ -119,19 +119,19 @@
             <ul class="nav nav-treeview">
           </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="<?php echo base_url(); ?>index.php/materia/test" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Materia</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
+                <a href="<?php echo base_url(); ?>index.php/curso/test" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Curso</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
+                <a href="<?php echo base_url(); ?>index.php/comunicado/test" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Comunicado</p>
                 </a>
