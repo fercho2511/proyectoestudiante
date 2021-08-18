@@ -139,8 +139,18 @@
                                                     </div>
                                                     
                                                 </td>
+                                                
 
-                                                <td><?php echo $row->estado;?></td>
+                                                <td>
+                                                    <?php
+                                                    if ($row->estado==0){
+                                                        echo 'Desabilitado';
+                                                    }
+                                                    else{
+                                                        echo 'Habilitado';
+                                                    }
+                                                    ?>
+                                                </td>
 
 
                                             </tr>

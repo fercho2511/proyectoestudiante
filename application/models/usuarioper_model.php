@@ -36,6 +36,34 @@ class Usuarioper_model extends CI_Model {
 
         //consulta para ingresar datos del estudiante a la base de datos
         //lo importante es lo q contenga data
+
+
+        //aca vamso a crear el usuario y la contraseña
+        public function crearLoguin($nom,$ap,$am,$ci){          
+
+                //aca estamos captantdo ls valores y obteniendo el primer caracter 
+                $n=$nom[0];
+                $a=$ap[0];
+                $a2=$am[0];
+                
+                $cadena=$n.$a.$a2.$ci;
+                return strtoupper($cadena);             
+        }
+
+        public function validarCarnet ($ci){
+
+               // select ufcCarnet(873264)
+               // $this->db->select('ufcCarnet($ci)');
+
+                 //consulta en mysql completa
+                 $query="SELECT ufcCarnet($ci)";
+                 return $this->db->query($query);
+
+
+
+        }
+
+
         public function agregarUsuario($data)
 	{
               

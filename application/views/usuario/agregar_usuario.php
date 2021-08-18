@@ -53,9 +53,9 @@
                                                 <label class="form-label">Nombre</label>
                                                 <input type="text" class="form-control" name='nombres'  placeholder="Ingrese Nombre" required>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group"  >
                                                 <label class="form-label">Apellido Paterno</label>
-                                                <input type="text" class="form-control" name='apellidoPaterno'  placeholder="Ingrese Apellido Paterno" required>
+                                                <input type="text" class="form-control" name='apellidoPaterno'  placeholder="Ingrese Apellido Paterno" required >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Apellido Materno</label>
