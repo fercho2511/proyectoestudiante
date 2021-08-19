@@ -28,7 +28,7 @@ class Comunicado_model extends CI_Model {
 
 
         //consulta para el modificado de datos de lso esudiantes o actualizacion de datos
-        public function modificarGestion($idComunicado,$data)
+        public function modificarComunicado($idComunicado,$data)
 	{
                 $this->db->where('idComunicado',$idComunicado);
                 $this->db->update('comunicado',$data);
@@ -37,7 +37,7 @@ class Comunicado_model extends CI_Model {
 
         //consulta para ingresar datos del estudiante a la base de datos
         //lo importante es lo q contenga data
-        public function agregarGestion($data)
+        public function agregarComunicado($data)
 	{
                 $this->db->insert('comunicado',$data); // aca la clave ses construir bien data, q va a contener
         // return $this->db->get();
@@ -46,7 +46,7 @@ class Comunicado_model extends CI_Model {
 
         //metodo q ara la consulta para eliminar estudiante
 
-        public function eliminarGestion($idComunicado)
+        public function eliminarComunicado($idComunicado)
         {
                 $datos = ['estado' => '0',];
                 $this-> db-> where ('idComunicado', $idComunicado);

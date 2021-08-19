@@ -8,7 +8,7 @@
                         </div>
                         <div class="col-sm-3">
                         <?php
-                                            echo form_open_multipart('comunicados/agregar')//llegaremos asta gestion.php y e metodo agregar
+                                            echo form_open_multipart('comunicado/agregar')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
                                             <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
                                             <span class="fas fa-user-plus"> Crear Comunicado</span>
@@ -51,7 +51,7 @@
                                         <?php
                     $indice=1;
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                    foreach ($gestion-> result() as $row) {
+                    foreach ($comunicado-> result() as $row) {
                         ?>
                                             <tr>
                                                 <td><?php echo $indice;?></td>
@@ -85,7 +85,7 @@
                                                     ?>
 
                                                 <?php
-                                                        echo form_open_multipart('comunicado/eliminarGest')
+                                                        echo form_open_multipart('comunicado/eliminarCom')
                                                     ?>
                                                     <input type="hidden" name="idComunicado" value="<?php echo $row->idComunicado;?>">
                                                     <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
