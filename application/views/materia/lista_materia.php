@@ -41,7 +41,7 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Materia</th>                                               
-                                                <th>Tutor</th>                                              
+                                                <!-- <th>Tutor</th>                                               -->
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
 
@@ -56,7 +56,7 @@
                                             <tr>
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->materia;?></td>  
-                                                <td><?php echo $row->tutor;?></td>                                            
+                                                <!-- <td><?php echo $row->tutor;?></td>                                             -->
                                                 <td>
                                                 <?php
                                                     if ($row->estado==0){
@@ -73,9 +73,9 @@
                                                 <td>
                                                 <div class="btn-group btn-group-justified" >
                                                 <?php
-                                                        echo form_open_multipart('gestion/modificar')
+                                                        echo form_open_multipart('materia/modificar')
                                                     ?>
-                                                    <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
+                                                    <input type="hidden" name="idMateria" value="<?php echo $row->idMateria;?>">
                                                     <button type="submit" class="btn btn-primary btn-xs" title="Modificar">
                                                     <span class="fas fa-user-edit"></span>
 
@@ -85,9 +85,9 @@
                                                     ?>
 
                                                 <?php
-                                                        echo form_open_multipart('gestion/eliminarGest')
+                                                        echo form_open_multipart('materia/eliminarMat')
                                                     ?>
-                                                    <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
+                                                    <input type="hidden" name="idMateria" value="<?php echo $row->idMateria;?>">
                                                     <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
                                                     <span class="fas fa-trash-alt"></span>
 
@@ -111,7 +111,7 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Materia</th>                                               
-                                                <th>Tutor</th>                                              
+                                                <!-- <th>Tutor</th>                                               -->
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>

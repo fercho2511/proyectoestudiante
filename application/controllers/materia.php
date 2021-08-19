@@ -8,7 +8,7 @@ class Materia extends CI_Controller {
 	{
         //cargara la list de estudiantes
         $lista=$this->gestion_model->lista();
-        $data['gestion']=$lista; //otro array asociativo
+        $data['materia']=$lista; //otro array asociativo
 
 		$this->load->view('inc_inicio.php');
 		$this->load->view('usuario/estudiante/lista_estudiantes',$data);
@@ -29,8 +29,8 @@ class Materia extends CI_Controller {
     public function test1()
 	{
         //cargara la list de estudiantes
-        $lista=$this->estudiante_model->lista();
-        $data['estudiante']=$lista; //otro array asociativo
+        $lista=$this->materia_model->lista();
+        $data['materia']=$lista; //otro array asociativo
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu1.php');
 		$this->load->view('usuario/estudiante/estudiante_vista',$data);
@@ -46,33 +46,30 @@ class Materia extends CI_Controller {
 
        public function modificar()
     {
-        $idGestion=$_POST['idGestion'];
-        $data['infogestion']=$this->gestion_model->obtenerGestion($idGestion);
+        $idMateria=$_POST['idMateria'];
+        $data['infomateria']=$this->materia_model->obtenerMateria($idMateria);
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('gestion/modificar_gestion',$data);
+		$this->load->view('materia/modificar_materia',$data);
 		$this->load->view('inc_fin.php');
     }
 
 
     //aca llegara toda la informacion de la vista modificar
-    public function modificarGestion()
+    public function modificarMateria()
     {
         //aca se resepcionara las variables q estan llegando desde form
         //realizar la consulta para update
         //cargar la lista actualizada
 
-        $idGestion=$_POST['idGestion'];
-        $data['gestion']=$_POST['gestion'];
-        $data['fechaInicioGestion']=$_POST['fechaInicioGestion'];
-        $data['fechaFinGestion']=$_POST['fechaFinGestion'];
-        $data['fechaInicioReceso']=$_POST['fechaInicioReceso'];
-        $data['fechaFinReceso']=$_POST['fechaFinReceso'];
+        $idMateria=$_POST['idMateria'];
+        $data['materia']=$_POST['materia'];
+     
         //ahora la consula
-        $this->gestion_model->modificarGestion($idGestion,$data);
+        $this->materia_model->modificarMateria($idMateria,$data);
         //esta linea ya realiza la actualizacion
 
-        redirect('gestion/test','refresh');
+        redirect('materia/test','refresh');
     }
 
     // ahora es para crear estudiante
@@ -81,14 +78,14 @@ class Materia extends CI_Controller {
     {
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('gestion/agregar_gestion'); // llegaremos asta esta vista
+		$this->load->view('materia/agregar_materia'); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }
 
     //ahora desde el formulario se agregar se viene a este metodo
     //ahora el metodo para agregar a la base de datos 
-     public function agregarGest()
+     public function agregarMat()
      {
          //recibireos los datos del estudiante
          /*$data['nombre']=$_POST['nombre'];
@@ -99,19 +96,19 @@ class Materia extends CI_Controller {
          $data['nombrePadre']=$_POST['nomPadre'];
          $data['nombreTutor']=$_POST['nomTutor'];*/
 
-         $data['gestion']=$_POST['gestion'];
-         $data['fechaInicioGestion']=$_POST['fechaInicioGestion'];
-         $data['fechaFinGestion']=$_POST['fechaFinGestion'];
+         $data['materia']=$_POST['materia'];
+        // $data['profesor']=$_POST['profesor'];
+         //$data['fechaFinGestion']=$_POST['fechaFinGestion'];
          //$data['periodoReceso']=$_POST['periodoReceso'];
          //$data['telefono']=$_POST['telefono'];
          
          //$data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos
-         $this->gestion_model->agregarGestion($data); // aca se envia el metodo del modelo 
+         $this->materia_model->agregarMateria($data); // aca se envia el metodo del modelo 
 
          	//despues iremso a la lista redireccionando o dandole un refresh
-             redirect('gestion/test','refresh');
+             redirect('materia/test','refresh');
 
      }
 
@@ -124,15 +121,15 @@ class Materia extends CI_Controller {
 		$this->load->view('agregar_estudiante'); 
 		$this->load->view('inc_fin.php'); 
      ya q solo lo eliminara*/
-     public function  eliminarGest()
+     public function  eliminarMat()
      {
-        $idGestion=$_POST['idGestion'];  // llega el id desde el campo hiden del formulario
+        $idMateria=$_POST['idMateria'];  // llega el id desde el campo hiden del formulario
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
-        $this->gestion_model->eliminarGestion($idGestion); // aca se envia el metodo del modelo 
+        $this->materia_model->eliminarMateria($idMateria); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
-        redirect('gestion/test','refresh');
+        redirect('materia/test','refresh');
 
      }
 
