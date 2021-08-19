@@ -70,10 +70,10 @@ class Usuario_per extends CI_Controller {
        
 
         $idUsuario=$_POST['idUsuario'];
-        $data['infousuario']=$this->usuarioper_model->obtenerUsuario($idUsuario);
+        $data['profesor']=$this->usuarioper_model->obtenerUsuario($idUsuario);
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu.php');
-		$this->load->view('usuario/form_usuario',$data);
+		$this->load->view('usuario/profesor/form_profesor',$data);
 		$this->load->view('inc_fin.php');
 
        

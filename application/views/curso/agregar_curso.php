@@ -72,6 +72,7 @@
                                                 <input type="text" class="form-control" name='tutor'>
                                             </div>  
                                             
+                                            
                                             <div class="card-footer">
                                                 <button class="btn btn-primary" type="submit" title="Registrar" >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>

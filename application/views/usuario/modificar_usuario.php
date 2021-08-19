@@ -58,7 +58,7 @@
                                         <input type="text" class="form-control" name='apellidoMaterno'  value="<?php echo $row->apellidoMaterno;?>" >
                                     <div class="form-group">
                                         <label class="form-label">Fecha Nacimiento</label>
-                                        <input type="text" class="form-control" name='fechaNacimiento'  value="<?php echo $row->fechaNacimiento;?>" >
+                                        <input type="date" class="form-control" name='fechaNacimiento'  value="<?php echo date('Y-m-d', strtotime($row->fechaNacimiento))?>" >
                                     </div>
 
 

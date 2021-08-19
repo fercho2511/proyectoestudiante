@@ -10,7 +10,7 @@ function formatearfecha($fecha)
     $mes=substr($fecha,5,2);
     $dia=substr($fecha,8,2);
 
-    $fechaFormateada=$anio."/".$mes."/".$dia;
+    $fechaFormateada=$dia."/".$mes."/".$anio;
     return $fechaFormateada;
 }
 

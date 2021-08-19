@@ -35,7 +35,9 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="<?php echo base_url(); ?>adminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <!-- <img src="<?php echo base_url(); ?>adminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle"> -->
+                                <img src="<?php echo base_url(); ?>cargas/profesor/<?php echo $this->session->userdata('foto')?>.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+
                                 <!-- <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -51,7 +53,9 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
+                            <?php echo $this->session->userdata('login')?>
                                 <img src="<?php echo base_url(); ?>adminLTE/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+
                                 <!-- <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -96,7 +100,7 @@
                               echo form_close();
                           ?>
                     <?php
-                         echo form_open_multipart('usuario_per/gestionar_usu2');
+                         echo form_open_multipart('profesor/modificar2');
                           ?>
                           <input type="hidden" name="idUsuario" value="<?php echo $this->session->userdata('idUsuario')?>">
                            <button type="submit" class="btn btn-outline-info" >Gestionar Cuenta/<?php echo $this->session->userdata('login')?> </button>
@@ -159,7 +163,10 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <!-- aca viene la imagen de user profe -->
-                        <img src="<?php echo base_url(); ?>adminLTE/dist/img/userlogo.png" class="img-circle elevation-2" alt="User Image">
+                        <!-- <img src="<?php echo base_url(); ?>adminLTE/dist/img/userlogo.png" class="img-circle elevation-2" alt="User Image"> -->
+                        <img src="<?php echo base_url(); ?>cargas/profesor/<?php echo $this->session->userdata('foto')?>" class="img-circle elevation-2" alt="User Image">
+
+
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?php echo $this->session->userdata('login')?> </a>

@@ -19,7 +19,7 @@ class Usuarioper_model extends CI_Model {
 	{
                 $this->db->select('*');
                 $this->db->from('usuario');
-                $this->db->where('IdUsuario',$idUsuario);
+                $this->db->where('idUsuario',$idUsuario);
                 return $this->db->get();
 	}
 

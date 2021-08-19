@@ -73,6 +73,8 @@ class Usuario extends CI_Controller {
                 $this->session->set_userdata('login',$row->login);
                 $this->session->set_userdata('rol',$row->rol);
                 $this->session->set_userdata('foto',$row->foto);
+                $this->session->set_userdata('nombres',$row->nombres);
+
 
 
                 redirect('usuario/panel','refresh');

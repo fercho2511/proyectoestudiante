@@ -40,7 +40,7 @@
                     {
                         echo form_open_multipart('Profesor/modificarProf')
                         ?>
-                        <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                        <input type="hidden" name="IdUsuario" value="<?php echo $row->idUsuario;?>">
                         <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
 
@@ -58,7 +58,9 @@
                                         <input type="text" class="form-control" name='apellidoMaterno'  value="<?php echo $row->apellidoMaterno;?>" >
                                     <div class="form-group">
                                         <label class="form-label">Fecha Nacimiento</label>
-                                        <input type="text" class="form-control" name='fechaNacimiento'  value="<?php echo $row->fechaNacimiento;?>" >
+                                        <!-- <input type="text" class="form-control" name='fechaNacimiento'  value="<?php echo $row->fechaNacimiento;?>" > -->
+                                        <input type="date" class="form-control" name='fechaNacimiento'  value="<?php echo date('Y-m-d', strtotime($row->fechaNacimiento))?>" >
+
                                     </div>
 
 

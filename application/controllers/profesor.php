@@ -54,6 +54,29 @@ class Profesor extends CI_Controller {
     }
 
 
+    public function modificar2()
+	{
+        //cargara la list de profesores
+        $lista=$this->profesor_model->lista();
+        $data['profesor']=$lista; //otro array asociativo
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/form_profesor',$data);
+		$this->load->view('inc_fin.php');
+
+	}
+    // public function modificar2()
+    // {
+    //     $idUsuario=$_POST['idUsuario'];
+    //     $data['profesor']=$this->profesor_model->obtenerProfesor($idUsuario);
+    //     $this->load->view('inc_inicio.php');
+    //     $this->load->view('inc_menu.php');
+	// 	$this->load->view('usuario/profesor/form_profesor',$data);
+	// 	$this->load->view('inc_fin.php');
+    // }
+
+
     //aca llegara toda la informacion de la vista modificar
     public function modificarProf()
     {
@@ -67,12 +90,31 @@ class Profesor extends CI_Controller {
         $data['ci']=$_POST['ci'];
         $data['telefono']=$_POST['telefono'];
         $data['direccion']=$_POST['direccion'];
-        $data['correo']=$_POST['correo'];
+       // $data['correo']=$_POST['correo'];
         $data['rol']=$_POST['rol'];    
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
     
         $this->profesor_model->modificarProfesor($idUsuario,$data); //ahora la consula
         redirect('profesor/test','refresh'); //esta linea ya realiza la actualizacion
+    }
+    public function modificarProf2()
+    {
+      
+        $idUsuario=$_POST['idUsuario'];
+        $data['nombres']=$_POST['nombres'];
+        $data['apellidoPaterno']=$_POST['apellidoPaterno'];
+        $data['apellidoMaterno']=$_POST['apellidoMaterno'];
+        $data['fechaNacimiento']=$_POST['fechaNacimiento'];
+        $data['sexo']=$_POST['sexo'];
+        $data['ci']=$_POST['ci'];
+        $data['telefono']=$_POST['telefono'];
+        $data['direccion']=$_POST['direccion'];
+       // $data['correo']=$_POST['correo'];
+        $data['rol']=$_POST['rol'];    
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+    
+        $this->profesor_model->modificarProfesor($idUsuario,$data); //ahora la consula
+        redirect('profesor/test1','refresh'); //esta linea ya realiza la actualizacion
     }
 
   
@@ -185,5 +227,21 @@ class Profesor extends CI_Controller {
 
 
       
+     }
+
+
+     public function modificarLoguin1()
+     {
+        
+         $idUsuario=$_POST['idUsuario'];
+         //$data['login']=$_POST['login'];
+         $data['passwordAnt']=md5($_POST['passwordAnt']);
+         $data['password1']=md5($_POST['password1']);
+         $data['password']=md5($_POST['password']);
+       
+ 
+         $this->usuarioper_model->modificarUsuario($idUsuario,$data);
+ 
+         redirect('usuario/profesor/test','refresh');
      }
 }
