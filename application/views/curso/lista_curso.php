@@ -49,12 +49,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
-                    $indice=1;
-                    //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                    foreach ($curso-> result() as $row) {
-                        ?>
-                                            <tr>
+                    <?php
+                        $indice=1;
+                        //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                        foreach ($curso-> result() as $row) {
+                            ?>
+                                                <tr>
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->curso;?></td>  
                                                 <td><?php echo $row->seccion;?></td>
@@ -104,9 +104,9 @@
 
 
                                             </tr>
-                        <?php
-                        $indice++;
-                    }
+                            <?php
+                            $indice++;
+                        }
                     ?>                                            
                                         </tbody>
                                         <tfoot>

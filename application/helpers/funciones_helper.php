@@ -29,4 +29,9 @@ function estado($nota)
 
 //ACA SE PUEDE CODIFICAR FUNCIONALIDADES Q HAYUDARAN A TODO EL SISTEMA 
 
+function listarProfe($profe) {
+    
+}
+
+
 ?>

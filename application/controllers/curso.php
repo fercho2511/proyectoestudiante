@@ -20,6 +20,9 @@ class Curso extends CI_Controller {
         //cargara la list de estudiantes
         $lista=$this->curso_model->lista();
         $data['curso']=$lista; //otro array asociativo
+
+      
+
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
 		$this->load->view('curso/lista_curso',$data);
@@ -48,6 +51,7 @@ class Curso extends CI_Controller {
     {
         $idCurso=$_POST['idCurso'];
         $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+        $data['arrProfesores'] = $this->curso_model->get_profesores();
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
 		$this->load->view('curso/modificar_curso',$data);
@@ -78,9 +82,28 @@ class Curso extends CI_Controller {
     //del boton q se realizo en la vista llegara a este metodo
       public function agregar()
     {
+        //enviando lso profes abilitados
+        //$lista2=$this->curso_model->listaProfes();
+        //$data['profe']=$lista2;
+
+       // $this->load->curso_model->get_profesores();
+        // obtenemos el array de profesiones y lo preparamos para enviar
+        $datos['arrProfesores'] = $this->curso_model->get_profesores();
+       // $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+
+            
+        // cargamos  la interfaz y le enviamos los datos
+      //  $this->load->view('nombre_de_la_vista', $datos);
+
+        //asta aca modificado
+
+
+
+
+
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('curso/agregar_curso'); // llegaremos asta esta vista
+		$this->load->view('curso/agregar_curso',$datos); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }
@@ -91,12 +114,7 @@ class Curso extends CI_Controller {
      {
          //recibireos los datos del estudiante
          /*$data['nombre']=$_POST['nombre'];
-         $data['primerApellido']=$_POST['apPaterno'];
-         $data['segundoApellido']=$_POST['apMaterno'];
-         $data['ci']=$_POST['ci'];
-         $data['telefono']=$_POST['telefono'];
-         $data['nombrePadre']=$_POST['nomPadre'];
-         $data['nombreTutor']=$_POST['nomTutor'];*/
+      */
          $data['curso']=$_POST['curso'];
          $data['seccion']=$_POST['seccion'];
          $data['tutor']=$_POST['tutor'];

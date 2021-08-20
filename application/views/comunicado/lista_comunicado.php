@@ -41,7 +41,9 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Tipo</th>                                               
-                                                <th>Descripcion</th>                                                
+                                                <th>Descripcion</th>   
+                                                <th>Fecha</th>  
+                                                <th>Hora</th>                                           
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
 
@@ -56,7 +58,11 @@
                                             <tr>
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->tipo;?></td>  
-                                                <td><?php echo $row->descripcion;?></td>                                                
+                                                <td><?php echo $row->descripcion;?></td>   
+                                                <td><?php echo $row->fechaComunicado;?></td>  
+                                                <td><?php echo $row->hora;?></td>                                                
+                                              
+                                             
                                                 <td>
                                                 <?php
                                                     if ($row->estado==0){
@@ -111,7 +117,9 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Tipo</th>                                               
-                                                <th>Descripcion</th>                                                
+                                                <th>Descripcion</th>  
+                                                <th>Fecha</th>  
+                                                <th>Hora</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>

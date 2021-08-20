@@ -16,6 +16,48 @@ class Curso_model extends CI_Model {
 
                 return $this->db->get();
 	}
+        public function listaProfes()
+	{
+
+              
+    
+                    /*   
+                    $result = mysql_query("SELECT Profe FROM vwNombreCompleto where estado = '1'");
+                    
+                    while($row = mysql_fetch_array($result)) {
+                        echo "<option>$row[album]</option>";
+                    }
+               */
+            
+
+
+              //  select Profe FROM vwNombreCompleto WHERE estado = 1
+                $this->db->select('Profe');
+                $this->db->from('vwNombreCompleto');
+               // $this->db->where('rol','profesor');
+                $this->db->where('estado','1');              
+
+                return $this->db->get();
+	}
+
+
+        function get_profesores(){
+
+                // armamos la consulta
+                $query = $this->db-> query('SELECT idUsuario,Profe FROM vwNombreCompleto where estado = 1');
+            
+                // si hay resultados
+                if ($query->num_rows() > 0) {
+                    // almacenamos en una matriz bidimensional
+                    foreach($query->result() as $row)
+                       $arrDatos[htmlspecialchars($row->idUsuario, ENT_QUOTES)] = 
+                                 htmlspecialchars($row->Profe, ENT_QUOTES);
+            
+                    $query->free_result();
+                    return $arrDatos;
+                 }
+        }
+
 
         //consulta para obtener la lista de estudiantes
         public function obtenerCurso($idCurso)

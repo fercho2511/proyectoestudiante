@@ -55,6 +55,14 @@
                                                 <label class="form-label">Descripcion</label>
                                                 <input type="text" class="form-control" name='descripcion' height="50" value="<?php echo $row->descripcion;?>">
                                             </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Fecha</label>
+                                                <input type="date" class="form-control" name='fechaComunicado' height="50" value="<?php echo date('Y-m-d', strtotime($row->fechaComunicado))?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Hora</label>
+                                                <input type="time" class="form-control" name='hora' height="50">
+                                            </div>
 
 
                                     <!-- /.card-body -->

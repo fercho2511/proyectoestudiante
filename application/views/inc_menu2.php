@@ -25,7 +25,7 @@
                     <?php
                                         echo form_open_multipart('usuario/logout');
                                         ?>
-                                        <button type="submit" class="btn btn-outline-info" >SALIR/<?php echo $this->session->userdata('login')?> </button>
+                                        <button type="submit" class="btn btn-outline-info" >SALIR/<?php echo $this->session->userdata('nombres')?> </button>
                                         <?php
                                             echo form_close();
                                          ?>
@@ -58,7 +58,7 @@
 
                       </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?php echo $this->session->userdata('login')?> </a>
+                        <a href="#" class="d-block"><?php echo $this->session->userdata('nombres')?> </a>
                     </div>
                 </div>
 

@@ -66,12 +66,20 @@
                                                 <option>F</option>
                                                 <option>G</option>                                               
                                               </select>
-                                            </div>
+                                            </div> 
+
+                                            <!--  desde aca agarramos todos lso profes ingresados-->
                                             <div class="form-group">
-                                                <label class="form-label">Tutor</label>
-                                                <input type="text" class="form-control" name='tutor'>
-                                            </div>  
-                                            
+                                              <label for="">tutor:</label>  
+                                              <select name="tutor">
+                                                  <?php
+                                                  foreach ($arrProfesores as $i => $profesion)
+                                                    echo '<option values="',$i,'">',$profesion,'</option>';
+                                                  ?>
+                                                  </select>
+                                            </div>
+                                              
+                                            <!-- asta aca -->
                                             
                                             <div class="card-footer">
                                                 <button class="btn btn-primary" type="submit" title="Registrar" >

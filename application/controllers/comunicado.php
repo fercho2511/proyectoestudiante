@@ -65,6 +65,8 @@ class Comunicado extends CI_Controller {
         $idComunicado=$_POST['idComunicado'];
         $data['tipo']=$_POST['tipo'];
         $data['descripcion']=$_POST['descripcion'];
+        $data['fechaComunicado']=$_POST['fechaComunicado'];
+        $data['hora']=$_POST['hora']; 
       
         //ahora la consula
         $this->comunicado_model->modificarComunicado($idComunicado,$data);
@@ -92,7 +94,8 @@ class Comunicado extends CI_Controller {
 
          $data['tipo']=$_POST['tipo'];
          $data['descripcion']=$_POST['descripcion'];
-      
+         $data['fechaComunicado']=$_POST['fechaComunicado'];
+         $data['hora']=$_POST['hora'];      
          
          //$data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 

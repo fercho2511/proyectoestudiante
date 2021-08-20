@@ -8,7 +8,7 @@
                             <?php
                             echo form_open_multipart('estudiante/subir')
                                 ?>
-                            <input type="hidden" name="idEstudiante" value="<?php echo $idEstudiante;?>">
+                            <input type="hidden" name="idUsuario" value="<?php echo $idUsuario;?>">
                             <input type="file" name="userfile">    
                             <button type="submit" class="btn btn-primary btn-xs"  >Subir</button>
                             <?php
