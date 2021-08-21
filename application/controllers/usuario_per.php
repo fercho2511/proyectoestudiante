@@ -133,43 +133,26 @@ class Usuario_per extends CI_Controller {
          $am=$_POST['apellidoMaterno'];
          $ci=$_POST['ci'];
          $data['login']=$this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci); 
-         $data['password']=md5($this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci));   
+         $data['password']=md5($this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci));  
 
          $data['rol']=$_POST['rol'];
-         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
-         
-         $this->usuarioper_model->agregarUsuario($data); 
-
-         redirect('usuario_per/test','refresh');
-
-
+         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];         
+         //$this->usuarioper_model->agregarUsuario($data); 
+         //redirect('usuario_per/test','refresh');
          //para validar el carnet
-         /*
-         $val=$this->usuarioper_model->validarCarnet($ci);
-
-        
-
+         
+         $val=$this->usuarioper_model->validarCarnet($ci);  
 
          if ($val == 'null') {
-
-              $this->usuarioper_model->agregarUsuario($data); 
-
+              $this->usuarioper_model->agregarUsuario($data);
             redirect('usuario_per/test','refresh');
-           
          }
          else {
-             
-            echo "  ";
-           
-           prompt(title, 'ci existente');
+
 
          }
-
-
-
-      //   $this->usuarioper_model->agregarUsuario($data); 
-
-          //   redirect('usuario_per/test','refresh');*/
+         //$this->usuarioper_model->agregarUsuario($data);
+          //  redirect('usuario_per/test','refresh');
 
      }
 

@@ -35,9 +35,10 @@
               
 
                     <?php
-                    //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                    //invocaremos a [profesor] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($profesor-> result() as $row) 
                     {
+                      if ($row->idUsuario== $this->session->userdata('idusuario')) {
                         echo form_open_multipart('profesor/modificarProf2')
                         ?>
                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
@@ -59,10 +60,9 @@
                                         <input type="text" class="form-control" name='apellidoMaterno'  value="<?php echo $row->apellidoMaterno;?>" >
                                     <div class="form-group">
                                         <label class="form-label">Fecha Nacimiento</label>
-                                        <!-- <input type="text" class="form-control" name='fechaNacimiento'  value="<?php echo $row->fechaNacimiento;?>" > -->
                                         <input type="date" class="form-control" name='fechaNacimiento'  value="<?php echo date('Y-m-d', strtotime($row->fechaNacimiento))?>" >
 
-                                      </div>
+                                    </div>
 
 
                                     <div class="form-group">
@@ -109,6 +109,7 @@
                         <?php
                         echo form_close();
                         }
+                      }
 
                     ?>              
             </div> 
@@ -116,55 +117,61 @@
             <!-- formulario para cuenta  -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">CAMBIE USUARO Y CONTRASEÑA</h3>
+                <h3 class="card-title">CAMBIE USUARO Y CONTRASEÑA <?php echo $this->session->userdata('loguin')?></h3>
               </div>
                      
 
               <?php
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+
                     foreach ($profesor-> result() as $row) 
                     {
-                        echo form_open_multipart('profesor/modificarLoguin1')
-                        ?>
-                        
-                        <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                <div class="card-body">
-                  <!-- <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario:</label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" name="login"  placeholder="Nuevo Usuario">
-                    </div>
-                  </div> -->
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-4 col-form-label">Password Antiguo:</label>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" name='passwordAnt' placeholder="Password Antiguo">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-4 col-form-label">Password Nuevo:</label>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" name='password1' placeholder="Nueva Contraseña">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-4 col-form-label">Vuelva a ingresar Password Nuevo:</label>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" name='password' placeholder="Nueva Contraseña">
-                    </div>
-                  </div>
-                  
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-info">GUARDAR CAMBIOS</button>
-                  <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
-                </div>
-                <?php
-                        echo form_close();
-                        }
+                      if ($row->idUsuario== $this->session->userdata('idusuario')) {
+                        # code...
+                      
+                                  echo form_open_multipart('profesor/modificarLoguin1')
+                                  ?>
+                                  
+                                  <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                          <div class="card-body">
 
-                    ?> 
+                             <div class="form-group row">
+                             <label for="inputPassword3" class="col-sm-6 col-form-label">Usuario:  <?php echo $this->session->userdata('login')?></label>
+                            
+                            </div> 
+
+                            <div class="form-group row">
+                              <label for="inputPassword3" class="col-sm-4 col-form-label">Password Antiguo:</label>
+                              <div class="col-sm-5">
+                                <input type="text" class="form-control" name='passwordAnt' placeholder="Password Antiguo" required>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="inputPassword3" class="col-sm-4 col-form-label">Password Nuevo:</label>
+                              <div class="col-sm-5">
+                                <input type="text" class="form-control" name='password1' placeholder="Nueva Contraseña" required>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="inputPassword3" class="col-sm-4 col-form-label">Vuelva a ingresar Password Nuevo:</label>
+                              <div class="col-sm-5">
+                                <input type="text" class="form-control" name='password' placeholder="Nueva Contraseña" required>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          <!-- /.card-body -->
+                          <div class="card-footer">
+                            <button type="submit" class="btn btn-info">GUARDAR CAMBIOS</button>
+                            <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
+                          </div>
+                          <?php
+                                  echo form_close();
+                        
+                                }
+                              }
+                      ?> 
+                  
                 <!-- /.card-footer -->
               
             </div>   
@@ -176,7 +183,3 @@
         <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-
-
-

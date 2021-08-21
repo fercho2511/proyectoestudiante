@@ -40,7 +40,7 @@
                     {
                         echo form_open_multipart('Profesor/modificarProf')
                         ?>
-                        <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                        <input type="hidden" name="dUsuario" value="<?php echo $row->idUsuario;?>">
                         <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
 

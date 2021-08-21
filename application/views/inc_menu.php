@@ -103,6 +103,8 @@
                          echo form_open_multipart('profesor/modificar2');
                           ?>
                           <input type="hidden" name="idUsuario" value="<?php echo $this->session->userdata('idUsuario')?>">
+                          <!-- <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>"> -->
+
                            <button type="submit" class="btn btn-outline-info" >Gestionar Cuenta/<?php echo $this->session->userdata('nombres')?> </button>
                          <?php
                              echo form_close();
@@ -164,7 +166,7 @@
                     <div class="image">
                         <!-- aca viene la imagen de user profe -->
                         <!-- <img src="<?php echo base_url(); ?>adminLTE/dist/img/userlogo.png" class="img-circle elevation-2" alt="User Image"> -->
-                        <img src="<?php echo base_url(); ?>cargas/profesor/<?php echo $this->session->userdata('foto')?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?php echo base_url(); ?>cargas/profesor/<?php echo $this->session->userdata('foto')?>" class="img-circle elevation-2" alt="Sin Imagen">
 
 
                     </div>

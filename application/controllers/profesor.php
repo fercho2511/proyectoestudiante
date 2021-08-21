@@ -54,27 +54,29 @@ class Profesor extends CI_Controller {
     }
 
 
-    public function modificar2()
-	{
-        //cargara la list de profesores
-        $lista=$this->profesor_model->lista();
-        $data['profesor']=$lista; //otro array asociativo
-
-		$this->load->view('inc_inicio.php');
-        $this->load->view('inc_menu.php');
-		$this->load->view('usuario/profesor/form_profesor',$data);
-		$this->load->view('inc_fin.php');
-
-	}
     // public function modificar2()
-    // {
+	// {
+    //     //cargara la list de profesores
     //     $idUsuario=$_POST['idUsuario'];
-    //     $data['profesor']=$this->profesor_model->obtenerProfesor($idUsuario);
-    //     $this->load->view('inc_inicio.php');
+    //     $data['idUsuario']=$this->profesor_model->obtenerProfesor($idUsuario);
+
+	// 	$this->load->view('inc_inicio.php');
     //     $this->load->view('inc_menu.php');
 	// 	$this->load->view('usuario/profesor/form_profesor',$data);
 	// 	$this->load->view('inc_fin.php');
-    // }
+
+	// }
+    public function modificar2()
+    {
+        $idUsuario=$_POST['idUsuario'];
+        $data['profesor']=$this->profesor_model->obtenerProfesor($idUsuario);
+        $lista=$this->profesor_model->lista();
+        $data['profesor']=$lista; 
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/form_profesor',$data);
+		$this->load->view('inc_fin.php');
+    }
 
 
     //aca llegara toda la informacion de la vista modificar

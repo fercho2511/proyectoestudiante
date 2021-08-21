@@ -15,6 +15,15 @@ class Profesor_model extends CI_Model {
 
                 return $this->db->get();
 	}
+        public function lista2($idUsuario)
+	{
+                $this->db->select('*');
+                $this->db->from('usuario');
+               // $this->db->where('rol','profesor');
+                $this->db->where('idUsuario',$idUsuario);
+
+                return $this->db->get();
+	}
 
         //consulta para obtener la lista de profesores
         public function obtenerProfesor($idUsuario)

@@ -51,15 +51,16 @@
 
                                             <div class="form-group">
                                                 <label class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" name='nombres'  placeholder="Ingrese Nombre" required>
+                                                <input type="text" class="form-control" name='nombres'  placeholder="Ingrese Nombre" required pattern="[A-Za-z]{3,25}"
+                                                                                    title="">
                                             </div>
                                             <div class="form-group"  >
                                                 <label class="form-label">Apellido Paterno</label>
-                                                <input type="text" class="form-control" name='apellidoPaterno'  placeholder="Ingrese Apellido Paterno" required >
+                                                <input type="text" class="form-control" name='apellidoPaterno'  placeholder="Ingrese Apellido Paterno" required pattern="[A-Za-z]{3,20}" >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Apellido Materno</label>
-                                                <input type="text" class="form-control" name='apellidoMaterno'  placeholder="Ingrese Apellido Materno" >
+                                                <input type="text" class="form-control" name='apellidoMaterno'  placeholder="Ingrese Apellido Materno" pattern="[A-Za-z]{3,20}" >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Nacimiento</label>
@@ -78,7 +79,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Telefono</label>
-                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese telefono" >
+                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese telefono" pattern=[0-9]{5} >
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label class="form-label">Correo</label>
