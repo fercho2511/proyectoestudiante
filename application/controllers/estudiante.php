@@ -71,7 +71,7 @@ class Estudiante extends CI_Controller {
         $data['ci']=$_POST['ci'];
         $data['direccion']=$_POST['direccion'];
         $data['fechaNacimiento']=$_POST['fechaNacimiento'];
-        $data['correo']=$_POST['correo'];  
+        // $data['correo']=$_POST['correo'];  
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
 
@@ -114,7 +114,7 @@ class Estudiante extends CI_Controller {
          $data['ci']=$_POST['ci'];
          $data['direccion']=$_POST['direccion'];
          $data['fechaNacimiento']=$_POST['fechaNacimiento'];
-         $data['correo']=$_POST['correo'];
+        //  $data['correo']=$_POST['correo'];
          $data['login']=$_POST['nombres'];
          $data['password']=md5($_POST['nombres']);
          $data['rol']=$_POST['rol'];

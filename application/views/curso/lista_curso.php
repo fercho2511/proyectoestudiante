@@ -44,6 +44,7 @@
                                                 <th>Sección</th>
                                                 <th>Tutor</th>  
                                                 <th>Estado</th>
+                                                <th>Acceso</th>
                                                 <th>Acciones</th>
 
                                             </tr>
@@ -68,6 +69,21 @@
                                                         echo 'Habilitado';
                                                     }
                                                     ?>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                    <?php
+                                                            echo form_open_multipart('curso/cursoCreado')
+                                                        ?>
+                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
+                                                        <button type="submit" class="btn btn-outline-dark" title="Acceder al Curso">
+                                                        <span class="far fa-arrow-alt-circle-right"></span>
+
+                                                        </button>
+                                                        <?php
+                                                            echo form_close();
+                                                        ?>
+                                                    </div>
                                                 </td>
                                                
 
@@ -146,6 +162,7 @@
                                                 <th>Sección</th>
                                                 <th>Tutor</th>  
                                                 <th>Estado</th>
+                                                <th>Acceso</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

@@ -59,7 +59,7 @@
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->tipo;?></td>  
                                                 <td><?php echo $row->descripcion;?></td>   
-                                                <td><?php echo $row->fechaComunicado;?></td>  
+                                                <td><?php echo formatearfecha($row->fechaComunicado);?></td> 
                                                 <td><?php echo $row->hora;?></td>                                                
                                               
                                              

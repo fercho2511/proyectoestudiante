@@ -164,6 +164,27 @@ class Curso extends CI_Controller {
 		$this->load->view('inc_fin.php');
 
      }
+    public function inscribirEstudiante(){
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+		$this->load->view('curso/inscribir_estudiante',$data);
+		$this->load->view('inc_fin.php');
+
+
+       
+
+    }
+    public function cursoCreado(){
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+        $this->load->view('curso/curso_creado',$data);
+        $this->load->view('inc_fin.php');
+
+    }
 
 
      

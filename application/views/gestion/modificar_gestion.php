@@ -48,22 +48,26 @@
                                     <div class="form-group">
                                         <label class="form-label">Gestion</label>
                                         <input type="text" class="form-control" name='gestion'  value="<?php echo $row->gestion;?>" >
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Fecha Inicio de Gestion</label>
-                                        <input type="text" class="form-control" name='fechaInicioGestion'  value="<?php echo $row->fechaInicioGestion;?>" >
+                                        <input type="DATE" class="form-control" name='fechaInicioGestion'  value="<?php echo date('Y-m-d', strtotime($row->fechaInicioGestion))?>" >
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Fecha Fin de Gestion</label>
-                                        <input type="date" class="form-control" name='fechaFinGestion'  value="<?php echo $row->fechaFinGestion;?>" >
+                                        <input type="date" class="form-control" name='fechaFinGestion'  value="<?php echo date('Y-m-d', strtotime($row->fechaFinGestion))?>" >
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Fecha Inicio de Receso</label>
-                                        <input type="date" class="form-control" name='fechaInicioReceso'  value="<?php echo $row->fechaInicioReceso;?>" >
+                                        <input type="date" class="form-control" name='fechaInicioReceso'  value="<?php echo date('Y-m-d', strtotime($row->fechaInicioReceso))?>" >
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Fecha Fin de Receso</label>
-                                        <input type="date" class="form-control" name='fechaFinReceso'  value="<?php echo $row->fechaFinReceso;?>" >
+                                        <input type="date" class="form-control" name='fechaFinReceso'  value="<?php echo date('Y-m-d', strtotime($row->fechaFinReceso))?>" >
                                     </div>
 
 
