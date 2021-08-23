@@ -136,24 +136,71 @@ class Usuario_per extends CI_Controller {
          $data['password']=md5($this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci));  
 
          $data['rol']=$_POST['rol'];
-         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];         
-         //$this->usuarioper_model->agregarUsuario($data); 
-         //redirect('usuario_per/test','refresh');
-         //para validar el carnet
+         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];  
          
+         
+         $this->usuarioper_model->agregarUsuario($data); 
+         redirect('usuario_per/test','refresh');
+
+         //para validar el carnet
+         /*
          $val=$this->usuarioper_model->validarCarnet($ci);  
 
-         if ($val == 'null') {
+         if ($val === 'null') {
               $this->usuarioper_model->agregarUsuario($data);
             redirect('usuario_per/test','refresh');
          }
          else {
+            //$error_message = "El usuario ya existe.";
+           // echo $error_message;
+            
+           // echo validation_errors('carnet ya esxiste');
+            //ho 'window.location.href = "usuario/agregar_usuario"';
+            //show_error ( 'carnet ya esxiste' );
+           // redirect('usuario_per/agregar');
+           $this->session->set_flashdata("error","no se pudo guardar la informacion");
+                    redirect('usuario_per/agregar');
+           //log_message ( 'error' ,  'carnet ya esxiste' ); 
+           //show_404();
+          //$this->add();
+
+
+          
+
+            
 
 
          }
          //$this->usuarioper_model->agregarUsuario($data);
-          //  redirect('usuario_per/test','refresh');
+          //  redirect('usuario_per/test','refresh');*/
 
+     }
+    
+     public function ValidarCI(){
+
+        $data['ci']=$_POST['ci'];
+        $ci=$_POST['ci'];
+        $val=$this->usuarioper_model->validarCarnet($ci); 
+        $data='1';
+        $data2='2'; 
+
+         if ($val == 'null') {
+            return $data;
+         }
+         else {
+             return $data2;
+
+
+         }
+/*
+
+         $valor = $this->input->post('ci');
+         $resultado = $this->usuarioper_model->validarCarnet($valor);
+         if($resultado) {
+            echo 1;
+         } else { 
+            echo 0;
+         }*/
      }
 
 

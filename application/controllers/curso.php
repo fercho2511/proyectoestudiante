@@ -154,6 +154,17 @@ class Curso extends CI_Controller {
 
      }
 
+     public function listarEstudiante(){
+         
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+		$this->load->view('curso/listado_estudiantes',$data);
+		$this->load->view('inc_fin.php');
+
+     }
+
 
      
 

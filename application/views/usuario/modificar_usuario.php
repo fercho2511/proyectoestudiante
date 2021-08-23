@@ -65,6 +65,7 @@
                                     <div class="form-group">
                                               <label for="">sexo:</label>
                                               <select class="form-control" name="sexo" value="<?php echo $row->sexo;?>">
+                                                 <option><?php echo $row->sexo;?></option>
                                                 <option>M</option>
                                                 <option>F</option>                                               
                                               </select>

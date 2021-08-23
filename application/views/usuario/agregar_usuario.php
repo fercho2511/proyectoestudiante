@@ -11,6 +11,31 @@
 
 
 
+          <script> 
+                            $(document).on('blur','ci', function(){
+                    $.ajax({
+                        type: "POST",
+                        // url con ruta a tu método o función en el controlador
+                        // url: eform_open_multipart('usuario_per/ValidarCI'),
+                        // echo form_open_multipart('usuario_per/ValidarCI')
+                        url = "<?php echo form_open_multipart('usuario_per/ValidarCI')?>";
+                        
+                        data: { 'ci' : $(this).val() },
+                        success: function(msg){
+                          if (msg==1) { // duplicado
+                            $(this).addClass('invalido');
+                            alert("Tu Mensaje al usuario"); 
+                          } else{ // firtsName unico 
+                            $(this).removeClass('invalido');
+                          }   
+                        }
+                    });
+                  });
+           
+          </script>
+
+
+
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -37,12 +62,12 @@
               <div class="card-header">
                 <h3 class="card-title">Registrar Usuario</h3>
               </div>
+             
               <!-- /.card-header -->
               <!-- form start -->
-              
-                            
+                                    <div class="card-body" >
 
-                                    <div class="card-body">
+                                    
                                         <?php
                                              //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                                             echo form_open_multipart('usuario_per/agregarUsu')
@@ -73,13 +98,22 @@
                                                 <option>F</option>                                               
                                               </select>
                                             </div>
+
+                                            <!-- para el mensaje de alerta -->
+                                            <!-- <div type="hidden" class="alert alert-danger" id="msg-error" >
+                                                <div class="list-errors" > 
+                                                </div>
+                                            </div> -->
+                                            <!-- asta aca el mensaje -->
+
                                             <div class="form-group">
                                                 <label class="form-label">C.I.</label>
-                                                <input type="text" class="form-control" name='ci'  placeholder="Ingrese C.I."required >
+                                                <input type="text" class="form-control" name='ci'  placeholder="Ingrese C.I." required >
+                                                <!-- required onblur="compruebaValidoEntero()" -->
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Telefono</label>
-                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese telefono" pattern=[0-9]{5} >
+                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese telefono"  >
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label class="form-label">Correo</label>

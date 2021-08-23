@@ -73,32 +73,62 @@
 
                                                 
                                                 <td>
-                                                <div class="btn-group btn-group-justified" >
-                                                <?php
-                                                        echo form_open_multipart('curso/modificar')
-                                                    ?>
-                                                    <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs" title="Modificar">
-                                                    <span class="fas fa-user-edit"></span>
-
-                                                    </button>
+                                                    <div class="btn-group btn-group-justified" >
                                                     <?php
-                                                        echo form_close();
-                                                    ?>
+                                                            echo form_open_multipart('curso/modificar')
+                                                        ?>
+                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
+                                                        <button type="submit" class="btn btn-outline-dark" title="Modificar">
+                                                        <span class="fas fa-user-edit"></span>
 
-                                                <?php
-                                                        echo form_open_multipart('curso/eliminarCurso')
-                                                    ?>
-                                                    <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-                                                    <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
-                                                    <span class="fas fa-trash-alt"></span>
+                                                        </button>
+                                                        <?php
+                                                            echo form_close();
+                                                        ?>
 
-                                                    </button>
-                                                    <?php
-                                                        echo form_close();
-                                                    ?>
+                                                        
+                                                        <?php
+                                                            echo form_open_multipart('curso/listarEstudiante')
+                                                        ?>
+                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
+                                                        <button type="submit" class="btn btn-outline-dark" title="Lista Estudiantes" >
+                                                        <span class="fas fa-clipboard-list"></span>
+                                                        
 
-                                                </div>
+                                                        </button>
+                                                        <?php
+                                                            echo form_close();
+                                                        ?>
+
+
+                                                         <?php
+                                                            echo form_open_multipart('curso/inscribirEstudiante')
+                                                        ?>
+                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
+                                                        <button type="submit" class="btn btn-outline-dark" title="Agregar Estudiantes" >
+                                                        <span class="fas fa-user-plus"></span>
+
+                                                        </button>
+                                                        <?php
+                                                            echo form_close();
+                                                        ?>
+
+
+                                                        <?php
+                                                            echo form_open_multipart('curso/eliminarCurso')
+                                                        ?>
+                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
+                                                        <button type="submit" class="btn btn-outline-danger" title="Eliminar" >
+                                                        <span class="fas fa-trash-alt"></span>
+
+                                                        </button>
+                                                        <?php
+                                                            echo form_close();
+                                                        ?>
+
+
+                                                    </div>
+                                                </td>
 
 
 

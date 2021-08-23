@@ -25,6 +25,10 @@
 </div>
 <!-- ./wrapper -->
 
+<!-- para la validacion en js -->
+<script src="<?php echo base_url(); ?>adminLTE/dist/js/validacion.js"></script>
+
+
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>adminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
