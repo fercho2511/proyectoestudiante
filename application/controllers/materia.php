@@ -76,11 +76,15 @@ class Materia extends CI_Controller {
 
     // ahora es para crear estudiante
     //del boton q se realizo en la vista llegara a este metodo
-      public function agregar()
+      public function agregar()      
     {
+        
+        $data['arrMateria']=$this->materia_model->obtenerMateriaGral();
+
+
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('materia/agregar_materia'); // llegaremos asta esta vista
+		$this->load->view('materia/agregar_materia',$data); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }

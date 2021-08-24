@@ -51,7 +51,9 @@ class Curso extends CI_Controller {
     {
         $idCurso=$_POST['idCurso'];
         $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
-        $data['arrProfesores'] = $this->curso_model->get_profesores();
+        $data['arrProfesores'] = $this->curso_model->get_profesores();        
+        $datos['arrGestion'] = $this->curso_model->get_gestion();
+
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
 		$this->load->view('curso/modificar_curso',$data);
@@ -91,6 +93,8 @@ class Curso extends CI_Controller {
        // $this->load->curso_model->get_profesores();
         // obtenemos el array de profesiones y lo preparamos para enviar
         $datos['arrProfesores'] = $this->curso_model->get_profesores();
+        $datos['arrGestion'] = $this->curso_model->get_gestion();
+
        // $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
 
             
@@ -117,9 +121,17 @@ class Curso extends CI_Controller {
          //recibireos los datos del estudiante
          /*$data['nombre']=$_POST['nombre'];
       */
+       // $data2=$_POST['gestion'];
+        //$data3=$this->curso_model->obtenerIdGestion($data2); 
+
+        // aca se envia el metodo del modelo 
+
+
          $data['curso']=$_POST['curso'];
          $data['seccion']=$_POST['seccion'];
          $data['tutor']=$_POST['tutor'];
+
+
 
        
          //$data['periodoReceso']=$_POST['periodoReceso'];
@@ -127,8 +139,15 @@ class Curso extends CI_Controller {
          
          $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
+         //$data['idGestion']=$this->curso_model->obtenerIdGestion($data2); 
+         //$data['idGestion']=$data3; 
+
+
+
          //dicho todo esto se ara la consulta a base de datos
+         //$this->curso_model->agregarCurso($data); // aca se envia el metodo del modelo 
          $this->curso_model->agregarCurso($data); // aca se envia el metodo del modelo 
+
 
          	//despues iremso a la lista redireccionando o dandole un refresh
              redirect('curso/test','refresh');
@@ -172,6 +191,10 @@ class Curso extends CI_Controller {
     public function inscribirEstudiante(){
         $lista=$this->estudiante_model->lista();
         $data['estudiante']=$lista; //otro array asociativo
+
+        $idCurso=$_POST['idCurso'];
+        $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);//arrar obteniendo el curso
+
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
 		$this->load->view('curso/inscribir_estudiante',$data);
@@ -184,10 +207,30 @@ class Curso extends CI_Controller {
     public function cursoCreado(){
         $lista=$this->estudiante_model->lista();
         $data['estudiante']=$lista; //otro array asociativo
+
+        $idCurso=$_POST['idCurso'];
+        $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
         $this->load->view('curso/curso_creado',$data);
         $this->load->view('inc_fin.php');
+
+    }
+
+    public function inscribirEstudianteCurso(){
+        $data['idCurso']=$_POST['idCurso'];
+         $data['idUsuario']=$_POST['idUsuario'];
+         $data['idGestion']=$_POST['idGestion'];  // para la gestion
+
+      
+        $this->curso_model->inscribirEstudianteCurso($data); // aca se envia el metodo del modelo
+ 
+
+        //despues iremso a la lista redireccionando o dandole un refresh
+        redirect('curso/test','refresh');
+
+
 
     }
 

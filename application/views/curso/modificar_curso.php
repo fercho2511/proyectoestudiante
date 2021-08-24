@@ -43,10 +43,15 @@
 
 
                                     <div class="card-body">
+                                       <!-- <?php echo $row->curso;?> -->
                                     
                                     <div class="form-group">
+                                    <!-- <?php echo $row->curso;?> -->
+
                                               <label for="">Curso:</label>
                                               <select class="form-control" name="curso" value="<?php echo $row->curso;?>" >
+                                              <option><?php echo $row->curso;?>º</option>
+
                                                 <option>1º</option>
                                                 <option>2º</option>
                                                 <option>3º</option>
@@ -58,6 +63,8 @@
                                     </div>
                                    
                                     <div class="form-group">
+                                    <!-- <?php echo $row->seccion;?> -->
+
                                               <label for="">Sección:</label>
                                               <select class="form-control" name="seccion" value="<?php echo $row->seccion;?>" >
                                                 <option>A</option>
@@ -69,6 +76,13 @@
                                                 <option>G</option>                                               
                                               </select>
                                             </div>
+
+
+                              
+
+
+                                        
+
                                     <!--  desde aca agarramos todos lso profes ingresados-->
                                     <div class="form-group">
                                               <label for="">tutor:</label>  
@@ -78,7 +92,17 @@
                                                     echo '<option values="',$i,'">',$profesion,'</option>';
                                                   ?>
                                                   </select>
-                                            </div>
+                                    </div>
+
+                                    <!-- <div class="form-group">
+                                              <label for="">Gestion:</label>  
+                                              <select name="tutor">
+                                                  <?php
+                                                  foreach ($arrGestion as $i => $gestion)
+                                                    echo '<option values="',$i,'">',$gestion,'</option>';
+                                                  ?>
+                                                  </select>
+                                    </div> -->
                                               
                                             <!-- asta aca -->
                                     

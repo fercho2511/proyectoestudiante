@@ -25,6 +25,22 @@ class Materia_model extends CI_Model {
                 $this->db->where('idMateria',$idMateria);
                 return $this->db->get();
 	}
+        function obtenerMateriaGral(){
+
+                // armamos la consulta
+                $query = $this->db-> query('SELECT idMateria,materia FROM materia where estado = 1');
+            
+                // si hay resultados
+                if ($query->num_rows() > 0) {
+                    // almacenamos en una matriz bidimensional
+                    foreach($query->result() as $row)
+                       $arrDatos[htmlspecialchars($row->idMateria, ENT_QUOTES)] = 
+                                 htmlspecialchars($row->materia, ENT_QUOTES);
+            
+                    $query->free_result();
+                    return $arrDatos;
+                 }
+        }
 
 
         //consulta para el modificado de datos de lso esudiantes o actualizacion de datos

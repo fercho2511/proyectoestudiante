@@ -83,7 +83,7 @@
                                                         echo form_open_multipart('gestion/modificar')
                                                     ?>
                                                     <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs" title="Modificar">
+                                                    <button type="submit" class="btn btn-outline-dark" title="Modificar">
                                                     <span class="fas fa-user-edit"></span>
 
                                                     </button>
@@ -97,7 +97,7 @@
                                                     <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
                                                     <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
-                                                    <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
+                                                    <button type="submit" class="btn btn-outline-danger" title="Eliminar" >
                                                     <span class="fas fa-trash-alt"></span>
 
                                                     </button>

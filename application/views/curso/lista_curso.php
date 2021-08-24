@@ -104,18 +104,10 @@
                                                         ?>
 
                                                         
-                                                        <!-- <?php
-                                                            echo form_open_multipart('curso/listarEstudiante')
-                                                        ?>
-                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-                                                        <button type="submit" class="btn btn-outline-dark" title="Lista Estudiantes" >
-                                                        <span class="fas fa-clipboard-list"></span>
-                                                        
-
-                                                        </button>
+                         
                                                         <?php
                                                             echo form_close();
-                                                        ?> -->
+                                                        ?> 
 
 
                                                          <?php

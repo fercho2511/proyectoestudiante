@@ -1,9 +1,22 @@
+
+ <?php
+                    foreach ($infocurso-> result() as $row) {
+                        $curso =  $row->curso;
+                        $seccion =  $row->seccion;
+                        $tutor =  $row->tutor;                        
+                    }
+                    ?>
+
 <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
+                   
+
                         <div class="col-sm-6">
-                            <h1>Curso 'nombre de curso creado'</nombre></h1>
+                            <h1>Curso <?php echo $curso;?><?php echo $seccion;?></h1>
+                            <h1>Tutor Prof.: <?php echo $tutor;?></h1>
+
                            
                         </div>
                        
@@ -150,3 +163,10 @@
             </section>
             <!-- /.content -->
         </div>
+
+
+
+
+
+
+       

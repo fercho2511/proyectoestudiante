@@ -40,7 +40,7 @@
                         ?>
                         <input type="hidden" name="idMateria" value="<?php echo $row->idMateria;?>">
                          <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
-                         <?php echo $this->session->userdata('idusuario');?>
+                         <!-- <?php echo $this->session->userdata('idusuario');?> -->
 
 
                                     <div class="card-body">

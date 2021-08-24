@@ -1,9 +1,19 @@
+<?php
+                    foreach ($infocurso-> result() as $row) {
+                        $idCurso =  $row->idCurso;
+                        $curso =  $row->curso;
+                        $seccion =  $row->seccion;
+                        $tutor =  $row->tutor;                        
+                    }
+                    ?>
+
+
 <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Estudiantes Registrados en el Sistema</h1>
+                            <h1>Inscribir Estudiantes al Curso <?php echo $curso;?><?php echo $seccion;?></h1>
                            
                         </div>
                        
@@ -90,9 +100,12 @@
                                                 <td>
                                                 <div class="btn-group btn-group-justified" >
                                                 <?php
-                                                        // echo form_open_multipart('estudiante/modificar')
+                                                // en esta linea se inscribira a lso estudiantes al cruso
+                                                        // echo form_open_multipart('curso/inscribirEstudianteCurso')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                    <input type="hidden" name="idCurso" value="<?php echo $curso;?>">
+
                                                     <button type="submit" class="btn btn-outline-dark" title="Agregar al curso">
                                                     <span class="fas fa-user-plus""></span>
 

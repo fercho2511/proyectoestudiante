@@ -78,6 +78,18 @@
                                                   ?>
                                                   </select>
                                             </div>
+
+
+                                            <!-- para la gestion -->
+                                            <div class="form-group">
+                                              <label for="">Gestion:</label>  
+                                              <select name="gestion">
+                                                  <?php
+                                                  foreach ($arrGestion as $i => $gestion)
+                                                    echo '<option values="',$i,'">',$gestion,'</option>';
+                                                  ?>
+                                                  </select>
+                                            </div>
                                               
                                             <!-- asta aca -->
                                             

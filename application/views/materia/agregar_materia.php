@@ -33,11 +33,25 @@
                                              //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                                             echo form_open_multipart('materia/agregarMat')
                                          ?>
-                                          <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
+                                          <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
+                                          <div class="form-group">
+                                              <label for="">Materias Existentes:</label>  
+                                              
+                                                  <?php
+                                                  
+                                                  foreach ($arrMateria as $i => $materia)
+                                                    echo '<option values="',$i,'">' ,$materia,'</option>';
+                                                  ?>
+                                                  
+                                                 
+                                            </div>
 
                                            <div class="form-group">
                                                 <label class="form-label">Materia</label>
-                                                <input type="text" class="form-control" name='materia'  placeholder="materia" >
+                                                <input type="text" class="form-control" name='materia'  placeholder="materia" required pattern="[A-Za-z]{3,25}" >
+                                                 
+                                               
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label class="form-label">Profesor</label>

@@ -57,7 +57,35 @@ class Curso_model extends CI_Model {
                     return $arrDatos;
                  }
         }
+        
+        function get_gestion(){
 
+                // armamos la consulta
+                $query = $this->db-> query('SELECT idGestion,gestion FROM gestion where estado = 1');
+            
+                // si hay resultados
+                if ($query->num_rows() > 0) {
+                    // almacenamos en una matriz bidimensional
+                    foreach($query->result() as $row)
+                       $arrDatos[htmlspecialchars($row->idGestion, ENT_QUOTES)] = 
+                                 htmlspecialchars($row->gestion, ENT_QUOTES);
+            
+                    $query->free_result();
+                    return $arrDatos;
+                 }
+        }
+        public function obtenerIdGestion($data3){
+
+                $this->db->select('idGestion');
+                $this->db->from('gestion');
+                $this->db->where('gestion',$data3);
+                //return $this->db->get();
+                $query = $this->db->get();
+                return $query;
+
+                
+        
+        }
 
         //consulta para obtener la lista de estudiantes
         public function obtenerCurso($idCurso)
@@ -96,6 +124,11 @@ class Curso_model extends CI_Model {
 
                 //$this->db->where('idUsuario',$idUsuario);
                // $this->db->delete('usuario'); //con esto se elimina el registro de mi tabla
+        }
+        public function inscribirEstudianteCurso($data){
+                $this->db->insert('inscrito',$data);
+
+
         }
 
 
