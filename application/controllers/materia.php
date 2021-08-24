@@ -64,6 +64,8 @@ class Materia extends CI_Controller {
 
         $idMateria=$_POST['idMateria'];
         $data['materia']=$_POST['materia'];
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+
      
         //ahora la consula
         $this->materia_model->modificarMateria($idMateria,$data);
@@ -102,7 +104,7 @@ class Materia extends CI_Controller {
          //$data['periodoReceso']=$_POST['periodoReceso'];
          //$data['telefono']=$_POST['telefono'];
          
-         //$data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos
          $this->materia_model->agregarMateria($data); // aca se envia el metodo del modelo 
@@ -126,7 +128,9 @@ class Materia extends CI_Controller {
         $idMateria=$_POST['idMateria'];  // llega el id desde el campo hiden del formulario
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
-        $this->materia_model->eliminarMateria($idMateria); // aca se envia el metodo del modelo 
+         $data1 =$_POST['idUsuario_Acciones'];
+
+        $this->materia_model->eliminarMateria($idMateria,$data1); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
         redirect('materia/test','refresh');

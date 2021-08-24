@@ -46,9 +46,10 @@ class Materia_model extends CI_Model {
 
         //metodo q ara la consulta para eliminar estudiante
 
-        public function eliminarMateria($idMateria)
+        public function eliminarMateria($idMateria,$data1)
         {
-                $datos = ['estado' => '0',];
+                $datos = ['estado' => '0','idUsuario_Acciones' =>$data1,];
+                // $datos =  ['idUsuario_Acciones' =>$data1,];
                 $this-> db-> where ('idMateria', $idMateria);
                 $this-> db-> update ('materia', $datos);
 

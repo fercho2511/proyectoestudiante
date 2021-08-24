@@ -88,6 +88,8 @@
                                                         echo form_open_multipart('materia/eliminarMat')
                                                     ?>
                                                     <input type="hidden" name="idMateria" value="<?php echo $row->idMateria;?>">
+                                                    <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> 
+
                                                     <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
                                                     <span class="fas fa-trash-alt"></span>
 

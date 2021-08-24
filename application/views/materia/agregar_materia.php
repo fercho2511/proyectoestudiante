@@ -33,7 +33,7 @@
                                              //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                                             echo form_open_multipart('materia/agregarMat')
                                          ?>
-                                          <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
+                                          <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
 
                                            <div class="form-group">
                                                 <label class="form-label">Materia</label>

@@ -39,10 +39,13 @@
                         echo form_open_multipart('materia/modificarMateria')
                         ?>
                         <input type="hidden" name="idMateria" value="<?php echo $row->idMateria;?>">
-                        <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
+                         <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
+                         <?php echo $this->session->userdata('idusuario');?>
 
 
                                     <div class="card-body">
+                                    <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
                                     <div class="form-group">
                                         <label class="form-label">Materia</label>
                                         <input type="text" class="form-control" name='materia'  value="<?php echo $row->materia;?>" >

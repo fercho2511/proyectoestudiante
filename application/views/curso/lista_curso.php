@@ -94,6 +94,7 @@
                                                             echo form_open_multipart('curso/modificar')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
+
                                                         <button type="submit" class="btn btn-outline-dark" title="Modificar">
                                                         <span class="fas fa-user-edit"></span>
 
@@ -103,7 +104,7 @@
                                                         ?>
 
                                                         
-                                                        <?php
+                                                        <!-- <?php
                                                             echo form_open_multipart('curso/listarEstudiante')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
@@ -114,13 +115,15 @@
                                                         </button>
                                                         <?php
                                                             echo form_close();
-                                                        ?>
+                                                        ?> -->
 
 
                                                          <?php
                                                             echo form_open_multipart('curso/inscribirEstudiante')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
+                                                        <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
                                                         <button type="submit" class="btn btn-outline-dark" title="Agregar Estudiantes" >
                                                         <span class="fas fa-user-plus"></span>
 
@@ -134,6 +137,8 @@
                                                             echo form_open_multipart('curso/eliminarCurso')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
+                                                        <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
                                                         <button type="submit" class="btn btn-outline-danger" title="Eliminar" >
                                                         <span class="fas fa-trash-alt"></span>
 

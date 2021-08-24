@@ -70,6 +70,8 @@ class Curso extends CI_Controller {
         $data['curso']=$_POST['curso'];
         $data['seccion']=$_POST['seccion'];
         $data['tutor']=$_POST['tutor'];
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+
       
         //ahora la consula
         $this->curso_model->modificarCurso($idCurso,$data);
@@ -123,7 +125,7 @@ class Curso extends CI_Controller {
          //$data['periodoReceso']=$_POST['periodoReceso'];
          //$data['telefono']=$_POST['telefono'];
          
-         //$data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos
          $this->curso_model->agregarCurso($data); // aca se envia el metodo del modelo 
@@ -145,9 +147,12 @@ class Curso extends CI_Controller {
      public function  eliminarCurso()
      {
         $idCurso=$_POST['idCurso'];  // llega el id desde el campo hiden del formulario
+        $data1=$_POST['idUsuario_Acciones'];
+
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
-        $this->curso_model->eliminarCurso($idCurso); // aca se envia el metodo del modelo 
+        $this->curso_model->eliminarCurso($idCurso,$data1); // aca se envia el metodo del modelo
+ 
 
         //despues iremso a la lista redireccionando o dandole un refresh
         redirect('curso/test','refresh');

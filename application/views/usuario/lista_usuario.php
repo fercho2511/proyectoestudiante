@@ -77,7 +77,6 @@
                                                 <td><?php echo $row->sexo;?></td>
                                                 <td><?php echo $row->telefono;?></td>
                                                 <td><?php echo $row->direccion;?></td>
-                                                <!-- <td><?php echo $row->correo;?></td> -->
                                                 <td><?php echo $row->rol;?></td>
                                                 <td><?php echo formatearfecha($row->fechaNacimiento);?></td>
                                                 <td><?php echo $row->login;?></td>

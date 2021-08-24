@@ -68,6 +68,8 @@ class Gestion extends CI_Controller {
         $data['fechaFinGestion']=$_POST['fechaFinGestion'];
         $data['fechaInicioReceso']=$_POST['fechaInicioReceso'];
         $data['fechaFinReceso']=$_POST['fechaFinReceso'];
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+
         //ahora la consula
         $this->gestion_model->modificarGestion($idGestion,$data);
         //esta linea ya realiza la actualizacion
@@ -105,7 +107,7 @@ class Gestion extends CI_Controller {
          //$data['periodoReceso']=$_POST['periodoReceso'];
          //$data['telefono']=$_POST['telefono'];
          
-         //$data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos
          $this->gestion_model->agregarGestion($data); // aca se envia el metodo del modelo 
@@ -127,9 +129,11 @@ class Gestion extends CI_Controller {
      public function  eliminarGest()
      {
         $idGestion=$_POST['idGestion'];  // llega el id desde el campo hiden del formulario
+        $data1 =$_POST['idUsuario_Acciones'];
+
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
-        $this->gestion_model->eliminarGestion($idGestion); // aca se envia el metodo del modelo 
+        $this->gestion_model->eliminarGestion($idGestion,$data1); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
         redirect('gestion/test','refresh');

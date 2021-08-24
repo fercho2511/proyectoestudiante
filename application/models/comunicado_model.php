@@ -46,9 +46,9 @@ class Comunicado_model extends CI_Model {
 
         //metodo q ara la consulta para eliminar estudiante
 
-        public function eliminarComunicado($idComunicado)
+        public function eliminarComunicado($idComunicado,$data1)
         {
-                $datos = ['estado' => '0',];
+                $datos = ['estado' => '0','idUsuario_Acciones'=>$data1];
                 $this-> db-> where ('idComunicado', $idComunicado);
                 $this-> db-> update ('comunicado', $datos);
 

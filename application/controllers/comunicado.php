@@ -67,6 +67,8 @@ class Comunicado extends CI_Controller {
         $data['descripcion']=$_POST['descripcion'];
         $data['fechaComunicado']=$_POST['fechaComunicado'];
         $data['hora']=$_POST['hora']; 
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+
       
         //ahora la consula
         $this->comunicado_model->modificarComunicado($idComunicado,$data);
@@ -97,7 +99,7 @@ class Comunicado extends CI_Controller {
          $data['fechaComunicado']=$_POST['fechaComunicado'];
          $data['hora']=$_POST['hora'];      
          
-         //$data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos
          $this->comunicado_model->agregarComunicado($data); // aca se envia el metodo del modelo 
@@ -119,9 +121,11 @@ class Comunicado extends CI_Controller {
      public function  eliminarCom()
      {
         $idComunicado=$_POST['idComunicado'];  // llega el id desde el campo hiden del formulario
+        $data1 =$_POST['idUsuario_Acciones'];
+
         /*guardamos en una variable y lo mandamos al modelo para su posterior eliminacion
          invocamos directo al metodo del modelo*/
-        $this->comunicado_model->eliminarComunicado($idComunicado); // aca se envia el metodo del modelo 
+        $this->comunicado_model->eliminarComunicado($idComunicado,$data1); // aca se envia el metodo del modelo 
 
         //despues iremso a la lista redireccionando o dandole un refresh
         redirect('comunicado/test','refresh');

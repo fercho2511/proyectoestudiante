@@ -88,9 +88,9 @@ class Curso_model extends CI_Model {
 
         //metodo q ara la consulta para eliminar estudiante
 
-        public function eliminarCurso($idCurso)
+        public function eliminarCurso($idCurso,$data1)
         {
-                $datos = ['estado' => '0',];
+                $datos = ['estado' => '0','idUsuario_Acciones'=>$data1];
                 $this-> db-> where ('idCurso', $idCurso);
                 $this-> db-> update ('curso', $datos);
 

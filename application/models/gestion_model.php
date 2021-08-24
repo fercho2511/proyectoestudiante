@@ -46,9 +46,9 @@ class Gestion_model extends CI_Model {
 
         //metodo q ara la consulta para eliminar estudiante
 
-        public function eliminarGestion($idGestion)
+        public function eliminarGestion($idGestion,$data1)
         {
-                $datos = ['estado' => '0',];
+                $datos = ['estado' => '0','idUsuario_Acciones'=>$data1,];
                 $this-> db-> where ('idGestion', $idGestion);
                 $this-> db-> update ('gestion', $datos);
 

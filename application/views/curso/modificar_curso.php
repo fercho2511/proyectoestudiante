@@ -39,7 +39,7 @@
                         echo form_open_multipart('curso/modificarCurso')
                         ?>
                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-                        <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
+                         <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
 
                                     <div class="card-body">
