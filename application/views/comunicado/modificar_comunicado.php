@@ -51,9 +51,13 @@
                                                
                                               </select>
                                             </div>
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="form-label">Descripcion</label>
                                                 <input type="text" class="form-control" name='descripcion' height="50" value="<?php echo $row->descripcion;?>">
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label class="form-label">Descripcion</label>
+                                                <textarea name="descripcion" rows="10" cols="40" ><?php echo $row->descripcion;?></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha</label>

@@ -38,15 +38,15 @@
 
                                            <div class="form-group">
                                                 <label class="form-label">Gestion</label>
-                                                <input type="text" class="form-control" name='gestion'  placeholder="año" >
+                                                <input type="text" class="form-control" name='gestion'  placeholder="año" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Inicio de Gestion</label>
-                                                <input type="date" class="form-control" name='fechaInicioGestion'>
+                                                <input type="date" class="form-control" name='fechaInicioGestion'required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Fin de Gestion</label>
-                                                <input type="date" class="form-control" name='fechaFinGestion'>
+                                                <input type="date" class="form-control" name='fechaFinGestion'required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Inicio de Receso</label>

@@ -47,17 +47,23 @@
                                                
                                               </select>
                                             </div>
+                                            <!-- <div class="form-group">
+                                                <label class="form-label">Descripcion</label>
+                                                <input type="text" class="form-control" rows="10" cols="40" name='descripcion'   required>
+                                            </div> -->
                                             <div class="form-group">
                                                 <label class="form-label">Descripcion</label>
-                                                <input type="text" class="form-control" name='descripcion' height="50">
+                                                <textarea name="descripcion" rows="10" cols="40" required></textarea>
                                             </div>
+                                            
+
                                             <div class="form-group">
                                                 <label class="form-label">Fecha</label>
-                                                <input type="date" class="form-control" name='fechaComunicado' height="50">
+                                                <input type="date" class="form-control" name='fechaComunicado' height="50" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Hora</label>
-                                                <input type="time" class="form-control" name='hora' height="50">
+                                                <input type="time" class="form-control" name='hora' height="50" required>
                                             </div>
                                             
                                          
