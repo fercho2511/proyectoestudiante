@@ -139,40 +139,34 @@ class Usuario_per extends CI_Controller {
          $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];  
          
          
-         $this->usuarioper_model->agregarUsuario($data); 
-         redirect('usuario_per/test','refresh');
+        //  $this->usuarioper_model->agregarUsuario($data); 
+        //  redirect('usuario_per/test','refresh');
 
          //para validar el carnet
-         /*
-         $val=$this->usuarioper_model->validarCarnet($ci);  
+         
+       $val=$this->usuarioper_model->validarCarnet($ci);  
+       
+                switch ($val) {
+                    case '1':
+                        $error_message = "El usuario ya existe.";
+                        echo $error_message;
+                         redirect('usuario_per/agregar');
+                        break;
+                    case '0':
+                        $this->usuarioper_model->agregarUsuario($data);
+                        redirect('usuario_per/test','refresh');
+                        // redirect('profesor/test1','refresh');
+                        break;
+                                    
+                
+                //si hay entonces redireccionar                
+                //PARA LOS ROLES            
 
-         if ($val === 'null') {
-              $this->usuarioper_model->agregarUsuario($data);
-            redirect('usuario_per/test','refresh');
-         }
-         else {
-            //$error_message = "El usuario ya existe.";
-           // echo $error_message;
-            
-           // echo validation_errors('carnet ya esxiste');
-            //ho 'window.location.href = "usuario/agregar_usuario"';
-            //show_error ( 'carnet ya esxiste' );
-           // redirect('usuario_per/agregar');
-           $this->session->set_flashdata("error","no se pudo guardar la informacion");
-                    redirect('usuario_per/agregar');
-           //log_message ( 'error' ,  'carnet ya esxiste' ); 
-           //show_404();
-          //$this->add();
-
-
-          
-
-            
+             
+             }
 
 
-         }
-         //$this->usuarioper_model->agregarUsuario($data);
-          //  redirect('usuario_per/test','refresh');*/
+
 
      }
     

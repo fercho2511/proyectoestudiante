@@ -52,12 +52,18 @@ class Usuarioper_model extends CI_Model {
 
         public function validarCarnet ($ci){
 
-               // select ufcCarnet(873264)
-               // $this->db->select('ufcCarnet($ci)');
+            
+                 $this->db->select('ci');
+                 $this->db->from('usuario');
+                 $this->db->where('ci', $ci);
+                 $consulta = $this->db->get();
+                 if ($consulta->num_rows() > 0) {
+             
+                     return 1;
+                 } else {
+                     return 0;
+                 }
 
-                 //consulta en mysql completa
-                 $query="SELECT ufcCarnet($ci)";
-                 return $this->db->query($query);
 
 
 
