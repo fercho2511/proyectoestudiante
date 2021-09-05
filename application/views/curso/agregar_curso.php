@@ -69,7 +69,7 @@
                                             </div> 
 
                                             <!--  desde aca agarramos todos lso profes ingresados-->
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                               <label for="">tutor:</label>  
                                               <select name="tutor">
                                                   <?php
@@ -77,7 +77,7 @@
                                                     echo '<option values="',$i,'">',$profesion,'</option>';
                                                   ?>
                                                   </select>
-                                            </div>
+                                            </div> -->
 
 
                                             <!-- para la gestion -->

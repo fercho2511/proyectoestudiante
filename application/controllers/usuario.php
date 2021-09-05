@@ -71,7 +71,7 @@ class Usuario extends CI_Controller {
 
                 $this->session->set_userdata('idusuario',$row->idUsuario);
                 $this->session->set_userdata('login',$row->login);
-                $this->session->set_userdata('rol',$row->rol);
+                $this->session->set_userdata('idRol',$row->idRol);
                 $this->session->set_userdata('foto',$row->foto);
                 $this->session->set_userdata('nombres',$row->nombres);
 
@@ -97,29 +97,29 @@ class Usuario extends CI_Controller {
             {
 
                 
-                $rol=$this->session->userdata('rol');
+                $rol=$this->session->userdata('idRol');
                 switch ($rol) {
-                    case 'superAdministrador':
+                    case '1':
                         # code...
                         //entra al menu admin
                         //panel admin
                         redirect('usuario_per/test','refresh
                         ');
                         break;
-                    case 'Profesor':
+                    case '3':
                         # code...
                         //entra al menu admin
                         //panel admin
                         redirect('profesor/test1','refresh');
                         break;
-                    case 'Administrador':
+                    case '2':
                         # code...
                         //entra al menu admin
                         //panel admin
                         redirect('usuario_per/test','refresh');
                         break;
                     
-                    case 'Estudiante':
+                    case '4':
                             # code...
                              //entra al menu admin
                              //panel admin

@@ -6,7 +6,7 @@
                             <h1>Materias</h1>
                            
                         </div>
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                         <?php
                                             echo form_open_multipart('materia/agregar')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
@@ -17,7 +17,7 @@
                                         <?php
                                             echo form_close();
                                     ?>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- /.container-fluid -->

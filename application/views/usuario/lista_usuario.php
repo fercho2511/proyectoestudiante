@@ -77,7 +77,27 @@
                                                 <td><?php echo $row->sexo;?></td>
                                                 <td><?php echo $row->telefono;?></td>
                                                 <td><?php echo $row->direccion;?></td>
-                                                <td><?php echo $row->rol;?></td>
+                                                <td>
+                                                    <!-- <?php echo $row->idRol;?> -->
+                                                    <?php
+                                                    if ($row->idRol ==1){
+                                                        echo 'superAdministrador';
+                                                    }
+                                                    else{
+                                                        if ($row->idRol ==2){
+                                                            echo 'Administrador';
+                                                        }
+                                                        else{
+                                                            if ($row->idRol ==3){
+                                                                echo 'Profesor';
+                                                            }
+                                                            else{
+                                                                echo 'Estudiante';
+                                                            }
+                                                        }
+                                                    }
+                                                    ?>
+                                                </td>
                                                 <td><?php echo formatearfecha($row->fechaNacimiento);?></td>
                                                 <td><?php echo $row->login;?></td>
                                                 <td><?php echo $row->password;?></td>

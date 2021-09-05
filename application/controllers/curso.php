@@ -92,21 +92,12 @@ class Curso extends CI_Controller {
 
        // $this->load->curso_model->get_profesores();
         // obtenemos el array de profesiones y lo preparamos para enviar
-        $datos['arrProfesores'] = $this->curso_model->get_profesores();
+       // $datos['arrProfesores'] = $this->curso_model->get_profesores();
         $datos['arrGestion'] = $this->curso_model->get_gestion();
-
        // $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
-
-            
         // cargamos  la interfaz y le enviamos los datos
       //  $this->load->view('nombre_de_la_vista', $datos);
-
         //asta aca modificado
-
-
-
-
-
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
 		$this->load->view('curso/agregar_curso',$datos); // llegaremos asta esta vista

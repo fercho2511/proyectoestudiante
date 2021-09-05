@@ -140,6 +140,29 @@ class Gestion extends CI_Controller {
 
      }
 
+     public function listaCursos (){
+
+        // $lista=$this->gestion_model->listaCuso($idGestion);
+        // $data['curso']=$lista; //otro array asociativo
+
+        $idGestion=$_POST['idGestion'];
+        $data['curso']=$this->gestion_model->listaCuso($idGestion);
+
+        
+        $idGestion=$_POST['idGestion'];
+        $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
+
+
+  
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+		$this->load->view('gestion/listado_curso',$data);
+		$this->load->view('inc_fin.php');
+
+
+     }
+
 
      
 

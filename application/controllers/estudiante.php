@@ -117,7 +117,7 @@ class Estudiante extends CI_Controller {
         //  $data['correo']=$_POST['correo'];
          $data['login']=$_POST['nombres'];
          $data['password']=md5($_POST['nombres']);
-         $data['rol']=$_POST['rol'];
+         $data['idRol']='4';
          $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos

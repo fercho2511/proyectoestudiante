@@ -91,6 +91,24 @@
                                                         echo form_close();
                                                     ?>
 
+                                                    <?php
+                                                            echo form_open_multipart('gestion/listaCursos')
+                                                        ?>
+                                                        <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
+                                                        <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
+                                                        <button type="submit" class="btn btn-outline-dark" title="Agregar Estudiantes" >
+                                                        <span class="fas fa-user-plus"></span>
+
+                                                        </button>
+                                                        <?php
+                                                            echo form_close();
+                                                        ?>
+
+
+
+
+
                                                 <?php
                                                         echo form_open_multipart('gestion/eliminarGest')
                                                     ?>

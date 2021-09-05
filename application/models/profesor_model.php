@@ -10,7 +10,7 @@ class Profesor_model extends CI_Model {
 	{
                 $this->db->select('*');
                 $this->db->from('usuario');
-                $this->db->where('rol','profesor');
+                $this->db->where('idRol','3');
                 $this->db->where('estado','1');
 
                 return $this->db->get();

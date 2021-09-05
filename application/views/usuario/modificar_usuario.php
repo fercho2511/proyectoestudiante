@@ -93,7 +93,7 @@
                                                 <option>Profesor</option>
                                                 <option>Estudiante</option>
                                                 <option>Administrador</option>
-                                                <option>superAdministrador</option>
+                                                <!-- <option>superAdministrador</option> -->
 
                                                
                                               </select>

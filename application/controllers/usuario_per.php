@@ -133,10 +133,21 @@ class Usuario_per extends CI_Controller {
          $am=$_POST['apellidoMaterno'];
          $ci=$_POST['ci'];
          $data['login']=$this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci); 
-         $data['password']=md5($this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci));  
-
-         $data['rol']=$_POST['rol'];
+         $data['password']=md5($this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci)); 
          $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];  
+         $rol=$_POST['rol'];
+
+         switch ($rol) {
+            case 'Administrador':
+                $data['idRol']='2';
+                break;
+            case 'Profesor':
+                $data['idRol']='3';    
+                break;
+             case 'Estudiante':
+                $data['idRol']='4';        
+                 break; 
+        }
          
          
         //  $this->usuarioper_model->agregarUsuario($data); 
