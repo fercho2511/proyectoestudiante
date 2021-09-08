@@ -77,6 +77,111 @@ class Gestion_model extends CI_Model {
 
 
         }
+        public function listaCurso()
+	{
+                $this->db->select('*');
+                $this->db->from('curso');
+              //  $this->db->where('rol','estudiante');
+                $this->db->where('estado','1');
+
+                return $this->db->get();
+	}
+
+        public function listaEstudiantes($idGestion,$idCurso)
+	{
+                // $this->db->select('*');
+                // $this->db->from('usuario');
+                // $this->db->where('idRol','4');
+                // $this->db->where('estado','1');
+
+                // return $this->db->get();
+
+                
+
+
+                $this->db->select('*');
+                $this->db->from('usuario');
+                $this->db->join('rol', 'rol.idRol = usuario.idRol');
+                $this->db->join('inscrito', 'inscrito.idEstudiante = usuario.idUsuario');
+                $this->db->where('rol.rol', 'Estudiante');
+                $this->db->where('inscrito.idGestion', $idGestion);
+                $this->db->where('inscrito.idCurso', $idCurso);
+
+                return $this->db->get();
+
+        //         select U.*
+        //         from usuario U
+        //         inner join rol R on R.idRol =  U.idRol
+        //         inner join inscrito I on I.idEstudiante = U.idUsuario
+        //         where R.rol = 'rol' and I.idCurso = '2' and I.idGestion = '1'
+	 }
+
+
+         public function listaDeEstudiantes($idGestion){
+ /*
+                $this->db->select('*');
+                $this->db->from('usuario');
+                $this->db->join('rol', 'rol.idRol = usuario.idRol');
+                // $this->db->join('inscrito', 'inscrito.idEstudiante = usuario.idUsuario');
+                $this->db->where('rol.rol', 'Estudiante');
+                // $this->db->where('inscrito.idGestion', $idGestion);
+                // $this->db->where('inscrito.idCurso', $idCurso);
+
+                return $this->db->get();
+               
+                
+
+                                        select *
+                        from usuario
+                        where idRol='4' and idUsuario not in 
+                        (
+                        select U.idUsuario
+                        from usuario U
+                        inner join rol R on R.idRol =  U.idRol
+                        inner join inscrito I on I.idEstudiante = U.idUsuario
+                        where R.rol = 'Estudiante'  and I.idGestion = '5'
+                        ) 
+
+*/
+                // $this->db->select('id_cer'); $this->db->from('revokace');
+                //  $where_clause = $this->db->get_compiled_select(); 
+                //  #Create main query
+                //   $this->db->select('*'); 
+                //   $this->db->from('certs');
+                //   $this->db->where("`id` NOT IN ($where_clause)", NULL, FALSE);
+
+                //   $this->db->select('id_cer'); $this->db->from('revokace');
+                //  $where_clause = $this->db->get_compiled_select(); 
+                //  #Create main query
+                //   $this->db->select('*'); 
+                //   $this->db->from('certs');
+                //   $this->db->where("`id` NOT IN ($where_clause)", NULL, FALSE);
+
+
+
+
+                 $query="SELECT * FROM usuario WHERE usuario.idRol ='4' and estado = '1' and usuario.idUsuario not in(
+                        SELECT usuario.idUsuario FROM usuario inner join rol on rol.idRol=usuario.idRol
+                        inner join inscrito on inscrito.idEstudiante = usuario.idUsuario
+                        where rol.rol ='Estudiante' and  inscrito.idGestion=$idGestion)";
+                        $resultados = $this->db->query($query);
+                        return $resultados;
+
+
+
+
+
+
+
+         }
+
+
+         public function inscribirEstu($data){
+
+                $this->db->insert('inscrito',$data);
+
+
+         }
 
 
 

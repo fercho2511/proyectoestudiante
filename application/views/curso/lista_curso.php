@@ -42,9 +42,9 @@
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
                                                 <th>Sección</th>
-                                                <th>Tutor</th>  
+                                                <!-- <th>Tutor</th>   -->
                                                 <th>Estado</th>
-                                                <th>Acceso</th>
+                                                <!-- <th>Acceso</th> -->
                                                 <th>Acciones</th>
 
                                             </tr>
@@ -59,7 +59,7 @@
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->curso;?></td>  
                                                 <td><?php echo $row->seccion;?></td>
-                                                <td><?php echo $row->tutor;?></td>                                               
+                                                <!-- <td><?php echo $row->tutor;?></td>                                                -->
                                                 <td>
                                                 <?php
                                                     if ($row->estado==0){
@@ -70,7 +70,7 @@
                                                     }
                                                     ?>
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <div>
                                                     <?php
                                                             echo form_open_multipart('curso/cursoCreado')
@@ -84,7 +84,7 @@
                                                             echo form_close();
                                                         ?>
                                                     </div>
-                                                </td>
+                                                </td> -->
                                                
 
                                                 
@@ -110,7 +110,7 @@
                                                         ?> 
 
 
-                                                         <?php
+                                                         <!-- <?php
                                                             echo form_open_multipart('curso/inscribirEstudiante')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
@@ -122,7 +122,7 @@
                                                         </button>
                                                         <?php
                                                             echo form_close();
-                                                        ?>
+                                                        ?> -->
 
 
                                                         <?php
@@ -157,9 +157,9 @@
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
                                                 <th>Sección</th>
-                                                <th>Tutor</th>  
+                                                <!-- <th>Tutor</th>   -->
                                                 <th>Estado</th>
-                                                <th>Acceso</th>
+                                                <!-- <th>Acceso</th> -->
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

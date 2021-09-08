@@ -41,6 +41,7 @@
                                             </div> -->
                                             <div class="form-group">
                                               <label for="">Curso:</label>
+                                              <div class="col-sm-2" >
                                               <select class="form-control" name="curso" >
                                                 <option>1º</option>
                                                 <option>2º</option>
@@ -50,13 +51,17 @@
                                                 <option>6º</option>
                                                 <option>7º</option>                                               
                                               </select>
+
+                                              </div>
+                                             
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label class="form-label">seccion</label>
                                                 <input type="date" class="form-control" name='fechaInicioGestion'>
                                             </div> -->
-                                            <div class="form-group">
+                                            <div class="form-group" weight="5px">
                                               <label for="">Sección:</label>
+                                              <div class="col-sm-2">
                                               <select class="form-control" name="seccion" >
                                                 <option>A</option>
                                                 <option>B</option>
@@ -66,6 +71,8 @@
                                                 <option>F</option>
                                                 <option>G</option>                                               
                                               </select>
+                                              </div>
+                                             
                                             </div> 
 
                                             <!--  desde aca agarramos todos lso profes ingresados-->
@@ -73,15 +80,15 @@
                                               <label for="">tutor:</label>  
                                               <select name="tutor">
                                                   <?php
-                                                  foreach ($arrProfesores as $i => $profesion)
-                                                    echo '<option values="',$i,'">',$profesion,'</option>';
+                                                  // foreach ($arrProfesores as $i => $profesion)
+                                                    // echo '<option values="',$i,'">',$profesion,'</option>';
                                                   ?>
                                                   </select>
                                             </div> -->
 
 
                                             <!-- para la gestion -->
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                               <label for="">Gestion:</label>  
                                               <select name="gestion">
                                                   <?php
@@ -89,7 +96,7 @@
                                                     echo '<option values="',$i,'">',$gestion,'</option>';
                                                   ?>
                                                   </select>
-                                            </div>
+                                            </div> -->
                                               
                                             <!-- asta aca -->
                                             

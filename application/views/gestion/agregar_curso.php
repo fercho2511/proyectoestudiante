@@ -1,32 +1,17 @@
-<?php
-                    foreach ($gestionn-> result() as $row) {
-                        $idGestion =  $row->idGestion;
-                        $gestion =  $row->gestion;
-                        // $tutor =  $row->tutor;                        
-                    }
-                    ?>
-
-
- <?php 
-
-$idGes =$idGestion;
-$gest=$gestion
-?> 
-
 <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>GESTION  <?php echo $gest?></h1>
+                            <h1>Cursos Registrados</h1>
                            
                         </div>
-                        <!-- <div class="col-sm-2">
+                        <!-- <div class="col-sm-3">
                         <?php
-                                            echo form_open_multipart('gestion/ingresarCurso')//llegaremos asta gestion.php y e metodo agregar
+                                            echo form_open_multipart('curso/agregar')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
                                             <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
-                                            <span class="fas fa-user-plus"> Inscribir Estudiante</span>
+                                            <span class="fas fa-user-plus"> Agregar Curso</span>
 
                                             </button>
                                         <?php
@@ -57,10 +42,10 @@ $gest=$gestion
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
                                                 <th>Sección</th>
-                                                <th>Tutor</th>  
+                                                <!-- <th>Tutor</th>   -->
                                                 <th>Estado</th>
-                                                <th>Acceso</th>
-                                                <!-- <th>Acciones</th> -->
+                                                <!-- <th>Acceso</th> -->
+                                                <th>Acciones</th>
 
                                             </tr>
                                         </thead>
@@ -74,7 +59,7 @@ $gest=$gestion
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->curso;?></td>  
                                                 <td><?php echo $row->seccion;?></td>
-                                                <td><?php echo $row->tutor;?></td>                                               
+                                                <!-- <td><?php echo $row->tutor;?></td>                                                -->
                                                 <td>
                                                 <?php
                                                     if ($row->estado==0){
@@ -85,18 +70,12 @@ $gest=$gestion
                                                     }
                                                     ?>
                                                 </td>
-                                                <td>
-                                                            
+                                                <!-- <td>
                                                     <div>
-
                                                     <?php
-                                                            echo form_open_multipart('gestion/cursoCreado')
+                                                            echo form_open_multipart('curso/cursoCreado')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-                                                       
-                                                        <input type="hidden" name="idGestion" value="<?php echo $idGes?>">
-                                                        <!-- <?php echo $row->gestion;?> -->
-
                                                         <button type="submit" class="btn btn-outline-dark" title="Acceder al Curso">
                                                         <span class="far fa-arrow-alt-circle-right"></span>
 
@@ -105,30 +84,14 @@ $gest=$gestion
                                                             echo form_close();
                                                         ?>
                                                     </div>
-                                                </td>
+                                                </td> -->
                                                
 
                                                 
-                                                <!-- <td> -->
-                                                    <!-- <div class="btn-group btn-group-justified" >
-                                                    <?php
-                                                            // echo form_open_multipart('curso/modificar')
-                                                        ?>
-                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-
-                                                        <button type="submit" class="btn btn-outline-dark" title="Agregar Tutor ">
-                                                        <span class="fas fa-user-plus"></span>
-
-                                                        </button>
-                                                        <?php
-                                                            // echo form_close();
-                                                        ?> -->
-
-
-<!-- 
-
-                                                    <?php
-                                                            // echo form_open_multipart('curso/modificar')
+                                                <td>
+                                                    <div class="btn-group btn-group-justified" >
+                                                    <!-- <?php
+                                                            echo form_open_multipart('curso/modificar')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
 
@@ -137,33 +100,33 @@ $gest=$gestion
 
                                                         </button>
                                                         <?php
-                                                            // echo form_close();
+                                                            echo form_close();
                                                         ?> -->
 
                                                         
                          
-                                                        <?php
-                                                        //    echo form_close();
-                                                        ?> 
+                                                        <!-- <?php
+                                                            echo form_close();
+                                                        ?>  -->
 
 
-                                                         <!-- <?php
-                                                            // echo form_open_multipart('curso/inscribirEstudiante')
+                                                         <?php
+                                                            echo form_open_multipart('curso/inscribirEstudiante')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
                                                         <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
-                                                        <button type="submit" class="btn btn-outline-dark" title="Agregar Estudiantes" >
+                                                        <button type="submit" class="btn btn-outline-dark" title="Agregar Curso" >
                                                         <span class="fas fa-user-plus"></span>
 
                                                         </button>
                                                         <?php
-                                                            // form_close();
-                                                        ?> -->
+                                                            echo form_close();
+                                                        ?>
 
 
                                                         <!-- <?php
-                                                            // echo form_open_multipart('curso/eliminarCurso')
+                                                            echo form_open_multipart('curso/eliminarCurso')
                                                         ?>
                                                         <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
                                                         <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
@@ -173,12 +136,12 @@ $gest=$gestion
 
                                                         </button>
                                                         <?php
-                                                            // form_close();
+                                                            echo form_close();
                                                         ?> -->
 
 
-                                                    <!-- </div> -->
-                                                <!-- </td> -->
+                                                    </div>
+                                                </td>
 
 
 
@@ -194,10 +157,10 @@ $gest=$gestion
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
                                                 <th>Sección</th>
-                                                <th>Tutor</th>  
+                                                <!-- <th>Tutor</th>   -->
                                                 <th>Estado</th>
-                                                <th>Acceso</th>
-                                                <!-- <th>Acciones</th> -->
+                                                <!-- <th>Acceso</th> -->
+                                                <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>

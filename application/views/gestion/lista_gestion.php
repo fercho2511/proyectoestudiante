@@ -46,6 +46,7 @@
                                                 <th>Fecha Inicio de Receso Escolar</th>
                                                 <th>Fecha Fin de Receso Escolar</th>
                                                 <th>Estado</th>
+                                                <th>Acceso</th>
                                                 <th>Acciones</th>
 
                                             </tr>
@@ -74,6 +75,23 @@
                                                     }
                                                     ?>
                                                 </td>
+                                                <td>
+                                                    <div>
+                                                    <?php
+                                                            echo form_open_multipart('gestion/listaCursos')
+                                                            ?>
+                                                    <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
+                                                    <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+                                                        <button type="submit" class="btn btn-outline-dark" title="Acceder">
+                                                        <span class="far fa-arrow-alt-circle-right"></span>
+
+                                                        </button>
+                                                        <?php
+                                                            echo form_close();
+                                                        ?>
+                                                    </div>
+                                                </td>
+                                               
                                                
 
                                                 
@@ -91,19 +109,19 @@
                                                         echo form_close();
                                                     ?>
 
-                                                    <?php
+                                                    <!-- <?php
                                                             echo form_open_multipart('gestion/listaCursos')
                                                         ?>
                                                         <input type="hidden" name="idGestion" value="<?php echo $row->idGestion;?>">
                                                         <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
                                                         <button type="submit" class="btn btn-outline-dark" title="Agregar Estudiantes" >
-                                                        <span class="fas fa-user-plus"></span>
+                                                        <span class="far fa-arrow-alt-circle-right"></span>
 
                                                         </button>
                                                         <?php
                                                             echo form_close();
-                                                        ?>
+                                                        ?> -->
 
 
 
@@ -143,6 +161,8 @@
                                                 <th>Fecha Inicio de Receso Escolar</th>
                                                 <th>Fecha Fin de Receso Escolar</th>
                                                 <th>Estado</th>
+                                                <th>Acceso</th>
+
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

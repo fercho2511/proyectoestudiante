@@ -1,25 +1,53 @@
-
  <?php
-                    foreach ($infocurso-> result() as $row) {
-                        $curso =  $row->curso;
-                        $seccion =  $row->seccion;
-                        $tutor =  $row->tutor;                        
-                    }
-                    ?>
+            foreach ($infocurso-> result() as $row) {
+            $idCurso =  $row->idCurso;
+            $curso =  $row->curso;
+            $seccion =  $row->seccion;
+            $tutor =  $row->tutor;                        
+            }
+?>
+
+<?php
+$idCur= $idCurso;
+?>
+
+ <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">
+
+<?php
+        foreach ($gestionn-> result() as $row) {
+        $idGestion =  $row->idGestion;
+        $gestion =  $row->gestion;
+        // $tutor =  $row->tutor;                        
+        }
+?>
+
+<?php
+$idGest =  $idGestion;
+$gest=$gestion;
+?>
+
+
 
 <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                   
-
                         <div class="col-sm-6">
-                            <h1>Curso <?php echo $curso;?><?php echo $seccion;?></h1>
-                            <h1>Tutor Prof.: <?php echo $tutor;?></h1>
-
+                            <h1>Estudiantes Registrados</h1>
                            
                         </div>
-                       
+                        <!-- <div class="col-sm-3">
+                        <?php
+                                            echo form_open_multipart('estudiante/agregar')//llegaremos asta estudiante.php y e metodo agregar
+                                        ?>
+                                            <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
+                                            <span class="fas fa-user-plus"> Agregar Usuario</span>
+
+                                            </button>
+                                        <?php
+                                            echo form_close();
+                                    ?>
+                        </div> -->
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -44,10 +72,10 @@
                                                 <th>N°</th>
                                                 <th>Nombre Completo</th>                                               
                                                 <th>C.I.</th>
-                                                <th>Telefono</th>
+                                                <!-- <th>Telefono</th> -->
                                                 <!-- <th>Padre</th>
                                                 <th>Tutor</th> -->
-                                                <th>Foto</th>
+                                                <!-- <th>Foto</th> -->
                                                 <th>Acciones</th>
 
                                             </tr>
@@ -65,10 +93,10 @@
                                                         <?php echo $row->apellidoMaterno;?>
                                                 </td>
                                                 <td><?php echo $row->ci;?></td>
-                                                <td><?php echo $row->telefono;?></td>
+                                                <!-- <td><?php echo $row->telefono;?></td> -->
                                                 <!-- <td><?php echo $row->nombrePadre;?></td> -->
                                                 <!-- <td><?php echo $row->nombreTutor;?></td> -->
-                                                <td>
+                                                <!-- <td>
                                                         <?php
                                                         $foto=$row->foto;
                                                         if ($foto=="") {
@@ -97,16 +125,35 @@
                                                                 echo form_close();
                                                         ?>
 
-                                                </td>
+                                                </td> -->
 
                                                 
                                                 <td>
-                                                <div class="btn-group btn-group-justified" >
-                                                <?php
-                                                        echo form_open_multipart('estudiante/modificar')
+                                                    <div class="btn-group btn-group-justified" >
+                                                        <!-- <?php
+                                                                 form_open_multipart('gestion/inscribirEstudiante')
+                                                            ?>
+                                                            <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">                                                               
+                                                            <input type="hidden" name="idCurso" value="<?php echo $idCurso;?>">                                                                
+                                                             <input type="hidden" name="idGestion" value="<?php echo $idGest;?>">
+
+                                                            <button type="submit" class="btn btn-primary btn-xs" title="Inscribir Estudiante">
+                                                            <span class="fas fa-user-edit"></span>
+
+                                                            </button>
+                                                            <?php
+                                                                echo form_close();
+                                                            ?>  -->
+
+
+                                                    <?php
+                                                        echo form_open_multipart('gestion/inscribirEstudiante')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs" title="Modificar">
+                                                    <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">                                                                
+                                                    <input type="hidden" name="idGestion" value="<?php echo $idGest;?>">
+
+                                                    <button type="submit" class="btn btn-outline-dark" title="Inscribir Estudiante" >
                                                     <span class="fas fa-user-edit"></span>
 
                                                     </button>
@@ -114,19 +161,12 @@
                                                         echo form_close();
                                                     ?>
 
-                                                <?php
-                                                        echo form_open_multipart('estudiante/eliminarEst')
-                                                    ?>
-                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
-                                                    <span class="fas fa-trash-alt"></span>
 
-                                                    </button>
-                                                    <?php
-                                                        echo form_close();
-                                                    ?>
 
-                                                </div>
+
+                                                    
+                                                    </div>
+                                                </td>
 
 
 
@@ -142,10 +182,10 @@
                                                 <th>N°</th>
                                                 <th>Nombre Completo</th>                                              
                                                 <th>C.I.</th>
-                                                <th>Telefono</th>
+                                                <!-- <th>Telefono</th> -->
                                                 <!-- <th>Padre</th>
                                                 <th>Tutor</th> -->
-                                                <th>Foto</th>
+                                                <!-- <th>Foto</th> -->
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
@@ -163,10 +203,3 @@
             </section>
             <!-- /.content -->
         </div>
-
-
-
-
-
-
-       

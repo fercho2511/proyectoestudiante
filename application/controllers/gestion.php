@@ -145,16 +145,13 @@ class Gestion extends CI_Controller {
         // $lista=$this->gestion_model->listaCuso($idGestion);
         // $data['curso']=$lista; //otro array asociativo
 
-        $idGestion=$_POST['idGestion'];
-        $data['curso']=$this->gestion_model->listaCuso($idGestion);
-
+        // $idGestion=$_POST['idGestion'];
+        // $data['curso']=$this->gestion_model->listaCuso($idGestion);
+        $lista=$this->gestion_model->listaCurso();
+        $data['curso']=$lista;
         
         $idGestion=$_POST['idGestion'];
         $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
-
-
-  
-
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
 		$this->load->view('gestion/listado_curso',$data);
@@ -162,6 +159,113 @@ class Gestion extends CI_Controller {
 
 
      }
+
+     public function ingresarCurso() {
+        $lista=$this->gestion_model->listaCurso();
+        $data['curso']=$lista; //otro array asociativo
+
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+		$this->load->view('gestion/agregar_curso',$data); // llegaremos asta esta vista
+		$this->load->view('inc_fin.php');
+
+     }
+     public function cursoCreado(){
+         
+        // $lista=$this->estudiante_model->lista();
+        // $data['estudiante']=$lista; //otro array asociativo
+        $idGestion=$_POST['idGestion'];
+        $idCurso=$_POST['idCurso'];
+
+        $lista=$this->gestion_model->listaEstudiantes($idGestion,$idCurso); //
+        $data['estudiante']=$lista; //otro array asociativo
+
+        $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
+
+
+        // $idCurso=$_POST['idCurso'];
+        $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+        $this->load->view('gestion/curso_creado',$data);
+        $this->load->view('inc_fin.php');
+
+    }
+
+    public function listaEstudiante2(){
+        $idGestion=$_POST['idGestion'];
+        $idCurso=$_POST['idCurso'];
+
+        $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
+
+        $lista=$this->gestion_model->listaDeEstudiantes($idGestion); //
+        $data['estudiante']=$lista; //otro array asociativo
+
+        // $idCurso=$_POST['idCurso'];
+        $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+
+        // $lista=$this->gestion_model->listaDeEstudiantes();
+        // $data['estudiante']=$lista; //otro array asociativo
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+		$this->load->view('gestion/lista_estudiantes',$data);
+		$this->load->view('inc_fin.php');
+
+
+
+
+    }
+
+    public function inscribirEstudiante(){
+        $data['idEstudiante']=$_POST['idUsuario'];
+        $data['idCurso']=$_POST['idCurso'];
+        $data['idGestion']=$_POST['idGestion'];
+        $idGestion=$_POST['idGestion'];
+        $idCurso=$_POST['idCurso'];
+        // $idEstudiante=$_POST['idEstudiante'];
+
+        $this->gestion_model->inscribirEstu($data);
+        $this->session->set_flashdata('idGestion', $idGestion);
+        $this->session->set_flashdata('idCurso', $idCurso);
+        // $this->session->set_flashdata('idEstudiante', $idEstudiante);
+
+        redirect('gestion/listaEstudiante3','refresh');
+
+        
+
+
+
+
+    }
+    public function listaEstudiante3(){
+        $idGestion = $this->session->flashdata('idGestion');
+        $idCurso = $this->session->flashdata('idCurso');
+        // $idEstudiante = $this->session->flashdata('idEstudiante');
+
+        $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
+
+        $lista=$this->gestion_model->listaDeEstudiantes($idGestion); //
+        $data['estudiante']=$lista; //otro array asociativo
+
+        // $idCurso=$_POST['idCurso'];
+        $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+
+        // $idCurso=$_POST['idCurso'];
+
+        // $lista=$this->gestion_model->listaDeEstudiantes();
+        // $data['estudiante']=$lista; //otro array asociativo
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+		$this->load->view('gestion/lista_estudiantes',$data);
+		$this->load->view('inc_fin.php');
+
+
+
+
+    }
 
 
      
