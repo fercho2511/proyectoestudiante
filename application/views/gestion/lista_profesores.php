@@ -1,4 +1,4 @@
- <?php
+<?php
             foreach ($infocurso-> result() as $row) {
             $idCurso =  $row->idCurso;
             $curso =  $row->curso;
@@ -84,7 +84,7 @@ $gest=$gestion;
                                         <?php
                     $indice=1;
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                    foreach ($estudiante-> result() as $row) {
+                    foreach ($profesor-> result() as $row) {
                         ?>
                                             <tr>
                                                 <td><?php echo $indice;?></td>
@@ -149,7 +149,6 @@ $gest=$gestion;
                                                     <?php
                                                         echo form_open_multipart('gestion/inscribirEstudiante')
                                                     ?>
-                                                    <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">                                                                
                                                     <input type="hidden" name="idGestion" value="<?php echo $idGest;?>">

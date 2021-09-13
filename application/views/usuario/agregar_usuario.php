@@ -1,4 +1,4 @@
-<link type="text/css" href="<?php echo base_url(); ?>/bootstrap/css/ui-darkness/jquery-ui-1.8.23.custom.css" rel="Stylesheet" />
+<!-- <link type="text/css" href="<?php echo base_url(); ?>/bootstrap/css/ui-darkness/jquery-ui-1.8.23.custom.css" rel="Stylesheet" />
 	<script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery-1.8.0.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery-ui-1.8.23.custom.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery.ui.datepicker-es.js"></script>
@@ -7,32 +7,10 @@
 		$("#datepicker").datepicker();
 		$("#format").change(function() { $('#datepicker').datepicker('option', {dateFormat: $(this).val()}); });
 	});
-	</script>
+	</script> -->
 
 
 
-          <script> 
-                            $(document).on('blur','ci', function(){
-                    $.ajax({
-                        type: "POST",
-                        // url con ruta a tu método o función en el controlador
-                        // url: eform_open_multipart('usuario_per/ValidarCI'),
-                        // echo form_open_multipart('usuario_per/ValidarCI')
-                        url = "<?php echo form_open_multipart('usuario_per/ValidarCI')?>";
-                        
-                        data: { 'ci' : $(this).val() },
-                        success: function(msg){
-                          if (msg==1) { // duplicado
-                            $(this).addClass('invalido');
-                            alert("Tu Mensaje al usuario"); 
-                          } else{ // firtsName unico 
-                            $(this).removeClass('invalido');
-                          }   
-                        }
-                    });
-                  });
-           
-          </script>
 
 
 
@@ -63,33 +41,35 @@
                 <h3 class="card-title">Registrar Usuario</h3>
               </div>
              
-              <!-- /.card-header -->
-              <!-- form start -->
-                                    <div class="card-body" >
-
+              <!-- <form enctype="multipart/form-data" action="usuario_per/agregarUsu" id="quickForm"> -->
+<?php echo validation_errors(); ?>
+                                    <div class="card-body"  >
+                                    <!-- <form id="quickForm" >  -->
                                     
-                                        <?php
-                                             //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                                            echo form_open_multipart('usuario_per/agregarUsu')
+
+                                      <?php
+                                          echo form_open_multipart ('usuario_per/agregarUsu')
                                          ?>
+                                         
                                             <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
                                             <div class="form-group">
                                                 <label class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" name='nombres'  placeholder="Ingrese Nombre" required pattern="[A-Za-z]{3,25}"
-                                                                                    title="">
+                                                <input type="text" class="form-control" name='nombres'  placeholder="Ingrese Nombre" 
+                                                                                    title="" required minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}' >
                                             </div>
                                             <div class="form-group"  >
                                                 <label class="form-label">Apellido Paterno</label>
-                                                <input type="text" class="form-control" name='apellidoPaterno'  placeholder="Ingrese Apellido Paterno" required pattern="[A-Za-z]{3,20}" >
+                                                <input type="text" class="form-control" name='apellidoPaterno'  placeholder="Ingrese Apellido Paterno"
+                                                required minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}' >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Apellido Materno</label>
-                                                <input type="text" class="form-control" name='apellidoMaterno'  placeholder="Ingrese Apellido Materno" pattern="[A-Za-z]{3,20}" >
+                                                <input type="text" class="form-control" name='apellidoMaterno'  placeholder="Ingrese Apellido Materno" minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}'  >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Nacimiento</label>
-                                                <input type="date" class="form-control" name='fechaNacimiento'  placeholder="Ingrese Fecha Nacimiento" required>
+                                                <input type="date" class="form-control" name='fechaNacimiento'  placeholder="Ingrese Fecha Nacimiento" required >
                                             </div>
                                             <div class="form-group" >
                                               <label for="">sexo:</label>
@@ -108,12 +88,12 @@
 
                                             <div class="form-group">
                                                 <label class="form-label">C.I.</label>
-                                                <input type="text" class="form-control" name='ci'  placeholder="Ingrese C.I." required >
+                                                <input type="text" class="form-control" name='ci'  placeholder="Ingrese C.I." required   minlength="4"  maxlength="12" >
                                                 <!-- required onblur="compruebaValidoEntero()" -->
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Telefono</label>
-                                                <input type="text" class="form-control" name='telefono'  placeholder="Ingrese telefono"  >
+                                                <input type="number" class="form-control" name='telefono'  placeholder="Ingrese telefono"  min="1"  pattern='^[0-9]+'   minlength="7"  maxlength="8"  >
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label class="form-label">Correo</label>
@@ -143,7 +123,7 @@
 
 
                                             <div class="card-footer">
-                                                <button class="btn btn-primary" type="submit" title="Registrar" >
+                                                <button class="btn btn-primary" type="submit" title="Registrar" value="upload" >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
                                                 <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
@@ -151,16 +131,20 @@
                                               </button>
 
                                              </div>
+                                          
                                                 <?php
                                                 echo form_close();
                                                 ?>
+                                              <!-- </form>     -->
                                     
                                     </div>
                                     <!-- /.card-body -->
-              
-           
+                     <!-- </form>     -->
+
+                               
         
-        </div>
+            </div>
+           
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
@@ -168,3 +152,7 @@
   </div>
   <!-- /.content-wrapper -->
   
+
+
+
+</form>

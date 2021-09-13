@@ -15,8 +15,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/fontawesome/css/all.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/fontawesome-free/css/all.min.css">
+  
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -55,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <!--===============================================================================================-->
  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>adminLTE/dist/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>adminLTE/dist/css/main.css">
+    
 
   
 <style>
@@ -150,6 +154,8 @@ footer {
 
 }
 </style>
+
+
 
 </head>
 <body class="hold-transition sidebar-mini" 

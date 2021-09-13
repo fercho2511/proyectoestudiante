@@ -100,8 +100,12 @@ class Gestion extends CI_Controller {
          $data['telefono']=$_POST['telefono'];
          $data['nombrePadre']=$_POST['nomPadre'];
          $data['nombreTutor']=$_POST['nomTutor'];*/
+         
+             //code...
+        $data['gestion']=$_POST['gestion'];
+        // $ges=$_POST['gestion'];
 
-         $data['gestion']=$_POST['gestion'];
+
          $data['fechaInicioGestion']=$_POST['fechaInicioGestion'];
          $data['fechaFinGestion']=$_POST['fechaFinGestion'];
          //$data['periodoReceso']=$_POST['periodoReceso'];
@@ -110,12 +114,42 @@ class Gestion extends CI_Controller {
          $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //dicho todo esto se ara la consulta a base de datos
-         $this->gestion_model->agregarGestion($data); // aca se envia el metodo del modelo 
 
          	//despues iremso a la lista redireccionando o dandole un refresh
-             redirect('gestion/test','refresh');
 
-     }
+
+
+             $config=array(
+                array(
+                    'field'=>'gestion',
+                    'label' =>'gestion',
+                    'rules' =>'is_unique[gestion.gestion]',
+                    'errors'=> array(
+                            'is_unique' =>'La %s. ya se encuentra registrado',
+                    ),
+
+                ),
+            );
+            $this->form_validation->set_rules($config);
+
+            if ($this->form_validation->run()==FALSE) {
+                # code...
+                $data=$config;
+                redirect('gestion/agregar',$data);
+            }
+            else {
+                // $this->load->view('formsuccess');
+                $this->gestion_model->agregarGestion($data); // aca se envia el metodo del modelo 
+                redirect('gestion/test','refresh');
+       
+            }
+         
+             
+    }
+
+         
+
+     
 
 
 
@@ -171,17 +205,20 @@ class Gestion extends CI_Controller {
 
      }
      public function cursoCreado(){
-         
-        // $lista=$this->estudiante_model->lista();
-        // $data['estudiante']=$lista; //otro array asociativo
+      //  $valor-recuperado = $this->session->flashdata('tu-variable'); 
+        $this->session->flashdata('idGestion');
+        $this->session->flashdata('idCurso');
+
         $idGestion=$_POST['idGestion'];
         $idCurso=$_POST['idCurso'];
+       
 
         $lista=$this->gestion_model->listaEstudiantes($idGestion,$idCurso); //
         $data['estudiante']=$lista; //otro array asociativo
 
         $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
-
+        $data['profesor']=$this->gestion_model->listaProfe($idGestion);
+        $data['materia']=$this->gestion_model->listaMateria($idGestion);
 
         // $idCurso=$_POST['idCurso'];
         $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
@@ -222,6 +259,8 @@ class Gestion extends CI_Controller {
         $data['idEstudiante']=$_POST['idUsuario'];
         $data['idCurso']=$_POST['idCurso'];
         $data['idGestion']=$_POST['idGestion'];
+        $data['idUsuario_Acciones']=$_POST['idUsuario_Acciones'];
+
         $idGestion=$_POST['idGestion'];
         $idCurso=$_POST['idCurso'];
         // $idEstudiante=$_POST['idEstudiante'];
@@ -262,6 +301,21 @@ class Gestion extends CI_Controller {
 		$this->load->view('gestion/lista_estudiantes',$data);
 		$this->load->view('inc_fin.php');
 
+
+
+
+    }
+
+    public function eliminarEst(){
+        $idUsuario=$_POST['idUsuario']; 
+        $idGestion=$_POST['idGestion']; 
+        $idCurso=$_POST['idCurso'];
+       //$this->session->set_flashdata('tu-variable', 'valor de tu-variable');
+
+         $this->gestion_model->eliminarInscripcion($idUsuario,$idGestion);
+         $this->session->set_flashdata('idGestion', $idGestion);
+         $this->session->set_flashdata('idCurso', $idCurso);
+        redirect('gestion/cursoCreado','refresh');
 
 
 

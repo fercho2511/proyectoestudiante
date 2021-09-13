@@ -38,7 +38,7 @@
 
                                            <div class="form-group">
                                                 <label class="form-label">Gestion</label>
-                                                <input type="text" class="form-control" name='gestion'  placeholder="año" required>
+                                                <input type="text" class="form-control" name='gestion'  placeholder="año" required min="1"  pattern='^[0-9]+'   minlength="4"  maxlength="4" >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Inicio de Gestion</label>
@@ -89,3 +89,4 @@
   </div>
   <!-- /.content-wrapper -->
   
+

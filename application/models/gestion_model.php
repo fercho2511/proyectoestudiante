@@ -184,6 +184,37 @@ class Gestion_model extends CI_Model {
          }
 
 
+         public function listaProfe(){
+
+                $this->db->select('*');
+                $this->db->from('usuario');
+                $this->db->where('idRol',3);
+                $this->db->where('estado',1);
+                return $this->db->get();
+
+         }
+         public function listaMateria(){
+
+                $this->db->select('*');
+                $this->db->from('materia');
+                $this->db->where('estado',1);
+                return $this->db->get();
+
+         }
+
+
+         public function eliminarInscripcion($idUsuario,$idGestion){
+
+                $this->db->where('idEstudiante',$idUsuario);
+                $this->db->where('idGestion',$idGestion);
+                $this->db->delete('inscrito');
+                
+
+
+         }
+         
+
+
 
 	
 }
