@@ -9,11 +9,11 @@ class Curso_model extends CI_Model {
         //consulta para leer la lista 
 	public function lista()
 	{
+              
                 $this->db->select('*');
                 $this->db->from('curso');
-              //  $this->db->where('rol','estudiante');
                 $this->db->where('estado','1');
-
+                $this->db->order_by('curso,seccion');
                 return $this->db->get();
 	}
         public function listaProfes()
@@ -94,6 +94,7 @@ class Curso_model extends CI_Model {
                 $this->db->from('curso');
                 $this->db->where('idCurso',$idCurso);
                 return $this->db->get();
+                      
 	}
 
 
@@ -105,8 +106,32 @@ class Curso_model extends CI_Model {
         // return $this->db->get();
 	}
 
-        //consulta para ingresar datos del estudiante a la base de datos
-        //lo importante es lo q contenga data
+        // aca consultaresmo si hay ya el curso creado
+        public function verificarCurso($curso,$seccion){
+
+               // $this->db->where('idCurso',$this->);$this->db->select('*');
+                $this->db->select('*');
+                $this->db->from('curso');
+                $this->db->where('curso',$curso);
+                $this->db->where('seccion',$seccion);
+
+                $query=$this->db->get();
+                $numero_filas=$query->num_rows();
+                return $numero_filas;
+
+
+                // $consulta= $this->db->get();
+                // if($consulta){
+                //         return true;
+                // }else{
+                //         return false;
+                // }
+
+
+
+
+
+         }
         public function agregarCurso($data)
 	{
                 $this->db->insert('curso',$data); // aca la clave ses construir bien data, q va a contener

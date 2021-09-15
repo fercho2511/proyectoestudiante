@@ -93,7 +93,7 @@ class Profesor extends CI_Controller {
         $data['telefono']=$_POST['telefono'];
         $data['direccion']=$_POST['direccion'];
        // $data['correo']=$_POST['correo'];
-        $data['rol']=$_POST['rol'];    
+        //  $data['idRol']=$_POST['idRol'];    
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
     
         $this->profesor_model->modificarProfesor($idUsuario,$data); //ahora la consula
@@ -112,7 +112,7 @@ class Profesor extends CI_Controller {
         $data['telefono']=$_POST['telefono'];
         $data['direccion']=$_POST['direccion'];
        // $data['correo']=$_POST['correo'];
-        $data['rol']=$_POST['rol'];    
+        // $data['rol']=$_POST['rol'];    
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
     
         $this->profesor_model->modificarProfesor($idUsuario,$data); //ahora la consula

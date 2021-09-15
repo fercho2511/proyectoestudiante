@@ -133,9 +133,12 @@ class Gestion extends CI_Controller {
             $this->form_validation->set_rules($config);
 
             if ($this->form_validation->run()==FALSE) {
-                # code...
-                $data=$config;
-                redirect('gestion/agregar',$data);
+                echo '<script>
+                   alert("GESTION YA REGISTRADO");
+                   </script>'; 
+                     redirect('gestion/agregar', 'refresh');
+                // $data=$config;
+                // redirect('gestion/agregar',$data);
             }
             else {
                 // $this->load->view('formsuccess');
@@ -143,6 +146,25 @@ class Gestion extends CI_Controller {
                 redirect('gestion/test','refresh');
        
             }
+
+
+
+
+            // $consulta= $this->curso_model->verificarCurso($curso,$seccion); // aca se envia el metodo del modelo 
+            // if ($consulta>0) 
+            //     { 
+            //        echo '<script>
+            //        alert("CURSO YA REGISTRADO");
+            //        </script>'; 
+            //          redirect('curso/agregar', 'refresh');
+            //        // echo "<script>alert('Estás suscrito, ¡Gracias!.');</script>";
+   
+            //        // redirect('PaquetesController', 'refresh');
+    
+            //     }else{
+            //        $this->curso_model->agregarCurso($data); // aca se envia el metodo del modelo 
+            //        redirect('curso/test','refresh');
+            //     }
          
              
     }

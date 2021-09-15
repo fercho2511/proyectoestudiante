@@ -171,7 +171,13 @@ class Usuario_per extends CI_Controller {
             if ($this->form_validation->run()==FALSE) {
                 # code...
                 $data=$config;
-                redirect('usuario_per/agregar',$data);
+                echo '<script>
+                alert("CI YA REGISTRADO");
+                </script>'; 
+                  redirect('usuario_per/agregar', 'refresh');
+
+                // $data=$config;
+                // redirect('usuario_per/agregar',$data);
             }
             else {
                 // $this->load->view('formsuccess');

@@ -120,28 +120,32 @@ class Curso extends CI_Controller {
 
          $data['curso']=$_POST['curso'];
          $data['seccion']=$_POST['seccion'];
-         $data['tutor']=$_POST['tutor'];
+        //  $data['tutor']=$_POST['tutor'];
+         $curso=$_POST['curso'];
+         $seccion=$_POST['seccion'];
 
-
-
-       
-         //$data['periodoReceso']=$_POST['periodoReceso'];
-         //$data['telefono']=$_POST['telefono'];
          
          $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
          //$data['idGestion']=$this->curso_model->obtenerIdGestion($data2); 
          //$data['idGestion']=$data3; 
+         $consulta= $this->curso_model->verificarCurso($curso,$seccion); // aca se envia el metodo del modelo 
+         if ($consulta>0) 
+             { 
+                echo '<script>
+                alert("CURSO YA REGISTRADO");
+                </script>'; 
+                  redirect('curso/agregar', 'refresh');
+                // echo "<script>alert('Estás suscrito, ¡Gracias!.');</script>";
 
-
-
-         //dicho todo esto se ara la consulta a base de datos
-         //$this->curso_model->agregarCurso($data); // aca se envia el metodo del modelo 
-         $this->curso_model->agregarCurso($data); // aca se envia el metodo del modelo 
-
-
+                // redirect('PaquetesController', 'refresh');
+ 
+             }else{
+                $this->curso_model->agregarCurso($data); // aca se envia el metodo del modelo 
+                redirect('curso/test','refresh');
+             }
          	//despues iremso a la lista redireccionando o dandole un refresh
-             redirect('curso/test','refresh');
+           
 
      }
 

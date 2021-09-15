@@ -35,6 +35,32 @@ class Gestion_model extends CI_Model {
         // return $this->db->get();
 	}
 
+
+
+        public function verificarGerstion($gestion){
+
+                // $this->db->where('idCurso',$this->);$this->db->select('*');
+                 $this->db->select('*');
+                 $this->db->from('gestion');
+                 $this->db->where('gestion',$gestion);
+ 
+                 $query=$this->db->get();
+                 $numero_filas=$query->num_rows();
+                 return $numero_filas;
+ 
+ 
+                 // $consulta= $this->db->get();
+                 // if($consulta){
+                 //         return true;
+                 // }else{
+                 //         return false;
+                 // }
+ 
+ 
+ 
+ 
+ 
+          }
         //consulta para ingresar datos del estudiante a la base de datos
         //lo importante es lo q contenga data
         public function agregarGestion($data)
@@ -79,12 +105,17 @@ class Gestion_model extends CI_Model {
         }
         public function listaCurso()
 	{
+        //         $this->db->select('*');
+        //         $this->db->from('curso');
+        //       //  $this->db->where('rol','estudiante');
+        //         $this->db->where('estado','1');
+        //         return $this->db->get();
                 $this->db->select('*');
                 $this->db->from('curso');
-              //  $this->db->where('rol','estudiante');
                 $this->db->where('estado','1');
-
+                $this->db->order_by('curso,seccion');
                 return $this->db->get();
+                
 	}
 
         public function listaEstudiantes($idGestion,$idCurso)

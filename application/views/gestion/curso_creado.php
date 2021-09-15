@@ -45,7 +45,10 @@ $gest= $gestion;
                            
                            
                         </div>
-                        <div class="col-sm-2">
+                       
+                       
+                    </div>
+                    <div class="col-sm-3">
                         <?php
                                             echo form_open_multipart('gestion/listaEstudiante2')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
@@ -62,8 +65,6 @@ $gest= $gestion;
                                             echo form_close();
                                     ?>
                         </div>
-                       
-                    </div>
                 </div>
                 <!-- /.container-fluid -->
             </section>
@@ -71,7 +72,7 @@ $gest= $gestion;
                 <div class="container-fluid">
              
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-10">
                             <div class="card">
                                 <div class="card-header">
                                 <div>
@@ -96,7 +97,7 @@ $gest= $gestion;
                                                 <!-- <th>Padre</th>
                                                 <th>Tutor</th> -->
                                                 <!-- <th>Foto</th> -->
-                                                 <th>Acciones</th> -->
+                                                 <th>Acciones</th> 
 
                                             </tr>
                                         </thead>
