@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -315,3 +316,4 @@ date_default_timezone_set('America/La_Paz');
  * And away we go...
  */
 require_once BASEPATH.'core/CodeIgniter.php';
+

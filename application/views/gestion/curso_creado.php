@@ -239,7 +239,7 @@ $gest= $gestion;
                            
                            
                         </div> -->
-                        <div class="col-sm-2">
+                        <!-- <div class="col-sm-2">
                         <?php
                                             echo form_open_multipart('gestion/listaEstudiante2')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
@@ -255,13 +255,13 @@ $gest= $gestion;
                                         <?php
                                             echo form_close();
                                     ?>
-                        </div>
+                        </div> -->
                        
                     </div>
                 </div>
                 <!-- /.container-fluid -->
             </section>
-            <section class="content">
+            <!-- <section class="content">
                 <div class="container-fluid">
              
                     <div class="row">
@@ -378,14 +378,91 @@ $gest= $gestion;
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-            </section>
+            </section> -->
 
-
-
-
-            
-            <!-- /.content -->
         </div>
+           <!-- desde aca viene lo implementado -->
+             
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="card">
+                                <div class="card-header">
+                                <div>
+                                    <h3>LISTA DE ESTUDIANTES</H3>
+
+                                    </div>
+                                  <br>
+                                  <?php
+                                ?>
+                                </div>
+                                   
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>N°</th>
+                                                <th>Nombre Completo del Estudiante</th>                                               
+                                                <th>C.I.</th>
+                                                <th>Telefono</th>                                               
+                                                 <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                        
+                                            <tr>
+                                                <td><?php echo 'hola'?></td>
+                                                <td><?php echo 'hola'?></td>
+                                                <td><?php echo 'hola'?></td>
+                                                <td><?php echo 'hola'?></td>
+                                                <td><?php echo 'hola'?></td>
+
+                                                
+                                                
+                                                 <!-- <td>                                               
+
+                                                <?php
+                                                        echo form_open_multipart('gestion/eliminarEst')
+                                                    ?>
+                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                    <input type="hidden" name="idGestion" value="<?php echo $idGes;?>">
+
+                                                    <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
+                                                    <span class="fas fa-trash-alt"></span>
+
+                                                    </button>
+                                                    <?php
+                                                        echo form_close();
+                                                    ?> -->
+
+                                                
+
+
+
+
+                                            </tr> 
+                     
+                    
+                                                           
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>N°</th>
+                                                <th>Nombre Completo del Estudiante</th>                                               
+                                                <th>C.I.</th>
+                                                <th>Telefono</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+        
 
 
 

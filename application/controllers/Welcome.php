@@ -29,9 +29,9 @@ class Welcome extends CI_Controller {
 
 	public function vista2()
 	{
-		$this->load->view('inc_inicio.php');
+		// $this->load->view('inc_inicio.php');
 		$this->load->view('formulario');
-		$this->load->view('inc_fin.php');
+		// $this->load->view('inc_fin.php');
 	}
 
 	public function pruevitadb()
