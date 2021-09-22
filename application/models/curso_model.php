@@ -13,7 +13,7 @@ class Curso_model extends CI_Model {
                 $this->db->select('*');
                 $this->db->from('curso');
                 $this->db->where('estado','1');
-                $this->db->order_by('curso,seccion');
+                $this->db->order_by('curso,idParalelo');
                 return $this->db->get();
 	}
         public function listaProfes()
@@ -113,7 +113,7 @@ class Curso_model extends CI_Model {
                 $this->db->select('*');
                 $this->db->from('curso');
                 $this->db->where('curso',$curso);
-                $this->db->where('seccion',$seccion);
+                $this->db->where('idParalelo',$seccion);
 
                 $query=$this->db->get();
                 $numero_filas=$query->num_rows();

@@ -92,7 +92,7 @@ class Curso extends CI_Controller {
 
        // $this->load->curso_model->get_profesores();
         // obtenemos el array de profesiones y lo preparamos para enviar
-       // $datos['arrProfesores'] = $this->curso_model->get_profesores();
+        $datos['arrProfesores'] = $this->curso_model->get_profesores();
         $datos['arrGestion'] = $this->curso_model->get_gestion();
        // $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
         // cargamos  la interfaz y le enviamos los datos
@@ -119,10 +119,48 @@ class Curso extends CI_Controller {
 
 
          $data['curso']=$_POST['curso'];
-         $data['seccion']=$_POST['seccion'];
-        //  $data['tutor']=$_POST['tutor'];
+         $paralelo=$_POST['paralelo'];
+       
+                switch ($paralelo) {
+                   case 'A':
+                       $data['idParalelo']='1';
+                       break;
+                   case 'B':
+                       $data['idParalelo']='2';    
+                       break;
+                    case 'C':
+                       $data['idParalelo']='3';        
+                        break; 
+                    case 'D':
+                        $data['idParalelo']='4';        
+                        break; 
+                    case 'E':
+                        $data['idParalelo']='5';        
+                         break; 
+               }
+
+        $paral=$_POST['paralelo'];
+       
+               switch ($paral) {
+                  case 'A':
+                      $data1='1';
+                      break;
+                  case 'B':
+                      $data1='2';    
+                      break;
+                   case 'C':
+                      $data1='3';        
+                       break; 
+                   case 'D':
+                       $data1='4';        
+                       break; 
+                   case 'E':
+                       $data1='5';        
+                        break; 
+              }
+
          $curso=$_POST['curso'];
-         $seccion=$_POST['seccion'];
+         $seccion=$data1;
 
          
          $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];

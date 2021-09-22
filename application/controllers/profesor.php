@@ -34,6 +34,8 @@ class Profesor extends CI_Controller {
         $lista=$this->profesor_model->lista();
         $data['profesor']=$lista; //otro array asociativo
 
+        
+
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu.php');
 		$this->load->view('usuario/profesor/profe_vista',$data);

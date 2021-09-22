@@ -59,9 +59,9 @@
                                                 <input type="date" class="form-control" name='fechaInicioGestion'>
                                             </div> -->
                                             <div class="form-group" weight="5px">
-                                              <label for="">Sección:</label>
+                                              <label for="">Paralelo:</label>
                                               <div class="col-sm-2">
-                                              <select class="form-control" name="seccion" >
+                                              <select class="form-control" name="paralelo" >
                                                 <option>A</option>
                                                 <option>B</option>
                                                 <option>C</option>
@@ -78,8 +78,8 @@
                                               <label for="">tutor:</label>  
                                               <select name="tutor">
                                                   <?php
-                                                  // foreach ($arrProfesores as $i => $profesion)
-                                                    // echo '<option values="',$i,'">',$profesion,'</option>';
+                                                  foreach ($arrProfesores as $i => $profesion)
+                                                    echo '<option values="',$i,'">',$profesion,'</option>';
                                                   ?>
                                                   </select>
                                             </div> -->

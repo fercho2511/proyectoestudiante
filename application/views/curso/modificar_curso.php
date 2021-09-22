@@ -50,6 +50,7 @@
 
                                               <label for="">Curso:</label>
                                               <select class="form-control" name="curso" value="<?php echo $row->curso;?>" >
+                                             
                                               <option><?php echo $row->curso;?>º</option>
 
                                                 <option>1º</option>
@@ -67,6 +68,34 @@
 
                                               <label for="">Sección:</label>
                                               <select class="form-control" name="seccion" value="<?php echo $row->seccion;?>" >
+                                              <?php
+                                                    if ($row->idParalelo==1){
+                                                        $paralelo= 'A';
+                                                    }
+                                                    else{
+                                                        if ($row->idParalelo==2) {
+                                                          $paralelo= 'B';
+                                                        }
+                                                        else{
+                                                            if ($row->idParalelo==3) {
+                                                              $paralelo= 'C';
+                                                            }
+                                                            else{
+                                                                if ($row->idParalelo==4) {
+                                                                  $paralelo='D';
+                                                                }
+                                                                else{
+                                                                  $paralelo='E';
+                                                                }
+                                                                
+                                                            }
+
+                                                        }
+                                                        
+                                                    }
+                                                    ?>
+                                                <option><?php echo $paralelo;?></option>
+
                                                 <option>A</option>
                                                 <option>B</option>
                                                 <option>C</option>

@@ -3,7 +3,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Gestion Escolar</h1>
+                            <h1>Gestión Escolar</h1>
                            
                         </div>
                         <div class="col-sm-3">
@@ -11,7 +11,7 @@
                                             echo form_open_multipart('gestion/agregar')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
                                             <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
-                                            <span class="fas fa-user-plus"> Agregar Gestion</span>
+                                            <span class="fas fa-user-plus"> Agregar Gestión</span>
 
                                             </button>
                                         <?php
@@ -41,8 +41,8 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Gestion</th>                                               
-                                                <th>Fecha Inicio de Gestion</th>
-                                                <th>Fecha Fin de Gestion</th>                                                
+                                                <th>Fecha Inicio de Gestión</th>
+                                                <th>Fecha Fin de Gestión</th>                                                
                                                 <th>Fecha Inicio de Receso Escolar</th>
                                                 <th>Fecha Fin de Receso Escolar</th>
                                                 <th>Estado</th>
@@ -156,8 +156,8 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Gestion</th>                                               
-                                                <th>Fecha Inicio de Gestion</th>
-                                                <th>Fecha Fin de Gestion</th>                                                
+                                                <th>Fecha Inicio de Gestión</th>
+                                                <th>Fecha Fin de Gestión</th>                                                
                                                 <th>Fecha Inicio de Receso Escolar</th>
                                                 <th>Fecha Fin de Receso Escolar</th>
                                                 <th>Estado</th>

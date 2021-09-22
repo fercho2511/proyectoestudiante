@@ -54,7 +54,19 @@ class Usuario_per extends CI_Controller {
         $data['telefono']=$_POST['telefono'];
         $data['direccion']=$_POST['direccion'];
         // $data['correo']=$_POST['correo'];
-        $data['rol']=$_POST['rol'];
+        $rol=$_POST['rol'];
+       
+                switch ($rol) {
+                   case 'Administrador':
+                       $data['idRol']='2';
+                       break;
+                   case 'Profesor':
+                       $data['idRol']='3';    
+                       break;
+                    case 'Estudiante':
+                       $data['idRol']='4';        
+                        break; 
+               }
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];      
 
        // $data['fechaModificacion']=$_POST['CURRENT_TIMESTAMP'];

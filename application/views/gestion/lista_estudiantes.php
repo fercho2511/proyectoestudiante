@@ -2,12 +2,13 @@
             foreach ($infocurso-> result() as $row) {
             $idCurso =  $row->idCurso;
             $curso =  $row->curso;
-            $seccion =  $row->seccion;
-            $tutor =  $row->tutor;                        
+            $seccion =  $row->idParalelo;
+            $tutor =  $row->profesor;                        
             }
 ?>
 
 <?php
+$para=$seccion;
 $idCur= $idCurso;
 ?>
 
@@ -27,6 +28,9 @@ $gest=$gestion;
 ?>
 
 
+  
+
+
 
 <div class="content-wrapper">
             <section class="content-header">
@@ -37,6 +41,7 @@ $gest=$gestion;
                            
                         </div>
                         <!-- <div class="col-sm-3">
+                            
                         <?php
                                             echo form_open_multipart('estudiante/agregar')//llegaremos asta estudiante.php y e metodo agregar
                                         ?>
@@ -49,7 +54,35 @@ $gest=$gestion;
                                     ?>
                         </div> -->
                     </div>
-                </div>
+                                 <!-- <div>
+                                     <?php
+                                            echo form_open_multipart('gestion/asignarProfe')//llegaremos asta estudiante.php y e metodo agregar
+                                        ?>
+                                        
+                                            <div class="form-group">
+                                              <label for="">Asignar profesor :</label>
+                                              <div class="col-sm-4" >
+                                              <select class="form-control" name="profesor" >
+                                              <?php
+                                                  foreach ($arrProfesores as $i => $profe)
+                                                    echo '<option values="',$i,'">',$profe,'</option>';
+                                                  ?>
+                                              </select>
+                                              </div>                                             
+                                            </div>
+                                            <div>
+                                            <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">
+                                            <input type="hidden" name="idGestion" value="<?php echo $idGest;?>">
+                                            <input type="hidden" name="idParalelo" value="<?php echo $para;?>">
+                                            <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
+                                            <button type="submit" class="btn btn-block btn-info btn-lg" title="Asignar" >
+                                            <span class="fas fa-user-plus"> Asignar Profesor</span>
+                                            </div>
+                                            <?php
+                                            echo form_close();
+                                    ?>
+                                 </div> -->
                 <!-- /.container-fluid -->
             </section>
             <section class="content">
@@ -93,57 +126,10 @@ $gest=$gestion;
                                                         <?php echo $row->apellidoMaterno;?>
                                                 </td>
                                                 <td><?php echo $row->ci;?></td>
-                                                <!-- <td><?php echo $row->telefono;?></td> -->
-                                                <!-- <td><?php echo $row->nombrePadre;?></td> -->
-                                                <!-- <td><?php echo $row->nombreTutor;?></td> -->
-                                                <!-- <td>
-                                                        <?php
-                                                        $foto=$row->foto;
-                                                        if ($foto=="") {
-                                                            //mostrar una imagen por defecto
-                                                            ?>
-                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/perfil.jpg">
-                                                            <?php
-                                                        }
-                                                        else {
-                                                            //mostrar foto del usuario
-                                                            ?>
-                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/<?php echo $foto; ?>">
-                                                            
-                                                            <?php
-                                                        }
-
-                                                        ?>
-                                                        <?php
-                                                                echo form_open_multipart('estudiante/subirFoto')
-                                                            ?>
-                                                            <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                            <button type="submit" class="btn btn-primary btn-xs" title="Subir" >
-                                                            <span class="fas fa-file-upload"></span>
-                                                            </button>
-                                                            <?php
-                                                                echo form_close();
-                                                        ?>
-
-                                                </td> -->
-
+                                                
                                                 
                                                 <td>
-                                                    <div class="btn-group btn-group-justified" >
-                                                        <!-- <?php
-                                                                 form_open_multipart('gestion/inscribirEstudiante')
-                                                            ?>
-                                                            <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">                                                               
-                                                            <input type="hidden" name="idCurso" value="<?php echo $idCurso;?>">                                                                
-                                                             <input type="hidden" name="idGestion" value="<?php echo $idGest;?>">
-
-                                                            <button type="submit" class="btn btn-primary btn-xs" title="Inscribir Estudiante">
-                                                            <span class="fas fa-user-edit"></span>
-
-                                                            </button>
-                                                            <?php
-                                                                echo form_close();
-                                                            ?>  -->
+                                                    
 
 
                                                     <?php
@@ -151,7 +137,8 @@ $gest=$gestion;
                                                     ?>
                                                     <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">                                                                
+                                                    <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">   
+                                                    <input type="hidden" name="idParalelo" value="<?php echo $para;?>">                                                             
                                                     <input type="hidden" name="idGestion" value="<?php echo $idGest;?>">
 
                                                     <button type="submit" class="btn btn-outline-dark" title="Inscribir Estudiante" >

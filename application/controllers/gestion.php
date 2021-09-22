@@ -92,20 +92,9 @@ class Gestion extends CI_Controller {
     //ahora el metodo para agregar a la base de datos 
      public function agregarGest()
      {
-         //recibireos los datos del estudiante
-         /*$data['nombre']=$_POST['nombre'];
-         $data['primerApellido']=$_POST['apPaterno'];
-         $data['segundoApellido']=$_POST['apMaterno'];
-         $data['ci']=$_POST['ci'];
-         $data['telefono']=$_POST['telefono'];
-         $data['nombrePadre']=$_POST['nomPadre'];
-         $data['nombreTutor']=$_POST['nomTutor'];*/
-         
-             //code...
+        
         $data['gestion']=$_POST['gestion'];
         // $ges=$_POST['gestion'];
-
-
          $data['fechaInicioGestion']=$_POST['fechaInicioGestion'];
          $data['fechaFinGestion']=$_POST['fechaFinGestion'];
          //$data['periodoReceso']=$_POST['periodoReceso'];
@@ -201,8 +190,9 @@ class Gestion extends CI_Controller {
         // $lista=$this->gestion_model->listaCuso($idGestion);
         // $data['curso']=$lista; //otro array asociativo
 
-        // $idGestion=$_POST['idGestion'];
+         $idGestion=$_POST['idGestion'];
         // $data['curso']=$this->gestion_model->listaCuso($idGestion);
+        $data['arrProfesores'] = $this->gestion_model->listaProfes($idGestion);
         $lista=$this->gestion_model->listaCurso();
         $data['curso']=$lista;
         
@@ -228,12 +218,16 @@ class Gestion extends CI_Controller {
      }
      public function cursoCreado(){
       //  $valor-recuperado = $this->session->flashdata('tu-variable'); 
+      $this->session->set_userdata('referred_from', current_url());
+
+
         $this->session->flashdata('idGestion');
         $this->session->flashdata('idCurso');
 
         $idGestion=$_POST['idGestion'];
         $idCurso=$_POST['idCurso'];
        
+        $data['arrProfesores'] = $this->gestion_model->listaProfes($idGestion);
 
         $lista=$this->gestion_model->listaEstudiantes($idGestion,$idCurso); //
         $data['estudiante']=$lista; //otro array asociativo
@@ -241,9 +235,13 @@ class Gestion extends CI_Controller {
         $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
         $data['profesor']=$this->gestion_model->listaProfe($idGestion);
         $data['materia']=$this->gestion_model->listaMateria($idGestion);
+        $data['materia']=$this->gestion_model->listaMateria($idGestion);
+
+        
 
         // $idCurso=$_POST['idCurso'];
         $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+        $data['profe_aula']=$this->gestion_model->obtenerProfesorAula($idCurso,$idGestion);
 
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
@@ -255,6 +253,15 @@ class Gestion extends CI_Controller {
     public function listaEstudiante2(){
         $idGestion=$_POST['idGestion'];
         $idCurso=$_POST['idCurso'];
+      
+
+        // $data['profe']=$this->gestion_model->listaProfes();
+        // $data['profe']=$lista2;
+
+        //  $this->load->gestion_model->listaProfes();
+    //  }obtenemos el array de profesiones y lo preparamos para enviar
+        // $data['arrProfesores'] = $this->gestion_model->listaProfes();
+
 
         $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
 
@@ -281,6 +288,7 @@ class Gestion extends CI_Controller {
         $data['idEstudiante']=$_POST['idUsuario'];
         $data['idCurso']=$_POST['idCurso'];
         $data['idGestion']=$_POST['idGestion'];
+        $data['idParalelo']=$_POST['idParalelo'];
         $data['idUsuario_Acciones']=$_POST['idUsuario_Acciones'];
 
         $idGestion=$_POST['idGestion'];
@@ -338,6 +346,64 @@ class Gestion extends CI_Controller {
          $this->session->set_flashdata('idGestion', $idGestion);
          $this->session->set_flashdata('idCurso', $idCurso);
         redirect('gestion/cursoCreado','refresh');
+
+
+
+    }
+
+    public function asignarProfe(){
+        $profe=$_POST['profesor'];
+        $idGestion=$_POST['idGestion'];
+        $idCurso=$_POST['idCurso'];
+        
+        $data['idProfesor']=$this->gestion_model->get_idProfe($profe);
+        $data['idCurso']=$_POST['idCurso'];
+        $data['idGestion']=$_POST['idGestion'];
+        $data['idParalelo']=$_POST['idParalelo'];        
+        $data['idUsuario_Acciones']=$_POST['idUsuario_Acciones'];
+     
+
+
+        $config=array(
+            array(
+                'field'=>'idCurso',
+                'label' =>'idCurso',
+                'rules' =>'is_unique[profesor_aula.idCurso]',
+                'errors'=> array(
+                        'is_unique' =>'La %s. ya tiene profesor asignado',
+                ),
+
+            ),
+        );
+        $this->form_validation->set_rules($config);
+
+        if ($this->form_validation->run()==FALSE) {
+            echo '<script>
+               alert("Curso ya tiene profesor asignado");
+               </script>'; 
+                 redirect('gestion/cursoCreado', 'refresh');
+       
+        }
+        else {
+            $this->gestion_model->asignarProfesor($data); 
+            $this->session->set_flashdata('idGestion', $idGestion);
+            $this->session->set_flashdata('idCurso', $idCurso);
+             redirect('gestion/cursoCreado','refresh');
+         
+            
+
+   
+        }
+
+
+    }
+
+    public function eliminarProfeAula(){
+
+        $idProfesor_aula=$_POST['idProfesor_aula'];
+        $this->gestion_model->eliminarProfesorAula($idProfesor_aula); // aca se envia el metodo del modelo 
+        redirect('gestion/cursoCreado','refresh');
+
 
 
 

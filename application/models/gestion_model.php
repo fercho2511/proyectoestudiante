@@ -113,7 +113,7 @@ class Gestion_model extends CI_Model {
                 $this->db->select('*');
                 $this->db->from('curso');
                 $this->db->where('estado','1');
-                $this->db->order_by('curso,seccion');
+                $this->db->order_by('curso,idParalelo');
                 return $this->db->get();
                 
 	}
@@ -243,7 +243,66 @@ class Gestion_model extends CI_Model {
 
 
          }
-         
+         public function listaProfes($gestion)
+         {
+ 
+                  // armamos la consulta
+                  $query = $this->db-> query("SELECT idUsuario,Profe FROM vwNombreCompleto where estado = 1 AND idUsuario not in
+                  ( SELECT idProfesor FROM profesor_aula where idGestion = $gestion) ORDER BY PROFE" );
+            
+                  // si hay resultados
+                  if ($query->num_rows() > 0) {
+                      // almacenamos en una matriz bidimensional
+                      foreach($query->result() as $row)
+                         $arrDatos[htmlspecialchars($row->idUsuario, ENT_QUOTES)] = 
+                                   htmlspecialchars($row->Profe, ENT_QUOTES);
+              
+                      $query->free_result();
+                      return $arrDatos;
+                   }
+         }
+
+
+         public function get_idProfe($profe){
+
+                        
+                        $this->db->select('idUsuario');
+                        $this->db->from('vwnombrecompleto');
+                        $this->db->where('profe',$profe);
+                        $query = $this->db->get();
+                        if ($query->num_rows() > 0) {
+                                return $query->row()->idUsuario;
+                        }
+                        return false;
+                      
+
+
+         }
+
+         public function asignarProfesor($data){
+
+                $this->db->insert('profesor_aula',$data);
+
+
+         }
+         public function obtenerProfesorAula($curso,$gestion){
+               
+
+                $query="SELECT usuario.*,profesor_aula.idProfesor_aula FROM usuario
+                         inner join profesor_aula on profesor_aula.idProfesor = usuario.idUsuario
+                        where profesor_aula.idCurso =$curso and profesor_aula.idGestion = $gestion ";
+                        $resultados = $this->db->query($query);
+                        return $resultados;
+
+
+
+         }
+
+         public function eliminarProfesorAula($idProfesor_aula){
+                $this->db->where('idProfesor_aula',$idProfesor_aula);
+                $this->db->delete('profesor_aula');
+
+         }
 
 
 

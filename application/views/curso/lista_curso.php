@@ -41,7 +41,7 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
-                                                <th>Sección</th>
+                                                <th>Paralelo</th>
                                                 <!-- <th>Tutor</th>   -->
                                                 <th>Estado</th>
                                                 <!-- <th>Acceso</th> -->
@@ -58,7 +58,34 @@
                                                 <tr>
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->curso;?></td>  
-                                                <td><?php echo $row->seccion;?></td>
+                                                <td>
+                                                    <?php
+                                                    if ($row->idParalelo==1){
+                                                        echo 'A';
+                                                    }
+                                                    else{
+                                                        if ($row->idParalelo==2) {
+                                                            echo 'B';
+                                                        }
+                                                        else{
+                                                            if ($row->idParalelo==3) {
+                                                                echo 'C';
+                                                            }
+                                                            else{
+                                                                if ($row->idParalelo==4) {
+                                                                    echo 'D';
+                                                                }
+                                                                else{
+                                                                    echo 'E';
+                                                                }
+                                                                
+                                                            }
+
+                                                        }
+                                                        
+                                                    }
+                                                    ?>
+                                                </td>
                                                 <!-- <td><?php echo $row->tutor;?></td>                                                -->
                                                 <td>
                                                 <?php
@@ -156,7 +183,7 @@
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
-                                                <th>Sección</th>
+                                                <th>Paralelo</th>
                                                 <!-- <th>Tutor</th>   -->
                                                 <th>Estado</th>
                                                 <!-- <th>Acceso</th> -->

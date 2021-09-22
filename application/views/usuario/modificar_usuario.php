@@ -86,10 +86,10 @@
                                                 <label class="form-label">Direccion</label>
                                                 <input type="text" class="form-control" name='direccion'  value="<?php echo $row->direccion;?>" >
                                             </div>
-                                  
+                                            <!-- select="<?php echo $row->rol;?> -->
                                     <div class="form-group">
                                               <label for="">Rol:</label>
-                                              <select class="form-control" name="rol" select="<?php echo $row->rol;?>">
+                                              <select class="form-control" name="rol" >
                                                 <option>Profesor</option>
                                                 <option>Estudiante</option>
                                                 <option>Administrador</option>

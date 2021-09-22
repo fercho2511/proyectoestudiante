@@ -40,7 +40,7 @@ $gest=$gestion
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-8">
                             <div class="card">
                                 <div class="card-header">
                                   <br>
@@ -56,11 +56,11 @@ $gest=$gestion
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
-                                                <th>Sección</th>
-                                                <th>Tutor</th>  
+                                                <th>Paralelo</th>
+                                                <!-- <th>Profesor</th>   -->
                                                 <th>Estado</th>
                                                 <th>Acceso</th>
-                                                <!-- <th>Acciones</th> -->
+                                                <!-- <th>Asignar Profesor</th> -->
 
                                             </tr>
                                         </thead>
@@ -73,8 +73,38 @@ $gest=$gestion
                                                 <tr>
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->curso;?></td>  
-                                                <td><?php echo $row->seccion;?></td>
-                                                <td><?php echo $row->tutor;?></td>                                               
+                                                <td>
+                                                <?php
+                                                    if ($row->idParalelo==1){
+                                                        echo 'A';
+                                                    }
+                                                    else{
+                                                        if ($row->idParalelo==2) {
+                                                            echo 'B';
+                                                        }
+                                                        else{
+                                                            if ($row->idParalelo==3) {
+                                                                echo 'C';
+                                                            }
+                                                            else{
+                                                                if ($row->idParalelo==4) {
+                                                                    echo 'D';
+                                                                }
+                                                                else{
+                                                                    echo 'E';
+                                                                }
+                                                                
+                                                            }
+
+                                                        }
+                                                        
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <!-- <td>
+                                                    <?php echo $row->profesor;?>
+                                                    
+                                                </td>                                                -->
                                                 <td>
                                                 <?php
                                                     if ($row->estado==0){
@@ -109,76 +139,7 @@ $gest=$gestion
                                                
 
                                                 
-                                                <!-- <td> -->
-                                                    <!-- <div class="btn-group btn-group-justified" >
-                                                    <?php
-                                                            // echo form_open_multipart('curso/modificar')
-                                                        ?>
-                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-
-                                                        <button type="submit" class="btn btn-outline-dark" title="Agregar Tutor ">
-                                                        <span class="fas fa-user-plus"></span>
-
-                                                        </button>
-                                                        <?php
-                                                            // echo form_close();
-                                                        ?> -->
-
-
-<!-- 
-
-                                                    <?php
-                                                            // echo form_open_multipart('curso/modificar')
-                                                        ?>
-                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-
-                                                        <button type="submit" class="btn btn-outline-dark" title="Modificar">
-                                                        <span class="fas fa-user-edit"></span>
-
-                                                        </button>
-                                                        <?php
-                                                            // echo form_close();
-                                                        ?> -->
-
-                                                        
-                         
-                                                        <?php
-                                                        //    echo form_close();
-                                                        ?> 
-
-
-                                                         <!-- <?php
-                                                            // echo form_open_multipart('curso/inscribirEstudiante')
-                                                        ?>
-                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-                                                        <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
-
-                                                        <button type="submit" class="btn btn-outline-dark" title="Agregar Estudiantes" >
-                                                        <span class="fas fa-user-plus"></span>
-
-                                                        </button>
-                                                        <?php
-                                                            // form_close();
-                                                        ?> -->
-
-
-                                                        <!-- <?php
-                                                            // echo form_open_multipart('curso/eliminarCurso')
-                                                        ?>
-                                                        <input type="hidden" name="idCurso" value="<?php echo $row->idCurso;?>">
-                                                        <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
-
-                                                        <button type="submit" class="btn btn-outline-danger" title="Eliminar" >
-                                                        <span class="fas fa-trash-alt"></span>
-
-                                                        </button>
-                                                        <?php
-                                                            // form_close();
-                                                        ?> -->
-
-
-                                                    <!-- </div> -->
-                                                <!-- </td> -->
+                                                
 
 
 
@@ -193,11 +154,11 @@ $gest=$gestion
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
-                                                <th>Sección</th>
-                                                <th>Tutor</th>  
+                                                <th>Paralelo</th>
+                                                <!-- <th>profesor</th>   -->
                                                 <th>Estado</th>
                                                 <th>Acceso</th>
-                                                <!-- <th>Acciones</th> -->
+                                                <!-- <th>Asignar Profesor</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>
