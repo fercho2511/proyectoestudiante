@@ -159,6 +159,9 @@ class Profesor extends CI_Controller {
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
     
         $this->profesor_model->modificarProfesor($idUsuario,$data); //ahora la consula
+        echo '<script>
+        alert("Registro Modificado");
+        </script>';
         redirect('profesor/test','refresh'); //esta linea ya realiza la actualizacion
     }
     public function modificarProf2()
@@ -178,6 +181,9 @@ class Profesor extends CI_Controller {
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
     
         $this->profesor_model->modificarProfesor($idUsuario,$data); //ahora la consula
+        echo '<script>
+        alert("Registro Modificado");
+        </script>';
         redirect('profesor/test1','refresh'); //esta linea ya realiza la actualizacion
     }
 

@@ -55,8 +55,8 @@
 
                                             <div class="form-group">
                                                 <label class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" name='nombres'  placeholder="Ingrese Nombre" 
-                                                                                    title="" required minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}' >
+                                                <input type="text" class="form-control" name='nombres' id="nombres"  placeholder="Ingrese Nombre" 
+                                                                                    title="" required minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}' value="<?php echo set_value('nombres');?>">
                                             </div>
                                             <div class="form-group"  >
                                                 <label class="form-label">Apellido Paterno</label>

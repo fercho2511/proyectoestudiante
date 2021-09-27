@@ -8,14 +8,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
+        <!-- <div class="row mb-2">
           <div class="col-sm-6">
             <h1>FORMULARIO </h1>
           </div>
           <div class="col-sm-6">
             
           </div>
-        </div>
+        </div> -->
       </div><!-- /.container-fluid -->
     </section>
 
@@ -120,9 +120,10 @@
               
             </div>
 
-            
+        
+        </div>
 
-
+        
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">CAMBIE USUARO Y CONTRASEÑA</h3>
@@ -143,13 +144,18 @@
 
                 <div class="card-body">
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Usuario:</label>
+                    <label>Loguin: <?php echo $this->session->userdata('login');?> </label>
+                    </div>
+                    
+                  
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Password antiguo:</label>
                     <div class="col-sm-5">
-                      <input type="text" class="form-control" name="login"  placeholder="Nuevo Usuario">
+                      <input type="text" class="form-control" name="login"  placeholder="Contraseña Anterior">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-4 col-form-label">Password:</label>
+                    <label for="inputPassword3" class="col-sm-4 col-form-label">Password Nuevo:</label>
                     <div class="col-sm-5">
                       <input type="text" class="form-control" name='password' placeholder="Nueva Contraseña">
                     </div>
@@ -174,18 +180,11 @@
                 <!-- /.card-footer -->
               
             </div>  
-
-
-
-
-
-
-        
-        </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+  <br>
+            <br>

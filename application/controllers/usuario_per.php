@@ -186,7 +186,9 @@ class Usuario_per extends CI_Controller {
                 echo '<script>
                 alert("CI YA REGISTRADO");
                 </script>'; 
-                  redirect('usuario_per/agregar', 'refresh');
+                redirect($_SERVER['HTTP_REFERER']);
+
+                //   redirect('usuario_per/agregar', 'refresh');
 
                 // $data=$config;
                 // redirect('usuario_per/agregar',$data);
@@ -196,6 +198,9 @@ class Usuario_per extends CI_Controller {
                 $data['login']=$this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci); 
                 $data['password']=md5($this->usuarioper_model->crearLoguin($nom,$ap,$am,$ci)); 
                 $this->usuarioper_model->agregarUsuario($data); 
+                echo '<script>
+                alert("Registro Satisfactorio");
+                </script>';
                 redirect('usuario_per/test','refresh');
        
             }
