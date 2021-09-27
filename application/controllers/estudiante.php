@@ -38,6 +38,29 @@ class Estudiante extends CI_Controller {
 
 	}
 
+    public function estuNota()
+	{
+        //cargara la list de estudiantes
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu1.php');
+		$this->load->view('usuario/estudiante/estu_notas',$data);
+		$this->load->view('inc_fin.php');
+
+	}
+    public function estuComunicado()
+	{
+        //cargara la list de estudiantes
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu1.php');
+		$this->load->view('usuario/estudiante/estu_comunicado',$data);
+		$this->load->view('inc_fin.php');
+
+	}
+
     //haciendo click en modificar nos estar traendo asta este metodo 
     //para realizar las siguientes acciones
     //1 tiene q recuperar los datos del estudiantes con su id

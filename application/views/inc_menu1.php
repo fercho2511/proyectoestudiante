@@ -81,35 +81,35 @@
                             
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../tables/simple.html" class="nav-link">
+                                    <a href="<?php echo base_url(); ?>index.php/estudiante/estuNota" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Notas</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="../tables/data.html"  class="nav-link">
+                                <!-- <li class="nav-item">
+                                    <a href="<?php echo base_url(); ?>index.php/profesor/profeComunicado"  class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Actividades Curriculares</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
-                                    <a href="../tables/jsgrid.html" class="nav-link">
+                                    <a href="<?php echo base_url(); ?>index.php/estudiante/estuComunicado" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Avisos</p>
+                                        <p>Comunicado</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="../tables/jsgrid.html" class="nav-link">
+                                <!-- <li class="nav-item">
+                                    <a href="<?php echo base_url(); ?>index.php/profesor/profeComunicado" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Reuniones</p>
                                     </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../tables/jsgrid.html" class="nav-link">
+                                </li> -->
+                                <!-- <li class="nav-item">
+                                    <a href="<?php echo base_url(); ?>index.php/profesor/profeComunicado" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Licencia</p>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
                     </ul>

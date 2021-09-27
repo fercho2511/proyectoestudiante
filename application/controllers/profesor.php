@@ -43,6 +43,66 @@ class Profesor extends CI_Controller {
 		$this->load->view('inc_fin.php');
 
 	} 
+    public function profeCurso()
+	{
+        //cargara la list de profesores
+        $lista=$this->profesor_model->lista();
+        $data['profesor']=$lista; //otro array asociativo
+
+        
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/profe_curso',$data);
+        //$this->load->view('usuario/profesor/profe_vista');
+		$this->load->view('inc_fin.php');
+
+	} 
+    public function profeEstudiante()
+	{
+        //cargara la list de profesores
+        $lista=$this->profesor_model->lista();
+        $data['profesor']=$lista; //otro array asociativo
+
+        
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/profe_estudiantes',$data);
+        //$this->load->view('usuario/profesor/profe_vista');
+		$this->load->view('inc_fin.php');
+
+	} 
+    public function profeMateria()
+	{
+        //cargara la list de profesores
+        $lista=$this->profesor_model->lista();
+        $data['profesor']=$lista; //otro array asociativo
+
+        
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/profe_materia_nota',$data);
+        //$this->load->view('usuario/profesor/profe_vista');
+		$this->load->view('inc_fin.php');
+
+	}
+    public function profeComunicado()
+	{
+        //cargara la list de profesores
+        $lista=$this->profesor_model->lista();
+        $data['profesor']=$lista; //otro array asociativo
+
+        
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/profe_comunicado',$data);
+        //$this->load->view('usuario/profesor/profe_vista');
+		$this->load->view('inc_fin.php');
+
+	}
 
 
     public function modificar()
