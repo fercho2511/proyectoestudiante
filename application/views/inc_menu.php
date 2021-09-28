@@ -207,31 +207,31 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeCurso" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                         <p>Curso</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeEstudiante" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <i class="nav-icon fas fa-user-graduate"></i>
                                         <p>Estudiantes</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeMateria" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <i class="nav-icon fas fa-book"></i>
                                         <p>Materias/Notas</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeMateria" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon fas fa-tasks"></i>
                                         <p>Notas</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeComunicado" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <i class="nav-icon far fa-clipboard"></i>
                                         <p>Comunicado</p>
                                     </a>
                                 </li>

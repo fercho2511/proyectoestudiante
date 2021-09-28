@@ -115,6 +115,13 @@
                                     </p>
                                   </a>
                                 </li>
+                                <li class="nav-item">
+                                      <a href="<?php echo base_url(); ?>index.php/gestion/test" class="nav-link">
+                                      <i class="nav-icon fas fa-calendar-alt"></i>
+
+                                        <p>Gestion</p>
+                                      </a>
+                                    </li>
                                     <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/materia/test" class="nav-link">
                                       <i class="nav-icon fas fa-book"></i>
@@ -136,13 +143,7 @@
                                         <p>Comunicado</p>
                                       </a>
                                     </li>
-                                    <li class="nav-item">
-                                      <a href="<?php echo base_url(); ?>index.php/gestion/test" class="nav-link">
-                                      <i class="nav-icon fas fa-calendar-alt"></i>
-
-                                        <p>Gestion</p>
-                                      </a>
-                                    </li>
+                                   
                                     
                                   </ul>
                                 </li>

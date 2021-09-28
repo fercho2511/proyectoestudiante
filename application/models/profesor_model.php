@@ -60,6 +60,15 @@ class Profesor_model extends CI_Model {
                 //$this->db->delete('Profesor'); //con esto se elimina el registro de mi tabla
         }
 
+        public function listaEstudiante(){
+                $this->db->select('*');
+                $this->db->from('usuario');
+                $this->db->where('idRol','4');
+                $this->db->where('estado','1');
+
+                return $this->db->get();
+        }
+
 
 
 	
