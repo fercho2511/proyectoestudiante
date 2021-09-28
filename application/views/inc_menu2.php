@@ -84,7 +84,7 @@
                         
                       <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/usuario_per/test" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon fas fa-users"></i>
                                         <p>Administrador</p>
                                       </a>
                       </li>
@@ -96,51 +96,50 @@
                       </li> -->
                       <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/profesor/test" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon fas fa-user-tie"></i>
                                         <p>Profesor</p>
                                       </a>
                       </li>
                       <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/estudiante/test" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon fas fa-user-graduate"></i>
                                         <p>Estudiante</p>
                                       </a>
                       </li>
                       <li class="nav-item">
                                 
-                                <!-- <li class="nav-item">
+                                <li class="nav-item">
                                   <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
                                     <p>
-                                      GESTION
-                                      <i class="fas fa-angle-left right"></i>
+                                      ---------------------------
                                     </p>
                                   </a>
-                                  <ul class="nav nav-treeview">
-                                </li> -->
+                                </li>
                                     <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/materia/test" class="nav-link">
-                                      <i class="nav-icon fas fa-edit"></i>
-
-                                        <i class="far fa-circle nav-icon"></i>
+                                      <i class="nav-icon fas fa-book"></i>
                                         <p>Materia</p>
                                       </a>
                                     </li>
+
                                     <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/curso/test" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                      <i class="nav-icon fas fa-chalkboard-teacher"></i>
+
                                         <p>Curso</p>
                                       </a>
                                     </li>
                                     <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/comunicado/test" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                      <i class="nav-icon far fa-clipboard"></i>
+
                                         <p>Comunicado</p>
                                       </a>
                                     </li>
                                     <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/gestion/test" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                      <i class="nav-icon fas fa-calendar-alt"></i>
+
                                         <p>Gestion</p>
                                       </a>
                                     </li>
