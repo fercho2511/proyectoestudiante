@@ -105,14 +105,42 @@ class Usuario_per extends CI_Controller {
     public function modificarLoguinAdmin()
     {
        
-        $idUsuario=$_POST['idUsuario'];
-        $data['login']=$_POST['login'];
         $data['password']=md5($_POST['password']);
-        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];      
+        $idUsuario=$_POST['idUsuario'];        
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
-        $this->usuarioper_model->modificarUsuario($idUsuario,$data);
+        
 
-        redirect('usuario_per/test','refresh');
+        $config=array(
+            array(
+                'field'=>'password',
+                'label' =>'password',
+                'rules' =>'is_unique[usuario.password]',
+                'errors'=> array(
+                        'is_unique' =>'La %s. ya fue registrado',
+                ),
+
+            ),
+        );
+        $this->form_validation->set_rules($config);
+
+        if ($this->form_validation->run()==FALSE) {
+            echo '<script>
+               alert("Password ya Registrado");
+               </script>'; 
+                 redirect('gestion/cursoCreado', 'refresh');
+       
+        }
+        else {
+            $this->usuarioper_model->modificarUsuario($idUsuario,$data);
+            echo '<script>
+            alert("Modificacion Satisfactoria");
+            </script>';
+
+            redirect('usuario_per/test','refresh');
+   
+        }
+
     }
     
 

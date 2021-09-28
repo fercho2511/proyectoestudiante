@@ -1,8 +1,4 @@
 
-
-
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -123,7 +119,7 @@
         
         </div>
 
-        
+<!--         
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">CAMBIE USUARO Y CONTRASEÑA</h3>
@@ -151,13 +147,13 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Password antiguo:</label>
                     <div class="col-sm-5">
-                      <input type="text" class="form-control" name="login"  placeholder="Contraseña Anterior">
+                      <input type="password" class="form-control" name="login"  placeholder="Contraseña Anterior">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-4 col-form-label">Password Nuevo:</label>
                     <div class="col-sm-5">
-                      <input type="text" class="form-control" name='password' placeholder="Nueva Contraseña">
+                      <input type="password" class="form-control" name='password' placeholder="Nueva Contraseña" required>
                     </div>
                   </div>
                   
@@ -179,7 +175,53 @@
                     ?> 
                 <!-- /.card-footer -->
               
-            </div>  
+            </div> 
+
+            
+            <main>
+
+                <form method="post"  action="<?php echo base_url(); ?>index.php/usuario_per/modificarLoguinAdmin" class="formulario" id="formulario" >
+                <!-- action="<?= site_url('usuario_per/modificarLoguinAdmin') ?>" -->
+                  <!-- Grupo: Contraseña -->
+                  <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                   <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
+                  <div class="formulario__grupo" id="grupo__password">
+                    <label for="password" class="formulario__label">Contraseña</label>
+                    <div class="formulario__grupo-input">
+                      <input type="password" class="formulario__input" name="password" id="password">
+                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                  </div>
+
+                  <!-- Grupo: Contraseña 2 -->
+                  <div class="formulario__grupo" id="grupo__password2">
+                    <label for="password2" class="formulario__label">Repetir Contraseña</label>
+                    <div class="formulario__grupo-input">
+                      <input type="password" class="formulario__input" name="password2" id="password2">
+                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+                  </div>
+
+                  <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                  </div>
+
+                  <!-- <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <button type="submit" class="formulario__btn">Enviar</button>
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                  </div> -->
+
+                  <div class="card-footer">
+                              <button type="submit" class="btn btn-info" title="Guardar Cambios" >
+                              <span class="far fa-save"> GUARDAR CAMBIOS</span>
+                              <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+
+                  </div>
+                </form>
+            </main>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>

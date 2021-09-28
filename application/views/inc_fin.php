@@ -82,11 +82,11 @@
 <script src="<?php echo base_url(); ?>adminLTE/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?php echo base_url(); ?>adminLTE/plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE App -->
-<!-- <script src="<?php echo base_url(); ?>adminLTE/dist/js/adminlte.min.js"></script> -->
+<script src="<?php echo base_url(); ?>adminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<!-- <script src="<?php echo base_url(); ?>adminLTE/dist/js/demo.js"></script> -->
+<script src="<?php echo base_url(); ?>adminLTE/dist/js/demo.js"></script>
 <!-- Page specific script -->
-<!-- <script>
+<script>
 $(function () {
   $.validator.setDefaults({
     submitHandler: function () {
@@ -205,8 +205,13 @@ $(function () {
     }
   });
 });
-</script> -->
+</script>
 <!-- asta aca es la validacon  -->
+
+
+<!-- otra validacion para-->
+<script src="<?php echo base_url(); ?>adminLTE/dist/validar/js/formulario.js"></script>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 
 
 

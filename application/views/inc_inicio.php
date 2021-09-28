@@ -58,6 +58,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <!--===============================================================================================-->
  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>adminLTE/dist/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>adminLTE/dist/css/main.css">
+
+    <!-- validaciones con java nuevo metodo -->
+    <!-- <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/dist/validar/css/estilos.css"> -->
+
+    <!-- asta aca se ara las validaciones  -->
     
 
   
@@ -158,8 +165,7 @@ footer {
 
 
 </head>
-<body class="hold-transition sidebar-mini" 
- >
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
 

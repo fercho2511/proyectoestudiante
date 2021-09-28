@@ -106,51 +106,47 @@
                                         <p>Estudiante</p>
                                       </a>
                       </li>
-<li class="nav-item">
-          
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                GESTION
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-          </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>index.php/materia/test" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Materia</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>index.php/curso/test" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Curso</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>index.php/comunicado/test" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Comunicado</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>index.php/gestion/test" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                      <li class="nav-item">
+                                
+                                <!-- <li class="nav-item">
+                                  <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>
+                                      GESTION
+                                      <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                  </a>
+                                  <ul class="nav nav-treeview">
+                                </li> -->
+                                    <li class="nav-item">
+                                      <a href="<?php echo base_url(); ?>index.php/materia/test" class="nav-link">
+                                      <i class="nav-icon fas fa-edit"></i>
 
-                  <p>Gestion</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-                        
-
-
-                        
-                        
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Materia</p>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a href="<?php echo base_url(); ?>index.php/curso/test" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Curso</p>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a href="<?php echo base_url(); ?>index.php/comunicado/test" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Comunicado</p>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a href="<?php echo base_url(); ?>index.php/gestion/test" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Gestion</p>
+                                      </a>
+                                    </li>
+                                    
+                                  </ul>
+                                </li>
                     </ul>
                 </nav>
             </div>
