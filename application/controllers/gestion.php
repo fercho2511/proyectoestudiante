@@ -218,11 +218,11 @@ class Gestion extends CI_Controller {
      }
      public function cursoCreado(){
       //  $valor-recuperado = $this->session->flashdata('tu-variable'); 
-      $this->session->set_userdata('referred_from', current_url());
+    //   $this->session->set_userdata('referred_from', current_url());
 
 
-        $this->session->flashdata('idGestion');
-        $this->session->flashdata('idCurso');
+        $idGestion=$this->session->flashdata('idGestion');
+        $idCurso=$this->session->flashdata('idCurso');
 
         $idGestion=$_POST['idGestion'];
         $idCurso=$_POST['idCurso'];
@@ -249,6 +249,38 @@ class Gestion extends CI_Controller {
         $this->load->view('inc_fin.php');
 
     }
+    public function cursoCreado2(){
+        //  $valor-recuperado = $this->session->flashdata('tu-variable'); 
+      //   $this->session->set_userdata('referred_from', current_url());
+  
+  
+          $idGestion=$this->session->flashdata('idGestion');
+          $idCurso=$this->session->flashdata('idCurso');
+  
+        
+         
+          $data['arrProfesores'] = $this->gestion_model->listaProfes($idGestion);
+  
+          $lista=$this->gestion_model->listaEstudiantes($idGestion,$idCurso); //
+          $data['estudiante']=$lista; //otro array asociativo
+  
+          $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
+          $data['profesor']=$this->gestion_model->listaProfe($idGestion);
+          $data['materia']=$this->gestion_model->listaMateria($idGestion);
+          $data['materia']=$this->gestion_model->listaMateria($idGestion);
+  
+          
+  
+          // $idCurso=$_POST['idCurso'];
+          $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+          $data['profe_aula']=$this->gestion_model->obtenerProfesorAula($idCurso,$idGestion);
+  
+          $this->load->view('inc_inicio.php');
+          $this->load->view('inc_menu2.php');
+          $this->load->view('gestion/curso_creado',$data);
+          $this->load->view('inc_fin.php');
+  
+      }
 
     public function listaEstudiante2(){
         $idGestion=$_POST['idGestion'];
@@ -345,7 +377,7 @@ class Gestion extends CI_Controller {
          $this->gestion_model->eliminarInscripcion($idUsuario,$idGestion);
          $this->session->set_flashdata('idGestion', $idGestion);
          $this->session->set_flashdata('idCurso', $idCurso);
-        redirect('gestion/cursoCreado','refresh');
+        redirect('gestion/cursoCreado2','refresh');
 
 
 
@@ -355,54 +387,81 @@ class Gestion extends CI_Controller {
         $profe=$_POST['profesor'];
         $idGestion=$_POST['idGestion'];
         $idCurso=$_POST['idCurso'];
-        
         $data['idProfesor']=$this->gestion_model->get_idProfe($profe);
         $data['idCurso']=$_POST['idCurso'];
         $data['idGestion']=$_POST['idGestion'];
         $data['idParalelo']=$_POST['idParalelo'];        
         $data['idUsuario_Acciones']=$_POST['idUsuario_Acciones'];
-     
 
-
-        $config=array(
-            array(
-                'field'=>'idCurso',
-                'label' =>'idCurso',
-                'rules' =>'is_unique[profesor_aula.idCurso]',
-                'errors'=> array(
-                        'is_unique' =>'La %s. ya tiene profesor asignado',
-                ),
-
-            ),
-        );
-        $this->form_validation->set_rules($config);
-
-        if ($this->form_validation->run()==FALSE) {
+        $consulta = $this->gestion_model->consultaProfeAsignado($idCurso,$idGestion);
+        if ($consulta > 0){
             echo '<script>
-               alert("Curso ya tiene profesor asignado");
-               </script>'; 
-                 redirect('gestion/cursoCreado', 'refresh');
-       
+            alert("Curso ya tiene profesor asignado");
+            </script>'; 
+            $this->session->set_flashdata('idGestion', $idGestion);
+            $this->session->set_flashdata('idCurso', $idCurso);
+              redirect('gestion/cursoCreado2', 'refresh');
+
         }
-        else {
+        else{
             $this->gestion_model->asignarProfesor($data); 
             $this->session->set_flashdata('idGestion', $idGestion);
             $this->session->set_flashdata('idCurso', $idCurso);
-             redirect('gestion/cursoCreado','refresh');
+            echo '<script>
+            alert("Profesor asignado con exito");
+            </script>';
+             redirect('gestion/cursoCreado2','refresh');
+
+        }
+     
+     
+
+
+        // $config=array(
+        //     array(
+        //         'field'=>'idCurso',
+        //         'label' =>'idCurso',
+        //         'rules' =>'is_unique[profesor_aula.idCurso]',
+        //         'errors'=> array(
+        //                 'is_unique' =>'La %s. ya tiene profesor asignado',
+        //         ),
+
+        //     ),
+        // );
+        // $this->form_validation->set_rules($config);
+
+        // if ($this->form_validation->run()==FALSE) {
+        //     echo '<script>
+        //        alert("Curso ya tiene profesor asignado");
+        //        </script>'; 
+        //          redirect('gestion/cursoCreado', 'refresh');
+       
+        // }
+        // else {          
          
-            
+        //     $this->gestion_model->asignarProfesor($data); 
+        //     $this->session->set_flashdata('idGestion', $idGestion);
+        //     $this->session->set_flashdata('idCurso', $idCurso);
+        //     // echo '<script>
+        //     // alert("Profesor asignado con exito");
+        //     // </script>';
+        //      redirect('gestion/cursoCreado2','refresh');
 
    
-        }
+        // }
 
 
     }
 
     public function eliminarProfeAula(){
 
+        $idGestion=$_POST['idGestion'];
+        $idCurso=$_POST['idCurso'];
         $idProfesor_aula=$_POST['idProfesor_aula'];
         $this->gestion_model->eliminarProfesorAula($idProfesor_aula); // aca se envia el metodo del modelo 
-        redirect('gestion/cursoCreado','refresh');
+        $this->session->set_flashdata('idGestion', $idGestion);
+        $this->session->set_flashdata('idCurso', $idCurso);
+        redirect('gestion/cursoCreado2','refresh');
 
 
 

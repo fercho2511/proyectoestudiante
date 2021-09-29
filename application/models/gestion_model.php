@@ -304,6 +304,20 @@ class Gestion_model extends CI_Model {
 
          }
 
+         public function consultaProfeAsignado($curso,$gestion){
+               
+                $this->db->select('*');
+                $this->db->from('profesor_aula');
+                $this->db->where('idCurso',$curso);
+                $this->db->where('idGestion',$gestion);
+
+                $query = $this->db->get();
+                if ($query->num_rows() > 0) {
+                        return $query->row()->idProfesor_aula;
+                }
+                return false;
+         }
+
 
 
 	

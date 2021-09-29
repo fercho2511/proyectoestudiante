@@ -59,9 +59,11 @@ class Profesor extends CI_Controller {
 
 	} 
     public function profeEstudiante()
+     
 	{
         //cargara la list de profesores
-        $lista=$this->profesor_model->listaEstudiante();
+        $profe=$this->session->userdata('idusuario');
+        $lista=$this->profesor_model->listaEstudiantePorProfesor($profe);
         $data['estudiante']=$lista; //otro array asociativo        
 
 		$this->load->view('inc_inicio.php');

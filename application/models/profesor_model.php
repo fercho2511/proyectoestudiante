@@ -70,6 +70,44 @@ class Profesor_model extends CI_Model {
         }
 
 
+        public function listaEstudiantePorProfesor($profe){
+                //ETSA ES LA CONSULTA EN MYSQL
+                // select U.*
+                // from usuario U
+                // inner join rol R on R.idRol = U.idRol
+                // inner join inscrito I on I.idEstudiante = U.idUsuario
+                // inner join gestion G on G.idGestion = I.idGestion
+                // where R.rol ='Estudiante' and YEAR(G.gestion) = YEAR(CURDATE()) and I.idCurso = (
+
+                // SELECT PA.idCurso
+                // FROM usuario U
+                // inner join profesor_aula PA on PA.idProfesor = U.idUsuario
+                // inner join gestion G on G.idGestion = PA.idGestion
+                // where YEAR(G.gestion) = YEAR(CURDATE()) and idProfesor = 23)
+
+
+                $query="SELECT usuario.* FROM usuario
+                inner join rol on rol.idRol = usuario.idRol
+                inner join inscrito on inscrito.idEstudiante = usuario.idUsuario
+                inner join gestion on gestion.idGestion = inscrito.idGestion
+                where rol.rol = 'Estudiante' and  YEAR(gestion.gestion) = YEAR(CURDATE()) and inscrito.idCurso=(
+
+                SELECT profesor_aula.idCurso
+                FROM usuario
+                inner join profesor_aula on profesor_aula.idProfesor = usuario.idUsuario
+                inner join gestion on gestion.idGestion = profesor_aula.idGestion
+                where YEAR(gestion.gestion) = YEAR(CURDATE()) and profesor_aula.idProfesor=$profe
+                )";
+               $resultados = $this->db->query($query);
+               return $resultados;
+
+
+
+
+
+        }
+
+
 
 	
 }

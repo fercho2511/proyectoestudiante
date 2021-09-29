@@ -1,9 +1,14 @@
+
+
+<br>
+<br>
+
 <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Estudiantes Registrados</h1>
+                            <h1>Lista de estudiantes</h1>
                            
                         </div>
                         <!-- <div class="col-sm-3">
@@ -112,7 +117,7 @@
                                                         echo form_close();
                                                     ?>
 
-                                                <?php
+                                                <!-- <?php
                                                         echo form_open_multipart('estudiante/eliminarEst')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
@@ -122,7 +127,7 @@
                                                     </button>
                                                     <?php
                                                         echo form_close();
-                                                    ?>
+                                                    ?> -->
 
                                                 </div>
 

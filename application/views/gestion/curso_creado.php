@@ -62,13 +62,18 @@ $gest= $gestion;
 
 
 <div class="content-wrapper">
-            <section class="content-header">
+        <section class="content-header">
             <div class="container-fluid">
                     <div class="row mb-2">
                    
 
                         <div class="col-sm-8">
-                            <h1>Curso <?php echo $cur;?><?php echo $secc;?></h1>
+                            <h1> Gestion: <?php echo $gest;?></h1>
+                            <h1> Curso: <?php echo $cur;?><?php echo $secc;?></h1>
+
+                            <h1><a href="<?php echo base_url(); ?>index.php/gestion/listaCursos">Gestion: <?php echo $gest;?></a></h1>
+                            <h1><a href="<?php echo base_url(); ?>index.php/gestion/cursoCreado">Curso <?php echo $cur;?><?php echo $secc;?></a></h1>
+
                             <!-- <h1>Prof. de Aula: <?php echo $tut;?></h1> -->
                            
                            
@@ -85,6 +90,7 @@ $gest= $gestion;
                                         <div class="card">
                                         <div class="card-header">
                                             <h3 class="card-title">Asignar profesor </h3>
+                                            <br>  
                                             <div class="col-sm-5">
                                                     <?php
                                                                         echo form_open_multipart('gestion/asignarProfe')//llegaremos asta gestion.php y e metodo agregar
@@ -97,7 +103,8 @@ $gest= $gestion;
                                                                         echo '<option values="',$i,'">',$profe,'</option>';
                                                                     ?>
                                                                 </select>
-                                                                </div>                                             
+                                                                </div>   
+                                                                                                        
                                                                 
                                                                 <div class="col-sm-6">
                                                                         <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">
@@ -107,7 +114,7 @@ $gest= $gestion;
 
 
                                                                             <button type="submit" class="btn btn-outline-dark" title="Asignar Profesor" >
-                                                                            <span class="fas fa-user-plus">Asignar Profesor</span>
+                                                                            <span class="fas fa-user-plus"> Asignar Profesor</span>
 
                                                                        
 
@@ -119,17 +126,7 @@ $gest= $gestion;
                                                                 </div>
                                                 </div>
 
-                                            <div class="card-tools">
-                                            <!-- <div class="input-group input-group-sm" style="width: 150px;">
-                                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                                <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                                </div>
-                                            </div> -->
-                                            </div>
+                                            
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body table-responsive p-0">
@@ -176,7 +173,8 @@ $gest= $gestion;
                                                                                     echo form_open_multipart('gestion/eliminarProfeAula')
                                                                                 ?>
                                                                                 <input type="hidden" name="idProfesor_aula" value="<?php echo $row->idProfesor_aula;?>">
-
+                                                                                <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">
+                                                                                 <input type="hidden" name="idGestion" value="<?php echo $idGes;?>">
                                                                                 <button type="submit" class="btn btn-danger btn-xs" title="Eliminar Profesor" >
                                                                                 <span class="fas fa-trash-alt"></span>
 
@@ -206,20 +204,19 @@ $gest= $gestion;
                                                                         </tr>
                                                                     </tfoot> -->
                                             </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
-                <!-- /.container-fluid -->
-            </section>            
-            <!-- /.content -->
-        </div>
-<!-- asta aca  -->
+                    </div>
+                    <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                </div>
 
-<div class="content-wrapper">
-            <section class="content-header">
+
+
+                <!-- /.container-fluid -->
+
+                <!-- desde aca lso estudiantes -->
+                <section class="content-header">
                 <div class="container-fluid">
                    
                     
@@ -390,9 +387,20 @@ $gest= $gestion;
 
 
 
-            
+
+
+        </section>            
             <!-- /.content -->
         </div>
+<!-- asta aca  -->
+
+
+            
+
+
+
+            
+         
 
 
 
