@@ -1,5 +1,4 @@
-<br>
-<br>
+
 
 
 <div class="content-wrapper">
@@ -7,66 +6,31 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
+          
           <div class="col-sm-6">
-            <h1>Comunicado</h1>
+           
           </div>
-          <!-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Advanced Form</li>
-            </ol>
-          </div> -->
         </div>
       </div><!-- /.container-fluid -->
     </section>
 
+    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-      
-        <div class="card card-default">
-          <div class="card-header">
-            <h3 class="card-title">Estudiantes</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-            <div class="row">
-              <div class="col-12">
-                <div class="form-group">
-                  <label>Multiple</label>
-                  <select class="duallistbox" multiple="multiple">
-                    <option selected>Alabama</option>
-                    <option>Felipe</option>
-                    <option>ximena</option>
-                    <option>andrea</option>
-                    <option>esmeralda</option>
-                    <option>pedro</option>
-                    <option>ana</option>
-                  </select>
-                </div>
-                <!-- /.form-group -->
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Crear Comunicado</h3>
               </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
-          </div>
-          <!-- /.card-body -->
-          
-        </div>
-       
-      </div>
-    </section>
+              <!-- /.card-header -->
+              <!-- form start -->
+              
+                            
 
-    <!-- aca implementado otasr cosas -->
-    <div class="card-body">
+                                    <div class="card-body">
                                         <?php
                                              //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                                             echo form_open_multipart('comunicado/agregarCom')
@@ -90,18 +54,18 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <label class="form-label">Descripcion</label>
-                                                <textarea name="descripcion" rows="10" cols="40" required></textarea>
+                                                <textarea name="descripcion" rows="10" cols="120" required></textarea>
                                             </div>
                                             
 
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="form-label">Fecha</label>
                                                 <input type="date" class="form-control" name='fechaComunicado' height="50" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Hora</label>
                                                 <input type="time" class="form-control" name='hora' height="50" required>
-                                            </div>
+                                            </div> -->
                                             
                                          
 
@@ -110,7 +74,37 @@
 
                                               
 
-                                            <div class="card-footer">
+                                    
+                                        </div>
+                                    <!-- /.card-body -->
+              
+           
+        
+         
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Estudiantes</label>
+                  <select class="duallistbox" multiple="multiple">
+                    <option selected>Alabama</option>
+                    <option>Felipe</option>
+                    <option>ximena</option>
+                    <option>andrea</option>
+                    <option>esmeralda</option>
+                    <option>pedro</option>
+                    <option>ana</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          
+          <div class="card-footer">
                                                 <button class="btn btn-primary" type="submit" title="Registrar" >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
@@ -122,14 +116,17 @@
                                                 <?php
                                                 echo form_close();
                                                 ?>
-                                    
-                                        </div>
+          <!-- /.card-body -->
+          
+        </div>
+       
+      </div>
+      
+    </section>
 
-
-
-  </div>
-  <br>
-  <br>
+    <!-- aca implementado otasr cosas -->
+    
+  
   <br>
   <br>  
 

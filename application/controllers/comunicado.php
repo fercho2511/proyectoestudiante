@@ -81,9 +81,11 @@ class Comunicado extends CI_Controller {
     //del boton q se realizo en la vista llegara a este metodo
       public function agregar()
     {
+        $lista=$this->curso_model->lista();
+        $data['curso']=$lista;
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
-		$this->load->view('comunicado/agregar_comunicado'); // llegaremos asta esta vista
+		$this->load->view('comunicado/agregar_comunicado',$data); // llegaremos asta esta vista
 		$this->load->view('inc_fin.php');
 
     }
