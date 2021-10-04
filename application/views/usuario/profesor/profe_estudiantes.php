@@ -90,7 +90,7 @@
 
                                                         ?>
                                                         <?php
-                                                                echo form_open_multipart('estudiante/subirFoto')
+                                                                echo form_open_multipart('profesor/subirFoto2')
                                                             ?>
                                                             <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                             <button type="submit" class="btn btn-primary btn-xs" title="Subir" >
@@ -106,7 +106,7 @@
                                                 <td>
                                                 <div class="btn-group btn-group-justified" >
                                                 <?php
-                                                        echo form_open_multipart('estudiante/modificar')
+                                                        echo form_open_multipart('profesor/modificarEstudiante')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <button type="submit" class="btn btn-primary btn-xs" title="Modificar">

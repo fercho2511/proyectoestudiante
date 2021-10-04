@@ -97,7 +97,8 @@ class Comunicado extends CI_Controller {
         
 
          $data['tipo']=$_POST['tipo'];
-         $data['descripcion']=$_POST['descripcion'];
+         $data['d
+         escripcion']=$_POST['descripcion'];
          $data['fechaComunicado']=$_POST['fechaComunicado'];
          $data['hora']=$_POST['hora'];      
          
@@ -133,6 +134,10 @@ class Comunicado extends CI_Controller {
         redirect('comunicado/test','refresh');
 
      }
+
+
+    //  pqra la foto
+    
 
 
      

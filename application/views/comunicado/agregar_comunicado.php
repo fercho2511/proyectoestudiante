@@ -41,7 +41,7 @@
                                           
     <!-- provando el selector -->
                                               <div class="form-group col-md-4">
-                                              <select name="general" id="general" class="form-control">
+                                              <select name="general" id="general" class="form-control" required>
                                               <option value="0" selected>Elija una opcion</option>
                                               <option value="1">TODOS</option>
                                               <option value="2">CURSOS</option>
@@ -212,7 +212,7 @@
 
                                           <div class="form-group" >
                                               <label for="">Tipo:</label>
-                                              <select class="form-control" id="actividad" name="tipo"  >
+                                              <select class="form-control" id="actividad" name="tipo" required  >
                                                  <option  value ="0" selected>Elija una Opcion</option>
                                                 <option value="1">Actividades Curriculares</option>
                                                 <option value="2">Reuniones</option>

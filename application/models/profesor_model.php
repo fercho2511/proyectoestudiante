@@ -106,6 +106,20 @@ class Profesor_model extends CI_Model {
 
 
         }
+        public function getMateria($materia){
+
+                $this->db->select('materia');
+                $this->db->from('materia');
+                $this->db->where('idMateria',$materia);
+                $this->db->where('estado','1');
+
+                return $this->db->get();
+
+        }
+
+
+
+        
 
 
 
