@@ -8,7 +8,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Lista de estudiantes <?php echo $mate; ?> </h1>
+                            <h1>Lista de estudiantes <?php echo $mat['mate']; ?> </h1>
                            
                         </div>
                         <!-- <div class="col-sm-3">
@@ -39,6 +39,11 @@
                                 </div>
                                    
                                 <!-- /.card-header -->
+                                <?php
+                                             //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                                            echo form_open_multipart('profesor/registrarNotas')
+                                         ?>
+                                          <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
                                 <div class="card-body">
                                     
                                     <table id="example1" class="table table-bordered table-striped">
@@ -57,10 +62,10 @@
                                         </thead>
                                         <tbody>
                                         <?php
-                    $indice=1;
-                    //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                    foreach ($estudiante-> result() as $row) {
-                        ?>
+                                    $indice=1;
+                                    //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                                    foreach ($estudiante-> result() as $row) {
+                                        ?>
                                             <tr>
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->nombres;?>
@@ -72,7 +77,7 @@
                                                 
                                                     <div class="form-group">
                                                     <div class="col-sm-5">
-                                                    <input type="number" class="form-control" name='nota1' id='nota1'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2"  >
+                                                    <input type="text" class="form-control" name='nota1' id='nota1'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" value="-1"  >
                                                     </div>
                                                     </div>
                                                 </td>
@@ -80,16 +85,7 @@
                                                 <td>
                                                 <div class="form-group">
                                                     <div class="col-sm-5">
-                                                    <input type="number" class="form-control" name='nota2' id='nota2'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2"  >
-                                                    </div>
-                                                    </div>
-
-                                                </td>
-
-                                                <td>
-                                                <div class="form-group">
-                                                    <div class="col-sm-5">
-                                                    <input type="number" class="form-control" name='nota3' id='nota3'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2"  >
+                                                    <input type="text" class="form-control" name='nota2' id='nota2'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" value="-1"   >
                                                     </div>
                                                     </div>
 
@@ -98,7 +94,16 @@
                                                 <td>
                                                 <div class="form-group">
                                                     <div class="col-sm-5">
-                                                    <input type="number" class="form-control" name='nota4' id='nota4'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2"  >
+                                                    <input type="text" class="form-control" name='nota3' id='nota3'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" value="-1"   >
+                                                    </div>
+                                                    </div>
+
+                                                </td>
+
+                                                <td>
+                                                <div class="form-group">
+                                                    <div class="col-sm-5">
+                                                    <input type="text" class="form-control" name='nota4' id='nota4'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" value="-1"   >
                                                     </div>
                                                     </div>
 
@@ -115,8 +120,8 @@
                                             </tr>
                                     <?php
                                     $indice++;
-                                }
-                                ?>                                            
+                                        }
+                                        ?>                                            
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -129,19 +134,24 @@
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <div class="card-footer">
+                                    
+                                </div>
+                                <div class="card-footer">
                                                 <button class="btn btn-primary" type="submit" title="Registrar"  >
-                                                <span class="fas fa-clipboard-check"> REGISTRAR</span>
+                                                <span class="fas fa-clipboard-check"> REGISTRAR NOTAS</span>
                                                 </button>
                                                 <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
                                                 <span class="far fa-window-close"> CANCELAR</span>
                                               </button>
 
-                                             </div>
-                                </div>
+                                  </div>
+                                <?php
+                                  echo form_close();
+                                 ?>
                                 
                                 <!-- /.card-body -->
                             </div>
+                            <br><br>
                             <!-- /.card -->
                         </div>
                         <!-- /.col -->

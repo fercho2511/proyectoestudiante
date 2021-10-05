@@ -94,6 +94,10 @@ class Profesor extends CI_Controller {
         //cargara la list de profesores
         $lista=$this->profesor_model->lista();
         $data['profesor']=$lista; //otro array asociativo
+        
+        $profe=$this->session->userdata('idusuario');
+        $lista=$this->profesor_model->listaEstudiantePorProfesor($profe);
+        $data['estudiante']=$lista;
 
         
 
@@ -415,9 +419,11 @@ class Profesor extends CI_Controller {
 
     //  para las Notas
     public function notas(){
+      
+
 
         //cargara la list de profesores
-        $materia=$_POST['materia'];
+        $materia=$_POST['idMateria'];
         $data['mate']=$this->profesor_model->getMateria($materia);
         $profe=$this->session->userdata('idusuario');
         $lista=$this->profesor_model->listaEstudiantePorProfesor($profe);
@@ -428,6 +434,15 @@ class Profesor extends CI_Controller {
 		$this->load->view('usuario/profesor/profe_notas',$data);
         //$this->load->view('usuario/profesor/profe_vista');
 		$this->load->view('inc_fin.php');
+
+    }
+
+    public function registrarNotas(){
+
+
+        // aca vendran as acciones apra registrar las notas
+        redirect('profesor/profeEstudiante','refresh');
+
 
     }
 }

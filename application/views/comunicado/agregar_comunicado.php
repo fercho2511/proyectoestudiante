@@ -38,9 +38,29 @@
 
 
                                           <!-- aca vendria el select -->
+                                          <div class="form-group" >
+                                              <label for="">Tipo:</label>
+                                              <select class="form-control" id="actividad" name="tipo" required  >
+                                                 <option  value ="0" selected>Elija una Opcion</option>
+                                                <option value="1">Actividades Curriculares</option>
+                                                <option value="2">Reuniones</option>
+                                                <option value="3">Notificaciones</option>
+                                                <option value="4">Fechas de Examen</option>
+                                                <option value="5">Otros</option>
+                                               
+                                              </select>
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <label class="form-label">Descripcion</label>
+                                                <input type="text" class="form-control" rows="10" cols="40" name='descripcion'   required>
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label class="form-label">Descripcion</label>
+                                                <textarea name="descripcion" id="descripcion" rows="10" cols="120" required class="form-control" disabled ></textarea>
+                                            </div>
                                           
     <!-- provando el selector -->
-                                              <div class="form-group col-md-4">
+                                            <div class="form-group col-md-4">
                                               <select name="general" id="general" class="form-control" required>
                                               <option value="0" selected>Elija una opcion</option>
                                               <option value="1">TODOS</option>
@@ -48,10 +68,10 @@
                                               <option value="3">ESTUDIANTE</option>
 
                                               </select>
-                                          </div>
+                                            </div>
 
                                           <div class="form-group col-md-4">
-                                              <select name="diagnostico1" id="diagnostico1" class="form-control" disabled>
+                                              <!-- <select name="diagnostico1" id="diagnostico1" class="form-control" disabled>
                                               <option value ="0" selected>Elija una Opcion</option>
                                               <option value="1">Tumoral</option>
                                               <option value="2">Enfermedad Infecciosa</option>
@@ -67,14 +87,131 @@
                                               <option value="3">tiroides</option>
                                               <option value="4">bronquitis</option>
                                               <option value="5">diabetes</option> 
-                                              </select>
+                                              </select> -->
 
 
 
 
 
-                                              <!-- /.content -->
+                                              
                                             </div>
+
+                                            <!-- desde aca la lista de estudiantes -->
+                                            <section class="content">
+                                                    <div class="container-fluid" >
+                                                        <div class="row" id="estudiante">
+                                                            <div class="col-12">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                    <br>
+                                                                    <?php
+                                                                    ?>
+                                                                    </div>
+                                                                    
+                                                                    <!-- /.card-header -->
+                                                                    <div class="card-body">
+                                                                        
+                                                                        <table id="example1" class="table table-bordered table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>N°</th>
+                                                                                    <th>Nombre Completo</th>                                               
+                                                                                    <th>C.I.</th>                                                                                   
+                                                                                    <th>Foto</th>
+                                                                                    <th>Seleccionar</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                            <?php
+                                                        $indice=1;
+                                                        //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                                                        foreach ($estudiante-> result() as $row) {
+                                                            ?>
+                                                                                <tr>
+                                                                                    <td><?php echo $indice;?></td>
+
+                                                                                    <td><?php echo $row->nombres;?>
+                                                                                            <?php echo $row->apellidoPaterno;?>
+                                                                                            <?php echo $row->apellidoMaterno;?>
+                                                                                    </td>
+
+                                                                                    <td><?php echo $row->ci;?></td>
+                                                                                   
+                                                                                    <td>
+                                                                                            <?php
+                                                                                            $foto=$row->foto;
+                                                                                            if ($foto=="") {
+                                                                                                //mostrar una imagen por defecto
+                                                                                                ?>
+                                                                                                <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/perfil.jpg">
+                                                                                                <?php
+                                                                                            }
+                                                                                            else {
+                                                                                                //mostrar foto del usuario
+                                                                                                ?>
+                                                                                                <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/<?php echo $foto; ?>">
+                                                                                                
+                                                                                                <?php
+                                                                                            }
+
+                                                                                            ?>
+                                                                                            <?php
+                                                                                                    echo form_open_multipart('estudiante/subirFoto')
+                                                                                                ?>
+                                                                                                <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                                                                <button type="submit" class="btn btn-primary btn-xs" title="Subir" >
+                                                                                                <span class="fas fa-file-upload"></span>
+                                                                                                </button>
+                                                                                                <?php
+                                                                                                    echo form_close();
+                                                                                            ?>
+
+                                                                                    </td>
+
+                                                                                    
+                                                                                    <td>
+                                                                                         <div class="btn-group btn-group-justified" >
+                                                                                          <!--  -->
+                                                                                          <input type="checkbox" name="envio" id="envio">
+
+
+                                                                                          </div>
+
+                                                                                    </td>
+                                                                                   
+
+
+
+
+                                                                                </tr>
+                                                            <?php
+                                                            $indice++;
+                                                        }
+                                                        ?>                                            
+                                                                            </tbody>
+                                                                            <tfoot>
+                                                                                <tr>
+                                                                                    <th>N°</th>
+                                                                                    <th>Nombre Completo</th>                                              
+                                                                                    <th>C.I.</th>                                                                                    
+                                                                                    <th>Foto</th>
+                                                                                    <th>Seleccionar</th>
+                                                                                </tr>
+                                                                            </tfoot>
+                                                                        </table>
+                                                                    </div>
+                                                                    <!-- /.card-body -->
+                                                                </div>
+                                                                <!-- /.card -->
+                                                            </div>
+                                                            <!-- /.col -->
+                                                        </div>
+                                                        <!-- /.row -->
+                                                    </div>
+                                                    <!-- /.container-fluid -->
+                                                </section>
+                                            <!-- asta aca la lista de estudiantes par amandar mensajes -->
 
 
                                             <!-- listado de cursos -->
@@ -210,26 +347,10 @@
                                             <!-- asta aca lso cursos -->
 
 
-                                          <div class="form-group" >
-                                              <label for="">Tipo:</label>
-                                              <select class="form-control" id="actividad" name="tipo" required  >
-                                                 <option  value ="0" selected>Elija una Opcion</option>
-                                                <option value="1">Actividades Curriculares</option>
-                                                <option value="2">Reuniones</option>
-                                                <option value="3">Notificaciones</option>
-                                                <option value="4">Fechas de Examen</option>
-                                                <option value="5">Otros</option>
-                                               
-                                              </select>
-                                            </div>
-                                            <!-- <div class="form-group">
-                                                <label class="form-label">Descripcion</label>
-                                                <input type="text" class="form-control" rows="10" cols="40" name='descripcion'   required>
-                                            </div> -->
-                                            <div class="form-group">
-                                                <label class="form-label">Descripcion</label>
-                                                <textarea name="descripcion" id="descripcion" rows="10" cols="120" required class="form-control" disabled ></textarea>
-                                            </div>
+                                            
+
+
+                                         
                                             
 
                                             <!-- <div class="form-group">
@@ -249,7 +370,7 @@
                                               
 
                                             <div class="card-footer">
-                                                <button class="btn btn-primary" type="submit" title="Registrar" >
+                                                <button class="btn btn-primary" type="submit" title="Registrar" id="boton" >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
                                                 <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">

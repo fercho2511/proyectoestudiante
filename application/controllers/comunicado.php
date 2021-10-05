@@ -83,6 +83,8 @@ class Comunicado extends CI_Controller {
     {
         $lista=$this->curso_model->lista();
         $data['curso']=$lista;
+        $lista=$this->estudiante_model->lista();
+        $data['estudiante']=$lista; //otro array asociativo
         $this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
 		$this->load->view('comunicado/agregar_comunicado',$data); // llegaremos asta esta vista

@@ -54,27 +54,8 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <label class="form-label">Descripcion</label>
-                                                <textarea name="descripcion" rows="10" cols="120" required></textarea>
+                                                <textarea name="descripcion" rows="10" cols="120" required class="form-control"></textarea>
                                             </div>
-                                            
-
-                                            <!-- <div class="form-group">
-                                                <label class="form-label">Fecha</label>
-                                                <input type="date" class="form-control" name='fechaComunicado' height="50" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Hora</label>
-                                                <input type="time" class="form-control" name='hora' height="50" required>
-                                            </div> -->
-                                            
-                                         
-
-            
-
-
-                                              
-
-                                    
                                         </div>
                                     <!-- /.card-body -->
               
@@ -82,7 +63,7 @@
         
          
           <!-- /.card-header -->
-          <div class="card-body">
+          <!-- <div class="card-body">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
@@ -97,14 +78,78 @@
                     <option>ana</option>
                   </select>
                 </div>
-                <!-- /.form-group -->
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
-          </div>
+                 /.form-group -->
+           
+
+
+          <!-- DESDE ACA LA LSITA DE ESTUDIANTES -->
+          <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>N°</th>
+                                                <th>Nombre Completo</th>                                            
+                                                <th>Seleccionar</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                    $indice=1;
+                                    //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                                    foreach ($estudiante-> result() as $row) {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $indice;?></td>
+                                                <td><?php echo $row->nombres;?>
+                                                        <?php echo $row->apellidoPaterno;?>
+                                                        <?php echo $row->apellidoMaterno;?>
+                                                </td>
+                                                
+
+                                                
+                                                <td>
+                                                <div class="btn-group btn-group-justified" >
+                                                 <input type="checkbox" name="envio" id="envio">
+
+
+                                                </div>
+                                                </td>
+                                                          </tr>
+                                      <?php
+                                      $indice++;
+                                  }
+                                  ?>                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                            <th>N°</th>
+                                                <th>Nombre Completo</th>                                            
+                                                <th>Seleccionar</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+          <!-- ASTA ACA LA LISTA DE ESTUDIANRTES -->
           
-          <div class="card-footer">
+                                              <div class="card-footer">
                                                 <button class="btn btn-primary" type="submit" title="Registrar" >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
@@ -119,6 +164,11 @@
           <!-- /.card-body -->
           
         </div>
+        </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
        
       </div>
       

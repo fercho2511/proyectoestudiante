@@ -1,43 +1,51 @@
 var x = document.getElementById("cursos");
               x.style.display = "none";
-
+ var y = document.getElementById("estudiante");
+      y.style.display = "none";
+ var m = document.getElementById('boton');
+  m.disabled = true;
 $("#general").change(function() {
     if($("#general").val() == "1"){
       $('#diagnostico1').prop('disabled', false);
-    //   $(".pais").toggle();
-    //   $('td:nth-child(3)').toggle();
     
-        // var x = document.getElementById("cursos");
-        // if (x.style.display === "none") {
-        //     x.style.display = "block";
-     
-    
-
-  
 
     }if($("#general").val() == "2"){
         $('#diagnostico1').prop('disabled', false);
-      //   $(".pais").toggle();
-      //   $('td:nth-child(3)').toggle();
-      
-          // var x = document.getElementById("cursos");
-          // if (x.style.display === "none") {
-          //     x.style.display = "block";
-          // } 
+     
           var x = document.getElementById("cursos");
           x.style.display = "block";
       
   
     
   
-      }else{
-        $('#diagnostico1').prop('disabled', 'disabled');
-        $('#diagnostico2').prop('disabled', 'disabled');
-        $('#diagnostico3').prop('disabled', 'disabled');
-        var x = document.getElementById("cursos");
-              x.style.display = "none";
+      }
+      if($("#general").val() == "3"){
+        $('#diagnostico1').prop('disabled', false);
+      
+          var y = document.getElementById("estudiante");
+          y.style.display = "block";
+      
   
-          
+    
+  
+      }if($("#general").val() != "2"){
+        $('#diagnostico1').prop('disabled', false);
+     
+        var x = document.getElementById("cursos");
+        x.style.display = "none";;
+      
+  
+    
+  
+      }if($("#general").val() != "3"){
+        $('#diagnostico1').prop('disabled', false);
+      
+        var y = document.getElementById("estudiante");
+        y.style.display = "none";
+      
+  
+    
+  
       }
   });
   
@@ -53,14 +61,18 @@ $("#general").change(function() {
 $("#actividad").change(function() {
     if($("#actividad").val() >= "1"){
       $('#descripcion').prop('disabled', false);
-     ;
+      var m = document.getElementById('boton');
+      m.disabled = false;
+      
+     
 
     }else{
       $('#descripcion').prop('disabled', 'disabled');
+      var m = document.getElementById('boton');
+      m.disabled = true;
     
     }
   });
-
 
   function myFunction() {
     var x = document.getElementById("myDIV");
@@ -70,3 +82,4 @@ $("#actividad").change(function() {
         x.style.display = "none";
     }
 }
+

@@ -113,7 +113,10 @@ class Profesor_model extends CI_Model {
                 $this->db->where('idMateria',$materia);
                 $this->db->where('estado','1');
 
-                return $this->db->get();
+
+                $resultado= $this->db->get();
+                return $resultado->result_array();
+
 
         }
 
