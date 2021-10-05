@@ -227,7 +227,7 @@ $gest= $gestion;
                     <div class="container-fluid">
              
                     <div class="row">
-                        <div class="col-10">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
                                 <div>
@@ -286,53 +286,10 @@ $gest= $gestion;
                                                 </td>
                                                 <td><?php echo $row->ci;?></td>
                                                 <td><?php echo $row->telefono;?></td>
-                                                <!-- <td><?php echo $row->nombrePadre;?></td> -->
-                                                <!-- <td><?php echo $row->nombreTutor;?></td> -->
-                                                <!-- <td>
-                                                        <?php
-                                                        $foto=$row->foto;
-                                                        if ($foto=="") {
-                                                            //mostrar una imagen por defecto
-                                                            ?>
-                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/perfil.jpg">
-                                                            <?php
-                                                        }
-                                                        else {
-                                                            //mostrar foto del usuario
-                                                            ?>
-                                                            <img width="100" src="<?php echo base_url(); ?>/cargas/estudiante/<?php echo $foto; ?>">
-                                                            
-                                                            <?php
-                                                        }
-
-                                                        ?>
-                                                        <?php
-                                                                echo form_open_multipart('estudiante/subirFoto')
-                                                            ?>
-                                                            <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                            <button type="submit" class="btn btn-primary btn-xs" title="Subir" >
-                                                            <span class="fas fa-file-upload"></span>
-                                                            </button>
-                                                            <?php
-                                                                echo form_close();
-                                                        ?>
-
-                                                </td> -->
-
                                                  
                                                  <td>
                                                 <div class="btn-group btn-group-justified" >
-                                                <!-- <?php
-                                                        echo form_open_multipart('estudiante/modificar')
-                                                    ?>
-                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs" title="Modificar">
-                                                    <span class="fas fa-user-edit"></span>
-
-                                                    </button>
-                                                    <?php
-                                                        echo form_close();
-                                                    ?> -->
+                                                
 
                                                 <?php
                                                         echo form_open_multipart('gestion/eliminarEst')

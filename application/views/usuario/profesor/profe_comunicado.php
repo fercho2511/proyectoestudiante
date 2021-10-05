@@ -37,14 +37,15 @@
                                          ?>
                                           <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
-                                          <div class="form-group">
+                                          <div class="form-group col-md-4" >
                                               <label for="">Tipo:</label>
-                                              <select class="form-control" name="tipo" >
-                                                <option>Actividades Curriculares</option>
-                                                <option>Reuniones</option>
-                                                <option>Notificaciones</option>
-                                                <option>Fechas de Examen</option>
-                                                <option>Otros</option>
+                                              <select class="form-control" id="actividad2" name="tipo" required  >
+                                                 <option  value ="0" selected>Elija una Opcion</option>
+                                                <option value="1">Actividades Curriculares</option>
+                                                <option value="2">Reuniones</option>
+                                                <option value="3">Notificaciones</option>
+                                                <option value="4">Fechas de Examen</option>
+                                                <option value="5">Otros</option>
                                                
                                               </select>
                                             </div>
@@ -54,7 +55,17 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <label class="form-label">Descripcion</label>
-                                                <textarea name="descripcion" rows="10" cols="120" required class="form-control"></textarea>
+                                                <textarea name="descripcion" id="descripcion2" rows="10" cols="120" required class="form-control"  ></textarea>
+                                            </div>
+
+                                            <div class="form-group col-md-3" >
+                                                <label class="form-label">Fecha</label>
+                                                <input type="date" class="form-control" name='fechaComunicado' height="50" required id="fecha2" >
+                                            </div>
+
+                                            <div class="form-group col-md-2">
+                                                <label class="form-label">Hora</label>
+                                                <input type="time" class="form-control" name='hora' height="50" required id="hora2" >
                                             </div>
                                         </div>
                                     <!-- /.card-body -->
@@ -150,7 +161,7 @@
           <!-- ASTA ACA LA LISTA DE ESTUDIANRTES -->
           
                                               <div class="card-footer">
-                                                <button class="btn btn-primary" type="submit" title="Registrar" >
+                                                <button class="btn btn-primary" type="submit" title="Registrar" id="boton2" >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
                                                 <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">

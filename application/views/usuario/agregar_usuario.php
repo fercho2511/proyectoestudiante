@@ -34,7 +34,7 @@
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-6">
+          <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -43,10 +43,15 @@
              
               <!-- <form enctype="multipart/form-data" action="usuario_per/agregarUsu" id="quickForm"> -->
                                   <!-- <?php echo validation_errors(); ?> -->
-                              <form action="<?php echo base_url(); ?>index.php/usuario_per/agregarUsu" class="formulario" id="formulario">
+                              <!-- <form action="<?php echo base_url(); ?>index.php/usuario_per/agregarUsu" class="formulario" id="formulario"> -->
 
                                   <div class="card-body"  >
                                      <!-- <form id="quickForm" >  -->
+                                     <?php
+                                             //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                                            echo form_open_multipart('usuario_per/agregarUsu')
+                                         ?>
+                                          <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
 
  
@@ -133,11 +138,11 @@
                                              </div>
                                           
                                                 
-                                              <!-- </form>     -->
+                                              </form>    
                                     
                                     </div>
                                     <!-- /.card-body -->
-                               </form>     
+                                  
 
                                
         
@@ -147,9 +152,8 @@
       </div><!-- /.container-fluid -->
 
 
-      <main>
+      <!-- <main>
 		<form action="" class="formulario" id="formulario">
-			<!-- Grupo: Usuario -->
 			<div class="formulario__grupo" id="grupo__usuario">
 				<label for="usuario" class="formulario__label">Usuario</label>
 				<div class="formulario__grupo-input">
@@ -159,7 +163,6 @@
 				<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
 			</div>
 
-			<!-- Grupo: Nombre -->
 			<div class="formulario__grupo" id="grupo__nombre">
 				<label for="nombre" class="formulario__label">Nombre</label>
 				<div class="formulario__grupo-input">
@@ -169,7 +172,6 @@
 				<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
 			</div>
 
-			<!-- Grupo: Contraseña -->
 			<div class="formulario__grupo" id="grupo__password">
 				<label for="password" class="formulario__label">Contraseña</label>
 				<div class="formulario__grupo-input">
@@ -179,7 +181,6 @@
 				<p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
 			</div>
 
-			<!-- Grupo: Contraseña 2 -->
 			<div class="formulario__grupo" id="grupo__password2">
 				<label for="password2" class="formulario__label">Repetir Contraseña</label>
 				<div class="formulario__grupo-input">
@@ -189,7 +190,6 @@
 				<p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
 			</div>
 
-			<!-- Grupo: Correo Electronico -->
 			<div class="formulario__grupo" id="grupo__correo">
 				<label for="correo" class="formulario__label">Correo Electrónico</label>
 				<div class="formulario__grupo-input">
@@ -199,7 +199,6 @@
 				<p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
 			</div>
 
-			<!-- Grupo: Teléfono -->
 			<div class="formulario__grupo" id="grupo__telefono">
 				<label for="telefono" class="formulario__label">Teléfono</label>
 				<div class="formulario__grupo-input">
@@ -209,7 +208,6 @@
 				<p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
 			</div>
 
-			<!-- Grupo: Terminos y Condiciones -->
 			<div class="formulario__grupo" id="grupo__terminos">
 				<label class="formulario__label">
 					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
@@ -226,7 +224,7 @@
 				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
 			</div>
 		</form>
-	</main>
+	</main> -->
 
     </section>
     <!-- /.content -->

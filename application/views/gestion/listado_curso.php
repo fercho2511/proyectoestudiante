@@ -40,7 +40,7 @@ $gest=$gestion
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-12 ">
                             <div class="card">
                                 <div class="card-header">
                                   <br>

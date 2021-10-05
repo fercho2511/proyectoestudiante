@@ -4,19 +4,22 @@ var x = document.getElementById("cursos");
       y.style.display = "none";
  var m = document.getElementById('boton');
   m.disabled = true;
+  var j = document.getElementById("fecha");
+       j.style.display = "none";
+  var l = document.getElementById("hora");
+       l.style.display = "none";
+
+
+       
 $("#general").change(function() {
     if($("#general").val() == "1"){
       $('#diagnostico1').prop('disabled', false);
-    
 
     }if($("#general").val() == "2"){
         $('#diagnostico1').prop('disabled', false);
      
           var x = document.getElementById("cursos");
           x.style.display = "block";
-      
-  
-    
   
       }
       if($("#general").val() == "3"){
@@ -24,28 +27,17 @@ $("#general").change(function() {
       
           var y = document.getElementById("estudiante");
           y.style.display = "block";
-      
-  
-    
   
       }if($("#general").val() != "2"){
         $('#diagnostico1').prop('disabled', false);
      
         var x = document.getElementById("cursos");
         x.style.display = "none";;
-      
-  
-    
-  
       }if($("#general").val() != "3"){
         $('#diagnostico1').prop('disabled', false);
       
         var y = document.getElementById("estudiante");
         y.style.display = "none";
-      
-  
-    
-  
       }
   });
   
@@ -59,18 +51,44 @@ $("#general").change(function() {
 });
 
 $("#actividad").change(function() {
-    if($("#actividad").val() >= "1"){
+  if($("#actividad").val() == "0"){
+    $('#descripcion').prop('disabled', false);
+    var m = document.getElementById('boton');
+    m.disabled = true;
+    var j = document.getElementById("fecha");
+    j.style.display = "none";
+    var l = document.getElementById("hora");
+   l.style.display = "none";
+
+  }if($("#actividad").val() == "1"){
       $('#descripcion').prop('disabled', false);
       var m = document.getElementById('boton');
       m.disabled = false;
-      
-     
 
-    }else{
-      $('#descripcion').prop('disabled', 'disabled');
+      var j = document.getElementById("fecha");
+      j.style.display = "block";
+      var l = document.getElementById("hora");
+      l.style.display = "block";
+    }if($("#actividad").val() == "2"){
+      $('#descripcion').prop('disabled', false);
       var m = document.getElementById('boton');
-      m.disabled = true;
-    
+      m.disabled = false;
+
+      var j = document.getElementById("fecha");
+      j.style.display = "block";
+      var l = document.getElementById("hora");
+      l.style.display = "block";
+    }if($("#actividad").val() >= "1"){
+      $('#descripcion').prop('disabled', false);
+      var m = document.getElementById('boton');
+      m.disabled = false;
+
+    }if($("#actividad").val() > "2"){
+      $('#descripcion').prop('disabled', false);
+      var j = document.getElementById("fecha");
+      j.style.display = "none";
+      var l = document.getElementById("hora");
+     l.style.display = "none";
     }
   });
 
@@ -83,3 +101,6 @@ $("#actividad").change(function() {
     }
 }
 
+
+
+// aca para el otro 

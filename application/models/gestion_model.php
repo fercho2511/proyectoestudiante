@@ -288,11 +288,14 @@ class Gestion_model extends CI_Model {
          public function obtenerProfesorAula($curso,$gestion){
                
 
-                $query="SELECT usuario.*,profesor_aula.idProfesor_aula FROM usuario
+                $query="SELECT usuario.*, profesor_aula.idProfesor_aula FROM usuario
                          inner join profesor_aula on profesor_aula.idProfesor = usuario.idUsuario
                         where profesor_aula.idCurso =$curso and profesor_aula.idGestion = $gestion ";
-                        $resultados = $this->db->query($query);
-                        return $resultados;
+                $resultados = $this->db->query($query);
+                return $resultados;
+
+                        // SELECT usuario.*,profesor_aula.idProfesor_aula FROM usuario inner join profesor_aula 
+                        // on profesor_aula.idProfesor = usuario.idUsuario where profesor_aula.idCurso = and profesor_aula.idGestion = 6
 
 
 

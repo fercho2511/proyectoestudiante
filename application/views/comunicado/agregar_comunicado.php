@@ -1,7 +1,6 @@
 
 
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -31,14 +30,14 @@
 
                                     <div class="card-body">
                                         <?php
-                                             //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                                            echo form_open_multipart('comunicado/agregarCom')
+                                             //invocaremos a [comunicado.php]
+                                            // echo form_open_multipart('comunicado/agregarCom')
                                          ?>
                                           <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
 
                                           <!-- aca vendria el select -->
-                                          <div class="form-group" >
+                                          <div class="form-group col-md-4" >
                                               <label for="">Tipo:</label>
                                               <select class="form-control" id="actividad" name="tipo" required  >
                                                  <option  value ="0" selected>Elija una Opcion</option>
@@ -58,19 +57,29 @@
                                                 <label class="form-label">Descripcion</label>
                                                 <textarea name="descripcion" id="descripcion" rows="10" cols="120" required class="form-control" disabled ></textarea>
                                             </div>
+
+                                            <div class="form-group col-md-3" id="fecha">
+                                                <label class="form-label">Fecha</label>
+                                                <input type="date" class="form-control" name='fechaComunicado' height="50" required id="fecha" >
+                                            </div>
+
+                                            <div class="form-group col-md-2" id="hora">
+                                                <label class="form-label">Hora</label>
+                                                <input type="time" class="form-control" name='hora' height="50" required id="hora" >
+                                            </div>
                                           
-    <!-- provando el selector -->
+                                             <!-- provando el selector -->
                                             <div class="form-group col-md-4">
+                                            <label class="form-label">Enviar a:</label>
                                               <select name="general" id="general" class="form-control" required>
                                               <option value="0" selected>Elija una opcion</option>
                                               <option value="1">TODOS</option>
                                               <option value="2">CURSOS</option>
                                               <option value="3">ESTUDIANTE</option>
-
                                               </select>
                                             </div>
 
-                                          <div class="form-group col-md-4">
+                                         <!-- <div class="form-group col-md-4"> -->
                                               <!-- <select name="diagnostico1" id="diagnostico1" class="form-control" disabled>
                                               <option value ="0" selected>Elija una Opcion</option>
                                               <option value="1">Tumoral</option>
@@ -156,7 +165,7 @@
                                                                                             }
 
                                                                                             ?>
-                                                                                            <?php
+                                                                                            <!-- <?php
                                                                                                     echo form_open_multipart('estudiante/subirFoto')
                                                                                                 ?>
                                                                                                 <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
@@ -165,7 +174,7 @@
                                                                                                 </button>
                                                                                                 <?php
                                                                                                     echo form_close();
-                                                                                            ?>
+                                                                                            ?> -->
 
                                                                                     </td>
 
@@ -345,28 +354,6 @@
 
 
                                             <!-- asta aca lso cursos -->
-
-
-                                            
-
-
-                                         
-                                            
-
-                                            <!-- <div class="form-group">
-                                                <label class="form-label">Fecha</label>
-                                                <input type="date" class="form-control" name='fechaComunicado' height="50" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Hora</label>
-                                                <input type="time" class="form-control" name='hora' height="50" required>
-                                            </div> -->
-                                            
-                                         
-
-            
-
-
                                               
 
                                             <div class="card-footer">
