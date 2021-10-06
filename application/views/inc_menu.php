@@ -205,12 +205,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeCurso" class="nav-link">
                                     <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                         <p>Curso</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeEstudiante" class="nav-link">
                                     <i class="nav-icon fas fa-user-graduate"></i>

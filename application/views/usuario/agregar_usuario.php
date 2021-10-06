@@ -1,15 +1,3 @@
-<!-- <link type="text/css" href="<?php echo base_url(); ?>/bootstrap/css/ui-darkness/jquery-ui-1.8.23.custom.css" rel="Stylesheet" />
-	<script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery-1.8.0.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery-ui-1.8.23.custom.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>/bootstrap/js/jquery.ui.datepicker-es.js"></script>
-	<script type="text/javascript">
-	$(function() {
-		$("#datepicker").datepicker();
-		$("#format").change(function() { $('#datepicker').datepicker('option', {dateFormat: $(this).val()}); });
-	});
-	</script> -->
-
-
 
 
 
@@ -34,15 +22,15 @@
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-12">
+          <div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Registrar Usuario</h3>
               </div>
              
-              <!-- <form enctype="multipart/form-data" action="usuario_per/agregarUsu" id="quickForm"> -->
-                                  <!-- <?php echo validation_errors(); ?> -->
+              <form  id="quickForm">
+                                  <?php echo validation_errors(); ?>
                               <!-- <form action="<?php echo base_url(); ?>index.php/usuario_per/agregarUsu" class="formulario" id="formulario"> -->
 
                                   <div class="card-body"  >
@@ -60,25 +48,25 @@
 
                                             <div class="form-group">
                                                 <label class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" name='nombres' id="nombres"  placeholder="Ingrese Nombre" 
+                                                <input type="text" class="form-control col-sm-6" name='nombres' id="nombres"  placeholder="Ingrese Nombre" 
                                                                                     title="" required minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}' value="<?php echo set_value('nombres');?>">
                                             </div>
                                             <div class="form-group"  >
                                                 <label class="form-label">Apellido Paterno</label>
-                                                <input type="text" class="form-control" name='apellidoPaterno' id='apellidoPaterno'  placeholder="Ingrese Apellido Paterno"
+                                                <input type="text" class="form-control col-sm-6" name='apellidoPaterno' id='apellidoPaterno'  placeholder="Ingrese Apellido Paterno"
                                                 required minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}' >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Apellido Materno</label>
-                                                <input type="text" class="form-control" name='apellidoMaterno' id='apellidoMaterno'  placeholder="Ingrese Apellido Materno" minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}'  >
+                                                <input type="text" class="form-control col-sm-6" name='apellidoMaterno' id='apellidoMaterno'  placeholder="Ingrese Apellido Materno" minlength="3"  maxlength="30"    pattern='[A-Za-z]{3,25}'  >
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Fecha Nacimiento</label>
-                                                <input type="date" class="form-control" name='fechaNacimiento' id='fechaNacimiento'  placeholder="Ingrese Fecha Nacimiento" required >
+                                                <input type="date" class="form-control col-sm-4" name='fechaNacimiento' id='fechaNacimiento'  placeholder="Ingrese Fecha Nacimiento" required >
                                             </div>
                                             <div class="form-group" >
                                               <label for="">sexo:</label>
-                                              <select class="form-control" name="sexo" id="sexo" required>
+                                              <select class="form-control col-sm-3" name="sexo" id="sexo" required>
                                                 <option>M</option>
                                                 <option>F</option>                                               
                                               </select>
@@ -93,12 +81,12 @@
 
                                             <div class="form-group">
                                                 <label class="form-label">C.I.</label>
-                                                <input type="text" class="form-control" name='ci'  id="ci" placeholder="Ingrese C.I." required   minlength="4"  maxlength="12" >
+                                                <input type="text" class="form-control col-sm-6" name='ci'  id="ci" placeholder="Ingrese C.I." required   minlength="4"  maxlength="12" >
                                                 <!-- required onblur="compruebaValidoEntero()" -->
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Telefono</label>
-                                                <input type="number" class="form-control" name='telefono' id='telefono'  placeholder="Ingrese telefono"  min="1"  pattern='^[0-9]+'   minlength="7"  maxlength="8"  >
+                                                <input type="number" class="form-control col-sm-6" name='telefono' id='telefono'  placeholder="Ingrese telefono"  min="1"  pattern='^[0-9]+'   minlength="7"  maxlength="8"  >
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label class="form-label">Correo</label>
@@ -113,19 +101,13 @@
 
                                             <div class="form-group">
                                               <label for="">Rol:</label>
-                                              <select class="form-control" name="rol" id="rol">
+                                              <select class="form-control col-sm-6" name="rol" id="rol">
                                                 <option>Profesor</option>
                                                 <option>Estudiante</option>
                                                 <option>Administrador</option>
                                                
                                               </select>
                                             </div>
-                                            
-
-
-
-                                            
-
 
                                             <div class="card-footer">
                                                 <button class="btn btn-primary" type="submit" title="Registrar"  >
@@ -145,7 +127,7 @@
                                   
 
                                
-        
+                   </form> 
             </div>
            
         <!-- /.row -->

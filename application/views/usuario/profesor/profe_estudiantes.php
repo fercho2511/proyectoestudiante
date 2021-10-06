@@ -51,7 +51,7 @@
                                                 <!-- <th>Padre</th>
                                                 <th>Tutor</th> -->
                                                 <th>Foto</th>
-                                                <th>Acciones</th>
+                                                <!-- <th>Acciones</th> -->
 
                                             </tr>
                                         </thead>
@@ -103,9 +103,9 @@
                                                 </td>
 
                                                 
-                                                <td>
-                                                <div class="btn-group btn-group-justified" >
-                                                <?php
+                                                <!-- <td> -->
+                                                <!-- <div class="btn-group btn-group-justified" > -->
+                                                <!-- <?php
                                                         echo form_open_multipart('profesor/modificarEst')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
@@ -115,7 +115,7 @@
                                                     </button>
                                                     <?php
                                                         echo form_close();
-                                                    ?>
+                                                    ?> -->
 
                                                 <!-- <?php
                                                         echo form_open_multipart('estudiante/eliminarEst')
@@ -129,12 +129,12 @@
                                                         echo form_close();
                                                     ?> -->
 
-                                                </div>
+                                                <!-- </div>
 
 
 
 
-                                            </tr>
+                                            </tr> -->
                         <?php
                         $indice++;
                     }
@@ -149,7 +149,7 @@
                                                 <!-- <th>Padre</th>
                                                 <th>Tutor</th> -->
                                                 <th>Foto</th>
-                                                <th>Acciones</th>
+                                                <!-- <th>Acciones</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>
