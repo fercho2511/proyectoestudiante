@@ -39,7 +39,7 @@
 
                                           <div class="form-group col-md-4" >
                                               <label for="">Tipo:</label>
-                                              <select class="form-control" id="actividad2" name="tipo" required  >
+                                              <select class="form-control" id="actividad1" name="tipo" required  >
                                                  <option  value ="0" selected>Elija una Opcion</option>
                                                 <option value="1">Actividades Curriculares</option>
                                                 <option value="2">Reuniones</option>
@@ -55,48 +55,34 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <label class="form-label">Descripcion</label>
-                                                <textarea name="descripcion" id="descripcion2" rows="10" cols="120" required class="form-control"  ></textarea>
+                                                <textarea name="descripcion" id="descripcion1" rows="10" cols="120" required class="form-control" disabled ></textarea>
                                             </div>
 
                                             <div class="form-group col-md-3" >
                                                 <label class="form-label">Fecha</label>
-                                                <input type="date" class="form-control" name='fechaComunicado' height="50" required id="fecha2" >
+                                                <input type="date" class="form-control" name='fechaComunicado' height="50" required id="fecha1" >
                                             </div>
 
                                             <div class="form-group col-md-2">
                                                 <label class="form-label">Hora</label>
-                                                <input type="time" class="form-control" name='hora' height="50" required id="hora2" >
+                                                <input type="time" class="form-control" name='hora' height="50" required id="hora1" >
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                            <label class="form-label">Enviar a:</label>
+                                              <select name="general" id="general1" class="form-control" required>
+                                              <option value="0" selected>Elija una opcion</option>
+                                              <option value="1">TODOS</option>
+                                              <option value="2">ESTUDIANTE</option>
+                                              </select>
                                             </div>
                                         </div>
-                                    <!-- /.card-body -->
-              
-           
-        
-         
-          <!-- /.card-header -->
-          <!-- <div class="card-body">
-            <div class="row">
-              <div class="col-12">
-                <div class="form-group">
-                  <label>Estudiantes</label>
-                  <select class="duallistbox" multiple="multiple">
-                    <option selected>Alabama</option>
-                    <option>Felipe</option>
-                    <option>ximena</option>
-                    <option>andrea</option>
-                    <option>esmeralda</option>
-                    <option>pedro</option>
-                    <option>ana</option>
-                  </select>
-                </div>
-                 /.form-group -->
-           
+                        
 
 
           <!-- DESDE ACA LA LSITA DE ESTUDIANTES -->
           <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row" id="estudiante1">
                         <div class="col-12">
                             <div class="card">
                                 <!-- /.card-header -->
@@ -106,29 +92,44 @@
                                         <thead>
                                             <tr>
                                                 <th>N°</th>
-                                                <th>Nombre Completo</th>                                            
-                                                <th>Seleccionar</th>
+                                                <th>Nombre Completo del Estudiante</th>                                            
+                                                <!-- <th>Seleccionar</th> -->
 
                                             </tr>
                                         </thead>
                                         <tbody>
+                                          <form action=""name="f1" id ="f1">
+                                           <input type="checkbox" name="selectall" id="selectall"><label>seleccionar todo</label>
+
                                         <?php
                                     $indice=1;
                                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                                     foreach ($estudiante-> result() as $row) {
+                                      
                                         ?>
                                             <tr>
                                                 <td><?php echo $indice;?></td>
-                                                <td><?php echo $row->nombres;?>
+                                                <!-- <td><?php echo $row->nombres;?>
                                                         <?php echo $row->apellidoPaterno;?>
                                                         <?php echo $row->apellidoMaterno;?>
-                                                </td>
+                                                </td> -->
                                                 
 
                                                 
                                                 <td>
                                                 <div class="btn-group btn-group-justified" >
-                                                 <input type="checkbox" name="envio" id="envio">
+                                                 <!-- <input type="checkbox" name="envio" id="envio"> -->
+                                                 <!-- <input type="checkbox" value="" name="estudiante[]" /><label> -->
+                                                 <input type="checkbox" class="case" name="case[]"> <?php echo $row->nombres;?>
+                                                       
+                                                  
+                                                      
+
+                                                 <!-- <?php echo $row->nombres;?>
+                                                        <?php echo $row->apellidoPaterno;?>
+                                                        <?php echo $row->apellidoMaterno;?>
+                                                 </label><br/> -->
+
 
 
                                                 </div>
@@ -137,13 +138,14 @@
                                       <?php
                                       $indice++;
                                   }
-                                  ?>                                            
+                                  ?>     
+                                  </form>                                       
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                            <th>N°</th>
-                                                <th>Nombre Completo</th>                                            
-                                                <th>Seleccionar</th>
+                                                <th>N°</th>
+                                                <th>Nombre Completo del Estudiante</th>                                            
+                                                <!-- <th>Seleccionar</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -161,7 +163,7 @@
           <!-- ASTA ACA LA LISTA DE ESTUDIANRTES -->
           
                                               <div class="card-footer">
-                                                <button class="btn btn-primary" type="submit" title="Registrar" id="boton2" >
+                                                <button class="btn btn-primary" type="submit" title="Registrar" id="boton1" >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
                                                 <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
@@ -175,6 +177,13 @@
           <!-- /.card-body -->
           
         </div>
+
+
+        <!-- aver desde aca provaremos -->
+
+
+
+
         </div>
               <!-- /.col -->
             </div>

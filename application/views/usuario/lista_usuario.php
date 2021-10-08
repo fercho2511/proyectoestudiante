@@ -14,7 +14,7 @@
                                     <?php
                                             echo form_open_multipart('usuario_per/agregar')//llegaremos asta estudiante.php y e metodo agregar
                                         ?>
-                                            <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
+                                            <button type="submit" class="btn btn-outline-info" title="Agregar" >
                                             <span class="fas fa-user-plus"> Agregar Usuario</span>
 
                                             </button>

@@ -29,7 +29,7 @@
                 <h3 class="card-title">Registrar Usuario</h3>
               </div>
              
-              <form  id="quickForm">
+              <!-- <form  id="quickForm"> -->
                                   <?php echo validation_errors(); ?>
                               <!-- <form action="<?php echo base_url(); ?>index.php/usuario_per/agregarUsu" class="formulario" id="formulario"> -->
 
@@ -81,7 +81,7 @@
 
                                             <div class="form-group">
                                                 <label class="form-label">C.I.</label>
-                                                <input type="text" class="form-control col-sm-6" name='ci'  id="ci" placeholder="Ingrese C.I." required   minlength="4"  maxlength="12" >
+                                                <input type="text" class="form-control col-sm-6" name='ci'  id="ci" placeholder="Ingrese C.I." required   minlength="4"  maxlength="12" is_unique:[usuario.ci] >
                                                 <!-- required onblur="compruebaValidoEntero()" -->
                                             </div>
                                             <div class="form-group">
@@ -110,24 +110,27 @@
                                             </div>
 
                                             <div class="card-footer">
-                                                <button class="btn btn-primary" type="submit" title="Registrar"  >
+                                                <button class="btn btn-outline-primary" type="submit" title="Registrar"  >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
-                                                <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
+                                                <button class="btn btn-outline-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
                                                 <span class="far fa-window-close"> CANCELAR</span>
                                               </button>
 
                                              </div>
+                                             <?php
+                                                echo form_close();
+                                            ?>
                                           
                                                 
-                                              </form>    
+                                              <!-- </form>     -->
                                     
                                     </div>
                                     <!-- /.card-body -->
                                   
 
                                
-                   </form> 
+                   <!-- </form>  -->
             </div>
            
         <!-- /.row -->

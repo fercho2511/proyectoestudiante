@@ -69,8 +69,7 @@
                                             <tr>
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->nombres;?>
-                                                        <?php echo $row->apellidoPaterno;?>
-                                                        <?php echo $row->apellidoMaterno;?>
+                                                  
                                                 </td>
 
                                                 <td>

@@ -84,7 +84,7 @@
                                                         echo form_close();
                                                     ?>
 
-                                                <?php
+                                                <!-- <?php
                                                         echo form_open_multipart('materia/eliminarMat')
                                                     ?>
                                                     <input type="hidden" name="idMateria" value="<?php echo $row->idMateria;?>">
@@ -96,7 +96,7 @@
                                                     </button>
                                                     <?php
                                                         echo form_close();
-                                                    ?>
+                                                    ?> -->
 
                                                 </div>
 

@@ -126,55 +126,117 @@
 
                     foreach ($profesor-> result() as $row) 
                     {
-                      if ($row->idUsuario== $this->session->userdata('idusuario')) {
-                        # code...
-                      
-                                  echo form_open_multipart('profesor/modificarLoguin1')
-                                  ?>
-                                  
-                                  <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                          <div class="card-body">
+                      if ($row->idUsuario == $this->session->userdata('idusuario')) {
+                            # code...
+                          
+                                      echo form_open_multipart('profesor/modificarLoguin1')
+                                      ?>
+                                      
+                                      <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                              <div class="card-body">
 
-                             <div class="form-group row">
-                             <label for="inputPassword3" class="col-sm-6 col-form-label">Usuario:  <?php echo $this->session->userdata('login')?></label>
-                            
-                            </div> 
+                                <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-6 col-form-label">Usuario:  <?php echo $this->session->userdata('login')?></label>
+                                
+                                </div> 
 
-                            <div class="form-group row">
-                              <label for="inputPassword3" class="col-sm-4 col-form-label">Password Antiguo:</label>
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control" name='passwordAnt' placeholder="Password Antiguo" required>
+                                <div class="form-group row">
+                                  <label for="inputPassword3" class="col-sm-4 col-form-label">Password Antiguo:</label>
+                                  <div class="col-sm-5">
+                                    <input type="text" class="form-control" name='passwordAnt' placeholder="Password Antiguo" required>
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="inputPassword3" class="col-sm-4 col-form-label">Password Nuevo:</label>
+                                  <div class="col-sm-5">
+                                    <input type="text" class="form-control" name='password1' placeholder="Nueva Contraseña" required>
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="inputPassword3" class="col-sm-4 col-form-label">Vuelva a ingresar Password Nuevo:</label>
+                                  <div class="col-sm-5">
+                                    <input type="text" class="form-control" name='password' placeholder="Nueva Contraseña" required>
+                                  </div>
+                                </div>
+                                
                               </div>
-                            </div>
-                            <div class="form-group row">
-                              <label for="inputPassword3" class="col-sm-4 col-form-label">Password Nuevo:</label>
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control" name='password1' placeholder="Nueva Contraseña" required>
+                              <!-- /.card-body -->
+                              <div class="card-footer">
+                                <button type="submit" class="btn btn-info">GUARDAR CAMBIOS</button>
+                                <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
                               </div>
-                            </div>
-                            <div class="form-group row">
-                              <label for="inputPassword3" class="col-sm-4 col-form-label">Vuelva a ingresar Password Nuevo:</label>
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control" name='password' placeholder="Nueva Contraseña" required>
-                              </div>
-                            </div>
+                              <?php
+                                      echo form_close();
                             
-                          </div>
-                          <!-- /.card-body -->
-                          <div class="card-footer">
-                            <button type="submit" class="btn btn-info">GUARDAR CAMBIOS</button>
-                            <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" >CANCELAR</button>
-                          </div>
-                          <?php
-                                  echo form_close();
+                                    }
+                        }
                         
-                                }
-                              }
                       ?> 
                   
                 <!-- /.card-footer -->
               
-            </div>   
+            </div>  
+            
+            <!-- aca pondremos otro para poder validar las opciones del profesor  -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">CAMBIE CONTRASEÑA</h3>
+              </div>
+            
+              <main>
+
+                <form method="post"  action="<?php echo base_url(); ?>index.php/usuario_per/modificarLoguinAdmin" class="formulario" id="formulario" >
+                <!-- action="<?= site_url('usuario_per/modificarLoguinAdmin') ?>" -->
+                  <!-- Grupo: Contraseña -->
+                  <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                   <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+
+                   
+
+                  <div class="formulario__grupo" id="grupo__password">
+                    <label for="password" class="formulario__label">Contraseña</label>
+                    <div class="card card-info-input">
+                      <input type="password" class="formulario__input" name="password" id="password">
+                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                  </div>
+
+                  <!-- Grupo: Contraseña 2 -->
+                  <div class="form-group row" id="grupo__password2">
+                    <label for="password2" class="formulario__label">Repetir Contraseña</label>
+                    <div class="card card-info-input">
+                      <input type="password" class="formulario__input " name="password2" id="password2">
+                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+                  </div>
+
+                  <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                  </div>
+
+                  <!-- <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <button type="submit" class="formulario__btn">Enviar</button>
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                  </div> -->
+
+                  <div class="card-footer">
+                              <button type="submit" class="btn btn-info" title="Guardar Cambios" >
+                              <span class="far fa-save"> GUARDAR CAMBIOS</span>
+                              <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                              </button>
+
+                            
+
+                  </div>
+                </form>
+                </main>
+                <button class="btn btn-info " type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
+                              <span class="far fa-window-close"> CANCELAR</span>
+                              </button>
+            </div>
+            <!-- asta aca seria las validaciones integrandio js para el profesor  -->
 
         </div>
         <!-- /.row -->

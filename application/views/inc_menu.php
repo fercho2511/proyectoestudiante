@@ -197,13 +197,13 @@
 
                         
                         <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                            <!-- <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     REGISTROS
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
-                            </a>
+                            </a> -->
                             <ul class="nav nav-treeview">
                                 <!-- <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeCurso" class="nav-link">

@@ -104,10 +104,10 @@
                                               </select>
                                             </div>
                                             <div class="card-footer">
-                                                <button class="btn btn-primary" type="submit" title="Registrar" >
+                                                <button class="btn btn-outline-primary" type="submit" title="Registrar" >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
-                                                <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
+                                                <button class="btn btn-outline-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
                                                 <span class="far fa-window-close"> CANCELAR</span>
                                                 </button>
 

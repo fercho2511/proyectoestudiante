@@ -64,13 +64,11 @@
                                             <tr>
                                                 <td><?php echo $indice;?></td>
                                                 <td><?php echo $row->nombres;?>
-                                                        <?php echo $row->apellidoPaterno;?>
-                                                        <?php echo $row->apellidoMaterno;?>
+                                                   
                                                 </td>
                                                 <td><?php echo $row->ci;?></td>
                                                 <td><?php echo $row->telefono;?></td>
-                                                <!-- <td><?php echo $row->nombrePadre;?></td> -->
-                                                <!-- <td><?php echo $row->nombreTutor;?></td> -->
+                                              
                                                 <td>
                                                         <?php
                                                         $foto=$row->foto;

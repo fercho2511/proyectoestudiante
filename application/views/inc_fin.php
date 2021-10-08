@@ -176,6 +176,8 @@
 
 
 <script src="<?php echo base_url(); ?>adminLTE/dist/js/selected.js"></script>
+<script src="<?php echo base_url(); ?>adminLTE/dist/js/select_profe_comunicado.js"></script>
+
 
 
 

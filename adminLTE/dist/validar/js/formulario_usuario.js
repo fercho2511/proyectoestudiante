@@ -43,9 +43,10 @@ $(function () {
       },
       ci:{
         required: true,
-        minlength:4,
-        maxlength:12
-        // unique:true,
+         minlength:4,
+         maxlength:12,
+        // is_unique:'[usuario.ci]'
+        
       },
       telefono:{
         required: false,
@@ -93,8 +94,8 @@ $(function () {
       ci:{
         required:"porfavor ingrese C.I. valido",
         minlength:"minimo 4 digitos",
-        maxlength:"maximo 12 digitos",
-        // unique:"EL C.I. ingresaro ya esta registrado"
+        maxlength:"maximo 12 digitos",        
+        unique:"EL C.I. ingresaro ya esta registrado"
       },
       telefono:{
         minlength: "minimo de 7 digitos",

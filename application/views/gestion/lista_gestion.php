@@ -10,7 +10,7 @@
                         <?php
                                             echo form_open_multipart('gestion/agregar')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
-                                            <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
+                                            <button type="submit" class="btn btn-outline-info" title="Agregar" >
                                             <span class="fas fa-user-plus"> Agregar Gestión</span>
 
                                             </button>

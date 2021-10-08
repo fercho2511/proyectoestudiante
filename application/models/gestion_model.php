@@ -102,6 +102,28 @@ class Gestion_model extends CI_Model {
 
 
 
+
+        }
+
+        public function listaCusoConProfe($idGestion){
+
+
+                // select C.* 
+                // from curso C
+                // inner join inscrito I on I.idCurso = C.idCurso
+                // inner join gestion G on G.idGestion = I.idGestion
+                // where G.idGestion = 2
+
+                $this->db->select('*');
+                $this->db->from('curso');
+                $this->db->join('inscrito', 'inscrito.idCurso = curso.idCurso');
+                $this->db->join('gestion', 'gestion.idGestion = inscrito.idGestion');
+                $this->db->where('gestion.idGestion', $idGestion);
+                return $this->db->get();
+
+
+
+
         }
         public function listaCurso()
 	{
