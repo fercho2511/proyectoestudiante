@@ -133,6 +133,9 @@
                                                                                 </tr>
                                                                             </tfoot>
                                                                 </table>
+                                                                
+                                                                  <div >Ids seleccionados en matriz <span id="arr"></span></div>
+                                                                  <div >Ids seleccionados <span id="str"></span></div>
                                                             </div>
                                                             <!-- /.card-body -->
                                                         </div>

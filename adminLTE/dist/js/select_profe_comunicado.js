@@ -113,3 +113,26 @@ $("#actividad1").change(function() {
        $("#selectall").prop("checked", false);
      }
    });
+
+
+
+//    para escoher lso seleccionados
+
+
+$(document).ready(function() {
+
+  $('[name="estudiante[]"]').click(function() {
+      
+    var arr = $('[name="estudiante[]"]:checked').map(function(){
+      return this.value;
+    }).get();
+    
+    var str = arr.join(',');
+    
+    $('#arr').text(JSON.stringify(arr));
+    
+    $('#str').text(str);
+  
+  });
+
+});

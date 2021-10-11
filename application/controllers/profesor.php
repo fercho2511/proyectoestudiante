@@ -461,7 +461,7 @@ class Profesor extends CI_Controller {
 
         
         // aca aremos un ciclo para mandar a todos los estudaintes seleccionados
-        for ($i=0; $i <$lista.length; $i++) { 
+        for ($i=0; $i <$lista; $i++) { 
 
             if ($tipo=='Actividades Curriculares') {
                 $data['hora']=$_POST['hora'];
