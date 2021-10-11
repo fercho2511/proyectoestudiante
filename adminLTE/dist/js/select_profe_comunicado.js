@@ -1,6 +1,6 @@
 
- var e = document.getElementById("estudiante1");
-      e.style.display = "none";
+//  var e = document.getElementById("estudiante1");
+//       e.style.display = "none";
  var b = document.getElementById('boton1');
   b.disabled = true;
   var f = document.getElementById("fecha1");
@@ -12,21 +12,21 @@
        
 $("#general1").change(function() {
     if($("#general1").val() == "2"){
-        var y = document.getElementById("estudiante1");
-        y.style.display = "block";
+     //    var y = document.getElementById("estudiante1");
+     //    y.style.display = "block";
 
 
-        for (i=0;i<document.f1.elements.length;i++)
-        if(document.f1.elements[i].type == "checkbox")
-           document.f1.elements[i].checked=1
+     //    for (i=0;i<document.f1.elements.length;i++)
+     //    if(document.f1.elements[i].type == "checkbox")
+     //       document.f1.elements[i].checked=1
       
 
   
       }
       if($("#general1").val() != "2"){
       
-        var y = document.getElementById("estudiante1");
-        y.style.display = "none";
+     //    var y = document.getElementById("estudiante1");
+     //    y.style.display = "none";
       }
   });
   
@@ -87,17 +87,17 @@ $("#actividad1").change(function() {
 }
 
 // para seleccionar los checbox
-function seleccionar_todo(){
-     for (i=0;i<document.f1.elements.length;i++)
-        if(document.f1.elements[i].type == "checkbox")
-           document.f1.elements[i].checked=1
-  }
+// function seleccionar_todo(){
+//      for (i=0;i<document.f1.elements.length;i++)
+//         if(document.f1.elements[i].type == "checkbox")
+//            document.f1.elements[i].checked=1
+//   }
 
-  function deseleccionar_todo(){
-     for (i=0;i<document.f1.elements.length;i++)
-        if(document.f1.elements[i].type == "checkbox")
-           document.f1.elements[i].checked=0
-  }
+//   function deseleccionar_todo(){
+//      for (i=0;i<document.f1.elements.length;i++)
+//         if(document.f1.elements[i].type == "checkbox")
+//            document.f1.elements[i].checked=0
+//   }
 
 
 

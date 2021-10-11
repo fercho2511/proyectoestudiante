@@ -445,4 +445,65 @@ class Profesor extends CI_Controller {
 
 
     }
+
+
+
+    public function enviarCom(){
+
+        $tipo=$_POST['tipo'];
+        $data['tipo']=$tipo;
+        $data['descripcion']=$_POST['descripcion'];
+        // $idUsuario=$_POST['idUsuario'];
+        $data['idCurso']=$_POST['idCurso'];
+        $data['idGestion']=$_POST['idGestion'];
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+        $lista=$_POST['estudiante[]'];
+
+        
+        // aca aremos un ciclo para mandar a todos los estudaintes seleccionados
+        for ($i=0; $i <$lista.length; $i++) { 
+
+            if ($tipo=='Actividades Curriculares') {
+                $data['hora']=$_POST['hora'];
+                $data['fecha']=$_POST['fecha'];
+                $this->profesor_model->enviarComunicado($data);
+
+            }else{
+                if ($tipo=='Reuniones') {
+                    $data['hora']=$_POST['hora'];
+                    $data['fecha']=$_POST['fecha'];
+                    $this->profesor_model->enviarComunicado($data);
+
+                }else{
+                    if ($tipo=='Notificaciones') {
+                        # code...
+                        $this->profesor_model->enviarComunicado($data);
+        
+                    }else{
+                        if ($tipo=='Fechas de Examen') {
+                            # code...
+                            $this->profesor_model->enviarComunicado($data);
+            
+                        }else{
+                        
+                        # code...
+                        $this->profesor_model->enviarComunicado($data);
+        
+                
+                        }
+                    }
+                }
+            }
+            # code...
+        }           
+
+          redirect('profesor/profeComunicado','refresh');
+
+
+
+
+
+
+
+    }
 }
