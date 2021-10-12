@@ -230,7 +230,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url(); ?>index.php/profesor/profeComunicado" class="nav-link">
+                                    <a href="<?php echo base_url(); ?>index.php/profesor/profeListaComunicado" class="nav-link">
                                     <i class="nav-icon far fa-clipboard"></i>
                                         <p>Comunicado</p>
                                     </a>

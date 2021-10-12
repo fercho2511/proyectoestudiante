@@ -60,12 +60,12 @@
 
                                             <div class="form-group col-md-3" >
                                                 <label class="form-label">Fecha: </label>
-                                                <input type="date" class="form-control" name='fecha' height="50" required id="fecha1" >
+                                                <input type="date" class="form-control" name='fecha' height="50"  id="fecha1" >
                                             </div>
 
                                             <div class="form-group col-md-2">
                                                 <label class="form-label">Hora: </label>
-                                                <input type="time" class="form-control" name='hora' height="50" required id="hora1" >
+                                                <input type="time" class="form-control" name='hora' height="50" id="hora1" >
                                             </div>
                                             <!-- <div class="form-group col-md-4"> -->
                                             <!-- <label class="form-label">Enviar a:</label> -->
@@ -75,7 +75,7 @@
                                               <option value="2">ESTUDIANTE</option>
                                               </select> -->
                                             <!-- </div> -->
-                                    </div>
+                                  </div>
                         
 
 
@@ -150,7 +150,13 @@
                                                        <!-- ASTA ACA LA LISTA DE ESTUDIANRTES -->
           
                                               <div class="card-footer">
-                                                <button class="btn btn-primary" type="submit" title="Registrar" id="boton1" >
+                                                <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
+                                                <input type="hidden" name="idGestion" value="6">
+                                                <input type="hidden" name="idCurso" value="1">
+
+
+
+                                                <button class="btn btn-primary" type="submit" title="Registrar" id="boton1" >                                                  
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
                                                 <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">

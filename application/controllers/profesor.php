@@ -89,6 +89,26 @@ class Profesor extends CI_Controller {
 		$this->load->view('inc_fin.php');
 
 	}
+    public function profeListaComunicado()
+	{
+        //cargara la list de profesores
+        // $lista=$this->profesor_model->lista();
+        // $data['profesor']=$lista; //otro array asociativo
+        
+        // $profe=$this->session->userdata('idusuario');
+        // $lista=$this->profesor_model->listaEstudiantePorProfesor($profe);
+        // $data['estudiante']=$lista;
+
+        $lista=$this->comunicado_model->lista();
+        $data['comunicado']=$lista;
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/profe_listaComunicado',$data);
+        //$this->load->view('usuario/profesor/profe_vista');
+		$this->load->view('inc_fin.php');
+
+	}
     public function profeComunicado()
 	{
         //cargara la list de profesores
@@ -457,47 +477,60 @@ class Profesor extends CI_Controller {
         $data['idCurso']=$_POST['idCurso'];
         $data['idGestion']=$_POST['idGestion'];
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
-        $lista=$_POST['estudiante[]'];
+        // $lista=count['estudiante'];
+        $cantidad = count($_POST['arr']);
+        $estu=$_POST['arr'];
+        for ($i=0; $i <$cantidad ; $i++) { 
+            # code...
+            // print $estu[$i];
+            $error_message = $estu[$i];
+                         echo $error_message;
+        }
+
+        // print '';
+
+        // $lista=[$_POST['estudiante']];
 
         
-        // aca aremos un ciclo para mandar a todos los estudaintes seleccionados
-        for ($i=0; $i <$lista; $i++) { 
+        // // aca aremos un ciclo para mandar a todos los estudaintes seleccionados
+        // for ($i=0; $i < $cantidad ; $i++) { 
 
-            if ($tipo=='Actividades Curriculares') {
-                $data['hora']=$_POST['hora'];
-                $data['fecha']=$_POST['fecha'];
-                $this->profesor_model->enviarComunicado($data);
+        //     if ($tipo=='Actividades Curriculares') {
+        //         $data['hora']=$_POST['hora'];
+        //         $data['fecha']=$_POST['fecha'];
+        //         $data['idEstudiante']=$lista[$i];
+        //         $this->profesor_model->enviarComunicado($data);
 
-            }else{
-                if ($tipo=='Reuniones') {
-                    $data['hora']=$_POST['hora'];
-                    $data['fecha']=$_POST['fecha'];
-                    $this->profesor_model->enviarComunicado($data);
+        //     }else{
+        //         if ($tipo=='Reuniones') {
+        //             $data['hora']=$_POST['hora'];
+        //             $data['fecha']=$_POST['fecha'];
+        //             $this->profesor_model->enviarComunicado($data);
 
-                }else{
-                    if ($tipo=='Notificaciones') {
-                        # code...
-                        $this->profesor_model->enviarComunicado($data);
+        //         }else{
+        //             if ($tipo=='Notificaciones') {
+        //                 # code...
+        //                 $this->profesor_model->enviarComunicado($data);
         
-                    }else{
-                        if ($tipo=='Fechas de Examen') {
-                            # code...
-                            $this->profesor_model->enviarComunicado($data);
+        //             }else{
+        //                 if ($tipo=='Fechas de Examen') {
+        //                     # code...
+        //                     $this->profesor_model->enviarComunicado($data);
             
-                        }else{
+        //                 }else{
                         
-                        # code...
-                        $this->profesor_model->enviarComunicado($data);
+        //                 # code...
+        //                 $this->profesor_model->enviarComunicado($data);
         
                 
-                        }
-                    }
-                }
-            }
-            # code...
-        }           
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     # code...
+        // }           
 
-          redirect('profesor/profeComunicado','refresh');
+         redirect('profesor/profeComunicado','refresh');
 
 
 
