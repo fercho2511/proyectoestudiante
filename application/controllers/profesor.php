@@ -478,61 +478,129 @@ class Profesor extends CI_Controller {
         $data['idGestion']=$_POST['idGestion'];
         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
         // $lista=count['estudiante'];
-        $cantidad = count($_POST['arr']);
-        $estu=$_POST['arr'];
-        for ($i=0; $i <$cantidad ; $i++) { 
-            # code...
-            // print $estu[$i];
-            $error_message = $estu[$i];
-                         echo $error_message;
+        $cantidad =count( $_POST['estudiante']);
+        $estu=$_POST['estudiante'];
+
+        if ($cantidad==0) {
+            echo '<script>
+            alert("Seleccione estudiantes para envio del comunicado");
+            </script>';
+            redirect('profesor/profeComunicado','refresh'); //esta linea ya realiza la actualizacion
         }
-
-        // print '';
-
-        // $lista=[$_POST['estudiante']];
+        else{
 
         
-        // // aca aremos un ciclo para mandar a todos los estudaintes seleccionados
-        // for ($i=0; $i < $cantidad ; $i++) { 
-
-        //     if ($tipo=='Actividades Curriculares') {
-        //         $data['hora']=$_POST['hora'];
-        //         $data['fecha']=$_POST['fecha'];
-        //         $data['idEstudiante']=$lista[$i];
-        //         $this->profesor_model->enviarComunicado($data);
-
-        //     }else{
-        //         if ($tipo=='Reuniones') {
-        //             $data['hora']=$_POST['hora'];
-        //             $data['fecha']=$_POST['fecha'];
-        //             $this->profesor_model->enviarComunicado($data);
-
-        //         }else{
-        //             if ($tipo=='Notificaciones') {
-        //                 # code...
-        //                 $this->profesor_model->enviarComunicado($data);
-        
-        //             }else{
-        //                 if ($tipo=='Fechas de Examen') {
-        //                     # code...
-        //                     $this->profesor_model->enviarComunicado($data);
-            
-        //                 }else{
-                        
-        //                 # code...
-        //                 $this->profesor_model->enviarComunicado($data);
-        
+                for ($i=0; $i <$cantidad ; $i++) { 
+                    # code...
+                    $data=$estu[$i];
+                    print $data;
+                    print ' ';
+                    if ($tipo=='Actividades Curriculares') {
+                                $data['hora']=$_POST['hora'];
+                                $data['fecha']=$_POST['fecha'];
+                                $this->profesor_model->enviarComunicado($data);
                 
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     # code...
-        // }           
+                            }else{
+                                if ($tipo=='Reuniones') {
+                                    $data['hora']=$_POST['hora'];
+                                    $data['fecha']=$_POST['fecha'];
+                                    $this->profesor_model->enviarComunicado($data);
+                
+                                }else{
+                                    if ($tipo=='Notificaciones') {
+                                        # code...
+                                        $this->profesor_model->enviarComunicado($data);
+                        
+                                    }else{
+                                        if ($tipo=='Fechas de Examen') {
+                                            # code...
+                                            $this->profesor_model->enviarComunicado($data);
+                            
+                                        }else{
+                                        
+                                        # code...
+                                        $this->profesor_model->enviarComunicado($data);
+                        
+                                
+                                        }
+                                    }
+                                }              
+                            }       
 
-         redirect('profesor/profeComunicado','refresh');
+                }
+                echo '<script>
+                alert("Comunicado creado y enviado con exito");
+                </script>';
+                redirect('profesor/profeComunicado','refresh');
+
+        }
+    }
 
 
+
+
+
+    // otra manera de hacer 
+    public function enviarCom2(){
+
+        $tipo=$_POST['tipo'];
+        $data['tipo']=$tipo;
+        $data['descripcion']=$_POST['descripcion'];
+        $data['hora']=$_POST['hora'];
+        $data['fechaComunicado']=$_POST['fecha'];
+        $data['idUsuario'] =$_POST['idUsuario_Acciones'];
+
+        // $idUsuario=$_POST['idUsuario'];
+        $data1['idCurso']=$_POST['idCurso'];
+        $data1['idGestion']=$_POST['idGestion'];
+        $data1['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+        $data1['idParalelo'] =2;
+
+
+        // $lista=count['estudiante'];
+        $cantidad =count( $_POST['estudiante']);
+        $estu=$_POST['estudiante'];
+
+        if ($cantidad == 0) {
+            echo '<script>
+            alert("Seleccione estudiantes para envio del comunicado");
+            </script>';
+            redirect('profesor/profeComunicado','refresh'); //esta linea ya realiza la actualizacion
+        }
+        else{
+
+
+                // controlando con el try catch
+                try {
+
+                    $this->db->trans_begin();  //iniciamso la transaccion
+                    $this->profesor_model->enviarComunicado($data);
+                    $data1['idComunicado']= $this->db->insert_id();
+                    // $data1['idComunicado']=1;
+                    
+                    for ($i=0; $i <$cantidad ; $i++) { 
+
+                        # code...
+                        $data1['idEstudiante']=$estu[$i];
+                        $this->profesor_model->comunicadoEstudiante($data1);
+
+                    }
+                    echo '<script>
+                    alert("Comunicado creado y enviado con exito");
+                    </script>';
+                    redirect('profesor/profeComunicado','refresh');
+                    $this->db->trans_commit();
+
+                    
+                } catch (Exception $ex) {
+
+                    $this->db->trans_rollback();
+                    echo '<script>
+                    alert("Se detecto una falla en el proceso, vuelva a intentarlo profavor");
+                    </script>';
+                    redirect('profesor/profeComunicado','refresh');
+                }
+        }
 
 
 

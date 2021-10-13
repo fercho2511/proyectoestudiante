@@ -136,8 +136,28 @@ class Profesor_model extends CI_Model {
 
         }
         
-        public function enviarComunicado(){
-                
+        public function enviarComunicado($data){
+
+                        // $this->db->trans_begin();
+                        // //aca poner la consulta
+                        // if ($this->db->trans_status() === FALSE)
+                        // {
+                        //         $this->db->trans_rollback();
+                        // }
+                        // else
+                        // {
+                        //         $this->db->trans_commit();
+                        // }
+
+
+
+                        $this->db->insert('comunicado',$data);
+
+        }
+
+        public function comunicadoEstudiante($data1){
+
+                $this->db->insert('comunicado_inscrito',$data1);
 
         }
 

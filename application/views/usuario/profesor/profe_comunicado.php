@@ -30,7 +30,7 @@
               
                              <?php
                                //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                             echo form_open_multipart('profesor/enviarCom')
+                             echo form_open_multipart('profesor/enviarCom2')
                              ?>
                              <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
