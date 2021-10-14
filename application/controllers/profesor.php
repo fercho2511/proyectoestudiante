@@ -549,12 +549,11 @@ class Profesor extends CI_Controller {
         $data['hora']=$_POST['hora'];
         $data['fechaComunicado']=$_POST['fecha'];
         $data['idUsuario'] =$_POST['idUsuario_Acciones'];
+        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+
 
         // $idUsuario=$_POST['idUsuario'];
-        $data1['idCurso']=$_POST['idCurso'];
-        $data1['idGestion']=$_POST['idGestion'];
-        $data1['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
-        $data1['idParalelo'] =2;
+        
 
 
         // $lista=count['estudiante'];
@@ -575,21 +574,28 @@ class Profesor extends CI_Controller {
 
                     $this->db->trans_begin();  //iniciamso la transaccion
                     $this->profesor_model->enviarComunicado($data);
-                    $data1['idComunicado']= $this->db->insert_id();
-                    // $data1['idComunicado']=1;
+                    $id= $this->db->insert_id();
                     
                     for ($i=0; $i <$cantidad ; $i++) { 
+                        // $data1['idCurso']=$_POST['idCurso'];
+                        // $data1['idGestion']=$_POST['idGestion'];
+                        
 
                         # code...
-                        $data1['idEstudiante']=$estu[$i];
+                        // $estu=$estu[$i];
+                        $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+
+                        $data1['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+                        $data1['idComunicado']=$id;
                         $this->profesor_model->comunicadoEstudiante($data1);
 
                     }
+                    $this->db->trans_commit();
                     echo '<script>
                     alert("Comunicado creado y enviado con exito");
                     </script>';
                     redirect('profesor/profeComunicado','refresh');
-                    $this->db->trans_commit();
+                   
 
                     
                 } catch (Exception $ex) {

@@ -162,6 +162,24 @@ class Profesor_model extends CI_Model {
         }
 
 
+
+        publiC function obtenerIdInscrito($data){
+
+                $this->db->select('idInscrito');
+                $this->db->from('inscrito');
+                $this->db->where('idEstudiante',$data);
+                
+                 $query = $this->db->get();
+                        if ($query->num_rows() > 0) {
+                                return $query->row()->idInscrito;
+                        }
+                        return false;    
+                                  
+
+        }
+
+
+
         
 
 

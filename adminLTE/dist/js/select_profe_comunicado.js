@@ -109,39 +109,9 @@ $("#actividad1").change(function() {
    $(".case").on("click", function() {
      if ($(".case").length == $(".case:checked").length) {
        $("#selectall").prop("checked", true);
-
-       $('[name="estudiante[]"]').click(function() {
-      
-        var arr = $('[name="estudiante[]"]:checked').map(function(){
-          return this.value;
-        }).get();
-        
-        var str = arr.join(',');
-        
-        $('#arr').text(JSON.stringify(arr));
-        
-        $('#str').text(str);
-      
-      });
-
+       
      } else {
        $("#selectall").prop("checked", false);
-
-       $('[name="estudiante[]"]').click(function() {
-      
-        var arr = $('[name="estudiante[]"]:checked').map(function(){
-          return this.value;
-        }).get();
-        
-        var str = arr.join(',');
-        
-        $('#arr').text(JSON.stringify(arr));
-        
-        $('#str').text(str);
-      
-      });
-
-
      }
    });
 
