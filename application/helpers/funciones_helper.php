@@ -13,7 +13,16 @@ function formatearfecha($fecha)
     $fechaFormateada=$dia."/".$mes."/".$anio;
     return $fechaFormateada;
 }
+function formatearhora($time)
+{
+    /*/2021-07-03 18:56:13*/
+    //para formatear usamos el substring
+    $hora=substr($time,0,2);
+    $minuto=substr($time,3,2);
 
+    $timeFormateada=$hora.":".$minuto;
+    return $timeFormateada;
+}
 
 //ESTE METODO ESTA DISPONIBLE PARA TODO EL FRAMEWORDK
 function estado($nota)

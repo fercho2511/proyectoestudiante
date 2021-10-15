@@ -98,8 +98,9 @@ class Profesor extends CI_Controller {
         // $profe=$this->session->userdata('idusuario');
         // $lista=$this->profesor_model->listaEstudiantePorProfesor($profe);
         // $data['estudiante']=$lista;
-
-        $lista=$this->comunicado_model->lista();
+        // $data['idUsuario']= $this->session->userdata('idusuario');;
+        // $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+        $lista=$this->profesor_model->listaComunicado($this->session->userdata('idusuario'));
         $data['comunicado']=$lista;
 
 		$this->load->view('inc_inicio.php');
@@ -544,7 +545,27 @@ class Profesor extends CI_Controller {
     public function enviarCom2(){
 
         $tipo=$_POST['tipo'];
-        $data['tipo']=$tipo;
+       
+        switch ($tipo) {
+            case '1':
+                $data['tipo']='Actividades Curriculares';
+                break;
+            case '2':
+                $data['tipo']='Reuniones';
+
+                break;
+            case '3':
+                $data['tipo']='Notificaciones';
+
+                 break;
+            case '4':
+                $data['tipo']='Fechas de Examen';
+
+                break;
+            case '5':
+                $data['tipo']='Otros';
+                break;
+        }
         $data['descripcion']=$_POST['descripcion'];
         $data['hora']=$_POST['hora'];
         $data['fechaComunicado']=$_POST['fecha'];
@@ -579,12 +600,8 @@ class Profesor extends CI_Controller {
                     for ($i=0; $i <$cantidad ; $i++) { 
                         // $data1['idCurso']=$_POST['idCurso'];
                         // $data1['idGestion']=$_POST['idGestion'];
-                        
-
-                        # code...
                         // $estu=$estu[$i];
                         $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-
                         $data1['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
                         $data1['idComunicado']=$id;
                         $this->profesor_model->comunicadoEstudiante($data1);
@@ -594,7 +611,7 @@ class Profesor extends CI_Controller {
                     echo '<script>
                     alert("Comunicado creado y enviado con exito");
                     </script>';
-                    redirect('profesor/profeComunicado','refresh');
+                    redirect('profesor/profeListaComunicado','refresh');
                    
 
                     
@@ -608,9 +625,66 @@ class Profesor extends CI_Controller {
                 }
         }
 
+    }
+
+    public function eliminarCom(){
+
+        $data=$_POST['idComunicado'];
+        $this->profesor_model->eliminarComunicado($data);
+
+        redirect('profesor/profeListaComunicado','refresh');
 
 
 
 
     }
+
+    public function modificarComunicado(){
+
+
+
+        $com=$_POST['idComunicado'];
+        $lista=$this->profesor_model->obtenerComunicado($com);
+        $data['infocomunicado']=$lista; //otro array asociativo
+       
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/profe_modificadoComunicado',$data);
+        //$this->load->view('usuario/profesor/profe_vista');
+		$this->load->view('inc_fin.php');
+    }
+
+    public function modifCom(){
+
+        $com=$_POST['idComunicado'];
+
+        $data['descripcion'] =$_POST['descripcion'];
+        $data['fechaComunicado']=$_POST['fecha'];
+        $data['hora']=$_POST['hora'];
+
+        $this->profesor_model->modificarComunicado($com,$data);
+        echo '<script>
+        alert("Comunicado modificado con exito");
+        </script>';
+        redirect('profesor/profeListaComunicado','refresh');
+
+
+
+    }
+
+
+    public function comunicadoEstudiante(){
+
+        $com=$_POST['idComunicado'];
+        $lista=$this->profesor_model->obtenerComunicadoEstudiante($com);
+        $data['estudiante']=$lista; //otro array asociativo
+       
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/profe_comunicadoEstudiante',$data);
+        //$this->load->view('usuario/profesor/profe_vista');
+		$this->load->view('inc_fin.php');
+    }
+
+
 }

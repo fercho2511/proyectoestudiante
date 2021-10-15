@@ -61,7 +61,7 @@
                                                 <td><?php echo $row->tipo;?></td>  
                                                 <td><?php echo $row->descripcion;?></td>   
                                                 <td><?php echo formatearfecha($row->fechaComunicado);?></td> 
-                                                <td><?php echo $row->hora;?></td>                                                
+                                                <td><?php echo formatearhora($row->hora);?></td>                                                
                                               
                                              
                                                 <td>
@@ -79,8 +79,24 @@
                                                 
                                                 <td>
                                                 <div class="btn-group btn-group-justified" >
+
                                                 <?php
-                                                        echo form_open_multipart('comunicado/modificar')
+                                                        echo form_open_multipart('profesor/comunicadoEstudiante')
+                                                    ?>
+                                                    <input type="hidden" name="idComunicado" value="<?php echo $row->idComunicado;?>">
+                                                    <button type="submit" class="btn btn-outline-dark" title="Enviados a:">
+                                                    <span class="fas fa-user-edit"></span>
+
+                                                    </button>
+                                                    <?php
+                                                        echo form_close();
+                                                    ?>
+
+
+
+
+                                                <?php
+                                                        echo form_open_multipart('profesor/modificarComunicado')
                                                     ?>
                                                     <input type="hidden" name="idComunicado" value="<?php echo $row->idComunicado;?>">
                                                     <button type="submit" class="btn btn-outline-dark" title="Modificar">
@@ -92,7 +108,7 @@
                                                     ?>
 
                                                 <?php
-                                                        echo form_open_multipart('comunicado/eliminarCom')
+                                                        echo form_open_multipart('profesor/eliminarCom')
                                                     ?>
                                                     <input type="hidden" name="idComunicado" value="<?php echo $row->idComunicado;?>">
                                                     <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">

@@ -69,6 +69,46 @@ class Profesor_model extends CI_Model {
                 return $this->db->get();
         }
 
+        //aca obtendremos todo el comunicado para mostrar en al vista profesor
+        public function listaComunicado($data)
+	{
+                $this->db->select('*');
+                $this->db->from('comunicado');
+              //  $this->db->where('rol','estudiante');
+                $this->db->where('estado','1');
+                $this->db->where('idUsuario',$data);
+
+
+                return $this->db->get();
+	}
+
+
+        public function obtenerComunicado($data)
+	{
+                $this->db->select('*');
+                $this->db->from('comunicado');
+              //  $this->db->where('rol','estudiante');
+                $this->db->where('estado','1');
+                $this->db->where('idComunicado',$data);
+
+
+                return $this->db->get();
+	}
+
+        //eliminar comunicado
+        public function eliminarComunicado($idComunicado)
+        {
+                $datos = ['estado' => '0'];
+                $this-> db-> where ('idComunicado', $idComunicado);
+                $this-> db-> update ('comunicado', $datos);
+
+                $this-> db-> where ('idComunicado', $idComunicado);
+                $this-> db-> update ('comunicado_inscrito', $datos);
+
+                //$this->db->where('idUsuario',$idUsuario);
+               // $this->db->delete('usuario'); //con esto se elimina el registro de mi tabla
+        }
+
 
         public function listaEstudiantePorProfesor($profe){
                 //ETSA ES LA CONSULTA EN MYSQL
@@ -165,11 +205,21 @@ class Profesor_model extends CI_Model {
 
         publiC function obtenerIdInscrito($data){
 
-                $this->db->select('idInscrito');
-                $this->db->from('inscrito');
-                $this->db->where('idEstudiante',$data);
-                
-                 $query = $this->db->get();
+               
+                // $this->db->select('idInscrito');
+                // $this->db->from('inscrito');
+                // $this->db->join('gestion', 'gestion.idGestion = inscrito.idGestion');
+                // $this->db->where('idEstudiante',$data);
+                // $this->db->where('YEAR(gestion.gestion)',YEAR(CURDATE()));
+
+
+                $result= " SELECT inscrito.idInscrito
+                                FROM inscrito 
+                                INNER JOIN  gestion  ON gestion.idGestion = inscrito.idGestion
+                                where inscrito.idEstudiante=$data and YEAR(gestion.gestion) = YEAR(CURDATE())";
+
+
+                $query = $this->db->query($result);
                         if ($query->num_rows() > 0) {
                                 return $query->row()->idInscrito;
                         }
@@ -178,6 +228,31 @@ class Profesor_model extends CI_Model {
 
         }
 
+
+        public function modificarComunicado($idComunicado,$data)
+	{
+                $this->db->where('idComunicado',$idComunicado);
+                $this->db->update('comunicado',$data);
+        // return $this->db->get();
+	}
+
+        public function obtenerComunicadoEstudiante($idComunicado){
+
+
+                $query= "SELECT concat(usuario.apellidoPaterno,' ',ifnull(usuario.apellidoMaterno,' '),' ',usuario.nombres) AS nombres, comunicado_inscrito.*
+                        FROM usuario 
+                        INNER JOIN inscrito  ON inscrito.idEstudiante = usuario.idUsuario
+                        INNER JOIN comunicado_inscrito ON comunicado_inscrito.idInscrito = inscrito.idInscrito
+                        where  comunicado_inscrito.idComunicado = $idComunicado";
+                 $resultados = $this->db->query($query);
+                 return $resultados;
+
+                // $this->db->select('*');
+                // $this->db->from('comunicado_inscrito');
+                // $this->db->where('idComunicado',$idComunicado);
+                // return $this->db->get();
+
+        }
 
 
         
