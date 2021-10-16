@@ -81,6 +81,12 @@
                             
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+                                    <a href="<?php echo base_url(); ?>index.php/estudiante/estuComunicado" class="nav-link">
+                                    <i class="nav-icon far fa-clipboard"></i>
+                                        <p>Comunicado</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/estudiante/estuNota" class="nav-link">
                                     <i class="nav-icon fas fa-tasks"></i>
                                         <p>Notas</p>
@@ -92,12 +98,7 @@
                                         <p>Actividades Curriculares</p>
                                     </a>
                                 </li> -->
-                                <li class="nav-item">
-                                    <a href="<?php echo base_url(); ?>index.php/estudiante/estuComunicado" class="nav-link">
-                                    <i class="nav-icon far fa-clipboard"></i>
-                                        <p>Comunicado</p>
-                                    </a>
-                                </li>
+                                
                                 <!-- <li class="nav-item">
                                     <a href="<?php echo base_url(); ?>index.php/profesor/profeComunicado" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

@@ -57,6 +57,75 @@ class Estudiante_model extends CI_Model {
         }
 
 
+        public function actividades($estu){
+
+               $query=" SELECT comunicado.* 
+                        FROM comunicado 
+                        INNER JOIN comunicado_inscrito ON comunicado_inscrito.idComunicado = comunicado.idComunicado
+                        INNER JOIN inscrito  ON inscrito.idInscrito = comunicado_inscrito.idInscrito
+                        INNER JOIN gestion  ON gestion.idGestion = inscrito.idGestion
+                        where inscrito.idEstudiante = $estu and comunicado.tipo = 'Actividades Curriculares' and YEAR(gestion.gestion) = YEAR(CURDATE())";
+
+                $resultados = $this->db->query($query);
+                return $resultados;
+        }
+
+        public function notificaciones($estu){
+
+                $query=" SELECT comunicado.* 
+                         FROM comunicado 
+                         INNER JOIN comunicado_inscrito ON comunicado_inscrito.idComunicado = comunicado.idComunicado
+                         INNER JOIN inscrito  ON inscrito.idInscrito = comunicado_inscrito.idInscrito
+                         INNER JOIN gestion  ON gestion.idGestion = inscrito.idGestion
+                         where inscrito.idEstudiante = $estu and comunicado.tipo = 'Notificaciones' and YEAR(gestion.gestion) = YEAR(CURDATE())";
+ 
+                 $resultados = $this->db->query($query);
+                 return $resultados;
+         }
+
+
+         public function reuniones($estu){
+
+                $query=" SELECT comunicado.* 
+                         FROM comunicado 
+                         INNER JOIN comunicado_inscrito ON comunicado_inscrito.idComunicado = comunicado.idComunicado
+                         INNER JOIN inscrito  ON inscrito.idInscrito = comunicado_inscrito.idInscrito
+                         INNER JOIN gestion  ON gestion.idGestion = inscrito.idGestion
+                         where inscrito.idEstudiante = $estu and comunicado.tipo = 'Reuniones' and YEAR(gestion.gestion) = YEAR(CURDATE())";
+ 
+                 $resultados = $this->db->query($query);
+                 return $resultados;
+         }
+
+
+         public function fechasDeExamen($estu){
+
+                $query=" SELECT comunicado.* 
+                         FROM comunicado 
+                         INNER JOIN comunicado_inscrito ON comunicado_inscrito.idComunicado = comunicado.idComunicado
+                         INNER JOIN inscrito  ON inscrito.idInscrito = comunicado_inscrito.idInscrito
+                         INNER JOIN gestion  ON gestion.idGestion = inscrito.idGestion
+                         where inscrito.idEstudiante = $estu and comunicado.tipo = 'Fechas de Examen' and YEAR(gestion.gestion) = YEAR(CURDATE())";
+ 
+                 $resultados = $this->db->query($query);
+                 return $resultados;
+         }
+
+
+         public function otros($estu){
+
+                $query=" SELECT comunicado.* 
+                         FROM comunicado 
+                         INNER JOIN comunicado_inscrito ON comunicado_inscrito.idComunicado = comunicado.idComunicado
+                         INNER JOIN inscrito  ON inscrito.idInscrito = comunicado_inscrito.idInscrito
+                         INNER JOIN gestion  ON gestion.idGestion = inscrito.idGestion
+                         where inscrito.idEstudiante = $estu and comunicado.tipo = 'Otros' and YEAR(gestion.gestion) = YEAR(CURDATE())";
+ 
+                 $resultados = $this->db->query($query);
+                 return $resultados;
+         }
+
+
 
 	
 }

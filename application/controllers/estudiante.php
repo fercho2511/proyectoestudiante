@@ -59,14 +59,71 @@ class Estudiante extends CI_Controller {
 		$this->load->view('usuario/estudiante/estu_comunicado',$data);
 		$this->load->view('inc_fin.php');
 
+
 	}
+
+    public function actividades(){
+          //cargara la list de estudiantes
+          $estu=$this->session->userdata('idusuario');
+
+          $lista=$this->estudiante_model->actividades($estu);
+          $data['actividades']=$lista; //otro array asociativo
+          $this->load->view('inc_inicio.php');
+          $this->load->view('inc_menu1.php');
+          $this->load->view('usuario/estudiante/estu_actividades',$data);
+          $this->load->view('inc_fin.php');
+
+    }
+    public function reuniones(){
+        //cargara la list de estudiantes
+        $estu=$this->session->userdata('idusuario');
+        $lista=$this->estudiante_model->reuniones($estu);
+        $data['reuniones']=$lista; //otro array asociativo
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu1.php');
+        $this->load->view('usuario/estudiante/estu_reuniones',$data);
+        $this->load->view('inc_fin.php');
+
+     }
+     public function notificaciones(){
+         
+        $estu=$this->session->userdata('idusuario');
+        $lista=$this->estudiante_model->notificaciones($estu);
+        $data['notificaciones']=$lista; //otro array asociativo
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu1.php');
+        $this->load->view('usuario/estudiante/estu_notificaciones',$data);
+        $this->load->view('inc_fin.php');
+
+     }
+     public function examen(){
+        $estu=$this->session->userdata('idusuario');
+        $lista=$this->estudiante_model->fechasDeExamen($estu);
+        $data['examen']=$lista; //otro array asociativo
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu1.php');
+        $this->load->view('usuario/estudiante/estu_examen',$data);
+        $this->load->view('inc_fin.php');
+
+     }
+     
+     public function otros(){
+        $estu=$this->session->userdata('idusuario');
+        $lista=$this->estudiante_model->otros($estu);
+        $data['otros']=$lista; //otro array asociativo
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu1.php');
+        $this->load->view('usuario/estudiante/estu_otros',$data);
+        $this->load->view('inc_fin.php');
+
+     }
+
+
 
     //haciendo click en modificar nos estar traendo asta este metodo 
     //para realizar las siguientes acciones
     //1 tiene q recuperar los datos del estudiantes con su id
     //luego enviar a un formulario editable
-
-
        public function modificar()
     {
         $idUsuario=$_POST['idUsuario'];
