@@ -1,19 +1,17 @@
 
 
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
    
-   </section>
+    </section> -->
 
-
-   <section class="content">
-       <br><br>
-     <div class="container-fluid h-70">      
-
-        <div class="card card-row card-info">
+ 
+    <section class="content">
+        <br><br>
+      <div class="container-fluid h-70">
+      <div class="card card-row card-success">
           <div class="card-header">
             <h3 class="card-title">
-            Notificaciones
+            Actividades Curriculares
             </h3>
           </div>
           <div class="card-body">
@@ -22,10 +20,10 @@
                 <?php
                     $indice=1;
                             //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
-                    foreach ($notificaciones-> result() as $row) {
+                    foreach ($actividades-> result() as $row) {
                         ?>
                         <!-- <?php echo $tipo;?>  -->
-                                <div class="card card-info card-outline">
+                                <div class="card card-primary card-outline">
                                 <div class="card-header">
                                     <h5 class="card-title"><?php echo $row->tipo;?></h5>
                                     
@@ -46,13 +44,9 @@
                          ?>                                            
                     
             <!-- asta aca -->
-
-            
-
           </div>
         </div>
-
-
-        </div>
-      </section>
- </div>
+    
+    </section>
+  </div>
+  

@@ -1,15 +1,15 @@
 
 
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-      <br><br>
-  <div class="content-wrapper kanban">
-    
+   
+   </section>
 
-    <section class="content pb-3">
-      <div class="container-fluid h-100">        
 
-        <div class="card card-row card-success">
+   <section class="content">
+       <br><br>
+     <div class="container-fluid h-70">        
+
+        <div class="card card-row card-info">
           <div class="card-header">
             <h3 class="card-title">
             Otros
@@ -24,7 +24,7 @@
                     foreach ($otros-> result() as $row) {
                         ?>
                         <!-- <?php echo $tipo;?>  -->
-                                <div class="card card-primary card-outline">
+                                <div class="card card-info card-outline">
                                 <div class="card-header">
                                     <h5 class="card-title"><?php echo $row->tipo;?></h5>
                                     
@@ -51,10 +51,6 @@
           </div>
         </div>
 
-
-      </div>
-    </section>
-    </div>
-    <br>
-    <br>
-  </div>
+        </div>
+      </section>
+ </div>

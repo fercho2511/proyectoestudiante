@@ -1,15 +1,15 @@
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-      <br><br>
-  <div class="content-wrapper kanban">
-    
+ <div class="content-wrapper">
+   
+   </section>
 
-    <section class="content pb-3">
-      <div class="container-fluid h-100">        
 
-        <div class="card card-row card-success">
+   <section class="content">
+       <br><br>
+     <div class="container-fluid h-70">      
+
+        <div class="card card-row card-info">
           <div class="card-header">
             <h3 class="card-title">
             Reuniones
@@ -20,41 +20,46 @@
           <!-- desde aca seria con el ciclo -->
                 <?php
                     $indice=1;
-                            //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($reuniones-> result() as $row) {
                         ?>
                         <!-- <?php echo $tipo;?>  -->
-                                <div class="card card-primary card-outline">
+                                <div class="card card-info card-outline">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?php echo $row->tipo;?></h5>
+                                     <h5 class="card-title">Descripcion:</h5> 
                                     
                                     <div class="card-tools">
                                     <a href="#" class="btn btn-tool btn-link">#<?php echo $indice;?></a>
                                     <a href="#" class="btn btn-tool">
-                                        <i class="fas fa-pen"><?php echo $row->fechaRegistro;?></i>
+                                        <i class="fas fa-calendar-alt"> <?php echo $row->fechaRegistro;?></i>
+                                        <!-- <i class="far fa-calendar-alt"></i> -->
                                     </a>
                                     </div>
                                     <br>
                                 
                                     <p><?php echo $row->descripcion;?></p>
+                                    <h6 class="card-title">Fecha: <?php echo formatearfecha($row->fechaRegistro);?></h6>
+                                    <br>
+                                    <h6 class="card-title">Hora: <?php echo formatearhora($row->hora);?></h6>
+
+                                    <!-- <p></p>
+                                    <p class="card-title">Hora: <?php echo formatearhora($row->hora);?></p>  -->
+                                 
+
                                 </div>
                                 </div>
                         <?php
                         $indice++;
                      }
-                         ?>                                            
-                    
+                         ?> 
             <!-- asta aca -->
-
-            
 
           </div>
         </div>
+        
 
 
-      </div>
-    </section>
-    </div>
-    <br>
-    <br>
-  </div>
+        </div>
+      </section>
+      <br>
+      <br>
+ </div>

@@ -33,28 +33,37 @@
                 <h3 class="card-title">Comunicados</h3>
               </div>
               <div class="card-body">
-                      <?php
-                      echo form_open_multipart('estudiante/actividades')
-                        ?>
-                        <button class="btn btn-app bg-secondary">
-                          <span class="badge bg-success">0</span>
-                          <i class="fas fa-barcode"></i> Actividades Curriculares
-                        </button>
-                      <?php
-                      echo form_close();
-                      ?>
+                <div class="btn-group-vertical" >
+
+                            <?php
+                            echo form_open_multipart('estudiante/actividades')
+                              ?>
+                              <div class="col-sm-10" >
+
+                                <button class="btn btn-app bg-secondary">
+                                  <span class="badge bg-success">0</span>
+                                  <i class="fas fa-school"></i> Actividades Curriculares
+                              </button>
+                              </div>
+
+                            <?php
+                            echo form_close();
+                            ?>
 
 
-                    <?php
-                      echo form_open_multipart('estudiante/reuniones')
-                    ?>    
-                      <button class="btn btn-app bg-success">
-                        <span class="badge bg-purple">5</span>
-                        <i class="fas fa-users"></i> Reuniones
-                      </button>
-                      <?php
-                      echo form_close();
-                      ?>
+                          <?php
+                            echo form_open_multipart('estudiante/reuniones')
+                          ?>    
+                            <div class="col-sm-11" >
+                              <button class="btn btn-app bg-success">
+                                <span class="badge bg-purple">5</span>
+                                <i class="fas fa-handshake"></i> Reuniones
+                              </button>
+                            </div>
+
+                            <?php
+                            echo form_close();
+                            ?>
 
 
                     <?php
@@ -62,7 +71,8 @@
                     ?>    
                       <button class="btn btn-app bg-danger">
                   <span class="badge bg-teal">0</span>
-                  <i class="fas fa-inbox"></i> Notificaciones
+                  <i class="fas fa-bell"></i> Notificaciones
+                  <!-- <i class="far fa-bell"></i> -->
                   </button>
                       <?php
                       echo form_close();
@@ -74,7 +84,7 @@
                     ?>    
                       <button class="btn btn-app bg-warning">
                   <span class="badge bg-info">1</span>
-                  <i class="fas fa-envelope"></i> Fechas de examen
+                  <i class="fas fa-calendar"></i> Fechas de examen
                   </button>
                       <?php
                       echo form_close();
@@ -87,11 +97,13 @@
                         ?>    
                           <button class="btn btn-app bg-info">
                       <span class="badge bg-danger">6</span>
-                      <i class="fas fa-heart"></i> Otros
+                      <i class="fas fa-grin"></i> Otros
                     </button>
                           <?php
                           echo form_close();
                           ?>
+                 </div>
+
               </div>
             </div>
             

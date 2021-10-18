@@ -71,6 +71,8 @@ class Estudiante extends CI_Controller {
           $this->load->view('inc_inicio.php');
           $this->load->view('inc_menu1.php');
           $this->load->view('usuario/estudiante/estu_actividades',$data);
+        // $this->load->view('usuario/estudiante/prueva',$data);
+
           $this->load->view('inc_fin.php');
 
     }
