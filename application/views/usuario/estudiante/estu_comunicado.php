@@ -36,8 +36,10 @@
                 <div class="btn-group-vertical" >
 
                             <?php
-                            echo form_open_multipart('estudiante/actividades')
+                            echo form_open_multipart('estudiante/actividades')                            
                               ?>
+                               <!-- <input type="hidden" name="tipo" value="Actividades Curriculares"> -->
+
                               <div class="col-sm-10" >
 
                                 <button class="btn btn-app bg-secondary">

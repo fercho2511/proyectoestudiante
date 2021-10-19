@@ -65,7 +65,8 @@ class Estudiante extends CI_Controller {
     public function actividades(){
           //cargara la list de estudiantes
           $estu=$this->session->userdata('idusuario');
-
+          $tipo='Actividades Curriculares';
+          $this->estudiante_model->vistaso($estu,$tipo);
           $lista=$this->estudiante_model->actividades($estu);
           $data['actividades']=$lista; //otro array asociativo
           $this->load->view('inc_inicio.php');
@@ -79,6 +80,8 @@ class Estudiante extends CI_Controller {
     public function reuniones(){
         //cargara la list de estudiantes
         $estu=$this->session->userdata('idusuario');
+        $tipo='Reuniones';
+        $this->estudiante_model->vistaso($estu,$tipo);
         $lista=$this->estudiante_model->reuniones($estu);
         $data['reuniones']=$lista; //otro array asociativo
         $this->load->view('inc_inicio.php');
@@ -90,6 +93,8 @@ class Estudiante extends CI_Controller {
      public function notificaciones(){
          
         $estu=$this->session->userdata('idusuario');
+        $tipo='Notificaciones';
+        $this->estudiante_model->vistaso($estu,$tipo);
         $lista=$this->estudiante_model->notificaciones($estu);
         $data['notificaciones']=$lista; //otro array asociativo
         $this->load->view('inc_inicio.php');
@@ -100,6 +105,8 @@ class Estudiante extends CI_Controller {
      }
      public function examen(){
         $estu=$this->session->userdata('idusuario');
+        $tipo='Fechas de Examen';
+        $this->estudiante_model->vistaso($estu,$tipo);
         $lista=$this->estudiante_model->fechasDeExamen($estu);
         $data['examen']=$lista; //otro array asociativo
         $this->load->view('inc_inicio.php');
@@ -111,6 +118,8 @@ class Estudiante extends CI_Controller {
      
      public function otros(){
         $estu=$this->session->userdata('idusuario');
+        $tipo='Otros';
+        $this->estudiante_model->vistaso($estu,$tipo);
         $lista=$this->estudiante_model->otros($estu);
         $data['otros']=$lista; //otro array asociativo
         $this->load->view('inc_inicio.php');
