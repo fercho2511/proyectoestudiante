@@ -54,7 +54,7 @@
                                                 <th>Nota 1 Bim.</th>
                                                 <th>Nota 2 Bim.</th>
                                                 <th>Nota 3 Bim.</th>
-                                                <th>Nota 4 Bim.</th>
+                                                <!-- <th>Nota 4 Bim.</th> -->
                                                 <!-- <th>Foto</th>
                                                 <th>Acciones</th> -->
 
@@ -76,7 +76,7 @@
                                                 
                                                     <div class="form-group">
                                                     <div class="col-sm-5">
-                                                    <input type="text" class="form-control" name='nota1' id='nota1'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" value="-1"  >
+                                                    <input type="text" class="form-control" name='nota1' id='nota1'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" required >
                                                     </div>
                                                     </div>
                                                 </td>
@@ -84,7 +84,7 @@
                                                 <td>
                                                 <div class="form-group">
                                                     <div class="col-sm-5">
-                                                    <input type="text" class="form-control" name='nota2' id='nota2'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" value="-1"   >
+                                                    <input type="text" class="form-control" name='nota2' id='nota2'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2"    >
                                                     </div>
                                                     </div>
 
@@ -93,20 +93,20 @@
                                                 <td>
                                                 <div class="form-group">
                                                     <div class="col-sm-5">
-                                                    <input type="text" class="form-control" name='nota3' id='nota3'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" value="-1"   >
+                                                    <input type="text" class="form-control" name='nota3' id='nota3'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2"    >
                                                     </div>
                                                     </div>
 
                                                 </td>
 
-                                                <td>
-                                                <div class="form-group">
+                                                <!-- <td> -->
+                                                <!-- <div class="form-group">
                                                     <div class="col-sm-5">
                                                     <input type="text" class="form-control" name='nota4' id='nota4'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="2"  maxlength="2" value="-1"   >
                                                     </div>
                                                     </div>
 
-                                                </td>
+                                                </td> -->
                                                 
 
                                                 
@@ -129,7 +129,7 @@
                                                 <th>Nota 1 Bim.</th>
                                                 <th>Nota 2 Bim.</th>
                                                 <th>Nota 3 Bim.</th>
-                                                <th>Nota 4 Bim.</th>
+                                                <!-- <th>Nota 4 Bim.</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>
