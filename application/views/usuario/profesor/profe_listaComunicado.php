@@ -45,7 +45,7 @@
                                                 <th>Descripcion</th>   
                                                 <th>Fecha</th>  
                                                 <th>Hora</th>                                           
-                                                <th>Estado</th>
+                                                <th>Destinatario</th>
                                                 <th>Acciones</th>
 
                                             </tr>
@@ -65,22 +65,15 @@
                                               
                                              
                                                 <td>
-                                                <?php
+                                                <!-- <?php
                                                     if ($row->estado==0){
                                                         echo 'Desabilitado';
                                                     }
                                                     else{
                                                         echo 'Habilitado';
                                                     }
-                                                    ?>
-                                                </td>
-                                               
-
-                                                
-                                                <td>
-                                                <div class="btn-group btn-group-justified" >
-
-                                                <?php
+                                                    ?> -->
+                                                     <?php
                                                         echo form_open_multipart('profesor/comunicadoEstudiante')
                                                     ?>
                                                     <input type="hidden" name="idComunicado" value="<?php echo $row->idComunicado;?>">
@@ -92,6 +85,14 @@
                                                         echo form_close();
                                                     ?>
 
+                                                </td>
+                                               
+
+                                                
+                                                <td>
+                                                <div class="btn-group btn-group-justified" >
+
+                                               
 
 
 
@@ -139,7 +140,7 @@
                                                 <th>Descripcion</th>  
                                                 <th>Fecha</th>  
                                                 <th>Hora</th>
-                                                <th>Estado</th>
+                                                <th>Destinatario</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot> 

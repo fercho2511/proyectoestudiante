@@ -26,27 +26,25 @@
         </div>
     
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-4" >
           
-            <div class="card">
-              <div class="card-header">
+            <div class="card" style="text-align: center">
+              <!-- <div class="card-header">
                 <h3 class="card-title">Comunicados</h3>
-              </div>
+              </div> -->
               <div class="card-body">
-                <div class="btn-group-vertical" >
 
                             <?php
                             echo form_open_multipart('estudiante/actividades')                            
                               ?>
                                <!-- <input type="hidden" name="tipo" value="Actividades Curriculares"> -->
 
-                              <div class="col-sm-10" >
 
-                                <button class="btn btn-app bg-secondary">
+                                <button class="btn btn-app bg-secondary" style='width:100px; height:80px'>
                                   <span class="badge bg-success">0</span>
                                   <i class="fas fa-school"></i> Actividades Curriculares
                               </button>
-                              </div>
+                              
 
                             <?php
                             echo form_close();
@@ -56,12 +54,10 @@
                           <?php
                             echo form_open_multipart('estudiante/reuniones')
                           ?>    
-                            <div class="col-sm-11" >
-                              <button class="btn btn-app bg-success">
+                              <button class="btn btn-app bg-success" style='width:100px; height:80px'>
                                 <span class="badge bg-purple">5</span>
                                 <i class="fas fa-handshake"></i> Reuniones
                               </button>
-                            </div>
 
                             <?php
                             echo form_close();
@@ -71,7 +67,7 @@
                     <?php
                       echo form_open_multipart('estudiante/notificaciones')
                     ?>    
-                      <button class="btn btn-app bg-danger">
+                      <button class="btn btn-app bg-danger" style='width:100px; height:80px'>
                   <span class="badge bg-teal">0</span>
                   <i class="fas fa-bell"></i> Notificaciones
                   <!-- <i class="far fa-bell"></i> -->
@@ -84,7 +80,7 @@
                     <?php
                       echo form_open_multipart('estudiante/examen')
                     ?>    
-                      <button class="btn btn-app bg-warning">
+                      <button class="btn btn-app bg-warning" style='width:100px; height:80px'>
                   <span class="badge bg-info">1</span>
                   <i class="fas fa-calendar"></i> Fechas de examen
                   </button>
@@ -97,7 +93,7 @@
                     <?php
                           echo form_open_multipart('estudiante/otros')
                         ?>    
-                          <button class="btn btn-app bg-info">
+                          <button class="btn btn-app bg-info" style='width:100px; height:80px'>
                       <span class="badge bg-danger">6</span>
                       <i class="fas fa-grin"></i> Otros
                     </button>
