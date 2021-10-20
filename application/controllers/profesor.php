@@ -61,8 +61,12 @@ class Profesor extends CI_Controller {
     public function profeEstudiante()
      
 	{
-        //cargara la list de profesores
+        // cargar la info del curso que asignado el profe
         $profe=$this->session->userdata('idusuario');
+        $lista2=$this->profesor_model->getCusoProfesor($profe);
+        $data['cursoProfe']=$lista2;
+
+        // $profe=$this->session->userdata('idusuario');
         $lista=$this->profesor_model->listaEstudiantePorProfesor($profe);
         $data['estudiante']=$lista; //otro array asociativo        
 
@@ -75,6 +79,11 @@ class Profesor extends CI_Controller {
 	} 
     public function profeMateria()
 	{
+
+        $profe=$this->session->userdata('idusuario');
+        $lista2=$this->profesor_model->getCusoProfesor($profe);
+        $data['cursoProfe']=$lista2;
+
         //cargara la list de profesores
         $lista=$this->profesor_model->lista();
         $data['profesor']=$lista; //otro array asociativo
@@ -100,6 +109,11 @@ class Profesor extends CI_Controller {
         // $data['estudiante']=$lista;
         // $data['idUsuario']= $this->session->userdata('idusuario');;
         // $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+        $profe=$this->session->userdata('idusuario');
+        $lista2=$this->profesor_model->getCusoProfesor($profe);
+        $data['cursoProfe']=$lista2;
+
+
         $lista=$this->profesor_model->listaComunicado($this->session->userdata('idusuario'));
         $data['comunicado']=$lista;
 
@@ -674,6 +688,10 @@ class Profesor extends CI_Controller {
 
 
     public function comunicadoEstudiante(){
+
+        $profe=$this->session->userdata('idusuario');
+        $lista2=$this->profesor_model->getCusoProfesor($profe);
+        $data['cursoProfe']=$lista2;
 
         $com=$_POST['idComunicado'];
         $lista=$this->profesor_model->obtenerComunicadoEstudiante($com);

@@ -1,3 +1,48 @@
+
+ <?php
+                    foreach ($cursoProfe-> result() as $row) {
+                        $idCurso =  $row->idCurso;
+                        $curso =  $row->curso; 
+                        $idParalelo= $row->idParalelo;                 
+                         if ($row->idParalelo==1){
+                            $seccion = 'A';
+                          }
+                           else{
+                              if ($row->idParalelo==2) {
+                                $seccion = 'B';
+                                 }
+                                 else{
+                                    if ($row->idParalelo==3) {
+                                        $seccion = 'C';
+                                     }
+                                       else{
+                                         if ($row->idParalelo==4) {
+                                            $seccion = 'D';
+                                           }
+                                             else{
+                                                $seccion = 'E';
+                                              }
+                                                                
+                                        }
+
+                                   }
+                                                        
+                           }
+                                                    
+                        $tutor =  $row->profesor;                        
+                    }
+                    ?>
+
+<?php 
+
+$idCur =$idCurso;
+$cur=$curso;
+$idPar=$idParalelo;
+$secc=$seccion;
+$tut=$tutor;            
+?>
+
+
 <br><br>
 <div class="content-wrapper">
             <section class="content-header">
@@ -28,10 +73,9 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
+                            <div class="card-header">
                                   <br>
-                                  <?php
-                                ?>
+                                 <H2>Curso: <?php echo $cur?> '<?php echo $secc ?>'</p></H2>
                                 </div>
                                    
                                
@@ -156,5 +200,6 @@
                 </div>
                 <!-- /.container-fluid -->
             </section>
+            <br><br>
             <!-- /.content -->
         </div>

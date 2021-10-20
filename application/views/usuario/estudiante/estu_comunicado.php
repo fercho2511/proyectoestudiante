@@ -55,7 +55,7 @@
                             echo form_open_multipart('estudiante/reuniones')
                           ?>    
                               <button class="btn btn-app bg-success" style='width:100px; height:80px'>
-                                <span class="badge bg-purple">5</span>
+                                <span class="badge bg-purple">nuevo</span>
                                 <i class="fas fa-handshake"></i> Reuniones
                               </button>
 
@@ -81,7 +81,7 @@
                       echo form_open_multipart('estudiante/examen')
                     ?>    
                       <button class="btn btn-app bg-warning" style='width:100px; height:80px'>
-                  <span class="badge bg-info">1</span>
+                  <span class="badge bg-info">0</span>
                   <i class="fas fa-calendar"></i> Fechas de examen
                   </button>
                       <?php
@@ -94,7 +94,7 @@
                           echo form_open_multipart('estudiante/otros')
                         ?>    
                           <button class="btn btn-app bg-info" style='width:100px; height:80px'>
-                      <span class="badge bg-danger">6</span>
+                      <span class="badge bg-danger">0</span>
                       <i class="fas fa-grin"></i> Otros
                     </button>
                           <?php

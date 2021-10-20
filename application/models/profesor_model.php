@@ -254,6 +254,19 @@ class Profesor_model extends CI_Model {
 
         }
 
+        public function getCusoProfesor($profe){
+
+                $query=" SELECT curso.* 
+                FROM curso 
+                INNER JOIN profesor_aula  ON profesor_aula.idCurso = curso.idCurso
+                INNER JOIN gestion  ON gestion.idGestion = profesor_aula.idGestion
+                WHERE profesor_aula.idProfesor = '$profe' and YEAR(gestion.gestion) = YEAR(CURDATE())";
+                   $resultados = $this->db->query($query);
+                   return $resultados;
+
+                
+        }
+
 
         
 
