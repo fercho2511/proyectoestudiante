@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -309,7 +310,7 @@ class Gestion_model extends CI_Model {
          }
          public function obtenerProfesorAula($curso,$gestion){
                
-
+                //aca seria el detalle de la falla en el modulo gestion  
                 $query="SELECT usuario.*, profesor_aula.idProfesor_aula FROM usuario
                          inner join profesor_aula on profesor_aula.idProfesor = usuario.idUsuario
                         where profesor_aula.idCurso =$curso and profesor_aula.idGestion = $gestion ";

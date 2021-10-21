@@ -244,7 +244,9 @@ class Gestion extends CI_Controller {
     public function cursoCreado2(){
         //  $valor-recuperado = $this->session->flashdata('tu-variable'); 
       //   $this->session->set_userdata('referred_from', current_url());
+        $this->load->library('session');
           $idGestion=$this->session->flashdata('idGestion');
+          $idGEs=$this->session->flashdata('idGestion');
           $idCurso=$this->session->flashdata('idCurso');
           $data['arrProfesores'] = $this->gestion_model->listaProfes($idGestion);
 
@@ -252,13 +254,38 @@ class Gestion extends CI_Controller {
           $data['estudiante']=$lista; //otro array asociativo
 
           $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
-          $data['profesor']=$this->gestion_model->listaProfe($idGestion);
+          $data['profesor']=$this->gestion_model->listaProfe($idGEs);
           $data['materia']=$this->gestion_model->listaMateria($idGestion);
           $data['materia']=$this->gestion_model->listaMateria($idGestion);
           // $idCurso=$_POST['idCurso'];
           $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
           
           $data['profe_aula']=$this->gestion_model->obtenerProfesorAula($idCurso,$idGestion);
+          $this->load->view('inc_inicio.php');
+          $this->load->view('inc_menu2.php');
+          $this->load->view('gestion/curso_creado',$data);
+          $this->load->view('inc_fin.php');
+  
+      }
+
+      public function cursoCreado3(){
+        //  $valor-recuperado = $this->session->flashdata('tu-variable'); 
+      //   $this->session->set_userdata('referred_from', current_url());
+          $Gestion=$this->session->flashdata('idGes');
+          $Curso=$this->session->flashdata('idCur');
+          $data['arrProfesores'] = $this->gestion_model->listaProfes($Gestion);
+
+          $lista=$this->gestion_model->listaEstudiantes($Gestion,$Curso); //
+          $data['estudiante']=$lista; //otro array asociativo
+
+          $data['gestionn']=$this->gestion_model->obtenerGestion($Gestion);
+          $data['profesor']=$this->gestion_model->listaProfe($Gestion);
+          $data['materia']=$this->gestion_model->listaMateria($Gestion);
+          $data['materia']=$this->gestion_model->listaMateria($Gestion);
+          // $idCurso=$_POST['idCurso'];
+          $data['infocurso']=$this->curso_model->obtenerCurso($Curso);
+          
+          $data['profe_aula']=$this->gestion_model->obtenerProfesorAula($Curso,$Gestion);
           $this->load->view('inc_inicio.php');
           $this->load->view('inc_menu2.php');
           $this->load->view('gestion/curso_creado',$data);
@@ -353,15 +380,20 @@ class Gestion extends CI_Controller {
     }
 
     public function eliminarEst(){
+
+        // $this->load->library('session');
         $idUsuario=$_POST['idUsuario']; 
-        $idGestion=$_POST['idGestion']; 
-        $idCurso=$_POST['idCurso'];
+        $idGe=$_POST['idGestion']; 
+        $idCu=$_POST['idCurso'];
        //$this->session->set_flashdata('tu-variable', 'valor de tu-variable');
 
-         $this->gestion_model->eliminarInscripcion($idUsuario,$idGestion);
-         $this->session->set_flashdata('idGestion', $idGestion);
-         $this->session->set_flashdata('idCurso', $idCurso);
-        redirect('gestion/cursoCreado2','refresh');
+         $this->gestion_model->eliminarInscripcion($idUsuario,$idGe );
+         $this->session->set_flashdata('idGes', $idGe);
+         $this->session->set_flashdata('idCur', $idCu);
+         echo '<script>
+         alert("Estudiante Removido del curso");
+         </script>';
+          redirect('gestion/cursoCreado3','refresh');
 
 
 

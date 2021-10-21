@@ -296,7 +296,7 @@ $gest= $gestion;
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <input type="hidden" name="idGestion" value="<?php echo $idGes;?>">
-
+                                                    <input type="hidden" name="idCurso" value="<?php echo $idCur;?>">
                                                     <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
                                                     <span class="fas fa-trash-alt"></span>
 
