@@ -140,22 +140,35 @@
                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                         <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
 
-                <div class="card-body">
+                  <div class="card-body" id="passs">
                   <div class="form-group row">
                     <label>Loguin: <?php echo $var;?> </label>
+                  </div>
+
+                  <!-- mensaje de verificacion -->
+                  <!-- <div id="msg"></div>
+                    
+                     Mensajes de Verificación
+                    <div id="error" class="alert alert-danger ocultar" role="alert">
+                        Las Contraseñas no coinciden, vuelve a intentar !
                     </div>
+                    <div id="ok" class="alert alert-success ocultar" role="alert">
+                        Las Contraseñas coinciden ! (Procesando formulario ... )
+                    </div>-->
+
+                    <label id="poo"></label><br> 
                     
                   
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Password antiguo:</label>
+                    <label for="inputEmail3" class="col-sm-5 col-form-label">Password nuevo:</label>
                     <div class="col-sm-5">
-                      <input type="password" class="form-control" name="password"  placeholder="Contraseña Anterior">
+                      <input type="password" class="form-control" name="password" id="password1"  placeholder="Password nuevo" required minlength="8"  maxlength="20">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-4 col-form-label">Password Nuevo:</label>
+                    <label for="inputPassword3" class="col-sm-5 col-form-label">Confirmar Password Nuevo:</label>
                     <div class="col-sm-5">
-                      <input type="password" class="form-control" name='password2' placeholder="Nueva Contraseña" required>
+                      <input type="password" id="password2"  class="form-control" name='password2' placeholder="Confirmar Password nuevo" required minlength="8"  maxlength="20">
                     </div>
                   </div>
                   
@@ -163,7 +176,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                       
-                  <button type="submit" class="btn btn-info" title="Guardar Cambios" >
+                  <button type="submit" class="btn btn-outline-info" title="Guardar Cambios" id="boton3"  >
                   <span class="far fa-save"> GUARDAR CAMBIOS</span>
 
                   </button>
@@ -180,67 +193,14 @@
               
             </div> 
 
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">CAMBIE CONTRASEÑA</h3>
-              </div>
-            
-              <main>
-
-                <form method="post"  action="<?php echo base_url(); ?>index.php/usuario_per/modificarLoguinAdmin" class="formulario" id="formulario" >
-                <!-- action="<?= site_url('usuario_per/modificarLoguinAdmin') ?>" -->
-                  <!-- Grupo: Contraseña -->
-                  <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                   <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>">
-
-                  <div class="formulario__grupo" id="grupo__password">
-                    <label for="password" class="formulario__label">Contraseña</label>
-                    <div class="card card-info-input">
-                      <input type="password" class="formulario__input" name="password" id="password">
-                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
-                  </div>
-
-                  <!-- Grupo: Contraseña 2 -->
-                  <div class="form-group row" id="grupo__password2">
-                    <label for="password2" class="formulario__label">Repetir Contraseña</label>
-                    <div class="card card-info-input">
-                      <input type="password" class="formulario__input " name="password2" id="password2">
-                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
-                  </div>
-
-                  <div class="formulario__mensaje" id="formulario__mensaje">
-                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
-                  </div>
-
-                  <!-- <div class="formulario__grupo formulario__grupo-btn-enviar">
-                    <button type="submit" class="formulario__btn">Enviar</button>
-                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
-                  </div> -->
-
-                  <div class="card-footer">
-                              <button type="submit" class="btn btn-info" title="Guardar Cambios" >
-                              <span class="far fa-save"> GUARDAR CAMBIOS</span>
-                              <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
-                              </button>
-
-                            
-
-                  </div>
-                </form>
-                </main>
-                <button class="btn btn-info " type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
-                              <span class="far fa-window-close"> CANCELAR</span>
-                              </button>
-            </div>
+           
         <!-- /.row -->
       </div><!-- /.container-fluid -->
+      
     </section>
+    <br>
+            <br>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <br>
-            <br>
+  

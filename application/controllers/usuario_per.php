@@ -104,41 +104,52 @@ class Usuario_per extends CI_Controller {
     }
     public function modificarLoguinAdmin()
     {
-       
-        $data['password']=md5($_POST['password']);
-        $idUsuario=$_POST['idUsuario'];        
-        $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
-
+        try {            //code...
         
-
-        $config=array(
-            array(
-                'field'=>'password',
-                'label' =>'password',
-                'rules' =>'is_unique[usuario.password]',
-                'errors'=> array(
-                        'is_unique' =>'La %s. ya fue registrado',
-                ),
-
-            ),
-        );
-        $this->form_validation->set_rules($config);
-
-        if ($this->form_validation->run()==FALSE) {
-            echo '<script>
-               alert("Password ya Registrado");
-               </script>'; 
-                 redirect('gestion/cursoCreado', 'refresh');
        
-        }
-        else {
-            $this->usuarioper_model->modificarUsuario($idUsuario,$data);
-            echo '<script>
-            alert("Modificacion Satisfactoria");
-            </script>';
+            $this->load->library(array('form_validation'));
 
-            redirect('usuario_per/test','refresh');
-   
+            $this->load->helper('form');
+            $data['password']=md5($_POST['password']);
+            $idUsuario=$_POST['idUsuario'];        
+            $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+
+            
+
+            $config=array(
+                array(
+                    'field'=>'password',
+                    'label' =>'password',
+                    'rules' =>'is_unique[usuario.password]',
+                    'errors'=> array(
+                            'is_unique' =>'La %s. ya fue registrado',
+                    ),
+
+                ),
+            );
+            $this->form_validation->set_rules($config);
+
+            if ($this->form_validation->run()==FALSE) {
+                echo '<script>
+                alert("Password ya Registrado");
+                </script>'; 
+                    redirect('gestion/cursoCreado', 'refresh');
+        
+            }
+            else {
+                $this->usuarioper_model->modificarUsuario($idUsuario,$data);
+                echo '<script>
+                alert("Modificacion Satisfactoria");
+                </script>';
+
+                redirect('usuario_per/test','refresh');
+    
+            }
+        } catch (\Throwable $th) {
+            echo '<script>
+                alert("Password ya Registrado");
+                </script>'; 
+                    redirect('gestion/cursoCreado', 'refresh');
         }
 
     }
