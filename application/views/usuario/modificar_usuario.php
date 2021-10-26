@@ -160,13 +160,14 @@
                     
                   
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Password nuevo:</label>
+                    <label  class="col-sm-5 col-form-label">Password nuevo:</label>
                     <div class="col-sm-5">
-                      <input type="password" class="form-control" name="password" id="password1"  placeholder="Password nuevo" required minlength="8"  maxlength="20" is_unique:[usuario.password]>
+                      <input type="password" class="form-control" name="password" id="password1"  placeholder="Password nuevo" required minlength="8"  maxlength="20" 
+                      >
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-5 col-form-label">Confirmar Password Nuevo:</label>
+                    <label  class="col-sm-5 col-form-label">Confirmar Password Nuevo:</label>
                     <div class="col-sm-5">
                       <input type="password" id="password2"  class="form-control" name='password2' placeholder="Confirmar Password nuevo" required minlength="8"  maxlength="20">
                     </div>

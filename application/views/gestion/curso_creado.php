@@ -68,18 +68,18 @@ $gest= $gestion;
                    
 
                         <div class="col-sm-8">
-                            <h1> Gestion: <?php echo $gest;?></h1>
-                            <h1> Curso: <?php echo $cur;?><?php echo $secc;?></h1>
+                            <!-- <h1> Gestion: <?php echo $gest;?></h1> -->
 
-                            <h1><a href="<?php echo base_url(); ?>index.php/gestion/listaCursos">Gestion: <?php echo $gest;?></a></h1>
-                            <h1><a href="<?php echo base_url(); ?>index.php/gestion/cursoCreado">Curso <?php echo $cur;?><?php echo $secc;?></a></h1>
+                            <h1><a href="<?php echo base_url(); ?>index.php/gestion/listaCursos2?idGestion=<?php echo $idGes ?>" style="font-size:25px" title="Regresar a la gestion">Gestion: <?php echo $gest;?></a></h1>
+                            <!-- <h1><a href="<?php echo base_url(); ?>index.php/gestion/cursoCreado">Curso <?php echo $cur;?><?php echo $secc;?></a></h1> -->
+                            <h1> Curso: <?php echo $cur;?><?php echo $secc;?></h1>
 
                             <!-- <h1>Prof. de Aula: <?php echo $tut;?></h1> -->
                            
                            
                         </div>
                         <br>
-                        <br>
+                        <br><br>
                         
                        
                        

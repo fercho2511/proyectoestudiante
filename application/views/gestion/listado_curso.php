@@ -57,7 +57,7 @@ $gest=$gestion
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
                                                 <th>Paralelo</th>
-                                                <th>Profesor Asigando</th>  
+                                                <!-- <th>Profesor Asigando</th>   -->
                                                 <th>Estado</th>
                                                 <th>Acceso</th>
                                                 <!-- <th>Asignar Profesor</th> -->
@@ -101,10 +101,10 @@ $gest=$gestion
                                                     }
                                                     ?>
                                                 </td>
-                                                <td>
+                                                <!-- <td> -->
                                                     <!-- <?php echo $row->profesor;?> -->
                                                     
-                                                </td>                                               
+                                                <!-- </td>                                                -->
                                                 <td>
                                                 <?php
                                                     if ($row->estado==0){
@@ -155,7 +155,7 @@ $gest=$gestion
                                                 <th>N°</th>
                                                 <th>Curso</th>                                               
                                                 <th>Paralelo</th>
-                                                <th>Profesor Asigando</th>  
+                                                <!-- <th>Profesor Asigando</th>   -->
                                                 <th>Estado</th>
                                                 <th>Acceso</th>
                                                 <!-- <th>Asignar Profesor</th> -->

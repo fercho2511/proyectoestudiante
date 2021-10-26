@@ -2,12 +2,40 @@
             foreach ($infocurso-> result() as $row) {
             $idCurso =  $row->idCurso;
             $curso =  $row->curso;
+
+                $idParalelo= $row->idParalelo;                 
+                            if ($row->idParalelo==1){
+                                $secc = 'A';
+                            }
+                            else{
+                                if ($row->idParalelo==2) {
+                                    $secc = 'B';
+                                    }
+                                    else{
+                                        if ($row->idParalelo==3) {
+                                            $secc = 'C';
+                                        }
+                                        else{
+                                            if ($row->idParalelo==4) {
+                                                $secc = 'D';
+                                            }
+                                                else{
+                                                    $secc = 'E';
+                                                }
+                                                                    
+                                            }
+
+                                    }
+                                                            
+                            }
             $seccion =  $row->idParalelo;
             $tutor =  $row->profesor;                        
             }
 ?>
 
 <?php
+$cur=$curso;
+$secci=$secc;
 $para=$seccion;
 $idCur= $idCurso;
 ?>
@@ -37,7 +65,9 @@ $gest=$gestion;
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Estudiantes Registrados</h1>
+                        <h1  ><a href="<?php echo base_url(); ?>index.php/gestion/cursoCreado4?idGestion=<?php echo $idGest ?>&idCurso=<?php echo $idCur ?>" title="Regresar al curso" style="font-size:25px" >Curso <?php echo $cur; ?><?php echo $secci;?></a></h1>
+
+                            <h1>Asignar estudiantes al Curso</h1>
                            
                         </div>
                         <!-- <div class="col-sm-3">
@@ -189,5 +219,6 @@ $gest=$gestion;
                 </div>
                 <!-- /.container-fluid -->
             </section>
+            <br><br>
             <!-- /.content -->
         </div>

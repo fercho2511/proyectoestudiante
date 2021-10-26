@@ -189,14 +189,38 @@ class Gestion extends CI_Controller {
 
         // $lista=$this->gestion_model->listaCuso($idGestion);
         // $data['curso']=$lista; //otro array asociativo
+        // $idGestion=$_GET['idGestion'];
+
 
          $idGestion=$_POST['idGestion'];
         // $data['curso']=$this->gestion_model->listaCuso($idGestion);
         $data['arrProfesores'] = $this->gestion_model->listaProfes($idGestion);
         $lista=$this->gestion_model->listaCurso();
         $data['curso']=$lista;
-        
+
         $idGestion=$_POST['idGestion'];
+        $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+		$this->load->view('gestion/listado_curso',$data);
+		$this->load->view('inc_fin.php');
+
+
+     }
+     public function listaCursos2 (){
+
+        // $lista=$this->gestion_model->listaCuso($idGestion);
+        // $data['curso']=$lista; //otro array asociativo
+        $idGestion = $this->input->get('idGestion', true);
+
+        // $idGestion=$_GET['idGestion'];
+
+
+        // $data['curso']=$this->gestion_model->listaCuso($idGestion);
+        $data['arrProfesores'] = $this->gestion_model->listaProfes($idGestion);
+        $lista=$this->gestion_model->listaCurso();
+        $data['curso']=$lista;
+        
         $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
 		$this->load->view('inc_inicio.php');
         $this->load->view('inc_menu2.php');
@@ -286,6 +310,33 @@ class Gestion extends CI_Controller {
           $data['infocurso']=$this->curso_model->obtenerCurso($Curso);
           
           $data['profe_aula']=$this->gestion_model->obtenerProfesorAula($Curso,$Gestion);
+          $this->load->view('inc_inicio.php');
+          $this->load->view('inc_menu2.php');
+          $this->load->view('gestion/curso_creado',$data);
+          $this->load->view('inc_fin.php');
+  
+      }
+      public function cursoCreado4(){
+        //  $valor-recuperado = $this->session->flashdata('tu-variable'); 
+      //   $this->session->set_userdata('referred_from', current_url());
+      $idGestion = $this->input->get('idGestion', true);
+      $idCurso = $this->input->get('idCurso', true);
+
+
+  
+        //   $idGestion=$_POST['idGestion'];
+        //   $idCurso=$_POST['idCurso'];
+          $data['arrProfesores'] = $this->gestion_model->listaProfes($idGestion);
+  
+          $lista=$this->gestion_model->listaEstudiantes($idGestion,$idCurso); //
+          $data['estudiante']=$lista; //otro array asociativo
+          $data['gestionn']=$this->gestion_model->obtenerGestion($idGestion);
+          $data['profesor']=$this->gestion_model->listaProfe($idGestion);
+          $data['materia']=$this->gestion_model->listaMateria($idGestion);
+          $data['materia']=$this->gestion_model->listaMateria($idGestion);
+          // $idCurso=$_POST['idCurso'];
+          $data['infocurso']=$this->curso_model->obtenerCurso($idCurso);
+          $data['profe_aula']=$this->gestion_model->obtenerProfesorAula($idCurso,$idGestion);
           $this->load->view('inc_inicio.php');
           $this->load->view('inc_menu2.php');
           $this->load->view('gestion/curso_creado',$data);
