@@ -51,6 +51,48 @@ class Estudiante extends CI_Controller {
 	}
     public function estuComunicado()
 	{
+        $estu=$this->session->userdata('idusuario');
+        $tipo1='Actividades Curriculares';
+        $tipo2='Notificaciones';
+        $tipo3='Reuniones';
+        $tipo4='Fechas de Examen';
+        $tipo5='Otros';
+
+        if ($this->estudiante_model->vistasComunicado($estu,$tipo1)) {
+            $ac = 'nuevo';
+        }
+        else{
+            $ac = ' ';
+        }
+        if ($this->estudiante_model->vistasComunicado($estu,$tipo2)) {
+            $not = 'nuevo';
+        }
+        else{
+            $not = ' ';
+        }
+        if ($this->estudiante_model->vistasComunicado($estu,$tipo3)) {
+            $reu = 'nuevo';
+        }
+        else{
+            $reu = ' ';
+        }
+        if ($this->estudiante_model->vistasComunicado($estu,$tipo4)) {
+            $exa = 'nuevo';
+        }
+        else{
+            $exa = ' ';
+        }
+        if ($this->estudiante_model->vistasComunicado($estu,$tipo5)) {
+            $otro = 'nuevo';
+        }
+        else{
+            $otro = ' ';
+        }
+        $data['actividad']= $ac;
+        $data['notificacion']= $not;
+        $data['reunion']= $reu;
+        $data['examen']= $exa;
+        $data['otro']= $otro;
         //cargara la list de estudiantes
         $lista=$this->estudiante_model->lista();
         $data['estudiante']=$lista; //otro array asociativo
@@ -61,6 +103,16 @@ class Estudiante extends CI_Controller {
 
 
 	}
+
+    public function provando(){
+        $estu=$this->session->userdata('idusuario');
+        if ($this->estudiante_model->vistasComunicado($estu)) {
+            return 'nuevo';
+        }
+        else{
+            return '0';
+        }
+    }
 
     public function actividades(){
           //cargara la list de estudiantes

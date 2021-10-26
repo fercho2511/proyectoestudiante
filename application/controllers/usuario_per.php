@@ -39,6 +39,18 @@ class Usuario_per extends CI_Controller {
 		$this->load->view('inc_fin.php');
     }
 
+    public function modificar2()
+    {
+        $idUsuario = $this->session->flashdata('idUsuario');
+
+        // $idUsuario=$_POST['idUsuario'];
+        $data['infousuario']=$this->usuarioper_model->obtenerUsuario($idUsuario);
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+		$this->load->view('usuario/modificar_usuario',$data);
+		$this->load->view('inc_fin.php');
+    }
+
 
     public function modificarUsu()
     {
@@ -79,7 +91,8 @@ class Usuario_per extends CI_Controller {
 
     public function modificarUsu2()
     {
-       
+        $idUsuario=$this->session->flashdata('idUsuario');
+
 
         $idUsuario=$_POST['idUsuario'];
         $data['profesor']=$this->usuarioper_model->obtenerUsuario($idUsuario);
@@ -102,57 +115,101 @@ class Usuario_per extends CI_Controller {
 
         redirect('estudiante/estudiante/test','refresh');
     }
-    public function modificarLoguinAdmin()
-    {
-        try {            //code...
+    // public function modificarLoguinAdmin()
+    // {
+    //     try {            //code...
         
        
-            $this->load->library(array('form_validation'));
+    //         $this->load->library(array('form_validation'));
+    //         $this->load->helper('form');
 
-            $this->load->helper('form');
-            $data['password']=md5($_POST['password']);
-            $idUsuario=$_POST['idUsuario'];        
-            $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+    //         $data['password']=md5($_POST['password']);
+    //         $idUsuario=$_POST['idUsuario'];        
+    //         $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
 
             
 
-            $config=array(
-                array(
-                    'field'=>'password',
-                    'label' =>'password',
-                    'rules' =>'is_unique[usuario.password]',
-                    'errors'=> array(
-                            'is_unique' =>'La %s. ya fue registrado',
-                    ),
+    //         $config=array(
+    //             array(
+    //                 'field'=>'password',
+    //                 'label' =>'password',
+    //                 'rules' =>'is_unique[usuario.password]',                    
+    //                 'errors'=> array(
+    //                         'is_unique' =>'La %s. ya fue registrado',
+    //                 ),
 
-                ),
-            );
-            $this->form_validation->set_rules($config);
+    //             ),
+    //         );
+    //         $this->form_validation->set_rules($config);
 
-            if ($this->form_validation->run()==FALSE) {
+    //         if ($this->form_validation->run()==FALSE) {
+    //             echo '<script>
+    //             alert("Password ya Registrado");
+    //             </script>'; 
+    //             redirect($_SERVER['HTTP_REFERER']);
+        
+    //         }
+    //         else {
+    //             $this->usuarioper_model->modificarUsuario($idUsuario,$data);
+    //             echo '<script>
+    //             alert("Modificacion Satisfactoria");
+    //             </script>';
+
+    //             redirect('usuario_per/test','refresh');
+    
+    //         }
+    //     } catch (\Throwable $th) {
+    //         echo '<script>
+    //             alert("Password ya Registrado");
+    //             </script>'; 
+    //                 redirect('gestion/cursoCreado', 'refresh');
+    //     }      
+
+       
+       
+
+    // }
+    public function modificarLoguinAdmin()
+    {
+        try {           
+        
+       
+            $data['password']=md5($_POST['password']);
+            $idUsuario=$_POST['idUsuario'];        
+            $data['idUsuario_Acciones'] =$_POST['idUsuario_Acciones'];
+            $cod=md5($_POST['password']);
+            if ($this->usuarioper_model->existencia($cod)) {
+
                 echo '<script>
                 alert("Password ya Registrado");
                 </script>'; 
-                    redirect('gestion/cursoCreado', 'refresh');
-        
+                $this->session->set_flashdata('idUsuario', $idUsuario);
+                redirect('usuario_per/modificar2','refresh');
             }
-            else {
+            else{
+                
                 $this->usuarioper_model->modificarUsuario($idUsuario,$data);
                 echo '<script>
                 alert("Modificacion Satisfactoria");
                 </script>';
 
                 redirect('usuario_per/test','refresh');
-    
             }
+
+            
         } catch (\Throwable $th) {
             echo '<script>
                 alert("Password ya Registrado");
                 </script>'; 
-                    redirect('gestion/cursoCreado', 'refresh');
-        }
+                    redirect('usuario_per/test', 'refresh');
+        }      
+
+       
+       
 
     }
+    
+
     
 
     
@@ -244,37 +301,6 @@ class Usuario_per extends CI_Controller {
        
             }
 
-
-
-
-
-        // asta aca
-         
-         
-         
-
-    //      //para validar el carnet
-         
-    //    $val=$this->usuarioper_model->validarCarnet($ci);  
-       
-    //             switch ($val) {
-    //                 case '1':
-    //                     $error_message = "El usuario ya existe.";
-    //                     echo $error_message;
-    //                      redirect('usuario_per/agregar');
-    //                     break;
-    //                 case '0':
-    //                     $this->usuarioper_model->agregarUsuario($data);
-    //                     redirect('usuario_per/test','refresh');
-    //                     // redirect('profesor/test1','refresh');
-    //                     break;
-                                    
-                
-    //             //si hay entonces redireccionar                
-    //             //PARA LOS ROLES            
-
-             
-    //          }
 
 
 

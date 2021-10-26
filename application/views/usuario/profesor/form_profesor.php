@@ -151,7 +151,7 @@
                                 <div class="form-group row">
                                   <label for="inputPassword3" class="col-sm-4 col-form-label">Password Nuevo:</label>
                                   <div class="col-sm-5">
-                                    <input type="password" class="form-control" name='password1' id='password1_1' placeholder="Nueva Contraseña" required minlength="8"  maxlength="20">
+                                    <input type="password" class="form-control" name='password' id='password1_1' placeholder="Nueva Contraseña" required minlength="8"  maxlength="20">
                                   </div>
                                 </div>
                                 <div class="form-group row">

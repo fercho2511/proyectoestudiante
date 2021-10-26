@@ -162,7 +162,7 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-5 col-form-label">Password nuevo:</label>
                     <div class="col-sm-5">
-                      <input type="password" class="form-control" name="password" id="password1"  placeholder="Password nuevo" required minlength="8"  maxlength="20">
+                      <input type="password" class="form-control" name="password" id="password1"  placeholder="Password nuevo" required minlength="8"  maxlength="20" is_unique:[usuario.password]>
                     </div>
                   </div>
                   <div class="form-group row">

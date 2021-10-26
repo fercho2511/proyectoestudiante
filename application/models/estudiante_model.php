@@ -70,6 +70,31 @@ class Estudiante_model extends CI_Model {
                 return $resultados;
         }
 
+        public function vistasComunicado($estu,$tipo){
+                // SELECT C.idcomunicado ,CI.estado_vista_comunicado
+                // FROM comunicado C
+                // INNER JOIN comunicado_inscrito CI ON CI.idComunicado = C.idComunicado
+                // INNER JOIN inscrito I ON I.idInscrito = CI.idInscrito
+                // INNER JOIN gestion  G ON G.idGestion = I.idGestion
+                // where I.idEstudiante = 19 and C.tipo = 'Reuniones' and YEAR(G.gestion) = YEAR(CURDATE()) and C.estado = '1' and CI.estado_vista_comunicado = '0'
+       
+       
+                $result=" SELECT comunicado.idcomunicado ,comunicado_inscrito.estado_vista_comunicado
+                        FROM comunicado 
+                        INNER JOIN comunicado_inscrito  ON comunicado_inscrito.idComunicado = comunicado.idComunicado
+                        INNER JOIN inscrito  ON inscrito.idInscrito = comunicado_inscrito.idInscrito
+                        INNER JOIN gestion  ON gestion.idGestion = inscrito.idGestion
+                        where inscrito.idEstudiante = $estu and comunicado.tipo = '$tipo' and YEAR(gestion.gestion) = YEAR(CURDATE()) and comunicado.estado = '1' and comunicado_inscrito.estado_vista_comunicado = '0' ";
+
+                        $query = $this->db->query($result);
+                        if ($query->num_rows() > 0) {
+                                return true;
+                        }else {
+                                return false; 
+
+                        }
+         }
+
         public function notificaciones($estu){
 
                 $query=" SELECT comunicado.* 

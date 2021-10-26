@@ -179,6 +179,19 @@ class Profesor extends CI_Controller {
 		$this->load->view('usuario/profesor/form_profesor',$data);
 		$this->load->view('inc_fin.php');
     }
+    public function modificar3()
+    {
+        $idUsuario = $this->session->flashdata('idUsuario');
+
+        // $idUsuario=$_POST['idUsuario'];
+        $data['profesor']=$this->profesor_model->obtenerProfesor($idUsuario);
+        $lista=$this->profesor_model->lista();
+        $data['profesor']=$lista; 
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/form_profesor',$data);
+		$this->load->view('inc_fin.php');
+    }
 
 
     //aca llegara toda la informacion de la vista modificar
@@ -342,17 +355,38 @@ class Profesor extends CI_Controller {
 
      public function modificarLoguin1()
      {
+         try {           
         
-         $idUsuario=$_POST['idUsuario'];
-         //$data['login']=$_POST['login'];
-         $data['passwordAnt']=md5($_POST['passwordAnt']);
-         $data['password1']=md5($_POST['password1']);
-         $data['password']=md5($_POST['password']);
        
- 
-         $this->usuarioper_model->modificarUsuario($idUsuario,$data);
- 
-         redirect('usuario/profesor/test','refresh');
+            $data['password']=md5($_POST['password']);
+            $idUsuario=$_POST['idUsuario'];        
+            $data['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+            $cod=md5($_POST['password']);
+            if ($this->usuarioper_model->existencia($cod)) {
+
+                echo '<script>
+                alert("Password ya Registrado");
+                </script>'; 
+                $this->session->set_flashdata('idUsuario', $idUsuario);
+                redirect('profesor/modificar3','refresh');
+            }
+            else{
+                
+                $this->usuarioper_model->modificarUsuario($idUsuario,$data);
+                echo '<script>
+                alert("Modificacion Satisfactoria");
+                </script>';
+                redirect('profesor/profeEstudiante','refresh');
+            }
+
+            
+        } catch (\Throwable $th) {
+            echo '<script>
+                alert("Vuelva a intentarlo");
+                </script>'; 
+                redirect('profesor/modificar3','refresh');
+        }      
+
      }
 
 

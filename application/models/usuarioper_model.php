@@ -104,5 +104,23 @@ class Usuarioper_model extends CI_Model {
 
 
 
+        public function existencia($dato){
+
+                $this->db->select('idUsuario');
+                $this->db->from('usuario');
+                $this->db->where('password',$dato);
+
+                $query = $this->db->get();
+                if ($query->num_rows() > 0) {
+                        return true;
+                }
+                else{
+                        return false;
+                }
+
+        }
+
+
+
 	
 }

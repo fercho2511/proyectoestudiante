@@ -133,9 +133,9 @@
                                                                                 </tr>
                                                                             </tfoot>
                                                                 </table>
-                                                                
-                                                                  <div >Ids seleccionados en matriz <span id="arr"></span></div>
-                                                                  <div >Ids seleccionados <span id="str"></span></div>
+                                                                <!-- esto es apra varificar q si realmenet se toman lso id de lso usuarios para el envio -->
+                                                                  <!-- <div >Ids seleccionados en matriz <span id="arr"></span></div>
+                                                                  <div >Ids seleccionados <span id="str"></span></div> -->
                                                             </div>
                                                             <!-- /.card-body -->
                                                         </div>

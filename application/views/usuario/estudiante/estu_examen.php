@@ -27,7 +27,7 @@
                         <!-- <?php echo $tipo;?>  -->
                                 <div class="card card-info card-outline">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?php echo $row->tipo;?></h5>
+                                    <h5 class="card-title">Descripcion:</h5>
                                     
                                     <div class="card-tools">
                                     <a href="#" class="btn btn-tool btn-link">#<?php echo $indice;?></a>

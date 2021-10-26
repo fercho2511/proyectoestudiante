@@ -1,10 +1,15 @@
+
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>COMUNICADOS</h1>
+            <h1>COMUNICADOS </h1>
+
+            <!-- con esta linea se puede obtener un dato enviado por el controlador -->
+            <!-- <h1><?php echo $reunion;?></h1> -->
           </div>
          
         </div>
@@ -41,7 +46,7 @@
 
 
                                 <button class="btn btn-app bg-secondary" style='width:100px; height:80px'>
-                                  <span class="badge bg-success">0</span>
+                                  <span class="badge bg-success"><?php echo $actividad;?> </span>
                                   <i class="fas fa-school"></i> Actividades Curriculares
                               </button>
                               
@@ -55,7 +60,7 @@
                             echo form_open_multipart('estudiante/reuniones')
                           ?>    
                               <button class="btn btn-app bg-success" style='width:100px; height:80px'>
-                                <span class="badge bg-purple">nuevo</span>
+                                <span class="badge bg-purple"><?php echo $reunion;?> </span>
                                 <i class="fas fa-handshake"></i> Reuniones
                               </button>
 
@@ -68,7 +73,7 @@
                       echo form_open_multipart('estudiante/notificaciones')
                     ?>    
                       <button class="btn btn-app bg-danger" style='width:100px; height:80px'>
-                  <span class="badge bg-teal">0</span>
+                  <span class="badge bg-teal"><?php echo $notificacion;?> </span>
                   <i class="fas fa-bell"></i> Notificaciones
                   <!-- <i class="far fa-bell"></i> -->
                   </button>
@@ -81,7 +86,7 @@
                       echo form_open_multipart('estudiante/examen')
                     ?>    
                       <button class="btn btn-app bg-warning" style='width:100px; height:80px'>
-                  <span class="badge bg-info">0</span>
+                  <span class="badge bg-info"><?php echo $examen;?> </span>
                   <i class="fas fa-calendar"></i> Fechas de examen
                   </button>
                       <?php
@@ -94,7 +99,7 @@
                           echo form_open_multipart('estudiante/otros')
                         ?>    
                           <button class="btn btn-app bg-info" style='width:100px; height:80px'>
-                      <span class="badge bg-danger">0</span>
+                      <span class="badge bg-danger"><?php echo $otro;?> </span>
                       <i class="fas fa-grin"></i> Otros
                     </button>
                           <?php
