@@ -130,20 +130,8 @@ $tut=$tutor;
                                                     <?php
                                                         echo form_close();
                                                     ?>
-<!-- 
-                                                <?php
-                                                        echo form_open_multipart('materia/eliminarMat')
-                                                    ?>
-                                                    <input type="hidden" name="idMateria" value="<?php echo $row->idMateria;?>">
-                                                    <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> 
 
-                                                    <button type="submit" class="btn btn-outline-danger" title="Eliminar" >
-                                                    <span class="fas fa-trash-alt"></span>
-
-                                                    </button>
-                                                    <?php
-                                                        echo form_close();
-                                                    ?> -->
+                                               
 
                                                 </div>
 

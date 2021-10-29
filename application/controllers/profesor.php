@@ -493,7 +493,8 @@ class Profesor extends CI_Controller {
 
         //cargara la list de profesores
         $materia=$_POST['idMateria'];
-        $data['mate']=$this->profesor_model->getMateria($materia);
+        $data['idMateria']=$_POST['idMateria'];
+        $data['mate']=$this->profesor_model->getMateria2($materia);
         $profe=$this->session->userdata('idusuario');
         $lista=$this->profesor_model->listaEstudiantePorProfesor($profe);
         $data['estudiante']=$lista; //otro array asociativo        
@@ -505,15 +506,99 @@ class Profesor extends CI_Controller {
 		$this->load->view('inc_fin.php');
 
     }
+   
 
+
+    
     public function registrarNotas(){
-
-
         // aca vendran as acciones apra registrar las notas
+        // $estu=$_POST['idEstudiante'];
+        // $inscrito=$this->profesor_model->obtenerIdInscrito($id);
+
+        // $data['idInscrito']=$inscrito;
+        // $data['idMateria']=$_POST['idMateria'];
+        // $data['nota_1_bimestre']=$_POST['nota1'];
+        // $data['nota_2_bimestre']=$_POST['nota2'];
+        // $data['nota_3_bimestre']=$_POST['nota3'];
+
+        
+
+
+        // desde aca provando las notas de la
+        $mat=$_POST['idMateria']; 
+
+        $cantidad =count( $_POST['estudiante']);
+        $estu=$_POST['estudiante'];
+        $nota1=$_POST['nota1'];
+        $nota2=$_POST['nota2'];
+        $nota3=$_POST['nota3'];
+
+        if ($this->profesor_model->verificarNota1($estu[0],$mat)) {
+
+            for ($i=0; $i <$cantidad ; $i++) { 
+                // $data1['idCurso']=$_POST['idCurso'];
+                // $data1['idGestion']=$_POST['idGestion'];
+            //   $estu=$estu[$i];
+                $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+                $data1['idMateria']=$_POST['idMateria']; 
+                $data1['nota_1_bimestre']=$nota1[$i];
+                $data1['nota_2_bimestre']=$nota2[$i];
+                $data1['nota_3_bimestre']=$nota3[$i];
+              
+                $this->profesor_model->registrarNotas($data1);
+
+            }
+        }
+        else{
+            if ($this->profesor_model->verificarNota2($estu[0],$mat)) {
+
+                for ($i=0; $i <$cantidad ; $i++) { 
+                    // $data1['idCurso']=$_POST['idCurso'];
+                    // $data1['idGestion']=$_POST['idGestion'];
+                //   $estu=$estu[$i];
+                    // $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                    $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                    $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+                    // $data1['idMateria']=$_POST['idMateria']; 
+                    $materia=$_POST['idMateria'];
+                    $data1['nota_2_bimestre']=$nota2[$i];
+                    $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+    
+                }
+            }
+            else{
+                if ($this->profesor_model->verificarNota3($estu[0],$mat)) {
+                for ($i=0; $i <$cantidad ; $i++) { 
+                                // $data1['idCurso']=$_POST['idCurso'];
+                                // $data1['idGestion']=$_POST['idGestion'];
+                            //   $estu=$estu[$i];
+                                // $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                                $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                
+                                $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+                                // $data1['idMateria']=$_POST['idMateria'];   
+                                $materia=$_POST['idMateria'];
+                            
+                                $data1['nota_3_bimestre']=$nota3[$i];
+                                $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+                
+                            }
+            }
+        }
+        }  
+
         redirect('profesor/profeEstudiante','refresh');
 
 
+                    
+                   
+                   
+
+        
+
     }
+    
 
 
 

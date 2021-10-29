@@ -162,6 +162,33 @@ class Profesor_model extends CI_Model {
 
 
         }
+
+        public function listaEstudiantePorProfesor2($profe){
+            
+                $query= " SELECT concat(usuario.apellidoPaterno,' ', ifnull(usuario.apellidoMaterno, ' '),' ', usuario.nombres) as nombres, usuario.idUsuario, usuario.ci, usuario.telefono,usuario.foto
+                ,calificaciones.nota_1_bimestre,calificaciones.nota_2_bimestre,calificaciones.nota_3_bimestre
+                         FROM usuario
+                        inner join rol on rol.idRol = usuario.idRol
+                        inner join inscrito on inscrito.idEstudiante = usuario.idUsuario
+                         inner join calificaciones on calificaciones.idInscrito = inscrito.idInscrito
+                        inner join gestion on gestion.idGestion = inscrito.idGestion
+                        where rol.rol = 'Estudiante' and  YEAR(gestion.gestion) = YEAR(CURDATE()) and inscrito.idCurso=(
+
+                        SELECT profesor_aula.idCurso
+                        FROM usuario
+                        inner join profesor_aula on profesor_aula.idProfesor = usuario.idUsuario
+                        inner join gestion on gestion.idGestion = profesor_aula.idGestion
+                        where YEAR(gestion.gestion) = YEAR(CURDATE()) and profesor_aula.idProfesor=$profe
+                        ) order by nombres";
+                $resultados = $this->db->query($query);
+                      return $resultados;
+
+
+
+
+
+        }
+
         public function getMateria($materia){
 
                 $this->db->select('materia');
@@ -169,9 +196,27 @@ class Profesor_model extends CI_Model {
                 $this->db->where('idMateria',$materia);
                 $this->db->where('estado','1');
 
-
                 $resultado= $this->db->get();
                 return $resultado->result_array();
+
+               
+
+
+        }
+
+        public function getMateria2($materia){
+
+                $this->db->select('materia');
+                $this->db->from('materia');
+                $this->db->where('idMateria',$materia);
+                $this->db->where('estado','1');
+
+
+                $query = $this->db->get();
+                if ($query->num_rows() > 0) {
+                        return $query->row()->materia;
+                }
+                return false;
 
 
         }
@@ -265,6 +310,75 @@ class Profesor_model extends CI_Model {
                    return $resultados;
 
                 
+        }
+
+        public function registrarNotas($data){
+
+                $this->db->insert('calificaciones',$data); // aca la clave ses construir bien data, q va a contener
+
+                
+        }
+
+        public function registrarNotas2($data,$ins,$materia){
+
+                // $this->db->insert('calificaciones',$data); // aca la clave ses construir bien data, q va a contener
+
+                $this-> db-> where ('idInscrito', $ins);
+                $this-> db-> where ('idMateria', $materia);
+                $this-> db-> update ('calificaciones', $data);
+
+                
+        }
+
+
+        public function verificarNota1($estu, $materia){
+
+                $result= " SELECT CA.* 
+                                FROM calificaciones CA
+                                INNER JOIN inscrito I ON I.idInscrito = CA.idInscrito
+                                WHERE I.IdEstudiante = '$estu' AND CA.idMateria= '$materia' AND  nota_1_bimestre BETWEEN 1 AND 100 ";
+
+                $query = $this->db->query($result);
+                if ($query->num_rows() > 0) {
+                        return false;
+                }else {
+                        return true; 
+                }
+
+        }
+
+        public function verificarNota2($estu, $materia){
+
+                $result= " SELECT CA.* 
+                FROM calificaciones CA
+                INNER JOIN inscrito I ON I.idInscrito = CA.idInscrito
+                WHERE I.IdEstudiante = '$estu' AND CA.idMateria= '$materia' AND  nota_2_bimestre BETWEEN 1 AND 100 ";
+                
+                $query = $this->db->query($result);
+                if ($query->num_rows() > 0) {
+                        return false;
+                }else {
+                        return true; 
+                }
+
+
+        }
+
+        public function verificarNota3($estu, $materia){
+
+                $result= " SELECT CA.* 
+                FROM calificaciones CA
+                INNER JOIN inscrito I ON I.idInscrito = CA.idInscrito
+                WHERE I.IdEstudiante = '$estu' AND CA.idMateria= '$materia' AND  nota_3_bimestre BETWEEN 1 AND 100 ";
+                
+                $query = $this->db->query($result);
+                if ($query->num_rows() > 0) {
+                        return false;
+                }else {
+                        return true; 
+                }
+
+
         }
 
 
