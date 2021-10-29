@@ -496,7 +496,7 @@ class Profesor extends CI_Controller {
         $data['idMateria']=$_POST['idMateria'];
         $data['mate']=$this->profesor_model->getMateria2($materia);
         $profe=$this->session->userdata('idusuario');
-        $lista=$this->profesor_model->listaEstudiantePorProfesor($profe);
+        $lista=$this->profesor_model->listaEstudiantePorProfesor2($profe,$materia);
         $data['estudiante']=$lista; //otro array asociativo        
 
 		$this->load->view('inc_inicio.php');
@@ -532,6 +532,9 @@ class Profesor extends CI_Controller {
         $nota1=$_POST['nota1'];
         $nota2=$_POST['nota2'];
         $nota3=$_POST['nota3'];
+        try {
+            //code...
+       
 
         if ($this->profesor_model->verificarNota1($estu[0],$mat)) {
 
@@ -551,44 +554,55 @@ class Profesor extends CI_Controller {
             }
         }
         else{
-            if ($this->profesor_model->verificarNota2($estu[0],$mat)) {
+                if ($this->profesor_model->verificarNota2($estu[0],$mat)) {
 
-                for ($i=0; $i <$cantidad ; $i++) { 
-                    // $data1['idCurso']=$_POST['idCurso'];
-                    // $data1['idGestion']=$_POST['idGestion'];
-                //   $estu=$estu[$i];
-                    // $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-                    $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-                    $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
-                    // $data1['idMateria']=$_POST['idMateria']; 
-                    $materia=$_POST['idMateria'];
-                    $data1['nota_2_bimestre']=$nota2[$i];
-                    $this->profesor_model->registrarNotas2($data1,$ins,$materia);
-    
+                    for ($i=0; $i <$cantidad ; $i++) { 
+                        // $data1['idCurso']=$_POST['idCurso'];
+                        // $data1['idGestion']=$_POST['idGestion'];
+                    //   $estu=$estu[$i];
+                        // $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                        $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                        $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+                        // $data1['idMateria']=$_POST['idMateria']; 
+                        $materia=$_POST['idMateria'];
+                        $data1['nota_2_bimestre']=$nota2[$i];
+                        $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+        
+                    }
                 }
-            }
-            else{
-                if ($this->profesor_model->verificarNota3($estu[0],$mat)) {
-                for ($i=0; $i <$cantidad ; $i++) { 
-                                // $data1['idCurso']=$_POST['idCurso'];
-                                // $data1['idGestion']=$_POST['idGestion'];
-                            //   $estu=$estu[$i];
-                                // $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-                                $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-                
-                                $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
-                                // $data1['idMateria']=$_POST['idMateria'];   
-                                $materia=$_POST['idMateria'];
-                            
-                                $data1['nota_3_bimestre']=$nota3[$i];
-                                $this->profesor_model->registrarNotas2($data1,$ins,$materia);
-                
-                            }
-            }
-        }
-        }  
+                else{
+                    if ($this->profesor_model->verificarNota3($estu[0],$mat)) {
+                    for ($i=0; $i <$cantidad ; $i++) { 
+                                    // $data1['idCurso']=$_POST['idCurso'];
+                                    // $data1['idGestion']=$_POST['idGestion'];
+                                //   $estu=$estu[$i];
+                                    // $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                                    $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                    
+                                    $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+                                    // $data1['idMateria']=$_POST['idMateria'];   
+                                    $materia=$_POST['idMateria'];
+                                
+                                    $data1['nota_3_bimestre']=$nota3[$i];
+                                    $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+                    
+                                }
+                        }
+                    }
+            }  
 
-        redirect('profesor/profeEstudiante','refresh');
+            echo '<script>
+            alert("Notas registradas");
+            </script>';
+            redirect('profesor/profeEstudiante','refresh');
+
+        } catch (\Throwable $th) {
+            echo '<script>
+                alert("Ubo un error, vuelav a intentar");
+                </script>'; 
+            redirect('profesor/profeEstudiante','refresh');
+
+        }
 
 
                     

@@ -163,23 +163,39 @@ class Profesor_model extends CI_Model {
 
         }
 
-        public function listaEstudiantePorProfesor2($profe){
+        public function listaEstudiantePorProfesor2($profe,$materia){
             
-                $query= " SELECT concat(usuario.apellidoPaterno,' ', ifnull(usuario.apellidoMaterno, ' '),' ', usuario.nombres) as nombres, usuario.idUsuario, usuario.ci, usuario.telefono,usuario.foto
-                ,calificaciones.nota_1_bimestre,calificaciones.nota_2_bimestre,calificaciones.nota_3_bimestre
-                         FROM usuario
-                        inner join rol on rol.idRol = usuario.idRol
-                        inner join inscrito on inscrito.idEstudiante = usuario.idUsuario
-                         inner join calificaciones on calificaciones.idInscrito = inscrito.idInscrito
-                        inner join gestion on gestion.idGestion = inscrito.idGestion
-                        where rol.rol = 'Estudiante' and  YEAR(gestion.gestion) = YEAR(CURDATE()) and inscrito.idCurso=(
-
-                        SELECT profesor_aula.idCurso
-                        FROM usuario
-                        inner join profesor_aula on profesor_aula.idProfesor = usuario.idUsuario
-                        inner join gestion on gestion.idGestion = profesor_aula.idGestion
-                        where YEAR(gestion.gestion) = YEAR(CURDATE()) and profesor_aula.idProfesor=$profe
-                        ) order by nombres";
+                $query= "  SELECT P.nombres, P.idUsuario , L.nota1,L.nota2,L.nota3,L.idMateria
+                FROM (
+                SELECT concat(usuario.apellidoPaterno,' ', ifnull(usuario.apellidoMaterno, ' '),' ', usuario.nombres) as nombres, usuario.idUsuario as idUsuario
+                FROM usuario
+               inner join rol on rol.idRol = usuario.idRol
+               inner join inscrito on inscrito.idEstudiante = usuario.idUsuario
+               inner join gestion on gestion.idGestion = inscrito.idGestion
+               where rol.rol = 'Estudiante' and   YEAR(gestion.gestion) = YEAR(CURDATE()) and inscrito.idCurso=(
+               SELECT profesor_aula.idCurso
+               FROM usuario
+               inner join profesor_aula on profesor_aula.idProfesor = usuario.idUsuario
+               inner join gestion on gestion.idGestion = profesor_aula.idGestion
+               where YEAR(gestion.gestion) = YEAR(CURDATE()) and profesor_aula.idProfesor=$profe
+               ) group by nombres order by nombres ) as P
+               left join  
+               
+                (SELECT concat(usuario.apellidoPaterno,' ', ifnull(usuario.apellidoMaterno, ' '),' ', usuario.nombres) as nombres, usuario.idUsuario  as idUsuario,
+               calificaciones.nota_1_bimestre as nota1 ,calificaciones.nota_2_bimestre as nota2,calificaciones.nota_3_bimestre as nota3 , calificaciones.idMateria
+                FROM usuario
+               inner join rol on rol.idRol = usuario.idRol
+               inner join inscrito on inscrito.idEstudiante = usuario.idUsuario
+               inner join calificaciones on calificaciones.idInscrito = inscrito.idInscrito
+               inner join gestion on gestion.idGestion = inscrito.idGestion
+               where rol.rol = 'Estudiante' and calificaciones.idMateria='$materia' and    YEAR(gestion.gestion) = YEAR(CURDATE()) and inscrito.idCurso=(
+               SELECT profesor_aula.idCurso
+               FROM usuario
+               inner join profesor_aula on profesor_aula.idProfesor = usuario.idUsuario
+               inner join gestion on gestion.idGestion = profesor_aula.idGestion
+               where YEAR(gestion.gestion) = YEAR(CURDATE()) and profesor_aula.idProfesor='$profe'
+               ) group by nombres order by nombres
+               ) as  L on L.idUsuario = P.idUsuario";
                 $resultados = $this->db->query($query);
                       return $resultados;
 
