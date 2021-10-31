@@ -68,6 +68,27 @@
                                                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                                                     foreach ($estudiante-> result() as $row) {
                                                         ?>
+
+<?php
+                                                             if ($row->nota1 >= 1){
+                                                             $nota1=  $row->nota1;
+                                                             }
+                                                            else{
+                                                                 $nota1= null;                                                                                               
+                                                              }
+                                                              if ($row->nota2 >= 1){
+                                                                $nota2=  $row->nota2;
+                                                                }
+                                                               else{
+                                                                    $nota2=null;                                                                                               
+                                                                 }
+                                                                 if ($row->nota3 >= 1){
+                                                                    $nota3=  $row->nota3;
+                                                                    }
+                                                                   else{
+                                                                        $nota3=null;                                                                                               
+                                                                     }
+                                                             ?>
                                                             <tr>
                                                                 <td><?php echo $indice;?></td>
                                                                 <td>
@@ -83,7 +104,7 @@
                                                                         <?php
                                                                             // echo form_open_multipart('profesor/modificarNota')
                                                                         ?>      
-                                                                                        <input type="text" size="2" class="form-control" name='nota1[]' id='nota1'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $row->nota1 ?>"  >
+                                                                                        <input type="text" size="2" class="form-control" name='nota1[]' id='nota1'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota1 ?>"  >
                                                                                         <!-- value="<?php echo $row->nota_1_bimestre ?>" -->
                                                                                         
                                                                                         <div class="input-group-append">
@@ -103,7 +124,7 @@
                                                                         <?php
                                                                             // echo form_open_multipart('profesor/modificarNota')
                                                                         ?>      
-                                                                                        <input type="text" size="2" class="form-control" name='nota2[]' id='nota2'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $row->nota2 ?>"   >
+                                                                                        <input type="text" size="2" class="form-control" name='nota2[]' id='nota2'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota2 ?>"   >
                                                                                         <!-- value="<?php echo $row->nota_2_bimestre ?>" -->
                                                                                         
                                                                                         <div class="input-group-append">
@@ -124,7 +145,7 @@
                                                                         <?php
                                                                             // echo form_open_multipart('profesor/modificarNota')
                                                                         ?>      
-                                                                                        <input type="text" size="2" class="form-control" name='nota3[]' id='nota3'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $row->nota3 ?>"  >
+                                                                                        <input type="text" size="2" class="form-control" name='nota3[]' id='nota3'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota3 ?>"  >
                                                                                         <!-- value="<?php echo $row->nota_3_bimestre ?>" -->
                                                                                         
                                                                                         <div class="input-group-append">
