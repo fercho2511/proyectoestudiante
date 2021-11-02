@@ -535,7 +535,7 @@ class Profesor extends CI_Controller {
         try {
             //code...
        
-
+/////////////////////////////////////////////////////////desde aca
         if ($this->profesor_model->verificarNota1($estu[0],$mat)) {
 
             for ($i=0; $i <$cantidad ; $i++) { 
@@ -547,52 +547,113 @@ class Profesor extends CI_Controller {
                 $data1['idMateria']=$_POST['idMateria']; 
                 $data1['nota_1_bimestre']=$nota1[$i];
                 $data1['nota_2_bimestre']=$nota2[$i];
-                $data1['nota_3_bimestre']=$nota3[$i];
-              
+                $data1['nota_3_bimestre']=$nota3[$i];              
                 $this->profesor_model->registrarNotas($data1);
 
             }
+           
+         
         }
         else{
-                if ($this->profesor_model->verificarNota2($estu[0],$mat)) {
+            for ($i=0; $i <$cantidad ; $i++) { 
+                // $data1['idCurso']=$_POST['idCurso'];
+                // $data1['idGestion']=$_POST['idGestion'];
+            //   $estu=$estu[$i];
+            
+                    $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+                    $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+                    // $data1['idMateria']=$_POST['idMateria']; 
+                    $materia=$_POST['idMateria'];
+                    $nota1=$_POST['nota1'];
+                    $nota2=$_POST['nota2'];
+                    $nota3=$_POST['nota3'];
 
-                    for ($i=0; $i <$cantidad ; $i++) { 
-                        // $data1['idCurso']=$_POST['idCurso'];
-                        // $data1['idGestion']=$_POST['idGestion'];
-                    //   $estu=$estu[$i];
-                        // $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-                        $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-                        $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
-                        // $data1['idMateria']=$_POST['idMateria']; 
-                        $materia=$_POST['idMateria'];
-                        $data1['nota_2_bimestre']=$nota2[$i];
-                        $this->profesor_model->registrarNotas2($data1,$ins,$materia);
-        
-                    }
-                }
-                else{
-                    if ($this->profesor_model->verificarNota3($estu[0],$mat)) {
-                    for ($i=0; $i <$cantidad ; $i++) { 
-                                    // $data1['idCurso']=$_POST['idCurso'];
-                                    // $data1['idGestion']=$_POST['idGestion'];
-                                //   $estu=$estu[$i];
-                                    // $data1['idInscrito']=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-                                    $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
-                    
-                                    $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
-                                    // $data1['idMateria']=$_POST['idMateria'];   
-                                    $materia=$_POST['idMateria'];
-                                
-                                    $data1['nota_3_bimestre']=$nota3[$i];
-                                    $this->profesor_model->registrarNotas2($data1,$ins,$materia);
-                    
-                                }
-                        }
-                    }
-            }  
+                    $data1['nota_1_bimestre']=$nota1[$i];
+                    $data1['nota_2_bimestre']=$nota2[$i];
+                    $data1['nota_3_bimestre']=$nota3[$i];
 
-            echo '<script>
-            alert("Notas registradas");
+                    $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+               
+        }
+        // if ($this->profesor_model->verificarNota2($estu[0],$mat)) {
+
+        //     for ($i=0; $i <$cantidad ; $i++) { 
+                
+        //         $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+        //         $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+        //         $materia=$_POST['idMateria'];
+        //         $data1['nota_2_bimestre']=$nota2[$i];
+        //         $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+
+        //     }
+         
+        // }
+        // else{
+        //     for ($i=0; $i <$cantidad ; $i++) { 
+              
+        //         $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+        //         $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+        //         $materia=$_POST['idMateria'];
+        //         $data1['nota_2_bimestre']=$nota2[$i];
+        //         $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+
+        //     }
+            
+        //     }  
+        // if ($this->profesor_model->verificarNota3($estu[0],$mat)) {
+        //     for ($i=0; $i <$cantidad ; $i++) { 
+                        
+        //                     $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+        //                     $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+        //                     $materia=$_POST['idMateria'];                                    
+        //                     $data1['nota_3_bimestre']=$nota3[$i];
+        //                     $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+            
+        //     }
+                    
+        // }
+        //     else{
+        //         for ($i=0; $i <$cantidad ; $i++) { 
+                    
+        //             $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);                
+        //             $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+        //             $materia=$_POST['idMateria'];                            
+        //             $data1['nota_3_bimestre']=$nota3[$i];
+        //             $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+    
+        //         }
+
+        //     }
+        //     // echo '<script>
+        //     // alert("Notas registradas");
+        //     // </script>';
+        // redirect('profesor/profeEstudiante','refresh');
+        // if ($this->profesor_model->verificarNota1($estu[0],$mat)== false) {
+        //     for ($i=0; $i <$cantidad ; $i++) { 
+        //         // $data1['idCurso']=$_POST['idCurso'];
+        //         // $data1['idGestion']=$_POST['idGestion'];
+        //     //   $estu=$estu[$i];
+            
+        //             $ins=$this->profesor_model->obtenerIdInscrito($estu[$i]);
+        //             $data1['idUsuario_Acciones'] =$this->session->userdata('idusuario');
+        //             // $data1['idMateria']=$_POST['idMateria']; 
+        //             $materia=$_POST['idMateria'];
+        //             $nota1=$_POST['nota1'];
+        //             $nota2=$_POST['nota2'];
+        //             $nota3=$_POST['nota3'];
+
+        //             $data1['nota_1_bimestre']=$nota1[$i];
+        //             $data1['nota_2_bimestre']=$nota2[$i];
+        //             $data1['nota_3_bimestre']=$nota3[$i];
+
+        //             $this->profesor_model->registrarNotas2($data1,$ins,$materia);
+
+        //     }
+            
+
+        }
+        echo '<script>
+            alert("Notas modificadas");
             </script>';
             redirect('profesor/profeEstudiante','refresh');
 
@@ -610,6 +671,32 @@ class Profesor extends CI_Controller {
                    
 
         
+
+    }
+
+    public function modificarNota(){
+
+        $mat=$_POST['idMateria'];
+        $estu=$_POST['idUsuario'];
+        $p=$_POST['pos'];
+        // $nota1=$_POST['nota1.1'];
+        $cantidad =count( $_POST['estudiante']);
+
+        $nota1=$_POST['nota1.1'];
+        $data1['nota_1_bimestre']=$nota1[$p];
+        // $nota3=$_POST['nota3'];
+        for ($i=0; $i <$cantidad ; $i++) { 
+            if ($i== $p) {
+
+                $inscrito=$this->profesor_model->obtenerIdInscrito($estu);
+                $this->profesor_model->modificarNota($inscrito,$mat,$data1);
+            }
+
+
+        }
+      ;
+
+
 
     }
     

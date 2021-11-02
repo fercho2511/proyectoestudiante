@@ -398,9 +398,22 @@ class Profesor_model extends CI_Model {
         }
 
 
+        public function modificarNota($ins,$materia,$data){
+
+                $this-> db-> where ('idInscrito', $ins);
+                $this-> db-> where ('idMateria', $materia);
+                $this-> db-> update ('calificaciones', $data);
+
+        }
+
+
         
 
 
 
 	
 }
+
+
+
+

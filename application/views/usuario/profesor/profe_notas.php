@@ -65,6 +65,7 @@
                                                         <tbody>
                                                         <?php
                                                     $indice=1;
+                                                    $i=0;
                                                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                                                     foreach ($estudiante-> result() as $row) {
                                                         ?>
@@ -100,63 +101,82 @@
                                                                 </td>
 
                                                                 <td>
-                                                                    <div class="input-group mb-1">
-                                                                        <?php
-                                                                            // echo form_open_multipart('profesor/modificarNota')
-                                                                        ?>      
-                                                                                        <input type="text" size="2" class="form-control" name='nota1[]' id='nota1'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota1 ?>"  >
-                                                                                        <!-- value="<?php echo $row->nota_1_bimestre ?>" -->
+                                                                    <div class="input-group mb-1" >
+                                                                            
+                                                                                        <input type="text" size="2" class="form-control" name='nota1[]' id='nota1[]'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota1 ?>"  >
                                                                                         
                                                                                         <div class="input-group-append">
-                                                                                        <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                                                        <button type="submit" class="btn btn-outline-info " title="Modificar" >
-                                                                                        <span class="fas fa-user-edit"></span>
-                                                                                        </button>
+                                                                                            <?php
+                                                                                                echo form_open_multipart('profesor/modificarNota')
+                                                                                            ?>  
+                                                                                                    <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
+                                                                                                    <input type="hidden" name='nota1.1[]' id='nota1.1[]' >
+                                                                                                    <input type="hidden" name="idMateria" value="<?php echo $idMateria;?>">
+                                                                                                    <input type="hidden" name='pos' id='pos' value="<?php echo $i;?>" >
+
+
+                                                                                                    <button type="submit" class="btn btn-outline-info " title="Modificar" name="bt1[]" >
+                                                                                                    <span class="fas fa-user-edit"></span>
+                                                                                                    </button>
+                                                                                            <?php
+                                                                                            echo form_close();
+                                                                                            ?> 
                                                                                         </div>
-                                                                        <?php
-                                                                            echo form_close();
-                                                                        ?>                                                                    
+                                                                                                                                                   
                                                                     </div>                                                                   
                                                                 </td>
 
                                                                 <td>
-                                                                <div class="input-group mb-1">
-                                                                        <?php
-                                                                            // echo form_open_multipart('profesor/modificarNota')
-                                                                        ?>      
-                                                                                        <input type="text" size="2" class="form-control" name='nota2[]' id='nota2'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota2 ?>"   >
+                                                                <div class="input-group mb-1" >
+                                                                             
+                                                                                        <input type="text" size="2" class="form-control" name='nota2[]' id='nota2[]'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota2 ?>"  onkeyup="PasarValor();"  >
                                                                                         <!-- value="<?php echo $row->nota_2_bimestre ?>" -->
                                                                                         
                                                                                         <div class="input-group-append">
+                                                                                        <?php
+                                                                                echo form_open_multipart('profesor/modificarNota')
+                                                                                ?> 
                                                                                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                                                        <button type="submit" class="btn btn-outline-info " title="Modificar" >
+                                                                                        <input type="hidden" name='nota2.1[]' id='nota2.1[]' >
+                                                                                        <input type="hidden" name='pos' id='pos' value="<?php echo $i;?>" >
+
+                                                                                        <input type="hidden" name="idMateria" value="<?php echo $idMateria;?>">
+                                                                                        <button type="submit" class="btn btn-outline-info " title="Modificar" name="bt2[]" >
                                                                                         <span class="fas fa-user-edit"></span>
                                                                                         </button>
+                                                                                        <?php
+                                                                                    echo form_close();
+                                                                                ?>
                                                                                         </div>
-                                                                        <?php
-                                                                            echo form_close();
-                                                                        ?>                                                                    
+                                                                                                                                           
                                                                     </div> 
 
                                                                 </td>
 
                                                                 <td>
                                                                 <div class="input-group mb-1">
-                                                                        <?php
-                                                                            // echo form_open_multipart('profesor/modificarNota')
-                                                                        ?>      
-                                                                                        <input type="text" size="2" class="form-control" name='nota3[]' id='nota3'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota3 ?>"  >
+                                                                              
+                                                                                        <input type="text" size="2" class="form-control" name='nota3[]' id='nota3[]'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota3 ?>" onkeyup="PasarValor();"  >
                                                                                         <!-- value="<?php echo $row->nota_3_bimestre ?>" -->
                                                                                         
                                                                                         <div class="input-group-append">
+                                                                                        <?php
+                                                                                    echo form_open_multipart('profesor/modificarNota')
+                                                                                    ?>
                                                                                         <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                                                        <button type="submit" class="btn btn-outline-info " title="Modificar" >
+                                                                                        <input type="hidden" name='nota3.1[]' id='nota3.1[]' >
+                                                                                        <input type="hidden" name='pos' id='pos' value="<?php echo $i;?>" >
+
+                                                                                        <input type="hidden" name="idMateria" value="<?php echo $idMateria;?>">
+                                                                                        
+                                                                                        <button type="submit" class="btn btn-outline-info " title="Modificar" name="bt3[]" >
                                                                                         <span class="fas fa-user-edit"></span>
                                                                                         </button>
+                                                                                        <?php
+                                                                                        echo form_close();
+                                                                                    ?>  
                                                                                         </div>
-                                                                        <?php
-                                                                            echo form_close();
-                                                                        ?>                                                                    
+                                                                                                                                          
                                                                     </div> 
 
                                                                 </td>
@@ -179,6 +199,8 @@
                                                             </tr>
                                                     <?php
                                                     $indice++;
+                                                    $i++;
+
                                                         }
                                                         ?>                                            
                                                         </tbody>
@@ -224,10 +246,10 @@
                                                  <div class="card-footer">
                                                          <!-- <input type="hidden" name="idEstudiante" value="<?php echo $row->idUsuario;?>"> -->
 
-                                                        <button class="btn btn-outline-info" type="submit" title="Registrar"  >
+                                                        <button class="btn btn-outline-info" type="submit" title="Registrar" id="regNotas"  >
                                                         <span class="fas fa-clipboard-check"> REGISTRAR NOTAS</span>
                                                         </button>
-                                                        <button class="btn btn-outline-info" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
+                                                        <button class="btn btn-outline-info"  type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
                                                         <span class="far fa-window-close"> CANCELAR</span>
                                                     </button>
 

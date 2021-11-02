@@ -180,6 +180,8 @@
 <script src="<?php echo base_url(); ?>adminLTE/dist/js/select_profeModificarComunicado.js"></script>
 <script src="<?php echo base_url(); ?>adminLTE/dist/js/password.js"></script><script src="<?php echo base_url(); ?>adminLTE/dist/js/password.js"></script>
 <script src="<?php echo base_url(); ?>adminLTE/dist/js/password_profe.js"></script>
+<script src="<?php echo base_url(); ?>adminLTE/dist/js/notas.js"></script>
+
 
 
 

@@ -121,6 +121,30 @@ class Usuarioper_model extends CI_Model {
         }
 
 
+        public function habilitado(){
+                $this->db->select('*');
+                $this->db->from('habilitar_nota');
+                return $this->db->get();
+
+        }
+
+        public function habilitarBim($bim){
+                $datos = ['estado' => '1',];
+           // $datos = ['idUsuario_Acciones' => $idUsuario_Acciones];
+            $this-> db-> where ('bimestre', $bim);
+            $this-> db-> update ('habilitar_nota', $datos); 
+
+        }
+
+        public function desabilitarBim($bim){
+                $datos = ['estado' => '0',];
+           // $datos = ['idUsuario_Acciones' => $idUsuario_Acciones];
+            $this-> db-> where ('bimestre', $bim);
+            $this-> db-> update ('habilitar_nota', $datos); 
+
+        }
+
+
 
 	
 }

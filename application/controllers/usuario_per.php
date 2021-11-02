@@ -391,5 +391,32 @@ class Usuario_per extends CI_Controller {
     }
 
 
+    public function notas(){
+        // $idUsuario=$_POST['idUsuario'];
+         $data['habilitado']=$this->usuarioper_model->habilitado();
+        $this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu2.php');
+        $this->load->view('usuario/notas',$data);
+        $this->load->view('inc_fin.php');
+
+    }
+
+    public function Habilitar(){
+        
+        $data=$_POST['bimestre'];
+        $this->usuarioper_model->habilitarBim($data);
+        redirect('usuario_per/notas','refresh');
+
+    }
+
+    public function Desabilitar(){
+        $data=$_POST['bimestre'];
+        $this->usuarioper_model->desabilitarBim($data);
+        redirect('usuario_per/notas','refresh');
+
+
+    }
+
+
 
 }
