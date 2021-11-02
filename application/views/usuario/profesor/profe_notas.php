@@ -103,9 +103,9 @@
                                                                 <td>
                                                                     <div class="input-group mb-1" >
                                                                             
-                                                                                        <input type="text" size="2" class="form-control" name='nota1[]' id='nota1[]'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota1 ?>"  >
+                                                                                        <input type="number" size="2" class="form-control" name='nota1[]' id='nota1[]'  placeholder="nota"  min="1" max="100" pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota1 ?>"  >
                                                                                         
-                                                                                        <div class="input-group-append">
+                                                                                        <!-- <div class="input-group-append">
                                                                                             <?php
                                                                                                 echo form_open_multipart('profesor/modificarNota')
                                                                                             ?>  
@@ -121,7 +121,7 @@
                                                                                             <?php
                                                                                             echo form_close();
                                                                                             ?> 
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                                                                                    
                                                                     </div>                                                                   
                                                                 </td>
@@ -129,10 +129,10 @@
                                                                 <td>
                                                                 <div class="input-group mb-1" >
                                                                              
-                                                                                        <input type="text" size="2" class="form-control" name='nota2[]' id='nota2[]'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota2 ?>"  onkeyup="PasarValor();"  >
+                                                                                        <input type="number" size="2" class="form-control" name='nota2[]' id='nota2[]'  placeholder="nota"  min="1" max="100" pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota2 ?>"  onkeyup="PasarValor();"  >
                                                                                         <!-- value="<?php echo $row->nota_2_bimestre ?>" -->
                                                                                         
-                                                                                        <div class="input-group-append">
+                                                                                        <!-- <div class="input-group-append">
                                                                                         <?php
                                                                                 echo form_open_multipart('profesor/modificarNota')
                                                                                 ?> 
@@ -147,7 +147,7 @@
                                                                                         <?php
                                                                                     echo form_close();
                                                                                 ?>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                                                                            
                                                                     </div> 
 
@@ -156,10 +156,10 @@
                                                                 <td>
                                                                 <div class="input-group mb-1">
                                                                               
-                                                                                        <input type="text" size="2" class="form-control" name='nota3[]' id='nota3[]'  placeholder="nota"  min="1"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota3 ?>" onkeyup="PasarValor();"  >
+                                                                                        <input type="number" size="2" class="form-control" name='nota3[]' id='nota3[]'  placeholder="nota"  min="1" max="100"  pattern='^[0-9]+'   minlength="1"  maxlength="3" value="<?php echo $nota3 ?>" onkeyup="PasarValor();"  >
                                                                                         <!-- value="<?php echo $row->nota_3_bimestre ?>" -->
                                                                                         
-                                                                                        <div class="input-group-append">
+                                                                                        <!-- <div class="input-group-append">
                                                                                         <?php
                                                                                     echo form_open_multipart('profesor/modificarNota')
                                                                                     ?>
@@ -175,7 +175,7 @@
                                                                                         <?php
                                                                                         echo form_close();
                                                                                     ?>  
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                                                                           
                                                                     </div> 
 
