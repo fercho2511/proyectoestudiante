@@ -1,5 +1,52 @@
-// var bim = document.getElementById('bimestres');
-// bim.style.visibility = 'hidden';
+
+//  var boleta = document.getElementById('boletin');
+//  boleta.disabled=true;
+//  var habil = null;
+
+// function sub(){
+//   habil = document.getElementsByName("desabilitado").value;
+//   if (habil==1) {
+//         var boleta = document.getElementById('boletin');
+//         boleta.disabled=false;
+//  }
+//  else {
+//         var boleta = document.getElementById('boletin');
+//         boleta.disabled=true;
+//  }
+// };
+
+
+
+const boton = document.querySelector("#habil");
+// Agregar listener
+boton.addEventListener("click", function(evento){
+	// Aquí todo el código que se ejecuta cuando se da click al botón
+	habil = document.getElementsByName("desabilitado").value;
+  if (habil==1) {
+        var boleta = document.getElementById('boletin');
+        boleta.disabled=false;
+ }
+ else {
+        var boleta = document.getElementById('boletin');
+        boleta.disabled=true;
+ }
+});
+
+
+const boton2 = document.querySelector("#desabil");
+
+boton2.addEventListener("click", function(evento){
+	// Aquí todo el código que se ejecuta cuando se da click al botón
+	habil = document.getElementsByName("desabilitado").value;
+  if (habil==1) {
+        var boleta = document.getElementById('boletin');
+        boleta.disabled=false;
+ }
+ else {
+        var boleta = document.getElementById('boletin');
+        boleta.disabled=true;
+ }
+});
 
 
 

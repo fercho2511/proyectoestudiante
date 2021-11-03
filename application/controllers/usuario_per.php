@@ -403,15 +403,13 @@ class Usuario_per extends CI_Controller {
 
     public function Habilitar(){
         
-        $data=$_POST['bimestre'];
-        $this->usuarioper_model->habilitarBim($data);
+        $this->usuarioper_model->habilitarBim();
         redirect('usuario_per/notas','refresh');
 
     }
 
     public function Desabilitar(){
-        $data=$_POST['bimestre'];
-        $this->usuarioper_model->desabilitarBim($data);
+        $this->usuarioper_model->desabilitarBim();
         redirect('usuario_per/notas','refresh');
 
 

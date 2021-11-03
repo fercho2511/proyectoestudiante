@@ -40,7 +40,7 @@
               <div class="card-body">
 
                             <a target="_blank" href="<?php echo base_url(); ?>index.php/estudiante/nota_pdf">
-                            <button class="btn btn-outline-info" style='width:100px; height:80px'>
+                            <button class="btn btn-outline-info" style='width:100px; height:80px' name="boletin" id="boletin">
                                   <span class="badge bg-success"></span>
                                   <!-- <?php echo $actividad;?> -->
                                   <i class="fas fa-print"></i> IMPRIMIR

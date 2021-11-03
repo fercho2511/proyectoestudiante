@@ -24,10 +24,11 @@
                 <thead>
                                             <tr>
                                                 <!-- <th>N°</th> -->
-                                                <th>Bimestre</th>                                               
+                                                <!-- <th>Bimestre</th>                                                -->
                                                 <!-- <th>Tutor</th>                                               -->
-                                                <th>Estado</th>
                                                 <th>Habilitar/Desabilitar</th>
+                                                <th>Estado</th>
+
 
                                             </tr>
                                         </thead>
@@ -38,35 +39,20 @@
                     //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($habilitado-> result() as $row) {
                         ?>
+
+                      <?php
+                        $estado=  $row->estado;
+                       $bim++;
+                      $est++;
+                      }
+                      ?>   
                                             <tr>
-                                               <!-- td><?php echo $indice;?></td> -->
-                                                <td>
-                                                <input type="hidden" class="form-control" id="<?php echo $row->bimestre ?>" name='<?php echo $row->bimestre ?>'  value="<?php echo $row->estado ?>">
-
-                                                    <?php echo $row->bimestre;?>
-                                                </td>  
-                                                <td>
-                                                <input type="hidden" class="form-control" id="<?php echo $est;?>" name='<?php echo $est;?>' value="<?php echo $row->estado ?>">
-
-                                                <?php
-                                                    if ($row->estado==0){
-                                                        echo 'Desabilitado';
-                                                    }
-                                                    else{
-                                                        echo 'Habilitado';
-                                                    }
-                                                    ?>
-                                                    
-                                                </td>
-                                               
-
-                                                
+                   
                                                 <td>
                                                 <div class="btn-group btn-group-justified" >
                                                 <?php
                                                         echo form_open_multipart('usuario_per/Habilitar')
                                                     ?>
-                                                    <input type="hidden" name="bimestre" value="<?php echo $row->bimestre;?>">
                                                     <button type="submit" class="btn btn-outline-dark" title="Habilitar" id="habil" name="habil">
                                                     <span class="fas fa-user-edit"></span>
 
@@ -78,7 +64,6 @@
                                                  <?php
                                                         echo form_open_multipart('usuario_per/Desabilitar')
                                                     ?>
-                                                    <input type="hidden" name="bimestre" value="<?php echo $row->bimestre;?>">
 
                                                     <button type="submit" class="btn btn-outline-danger" title="desabilitar" id="desabil" name="desabil" >
                                                     <span class="fas fa-trash-alt"></span>
@@ -89,18 +74,30 @@
                                                     ?> 
 
                                                 </div>
+                                                </td>
+                                                <td>
+                                                <input type="text" class="form-control" name="desabilitado" id="desabilitado"   value="<?php echo $estado ?>">
+
+                                                <?php
+                                                    if ($estado==0){
+                                                        echo 'Desabilitado';
+                                                    }
+                                                    else{
+                                                        echo 'Habilitado';
+                                                    }
+                                                    ?>
+                                                    
+                                                </td>
+                                               
+
+                                                
+                                                
 
 
 
 
                                             </tr>
-                                    <?php
-                                    $bim++;
-                                    $est++;
-
-
-                                }
-                                ?>    
+                                   
 
                                        
                 </table>

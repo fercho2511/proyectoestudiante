@@ -69,10 +69,11 @@ class Estudiante extends CI_Controller {
         $this->pdf->SetRightMargin(15);
         $this->pdf->SetFillColor(210,218,210);
         $this->pdf->SetFont('Arial','B',11);
-        $this->pdf->Cell(30);
-        $this->pdf->Cell(100,0,'UNIDAD EDUCATIVA MARIANO RICARDO TERRAZAS','C',1);
+        // $this->pdf->Cell(30);
+        $this->pdf->Cell(0, 10, "UNIDAD EDUCATIVA MARIANO RICARDO TERRAZAS", 0, true, 'C');
+        // $this->pdf->Cell(0,10,'UNIDAD EDUCATIVA MARIANO ','C',1);
         $this->pdf->Ln(5);
-        $this->pdf->Cell(200,0,'Gestion 2021','C',1);    
+        $this->pdf->Cell(200,0,'Gestion 2021','R',1);    
         $this->pdf->Ln(5);
         $this->pdf->Cell(170,0,'Cochabamba - Bolivia','C',1);     
         $this->pdf->Ln(10);

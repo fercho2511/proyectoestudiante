@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>INFOES</title>
   
  <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/fontawesome/css/all.css">
   <!-- Google Font: Source Sans Pro -->

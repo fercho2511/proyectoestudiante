@@ -165,5 +165,9 @@ $tut=$tutor;
                 </div>
                 <!-- /.container-fluid -->
             </section>
+
+
+            <!-- desde aca provando lso botones -->
+            
             <!-- /.content -->
         </div>

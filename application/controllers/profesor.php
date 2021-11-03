@@ -490,7 +490,6 @@ class Profesor extends CI_Controller {
     public function notas(){
       
 
-
         //cargara la list de profesores
         $materia=$_POST['idMateria'];
         $data['idMateria']=$_POST['idMateria'];
