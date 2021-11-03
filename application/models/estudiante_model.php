@@ -200,6 +200,80 @@ class Estudiante_model extends CI_Model {
         }
 
 
+        public function estudianteNotas($estu){
+
+
+                // $query=" SELECT concat(usuario.apellidoPaterno,' ', ifnull(usuario.apellidoMaterno, ' '),' ', usuario.nombres) as nombres, 
+                //         materia.materia,calificaciones.nota_1_bimestre,calificaciones.nota_2_bimestre,calificaciones.nota_3_bimestre,
+                //         round((calificaciones.nota_1_bimestre + calificaciones.nota_2_bimestre + calificaciones.nota_3_bimestre)/3,0) as 'Prom_Anual'
+                //         from usuario 
+                //         inner  join inscrito on inscrito.idEstudiante = usuario.idUsuario
+                //         left join calificaciones on calificaciones.idInscrito = inscrito.idInscrito
+                //         left join materia on materia.idMateria = calificaciones.idMateria
+                //         where inscrito.Idestudiante=$estu
+                //         group by calificaciones.idMateria";
+
+                // $resultados = $this->db->query($query);
+                // return $resultados;
+
+
+
+                $query="SELECT M.idMateria, M.materia, S.nombres, S.bimestre1,S.bimestre2,S.bimestre3,S.Prom_Anual
+                        from (
+                        SELECT idMateria, materia
+                        FROM materia
+                        ORDER BY idMateria) AS M
+                        left join
+                        (SELECT concat(usuario.apellidoPaterno,' ', IFNULL(usuario.apellidoMaterno, ' '),' ', usuario.nombres) AS nombres, materia.idMateria,
+                        materia.materia, calificaciones.nota_1_bimestre AS 'bimestre1',calificaciones.nota_2_bimestre AS 'bimestre2',calificaciones.nota_3_bimestre AS 'bimestre3',
+                        round((calificaciones.nota_1_bimestre + calificaciones.nota_2_bimestre + calificaciones.nota_3_bimestre)/3,0) AS 'Prom_Anual'
+                        FROM usuario 
+                        INNER JOIN inscrito ON inscrito.idEstudiante = usuario.idUsuario
+                        INNER JOIN calificaciones ON calificaciones.idInscrito = inscrito.idInscrito
+                        INNER JOIN materia ON materia.idMateria = calificaciones.idMateria
+                        WHERE inscrito.Idestudiante=$estu
+                        GROUP BY materia.materia
+                        ORDER BY materia.idMateria) AS S ON S.idMateria = M.idMateria
+                        ORDER BY M.idMateria";
+
+                        $resultados = $this->db->query($query);
+                        return $resultados;
+
+
+        }
+
+        public function nombreEstudiante($estu){
+                
+
+                $result="SELECT concat(apellidoPaterno,' ', ifnull(apellidoMaterno, ' '),' ', nombres) as nombres
+                FROM usuario
+                WHERE idUsuario = $estu";
+
+                $query = $this->db->query($result);
+                if ($query->num_rows() > 0) {
+                        return $query->row()->nombres;
+                }
+                return false;    
+          
+
+        }
+        public function cursoEstudiante($estu){
+
+                $result=" SELECT concat(curso.curso,' ', paralelo.paralelo,' ','de Primaria') as curs
+                        FROM curso 
+                        INNER JOIN paralelo  ON paralelo.idParalelo = curso.idParalelo
+                        INNER JOIN inscrito  ON inscrito.idCurso = curso.idCurso
+                        INNER JOIN gestion  ON gestion.idGestion = inscrito.idGestion
+                        WHERE inscrito.idEstudiante = '$estu' and YEAR(gestion.gestion) = YEAR(CURDATE())";
+
+                $query = $this->db->query($result);
+                if ($query->num_rows() > 0) {
+                        return $query->row()->curs;
+                }
+                return false;
+        }
+
+
 
 	
 }

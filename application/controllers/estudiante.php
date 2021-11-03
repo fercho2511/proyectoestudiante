@@ -49,6 +49,101 @@ class Estudiante extends CI_Controller {
 		$this->load->view('inc_fin.php');
 
 	}
+
+    public function nota_pdf()
+	{
+         //cargara la list de notas por estudiante
+        
+         $estu=$this->session->userdata('idusuario');
+        $name=$this->estudiante_model->nombreEstudiante($estu);
+         
+        $cur=$this->estudiante_model->cursoEstudiante($estu);
+        $lista=$this->estudiante_model->estudianteNotas($estu);
+        $lista=$lista->result();
+
+        $this->pdf=new FPDF();
+        $this->pdf->AddPage();
+        $this->pdf->AliasNbPages();
+        $this->pdf->setTitle("Boletin Estudiantil");
+        $this->pdf->SetLeftMargin(15);
+        $this->pdf->SetRightMargin(15);
+        $this->pdf->SetFillColor(210,218,210);
+        $this->pdf->SetFont('Arial','B',11);
+        $this->pdf->Cell(30);
+        $this->pdf->Cell(100,0,'UNIDAD EDUCATIVA MARIANO RICARDO TERRAZAS','C',1);
+        $this->pdf->Ln(5);
+        $this->pdf->Cell(200,0,'Gestion 2021','C',1);    
+        $this->pdf->Ln(5);
+        $this->pdf->Cell(170,0,'Cochabamba - Bolivia','C',1);     
+        $this->pdf->Ln(10);
+        $this->pdf->Cell(180,10,'Boletin de Calificaciones',0,0,'C',1);
+        $this->pdf->Ln(15);
+        $this->pdf->Cell(15,0,'Nombre: '.$name,'C',1);
+        // $this->pdf->Cell(200,0,'gestion:','C',1);
+
+        $this->pdf->Ln(5);
+        $this->pdf->Cell(15,0,'Curso: '.$cur,'C',1);
+        $this->pdf->Ln(10);
+        ob_end_clean();
+
+     
+
+        // $this->pdf->Ln(3);
+
+        $this->pdf->SetFont('Arial','B',12);
+        $this->pdf->Cell(60,5,'Materia','TBLR',0,'C',0);
+        $this->pdf->Cell(30,5,'1er. trim.','TBLR',0,'C',0);
+        $this->pdf->Cell(30,5,'2do. trim.','TBLR',0,'C',0);
+        $this->pdf->Cell(30,5,'3er. trim.','TBLR',0,'C',0);
+        $this->pdf->Cell(30,5,'Prom. Amual','TBLR',0,'C',0);
+        $this->pdf->Ln(5);
+
+        $this->pdf->SetFont('Arial','',11);
+
+        $num=1;
+        foreach($lista as $row) {
+            $materia=$row->materia;
+            if ($row->bimestre1==0) {
+                $nota_1_bimestre= '';
+            }
+            else {
+                $nota_1_bimestre= $row->bimestre1;
+            }
+            if ($row->bimestre2==0) {
+                $nota_2_bimestre= '';
+            }
+            else {
+                $nota_2_bimestre= $row->bimestre2;
+            }
+            if ($row->bimestre3==0) {
+                $nota_3_bimestre= '';
+            }
+            else {
+                $nota_3_bimestre= $row->bimestre3;
+            }
+            
+            $Prom_Anual=$row->Prom_Anual;
+            // $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
+            $this->pdf->Cell(60,5,$materia,'TBLR',0,'L',0);
+            $this->pdf->Cell(30,5,$nota_1_bimestre,'TBLR',0,'C',0);
+            $this->pdf->Cell(30,5,$nota_2_bimestre,'TBLR',0,'C',0);
+            $this->pdf->Cell(30,5,$nota_3_bimestre,'TBLR',0,'C',0);
+            $this->pdf->Cell(30,5,$Prom_Anual,'TBLR',0,'C',0);
+
+
+            $this->pdf->Ln(5);
+            $num++;
+            
+        }
+
+
+
+
+
+
+        $this->pdf->Output("boletinEstudiantil.pdf",'I');       
+
+	}
     public function estuComunicado()
 	{
         $estu=$this->session->userdata('idusuario');
