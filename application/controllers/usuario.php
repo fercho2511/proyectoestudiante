@@ -109,9 +109,9 @@ class Usuario extends CI_Controller {
                         break;
                     case '3':
                         # code...
-                        //entra al menu admin
+                        //entra al menu profesor
                         //panel admin
-                        redirect('profesor/test1','refresh');
+                        redirect('profesor/profeEstudiante','refresh');
                         break;
                     case '2':
                         # code...
@@ -122,9 +122,9 @@ class Usuario extends CI_Controller {
                     
                     case '4':
                             # code...
-                             //entra al menu admin
+                             //entra al menu estudiante
                              //panel admin
-                             redirect('estudiante/test1','refresh');
+                             redirect('estudiante/estuComunicado','refresh');
                             break;                    
                 
                 //si hay entonces redireccionar                

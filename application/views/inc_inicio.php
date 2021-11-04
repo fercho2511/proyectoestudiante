@@ -186,6 +186,11 @@ footer {
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__wobble" src="<?php echo base_url(); ?>adminLTE/dist/img/logo_loguin.png" alt="INFOES" height="80" width="80">
+  </div>
+  
 
 
 

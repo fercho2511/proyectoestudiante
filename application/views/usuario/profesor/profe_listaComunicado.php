@@ -80,7 +80,14 @@ $tut=$tutor;
                                    
                                
                                 <div class="card-body">
-                                    
+                                        <a target="_blank" href="<?php echo base_url(); ?>index.php/profesor/reporteGeneral">
+                                           
+                                            <button type="submit" class="btn b btn-outline-secondary " title="Agregar" >
+                                            <span class="fas fa-file-pdf"> Reporte General</span>
+
+                                            </button>
+                                        </a>                                                                                
+                                    <br>
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>

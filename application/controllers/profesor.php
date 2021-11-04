@@ -924,4 +924,162 @@ class Profesor extends CI_Controller {
     }
 
 
+    public function reporteGeneral(){
+
+
+        $p=$this->session->userdata('idusuario');
+        $profe=$this->profesor_model->nombreProfe($p);
+
+        $curso=$this->profesor_model->getCusoProfesor($p);
+        $data['cursoProfe']=$curso;
+        
+        foreach ($curso-> result() as $row) {
+            // $idCurso =  $row->idCurso;
+            $curso =  $row->curso; 
+            // $idParalelo= $row->idParalelo;                 
+             if ($row->idParalelo==1){
+                $seccion = 'A';
+              }
+               else{
+                  if ($row->idParalelo==2) {
+                    $seccion = 'B';
+                     }
+                     else{
+                        if ($row->idParalelo==3) {
+                            $seccion = 'C';
+                         }
+                           else{
+                             if ($row->idParalelo==4) {
+                                $seccion = 'D';
+                               }
+                                 else{
+                                    $seccion = 'E';
+                                  }
+                                                    
+                            }
+
+                       }
+                                            
+               }
+                                        
+            $tutor =  $row->profesor;                        
+        }
+        
+        // $idCur =$idCurso;
+        $cur=$curso;
+        // $idPar=$idParalelo;
+        $secc=$seccion;
+    //   $tut=$tutor;            
+
+
+
+        $lista=$this->profesor_model->listaComunicado($this->session->userdata('idusuario'));
+        $data['comunicado']=$lista;
+        
+            //cargara la list de notas por estudiante
+        
+            $estu=$this->session->userdata('idusuario');
+            // $name=$this->estudiante_model->nombreEstudiante($estu);
+             
+            // $cur=$this->estudiante_model->cursoEstudiante($estu);
+            $lista=$this->estudiante_model->estudianteNotas($estu);
+            $lista=$lista->result();
+    
+            $this->pdf=new FPDF();
+            $this->pdf->AddPage();
+            $this->pdf->AliasNbPages();
+            $this->pdf->setTitle("Reporte General");
+            $this->pdf->SetLeftMargin(15);
+            $this->pdf->SetRightMargin(15);
+            $this->pdf->SetFillColor(210,218,210);
+            $this->pdf->SetFont('Arial','B',11);
+            // $this->pdf->Cell(30);
+            $this->pdf->Cell(0, 10, "UNIDAD EDUCATIVA MARIANO RICARDO TERRAZAS", 0, true, 'C');
+            // $this->pdf->Cell(0,10,'UNIDAD EDUCATIVA MARIANO ','C',1);
+            $this->pdf->Ln(5);
+            $this->pdf->Cell(200,0,'Gestion 2021','R',1);    
+            $this->pdf->Ln(5);
+            $this->pdf->Cell(170,0,'Cochabamba - Bolivia','C',1);     
+            $this->pdf->Ln(10);
+            $this->pdf->Cell(180,10,'Reporte Gral. de Comunicados',0,0,'C',1   );
+            $this->pdf->Ln(15);
+            $this->pdf->Cell(15,0,'Profesor: '.$profe,'C',1);
+            // $this->pdf->Cell(200,0,'gestion:','C',1);
+    
+            $this->pdf->Ln(5);
+            $this->pdf->Cell(15,0,'Curso: '.$cur.' '.$secc.' - Primaria','C',1);
+            $this->pdf->Ln(10);
+            ob_end_clean();
+    
+         
+    
+            // $this->pdf->Ln(3);
+    
+            $this->pdf->SetFont('Arial','B',12);
+            $this->pdf->Cell(60,7,'Materia','TBLR',0,'C',1);
+            $this->pdf->Cell(30,7,'1er. trim.','TBLR',0,'C',1);
+            $this->pdf->Cell(30,7,'2do. trim.','TBLR',0,'C',1);
+            $this->pdf->Cell(30,7,'3er. trim.','TBLR',0,'C',1);
+            $this->pdf->Cell(30,7,'Prom. Amual','TBLR',0,'C',1);
+            $this->pdf->Ln(7);
+    
+            $this->pdf->SetFont('Arial','',11);
+    
+            $num=1;
+            foreach($lista as $row) {
+                $materia=$row->materia;
+                if ($row->bimestre1==0) {
+                    $nota_1_bimestre= '';
+                }
+                else {
+                    $nota_1_bimestre= $row->bimestre1;
+                }
+                if ($row->bimestre2==0) {
+                    $nota_2_bimestre= '';
+                }
+                else {
+                    $nota_2_bimestre= $row->bimestre2;
+                }
+                if ($row->bimestre3==0) {
+                    $nota_3_bimestre= '';
+                }
+                else {
+                    $nota_3_bimestre= $row->bimestre3;
+                }
+                
+                $Prom_Anual=$row->Prom_Anual;
+                // $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
+                $this->pdf->Cell(60,5,$materia,'TBLR',0,'L',0);
+                $this->pdf->Cell(30,5,$nota_1_bimestre,'TBLR',0,'C',0);
+                $this->pdf->Cell(30,5,$nota_2_bimestre,'TBLR',0,'C',0);
+                $this->pdf->Cell(30,5,$nota_3_bimestre,'TBLR',0,'C',0);
+                $this->pdf->Cell(30,5,$Prom_Anual,'TBLR',0,'C',0);
+    
+    
+                $this->pdf->Ln(5);
+                $num++;
+                
+            }
+    
+            $this->pdf->Cell(0,8,'Direccion:','TBLR',0,'L',0);
+            $this->pdf->Ln(0);
+    
+            $this->pdf->Cell(0,30,' ','TBLR',0,'C',0);  
+            $this->pdf->Ln(30);
+            $this->pdf->SetFont('Arial','B',8);
+            $this->pdf->Cell(0,8,'DOCUMENTO NO VALIDO PARA TRAMITES OFICIALES SIN LAS FIRMAS O CELLOS CORRESPONDIENTES','TBLR',0,'C',1);
+    
+            
+    
+    
+    
+    
+    
+    
+    
+            $this->pdf->Output("boletinEstudiantil.pdf",'I');    
+
+    }
+
+
 }

@@ -407,6 +407,21 @@ class Profesor_model extends CI_Model {
         }
 
 
+        public function nombreProfe($profe){
+
+                $result="SELECT concat(apellidoPaterno,' ',ifnull(apellidoMaterno,' '),' ',nombres) as nombres
+                                FROM usuario
+                                WHERE idUsuario = '$profe'";
+
+                $query = $this->db->query($result);
+                if ($query->num_rows() > 0) {
+                        return $query->row()->nombres;
+                }
+                return false; 
+
+        }
+
+
         
 
 
