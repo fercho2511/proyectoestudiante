@@ -77,7 +77,7 @@ class Estudiante extends CI_Controller {
         $this->pdf->Ln(5);
         $this->pdf->Cell(170,0,'Cochabamba - Bolivia','C',1);     
         $this->pdf->Ln(10);
-        $this->pdf->Cell(180,10,'Boletin de Calificaciones',0,0,'C',1);
+        $this->pdf->Cell(180,10,'Boletin de Calificaciones',0,0,'C',1   );
         $this->pdf->Ln(15);
         $this->pdf->Cell(15,0,'Nombre: '.$name,'C',1);
         // $this->pdf->Cell(200,0,'gestion:','C',1);
@@ -92,12 +92,12 @@ class Estudiante extends CI_Controller {
         // $this->pdf->Ln(3);
 
         $this->pdf->SetFont('Arial','B',12);
-        $this->pdf->Cell(60,5,'Materia','TBLR',0,'C',0);
-        $this->pdf->Cell(30,5,'1er. trim.','TBLR',0,'C',0);
-        $this->pdf->Cell(30,5,'2do. trim.','TBLR',0,'C',0);
-        $this->pdf->Cell(30,5,'3er. trim.','TBLR',0,'C',0);
-        $this->pdf->Cell(30,5,'Prom. Amual','TBLR',0,'C',0);
-        $this->pdf->Ln(5);
+        $this->pdf->Cell(60,7,'Materia','TBLR',0,'C',1);
+        $this->pdf->Cell(30,7,'1er. trim.','TBLR',0,'C',1);
+        $this->pdf->Cell(30,7,'2do. trim.','TBLR',0,'C',1);
+        $this->pdf->Cell(30,7,'3er. trim.','TBLR',0,'C',1);
+        $this->pdf->Cell(30,7,'Prom. Amual','TBLR',0,'C',1);
+        $this->pdf->Ln(7);
 
         $this->pdf->SetFont('Arial','',11);
 
@@ -136,6 +136,17 @@ class Estudiante extends CI_Controller {
             $num++;
             
         }
+
+        $this->pdf->Cell(0,8,'Direccion:','TBLR',0,'L',0);
+        $this->pdf->Ln(0);
+
+        $this->pdf->Cell(0,30,' ','TBLR',0,'C',0);  
+        $this->pdf->Ln(30);
+        $this->pdf->SetFont('Arial','B',8);
+        $this->pdf->Cell(0,8,'DOCUMENTO NO VALIDO PARA TRAMITES OFICIALES SIN LAS FIRMAS O CELLOS CORRESPONDIENTES','TBLR',0,'C',1);
+
+        
+
 
 
 
