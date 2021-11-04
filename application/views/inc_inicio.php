@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   
 <style>
   [class*="sidebar-dark-"] {
-    background-color: #121441;
+    background-color: #2A0944;
     
 }
 
@@ -100,21 +100,23 @@ body {
     line-height: 1.5;
     color: #26778d;
     text-align: left;
-    background-color: #121441;
+    background-color: #2A0944;
 }
 </style>
 <style>
   .main-footer {
-    background-color: #121441;
+    background-color: #2A0944;
     border-top: 1px solid #dee2e6;
     color: #f0f0f0;
     padding: 1rem;
+    text-align: center;
+
 
 }
 </style>
 <style>
   .navbar-white {
-    background-color: #242880;
+    background-color: #3B185F;
     color: #121441;
 }
 </style>
