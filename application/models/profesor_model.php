@@ -142,7 +142,9 @@ class Profesor_model extends CI_Model {
         //        return $resultados;
 
 
-                $query= " SELECT concat(usuario.apellidoPaterno,' ', ifnull(usuario.apellidoMaterno, ' '),' ', usuario.nombres) as nombres, usuario.idUsuario, usuario.ci, usuario.telefono,usuario.foto FROM usuario
+                $query= " SELECT concat(usuario.apellidoPaterno,' ', ifnull(usuario.apellidoMaterno, ' '),' ', usuario.nombres) as nombres,
+                        usuario.idUsuario, usuario.ci, usuario.telefono,usuario.foto
+                        FROM usuario
                         inner join rol on rol.idRol = usuario.idRol
                         inner join inscrito on inscrito.idEstudiante = usuario.idUsuario
                         inner join gestion on gestion.idGestion = inscrito.idGestion
@@ -418,6 +420,22 @@ class Profesor_model extends CI_Model {
                         return $query->row()->nombres;
                 }
                 return false; 
+
+
+        }
+
+
+        public function comunicadosDelEstudiante($data){
+
+                $query=" SELECT C.descripcion, C.Tipo,U.idUsuario,concat(U.apellidoPaterno,' ',IFNULL
+                (U.apellidoMaterno,' '),nombres) as nombres, IF(CI.estado_vista_comunicado=1,'VISTO','NO VISTO') AS ESTADO, C.fechaRegistro
+                FROM comunicado C
+                INNER JOIN comunicado_inscrito CI ON  CI.idComunicado = C.idComunicado
+                INNER JOIN inscrito I ON I.idInscrito = CI.idInscrito
+                LEFT JOIN usuario U ON U.idUsuario = I.idEstudiante
+                WHERE I.idEstudiante = '$data'";
+                 $resultados = $this->db->query($query);
+                 return $resultados;
 
         }
 

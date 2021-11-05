@@ -928,6 +928,17 @@ class Profesor extends CI_Controller {
 
 
         $p=$this->session->userdata('idusuario');
+        $lista3=$this->profesor_model->getCusoProfesor($p);
+        $data4['cursoProfe']=$lista3;
+
+        // $profe=$this->session->userdata('idusuario');
+        $estudiantes=$this->profesor_model->listaEstudiantePorProfesor($p);
+        $est=$estudiantes->result();// $data['estudiante']=$lista; 
+
+        $comunicados=$this->profesor_model->comunicadosDelEstudiante('19');
+        $comun=$comunicados->result();
+
+        $p=$this->session->userdata('idusuario');
         $profe=$this->profesor_model->nombreProfe($p);
 
         $curso=$this->profesor_model->getCusoProfesor($p);
@@ -1008,76 +1019,130 @@ class Profesor extends CI_Controller {
     
             $this->pdf->Ln(5);
             $this->pdf->Cell(15,0,'Curso: '.$cur.' '.$secc.' - Primaria','C',1);
-            $this->pdf->Ln(10);
+            $this->pdf->Ln(3);
             ob_end_clean();
     
-         
-    
-            // $this->pdf->Ln(3);
-    
-            $this->pdf->SetFont('Arial','B',12);
-            $this->pdf->Cell(60,7,'Materia','TBLR',0,'C',1);
-            $this->pdf->Cell(30,7,'1er. trim.','TBLR',0,'C',1);
-            $this->pdf->Cell(30,7,'2do. trim.','TBLR',0,'C',1);
-            $this->pdf->Cell(30,7,'3er. trim.','TBLR',0,'C',1);
-            $this->pdf->Cell(30,7,'Prom. Amual','TBLR',0,'C',1);
-            $this->pdf->Ln(7);
     
             $this->pdf->SetFont('Arial','',11);
     
             $num=1;
-            foreach($lista as $row) {
-                $materia=$row->materia;
-                if ($row->bimestre1==0) {
-                    $nota_1_bimestre= '';
-                }
-                else {
-                    $nota_1_bimestre= $row->bimestre1;
-                }
-                if ($row->bimestre2==0) {
-                    $nota_2_bimestre= '';
-                }
-                else {
-                    $nota_2_bimestre= $row->bimestre2;
-                }
-                if ($row->bimestre3==0) {
-                    $nota_3_bimestre= '';
-                }
-                else {
-                    $nota_3_bimestre= $row->bimestre3;
-                }
-                
-                $Prom_Anual=$row->Prom_Anual;
-                // $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
-                $this->pdf->Cell(60,5,$materia,'TBLR',0,'L',0);
-                $this->pdf->Cell(30,5,$nota_1_bimestre,'TBLR',0,'C',0);
-                $this->pdf->Cell(30,5,$nota_2_bimestre,'TBLR',0,'C',0);
-                $this->pdf->Cell(30,5,$nota_3_bimestre,'TBLR',0,'C',0);
-                $this->pdf->Cell(30,5,$Prom_Anual,'TBLR',0,'C',0);
-    
-    
+            foreach($est as $row){
+                $es=$row->idUsuario;
+                $nomEst=$row->nombres;
+                $this->pdf->Ln(7);
+
+                $this->pdf->SetFillColor(211,182,234);
+                $this->pdf->SetTextColor(255);
+                $this->pdf->SetDrawColor(42,9,68);
+                $this->pdf->SetLineWidth(.3);
+                $this->pdf->SetFont('','B');
+
+                $comunicados=$this->profesor_model->comunicadosDelEstudiante($es);
+                $comun=$comunicados->result();
+                $this->pdf->SetFont('Arial','B',10);
+                $this->pdf->SetTextColor(42,9,68);
+
+                $this->pdf->Cell(37,5,'Estudiante: ','TBLR',0,'C',1);
+                $this->pdf->Cell(60,5,$nomEst,'TBLR',0,'L',0);
                 $this->pdf->Ln(5);
-                $num++;
-                
+
+                $this->pdf->SetFont('Arial','B',10);
+                $this->pdf->Cell(37,7,'Tipo','TBLR',0,'C',1);
+                $this->pdf->Cell(100,7,'Descripcion','TBLR',0,'C',1);
+                $this->pdf->Cell(20,7,'Fecha','TBLR',0,'C',1);
+                $this->pdf->Cell(20,7,'Estado','TBLR',0,'C',1); 
+                foreach($comun as $row) {
+                    $descripcion=$row->descripcion;
+                    $tipo=$row->Tipo;
+                    $estado=$row->ESTADO;
+                    $fechaRegistro=formatearfecha($row->fechaRegistro);
+                    $this->pdf->Ln(7);
+                    $this->pdf->SetFillColor(224,235,255);
+                    $this->pdf->SetTextColor(42,9,68);
+                    $this->pdf->SetFont('');
+                    $this->pdf->SetFont('Arial','',9);
+                    // $this->pdf->Cell(37,10,$tipo,'TBLR',0,'B',0);  
+                    // $xpos= $this->pdf->GetX();    
+                    // $ypos= $this->pdf->GetY();               
+           
+                    // $this->pdf->MultiCell(100,5,utf8_decode($descripcion),'TBLR','L',0,0);
+                    // $this->pdf->Ln(15);
+
+                    //  $this->pdf->SetXY($xpos+100,$ypos);
+
+                        // desde aca provaremos con el ciclos de la
+                        $cellWidth=100;//wrapped cell width
+                        $cellHeight=5;//normal one-line cell height
+                        
+                        //check whether the text is overflowing
+                        if($this->pdf->GetStringWidth($descripcion) < $cellWidth){
+                            $line=1;
+                        }else{
+                            
+                            
+                            $textLength=strlen($descripcion);	//total text length
+                            $errMargin=10;		//cell width error margin, just in case
+                            $startChar=0;		//character start position for each line
+                            $maxChar=0;			//maximum character in a line, to be incremented later
+                            $textArray=array();	//to hold the strings for each line
+                            $tmpString="";		//to hold the string for a line (temporary)
+                            
+                            while($startChar < $textLength){ //loop until end of text
+                                //loop until maximum character reached
+                                while( 
+                                    $this->pdf->GetStringWidth( $tmpString ) < ($cellWidth-$errMargin) &&
+                                ($startChar+$maxChar) < $textLength ) {
+                                    $maxChar++;
+                                    $tmpString=substr($descripcion,$startChar,$maxChar);
+                                }
+                                //move startChar to next line
+                                $startChar=$startChar+$maxChar;
+                                //then add it into the array so we know how many line are needed
+                                array_push($textArray,$tmpString);
+                                //reset maxChar and tmpString
+                                $maxChar=0;
+                                $tmpString='';
+                                
+                            }
+                            //get number of line
+                            $line=count($textArray);
+                        }
+                        $this->pdf->Cell(37,($line * $cellHeight),$tipo,1,0); //adapt height to number of lines
+                        // $this->pdf->Cell(60,($line * $cellHeight),$descripcion,1,0); //adapt height to number of lines
+                        
+                        $xPos=$this->pdf->GetX();
+                        $yPos=$this->pdf->GetY();
+                        $this->pdf->MultiCell($cellWidth,$cellHeight,$descripcion,1);
+                        $this->pdf->SetXY($xPos + $cellWidth , $yPos);
+                        // asta aca 
+                                    
+                    // $this->pdf->Cell(20,10,$descripcion,'TBLR',0,'C',0); 
+                    // $pdf->Cell(20,($line * $cellHeight),$item[3],1,1); //adapt height to number of lines
+
+                    $this->pdf->Cell(20,($line * $cellHeight),$fechaRegistro,'TBLR',0,'C',0); 
+                    $this->pdf->Cell(20,($line * $cellHeight),$estado,'TBLR',0,'C',0);
+                    $this->pdf->Ln(($line * $cellHeight)-7);
+                    $num++;
+                }
+                 $this->pdf->Ln(8);
             }
+            
     
             $this->pdf->Cell(0,8,'Direccion:','TBLR',0,'L',0);
             $this->pdf->Ln(0);
-    
             $this->pdf->Cell(0,30,' ','TBLR',0,'C',0);  
             $this->pdf->Ln(30);
             $this->pdf->SetFont('Arial','B',8);
             $this->pdf->Cell(0,8,'DOCUMENTO NO VALIDO PARA TRAMITES OFICIALES SIN LAS FIRMAS O CELLOS CORRESPONDIENTES','TBLR',0,'C',1);
     
-            
+
+
+           
     
-    
-    
-    
-    
-    
-    
-            $this->pdf->Output("boletinEstudiantil.pdf",'I');    
+            $this->pdf->Output("Comunicados.pdf",'I');    
+
+
+           
 
     }
 
