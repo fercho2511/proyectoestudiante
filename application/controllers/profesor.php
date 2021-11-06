@@ -1004,9 +1004,7 @@ class Profesor extends CI_Controller {
             $this->pdf->SetRightMargin(15);
             $this->pdf->SetFillColor(210,218,210);
             $this->pdf->SetFont('Arial','B',11);
-            // $this->pdf->Cell(30);
             $this->pdf->Cell(0, 10, "UNIDAD EDUCATIVA MARIANO RICARDO TERRAZAS", 0, true, 'C');
-            // $this->pdf->Cell(0,10,'UNIDAD EDUCATIVA MARIANO ','C',1);
             $this->pdf->Ln(5);
             $this->pdf->Cell(200,0,'Gestion 2021','R',1);    
             $this->pdf->Ln(5);
@@ -1015,7 +1013,6 @@ class Profesor extends CI_Controller {
             $this->pdf->Cell(180,10,'Reporte Gral. de Comunicados',0,0,'C',1   );
             $this->pdf->Ln(15);
             $this->pdf->Cell(15,0,'Profesor: '.$profe,'C',1);
-            // $this->pdf->Cell(200,0,'gestion:','C',1);
     
             $this->pdf->Ln(5);
             $this->pdf->Cell(15,0,'Curso: '.$cur.' '.$secc.' - Primaria','C',1);
