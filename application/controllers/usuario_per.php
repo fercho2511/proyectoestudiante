@@ -403,13 +403,20 @@ class Usuario_per extends CI_Controller {
 
     public function Habilitar(){
         
-        $this->usuarioper_model->habilitarBim();
+        $data['estado_nota_1_bimestre']=1;
+        $data['estado_nota_2_bimestre']=1;;
+        $data['estado_nota_3_bimestre']=1;;
+
+        $this->usuarioper_model->habilitarBim($data);
         redirect('usuario_per/notas','refresh');
 
     }
 
     public function Desabilitar(){
-        $this->usuarioper_model->desabilitarBim();
+        $data['estado_nota_1_bimestre']=0;
+        $data['estado_nota_2_bimestre']=0;;
+        $data['estado_nota_3_bimestre']=0;;
+        $this->usuarioper_model->desabilitarBim($data);
         redirect('usuario_per/notas','refresh');
 
 

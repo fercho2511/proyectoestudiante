@@ -41,6 +41,7 @@ class Estudiante extends CI_Controller {
     public function estuNota()
 	{
         //cargara la list de estudiantes
+        $data['habilitado']=$this->usuarioper_model->habilitado();
         $lista=$this->estudiante_model->lista();
         $data['estudiante']=$lista; //otro array asociativo
 		$this->load->view('inc_inicio.php');

@@ -1,3 +1,17 @@
+  
+
+<?php
+            foreach ($habilitado-> result() as $row) {
+              $estado=  $row->estado_nota_1_bimestre;
+            }
+            ?>
+
+<?php 
+
+$est=$estado;
+
+
+?> 
 
 
 <div class="content-wrapper">
@@ -38,19 +52,37 @@
                 <h3 class="card-title">Comunicados</h3>
               </div> -->
               <div class="card-body">
+                    <?php
+                       if ($est==0){
+                         ?>
+                        <a target="_blank" href="<?php echo base_url(); ?>index.php/estudiante/nota_pdf">
+                        <button class="btn btn-outline-info" style='width:100px; height:80px' name="boletin" id="boletin" disabled>
+                              <span class="badge bg-success"></span>
+                              <i class="fas fa-print"></i> IMPRIMIR
+                          </button>
+                        </a>
+                        <?php
 
-                            <a target="_blank" href="<?php echo base_url(); ?>index.php/estudiante/nota_pdf">
-                            <button class="btn btn-outline-info" style='width:100px; height:80px' name="boletin" id="boletin">
-                                  <span class="badge bg-success"></span>
-                                  <!-- <?php echo $actividad;?> -->
-                                  <i class="fas fa-print"></i> IMPRIMIR
-                              </button>
-                            </a>
+                       }else{
+                         ?>
+                        <a target="_blank" href="<?php echo base_url(); ?>index.php/estudiante/nota_pdf">
+                        <button class="btn btn-outline-info" style='width:100px; height:80px' name="boletin" id="boletin" >
+                              <span class="badge bg-success"></span>
+                              <i class="fas fa-print"></i> IMPRIMIR
+                          </button>
+                        </a>
+                        <?php
+
+                       }
+                       
+
+                       ?>;
+                            
 
                               
 
                             
-
+                    
 
                  </div>
 

@@ -41,7 +41,7 @@
                         ?>
 
                       <?php
-                        $estado=  $row->estado;
+                        $estado=  $row->estado_nota_1_bimestre;
                        $bim++;
                       $est++;
                       }
@@ -54,7 +54,7 @@
                                                         echo form_open_multipart('usuario_per/Habilitar')
                                                     ?>
                                                     <button type="submit" class="btn btn-outline-dark" title="Habilitar" id="habil" name="habil">
-                                                    <span class="fas fa-user-edit"></span>
+                                                    <span class="fas fa-check-circle"></span>
 
                                                     </button>
                                                     <?php
@@ -66,7 +66,7 @@
                                                     ?>
 
                                                     <button type="submit" class="btn btn-outline-danger" title="desabilitar" id="desabil" name="desabil" >
-                                                    <span class="fas fa-trash-alt"></span>
+                                                    <span class="fas fa-times-circle"></span>
 
                                                     </button>
                                                     <?php
@@ -76,7 +76,7 @@
                                                 </div>
                                                 </td>
                                                 <td>
-                                                <input type="text" class="form-control" name="desabilitado" id="desabilitado"   value="<?php echo $estado ?>">
+                                                <input type="hidden" class="form-control" name="desabilitado" id="desabilitado"   value="<?php echo $estado ?>">
 
                                                 <?php
                                                     if ($estado==0){
