@@ -36,7 +36,7 @@
                                         <?php
                     $bim=1;
                     $est=5;
-                    //invocaremos a [estudiante] q pusimos en el array asociativo $data de estudiante.php
+                    //invocaremos a [notas habilitadas ] q pusimos en el array asociativo $data de estudiante.php
                     foreach ($habilitado-> result() as $row) {
                         ?>
 

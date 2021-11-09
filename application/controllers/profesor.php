@@ -652,7 +652,7 @@ class Profesor extends CI_Controller {
 
         }
         echo '<script>
-            alert("Notas modificadas");
+            alert("Notas registradas");
             </script>';
             redirect('profesor/profeEstudiante','refresh');
 
