@@ -505,6 +505,26 @@ class Profesor extends CI_Controller {
 		$this->load->view('inc_fin.php');
 
     }
+    public function notas2(){
+      
+        $mat = $this->session->flashdata('idMateria');
+
+        //cargara la list de profesores
+        $materia=$mat ;
+        $data['idMateria']=$mat ;
+        $data['mate']=$this->profesor_model->getMateria2($materia);
+        $profe=$this->session->userdata('idusuario');
+        $lista=$this->profesor_model->listaEstudiantePorProfesor2($profe,$materia);
+        $data['estudiante']=$lista; //otro array asociativo        
+
+		$this->load->view('inc_inicio.php');
+        $this->load->view('inc_menu.php');
+		$this->load->view('usuario/profesor/profe_notas',$data);
+        //$this->load->view('usuario/profesor/profe_vista');
+		$this->load->view('inc_fin.php');
+
+    }
+
    
 
 
@@ -652,9 +672,10 @@ class Profesor extends CI_Controller {
 
         }
         echo '<script>
-            alert("Notas modificadas");
+            alert("Notas Registradas");
             </script>';
-            redirect('profesor/profeEstudiante','refresh');
+            $this->session->set_flashdata('idMateria', $mat);
+            redirect('profesor/notas2','refresh');
 
         } catch (\Throwable $th) {
             echo '<script>
