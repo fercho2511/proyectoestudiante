@@ -53,9 +53,9 @@
                                                             <tr>
                                                                 <th>N°</th>
                                                                 <th>Nombre Completo</th>                                               
-                                                                <th>Nota 1 Bim.</th>
-                                                                <th>Nota 2 Bim.</th>
-                                                                <th>Nota 3 Bim.</th>
+                                                                <th>Nota 1 Trim.</th>
+                                                                <th>Nota 2 Trim.</th>
+                                                                <th>Nota 3 Trim.</th>
                                                                 <!-- <th>Nota 4 Bim.</th> -->
                                                                 <!-- <th>Foto</th>--> 
                                                                 <!-- <th>Acciones</th>  -->
