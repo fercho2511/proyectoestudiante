@@ -10,7 +10,7 @@
                                 ?>
                             <input type="hidden" name="idUsuario" value="<?php echo $idUsuario;?>">
                             <input type="file" name="userfile">    
-                            <button type="submit" class="btn btn-primary btn-xs"  >Subir</button>
+                            <button type="submit" class="btn btn-outline-info btn-xs"  >Subir</button>
                             <?php
                             echo form_close();
                             ?>

@@ -132,7 +132,7 @@ $tut=$tutor;
                                                                 echo form_open_multipart('profesor/subirFoto2')
                                                             ?>
                                                             <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                            <button type="submit" class="btn btn-primary btn-xs" title="Subir" >
+                                                            <button type="submit" class="btn btn-outline-info btn-xs" title="Subir" >
                                                             <span class="fas fa-file-upload"></span>
                                                             </button>
                                                             <?php
