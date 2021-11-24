@@ -5,14 +5,15 @@
         </style>
  
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+ <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+
    <!-- DESDE ACA PROVAREMOS PARA Q SEA RESPONSIVO -->
    <ul class="navbar-nav">
-      <li class="nav-item">
+      
         <!-- ESTA LINEA ES LA Q DETERMINA PODER DESPLAZAR -->
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         
         <!-- ASTA ACA -->
-      </li>
+      
       <!-- <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
