@@ -21,7 +21,7 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Crear Comunicado</h3>
               </div>
@@ -156,10 +156,10 @@
 
 
 
-                                                <button class="btn btn-primary" type="submit" title="Registrar" id="boton1" >                                                  
+                                                <button class="btn btn-outline-info" type="submit" title="Registrar" id="boton1" >                                                  
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
-                                                <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
+                                                <button class="btn btn-outline-info" type="button" onclick="history.back()" name="volver atrás" title="Cancelar">
                                                 <span class="far fa-window-close"> CANCELAR</span>
                                                 </button>
 

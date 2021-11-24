@@ -24,7 +24,7 @@
           <!-- left column -->
           <div class="col-md-8">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-info  ">
               <div class="card-header">
                 <h3 class="card-title">Registrar Usuario</h3>
               </div>
@@ -110,10 +110,10 @@
                                             </div>
 
                                             <div class="card-footer">
-                                                <button class="btn btn-outline-primary" type="submit" title="Registrar"  >
+                                                <button class="btn btn-outline-info" type="submit" title="Registrar"  >
                                                 <span class="fas fa-clipboard-check"> REGISTRAR</span>
                                                 </button>
-                                                <button class="btn btn-outline-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
+                                                <button class="btn btn-outline-info" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
                                                 <span class="far fa-window-close"> CANCELAR</span>
                                               </button>
 
@@ -212,6 +212,7 @@
 	</main> -->
 
     </section>
+    <br><br>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

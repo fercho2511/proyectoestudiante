@@ -156,13 +156,13 @@
                                         <p>Curso</p>
                                       </a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/comunicado/test" class="nav-link">
                                       <i class="nav-icon far fa-clipboard"></i>
 
                                         <p>Comunicado</p>
                                       </a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item">
                                       <a href="<?php echo base_url(); ?>index.php/usuario_per/notas" class="nav-link">
                                       <i class="nav-icon far fa-clipboard"></i>

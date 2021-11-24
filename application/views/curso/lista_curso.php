@@ -10,7 +10,7 @@
                         <?php
                                             echo form_open_multipart('curso/agregar')//llegaremos asta gestion.php y e metodo agregar
                                         ?>
-                                            <button type="submit" class="btn btn-block btn-info btn-lg" title="Agregar" >
+                                            <button type="submit" class="btn btn-block btn-outline-info btn-lg" title="Agregar" >
                                             <span class="fas fa-user-plus"> Agregar Curso</span>
 
                                             </button>
@@ -202,5 +202,6 @@
                 </div>
                 <!-- /.container-fluid -->
             </section>
+            <br><br>
             <!-- /.content -->
         </div>

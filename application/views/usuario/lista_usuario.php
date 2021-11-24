@@ -108,7 +108,7 @@
                                                     ?>
                                                     
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs" title="Modificar" >
+                                                    <button type="submit" class="btn btn-outline-dark" title="Modificar" >
                                                     <span class="fas fa-user-edit"></span>
 
                                                     </button>
@@ -121,7 +121,7 @@
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idUsuario');?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs" title="Habilitar"  >
+                                                    <button type="submit" class="btn btn-outline-dark" title="Habilitar"  >
                                                     <span class="fas fa-user-check"></span>
                                                     </button>
                                                     <?php
@@ -134,7 +134,7 @@
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
                                                     <!-- <input type="hidden" name="idUsuario_Acciones" value="<?php echo $this->session->userdata('idusuario');?>"> -->
 
-                                                    <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
+                                                    <button type="submit" class="btn btn-outline-danger " title="Eliminar" >
                                                     <span class="fas fa-trash-alt"></span>
                                                     </button>
                                                     <?php
@@ -206,5 +206,6 @@
                 </div>
                 <!-- /.container-fluid -->
             </section>
+            <br><br>
             <!-- /.content -->
         </div>

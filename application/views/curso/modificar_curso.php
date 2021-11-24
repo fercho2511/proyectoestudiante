@@ -24,7 +24,7 @@
           <!-- left column -->
           <div class="col-md-6">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Modificar curso</h3>
               </div>
@@ -113,7 +113,7 @@
                                         
 
                                     <!--  desde aca agarramos todos lso profes ingresados-->
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                               <label for="">tutor:</label>  
                                               <select name="tutor">
                                                   <?php
@@ -121,7 +121,7 @@
                                                     echo '<option values="',$i,'">',$profesion,'</option>';
                                                   ?>
                                                   </select>
-                                    </div>
+                                    </div> -->
 
                                     <!-- <div class="form-group">
                                               <label for="">Gestion:</label>  
@@ -140,10 +140,10 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button class="btn btn-primary" type="submit" title="Guardar Cambios" >
+                                        <button class="btn btn-outline-info" type="submit" title="Guardar Cambios" >
                                         <span class="far fa-save"> GUARDAR</span>
                                         </button>
-                                        <button class="btn btn-primary" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
+                                        <button class="btn btn-outline-info" type="button" onclick="history.back()" name="volver atrás" title="Cancelar" >
                                         <span class="far fa-window-close"> CANCELAR</span>
                                       </button>
 

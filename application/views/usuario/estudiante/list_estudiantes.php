@@ -88,7 +88,7 @@
                                                                 echo form_open_multipart('estudiante/subirFoto')
                                                             ?>
                                                             <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                            <button type="submit" class="btn btn-primary btn-xs" title="Subir" >
+                                                            <button type="submit" class="btn btn-outline-info btn-xs" title="Subir" >
                                                             <span class="fas fa-file-upload"></span>
                                                             </button>
                                                             <?php
@@ -104,7 +104,7 @@
                                                         echo form_open_multipart('estudiante/modificar')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-primary btn-xs" title="Modificar">
+                                                    <button type="submit" class="btn btn-outline-dark" title="Modificar">
                                                     <span class="fas fa-user-edit"></span>
 
                                                     </button>
@@ -116,7 +116,7 @@
                                                         echo form_open_multipart('estudiante/eliminarEst')
                                                     ?>
                                                     <input type="hidden" name="idUsuario" value="<?php echo $row->idUsuario;?>">
-                                                    <button type="submit" class="btn btn-danger btn-xs" title="Eliminar" >
+                                                    <button type="submit" class="btn btn-outline-danger " title="Eliminar" >
                                                     <span class="fas fa-trash-alt"></span>
 
                                                     </button>
@@ -159,5 +159,6 @@
                 </div>
                 <!-- /.container-fluid -->
             </section>
+            <br><br>
             <!-- /.content -->
         </div>

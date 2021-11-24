@@ -65,7 +65,7 @@
                                                         echo form_open_multipart('usuario_per/Desabilitar')
                                                     ?>
 
-                                                    <button type="submit" class="btn btn-outline-danger" title="desabilitar" id="desabil" name="desabil" >
+                                                    <button type="submit" class="btn btn-outline-dark" title="deshabilitar" id="desabil" name="desabil" >
                                                     <span class="fas fa-times-circle"></span>
 
                                                     </button>
